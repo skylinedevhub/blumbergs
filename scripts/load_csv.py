@@ -197,24 +197,36 @@ def load_csv(con, csv_path, table_name):
     con.execute(f'DROP TABLE IF EXISTS "{table_name}"')
 
     try:
+        # Try auto-detect first (works for ASCII files; raises on non-ASCII)
         con.execute(
             f"""CREATE OR REPLACE TABLE "{table_name}" AS
                 SELECT * FROM read_csv_auto('{escaped_path}',
-                    ignore_errors=true,
                     all_varchar=false
                 )"""
         )
-    except Exception as e:
-        # Fallback: try with explicit Windows-1252 encoding
-        print(f"  [WARN] Auto-detect failed for {table_name}, retrying with windows-1252: {e}")
-        con.execute(
-            f"""CREATE OR REPLACE TABLE "{table_name}" AS
-                SELECT * FROM read_csv_auto('{escaped_path}',
-                    ignore_errors=true,
-                    all_varchar=false,
-                    encoding='windows-1252'
-                )"""
-        )
+    except Exception:
+        # Non-ASCII files need explicit CP1252 (cp1252) encoding
+        try:
+            con.execute(
+                f"""CREATE OR REPLACE TABLE "{table_name}" AS
+                    SELECT * FROM read_csv_auto('{escaped_path}',
+                        all_varchar=false,
+                        encoding='CP1252'
+                    )"""
+            )
+        except Exception:
+            # Final fallback: relaxed parsing for multi-line quoted fields
+            print(f"  [INFO] Retrying {table_name} with relaxed parsing")
+            con.execute(
+                f"""CREATE OR REPLACE TABLE "{table_name}" AS
+                    SELECT * FROM read_csv('{escaped_path}',
+                        ignore_errors=true,
+                        all_varchar=false,
+                        encoding='CP1252',
+                        strict_mode=false,
+                        auto_detect=true
+                    )"""
+            )
 
     count = con.execute(f'SELECT COUNT(*) FROM "{table_name}"').fetchone()[0]
     elapsed = time.time() - start
