@@ -1,0 +1,16 @@
+# Data files (too large for git, reproducible via load_csv.py)
+data/raw/
+data/db/*.duckdb
+data/exports/
+
+# Windows download metadata
+*.Zone.Identifier
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Original CSV dump (archive, not tracked)
+CRA csvs/
