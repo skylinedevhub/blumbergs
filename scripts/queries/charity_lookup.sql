@@ -21,14 +21,14 @@ SELECT * FROM charity_base WHERE bn = '$BN';
 -- Financial summary
 SELECT
     bn, fiscal_period_end,
-    CAST(REPLACE(REPLACE("4700", '$', ''), ',', '') AS DECIMAL) AS total_revenue,
-    CAST(REPLACE(REPLACE("5100", '$', ''), ',', '') AS DECIMAL) AS total_expenditures,
-    CAST(REPLACE(REPLACE("4200", '$', ''), ',', '') AS DECIMAL) AS total_assets,
-    CAST(REPLACE(REPLACE("4350", '$', ''), ',', '') AS DECIMAL) AS total_liabilities,
-    CAST(REPLACE(REPLACE("4500", '$', ''), ',', '') AS DECIMAL) AS tax_receipted_gifts,
-    CAST(REPLACE(REPLACE("5000", '$', ''), ',', '') AS DECIMAL) AS charitable_expenditures,
-    CAST(REPLACE(REPLACE("5010", '$', ''), ',', '') AS DECIMAL) AS mgmt_admin,
-    CAST(REPLACE(REPLACE("5020", '$', ''), ',', '') AS DECIMAL) AS fundraising
+    TRY_CAST(REPLACE(REPLACE("4700", '$', ''), ',', '') AS DECIMAL) AS total_revenue,
+    TRY_CAST(REPLACE(REPLACE("5100", '$', ''), ',', '') AS DECIMAL) AS total_expenditures,
+    TRY_CAST(REPLACE(REPLACE("4200", '$', ''), ',', '') AS DECIMAL) AS total_assets,
+    TRY_CAST(REPLACE(REPLACE("4350", '$', ''), ',', '') AS DECIMAL) AS total_liabilities,
+    TRY_CAST(REPLACE(REPLACE("4500", '$', ''), ',', '') AS DECIMAL) AS tax_receipted_gifts,
+    TRY_CAST(REPLACE(REPLACE("5000", '$', ''), ',', '') AS DECIMAL) AS charitable_expenditures,
+    TRY_CAST(REPLACE(REPLACE("5010", '$', ''), ',', '') AS DECIMAL) AS mgmt_admin,
+    TRY_CAST(REPLACE(REPLACE("5020", '$', ''), ',', '') AS DECIMAL) AS fundraising
 FROM v_financial_d
 WHERE bn = '$BN';
 

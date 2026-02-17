@@ -4,19 +4,19 @@
 
 WITH financials AS (
     SELECT
-        CAST(REPLACE(REPLACE("4700", '$', ''), ',', '') AS DECIMAL) AS total_revenue,
-        CAST(REPLACE(REPLACE("5100", '$', ''), ',', '') AS DECIMAL) AS total_expenditures,
-        CAST(REPLACE(REPLACE("4500", '$', ''), ',', '') AS DECIMAL) AS tax_receipted_gifts,
-        CAST(REPLACE(REPLACE("4510", '$', ''), ',', '') AS DECIMAL) AS gifts_from_charities,
-        CAST(REPLACE(REPLACE("4540", '$', ''), ',', '') AS DECIMAL) AS federal_govt,
-        CAST(REPLACE(REPLACE("4550", '$', ''), ',', '') AS DECIMAL) AS provincial_govt,
-        CAST(REPLACE(REPLACE("4560", '$', ''), ',', '') AS DECIMAL) AS municipal_govt,
-        CAST(REPLACE(REPLACE("4200", '$', ''), ',', '') AS DECIMAL) AS total_assets,
-        CAST(REPLACE(REPLACE("4350", '$', ''), ',', '') AS DECIMAL) AS total_liabilities,
-        CAST(REPLACE(REPLACE("5000", '$', ''), ',', '') AS DECIMAL) AS charitable_expenditures,
-        CAST(REPLACE(REPLACE("5010", '$', ''), ',', '') AS DECIMAL) AS mgmt_admin,
-        CAST(REPLACE(REPLACE("5020", '$', ''), ',', '') AS DECIMAL) AS fundraising,
-        CAST(REPLACE(REPLACE("5050", '$', ''), ',', '') AS DECIMAL) AS gifts_to_qd
+        TRY_CAST(REPLACE(REPLACE("4700", '$', ''), ',', '') AS DECIMAL) AS total_revenue,
+        TRY_CAST(REPLACE(REPLACE("5100", '$', ''), ',', '') AS DECIMAL) AS total_expenditures,
+        TRY_CAST(REPLACE(REPLACE("4500", '$', ''), ',', '') AS DECIMAL) AS tax_receipted_gifts,
+        TRY_CAST(REPLACE(REPLACE("4510", '$', ''), ',', '') AS DECIMAL) AS gifts_from_charities,
+        TRY_CAST(REPLACE(REPLACE("4540", '$', ''), ',', '') AS DECIMAL) AS federal_govt,
+        TRY_CAST(REPLACE(REPLACE("4550", '$', ''), ',', '') AS DECIMAL) AS provincial_govt,
+        TRY_CAST(REPLACE(REPLACE("4560", '$', ''), ',', '') AS DECIMAL) AS municipal_govt,
+        TRY_CAST(REPLACE(REPLACE("4200", '$', ''), ',', '') AS DECIMAL) AS total_assets,
+        TRY_CAST(REPLACE(REPLACE("4350", '$', ''), ',', '') AS DECIMAL) AS total_liabilities,
+        TRY_CAST(REPLACE(REPLACE("5000", '$', ''), ',', '') AS DECIMAL) AS charitable_expenditures,
+        TRY_CAST(REPLACE(REPLACE("5010", '$', ''), ',', '') AS DECIMAL) AS mgmt_admin,
+        TRY_CAST(REPLACE(REPLACE("5020", '$', ''), ',', '') AS DECIMAL) AS fundraising,
+        TRY_CAST(REPLACE(REPLACE("5050", '$', ''), ',', '') AS DECIMAL) AS gifts_to_qd
     FROM financial_d
 )
 SELECT
