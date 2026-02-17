@@ -1,0 +1,8869 @@
+www.CanadianCharityLaw.ca  
+ 
+ 
+ 
+ 
+ 
+Blumbergs DAF Report: 
+Donor Advised Fund accounts in 2024 
+ 
+By Mark Blumberg & Henri Pasha (February 10, 2026) 
+Donor Advised Funds (DAFs) have become increasingly popular in Canada. A DAF is a registered charity that 
+has separate donor-advised funds. In many cases it does more than just have donor advised funds. 
+A donor can donate to the DAF, receive an official donation receipt and then afterwards make recommendations 
+to the DAF as to which registered charities should receive gifts from the DAF. Here is our blog directory on DAFs 
+with many different articles dealing with DAFs. Also, here is our course on Donor Advised Funds (DAFs) in 
+Canada. 
+DAFs have many uses, including but not limited to: 
+ being a philanthropic tool for donors to do long-term philanthropy, whether it is an individual, non-profit, 
+for-profit, etc. 
+ a place to park funds if you are establishing a charitable organization, but it is going to take months to get 
+your registered charitable status 
+ a place to collect funds from different sources for a particular charitable purpose 
+ a place to move funds if you are winding down your charity or foundation 
+There is much confusion between DAFs and private foundations. A DAF is a DAF and not your own private 
+foundation. Make sure before you set up a DAF that you understand all the limitations (and benefits) of a DAF 
+or having a DAF may be disappointing for some. 
+Also, not all registered charities that have funds that are donor advised necessarily market themselves as DAFs 
+or are interested in having individuals provide them with funds to be held as a DAF. 
+We would just emphasize that there is a very big difference between the sorts of DAFs that that some community 
+foundations, banks and financial services companies may establish and many of the charities that actually do have 
+one or more donor advised funds. Another way of looking at it is that there is really is no such thing as an entity 
+being a DAF in Canada, there are just registered charities and some of them have donor advised funds that are set 
+up in a particular circumstance and others have sophisticated systems that encourage the public to donate even at 
+very low levels like $5000. We know that some religious organizations or even groups that fundraise for foreign 
+universities are clearly not DAFs in the traditional sense, but they do occasionally take in money and then hold it 
+so that a particular donor can give them recommendations later. 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+Furthermore, there are very few registered charities that only deal with DAFs. Many groups advertising they are 
+a DAF do many other things other than just having DAFs. Even the ones that heavily advertise as DAF’s often 
+have most revenue and gifts, not necessarily in a DAF but in a restricted gift of another sort. 
+When you look at the list it is possible that some of the charities listed may not actually have DAFs or may not 
+have as many assets in the DAFs as they suggest. In some cases these are other types of restricted gifts that do 
+not have the donor just making a ‘recommendation’. 
+So yes this information is from 2024 and many organizations are still not completing the boxes correctly. 
+Although in fairness, many charities are not completing correctly boxes that have been on the T3010 for 30 years! 
+When we review draft T3010s we find that over 90% of the drafts have significant mistakes in them.  You will 
+not many transpositional errors – a group with $31,000 in total DAF assets probably does not have 30,000 DAFs.   
+Historically, there has been little information available about DAFs, except for research by Keith Sjogren. 
+The CRA started in 2023 to collect information on donor advised funds (DAFs) in Canada as we note in this blog. 
+We previously wrote an article regarding Donor Advised funds in 2023, however, only those charities with ending 
+December 31st or later filed using Form T3010 using T3010 version 24, which contained the new DAF related 
+questions.  
+As of fiscal year 2024, all Canadian registered charities have used the new Version 24 of the T3010 which includes 
+the DAF questions, so the list below is far more complete with 837 organizations saying they have DAFs, 
+compared to the roughly 400 included in 2023. 
+The DAF-related questions are: 
+1. Did the charity hold any donor advised funds (DAF) during the fiscal period? (Line 5860)  
+2. Total number of accounts held at the end of the fiscal period (Line 5861) 
+3. Total value of all accounts held at the end of the fiscal period (Line 5862) 
+4. Total value of donations to DAF accounts received during the fiscal period (Line 5863) 
+5. Total value of qualifying disbursements from DAFs during the fiscal period (Line 5864) 
+ 
+CRA notes in their guide to completing the T3010: 
+C18 – Line 5860 – If the charity held any Donor Advised Fund (DAF) during its fiscal period, select yes. 
+For the purposes of this guide, a DAF is a fund segregated into donor accounts, owned and controlled by 
+a registered charity. Each account is comprised of contributions made by individual donors. Donors may 
+provide ongoing non-binding suggestions on payouts from DAFs, but it is the charity's sole responsibility 
+to make such decisions.  
+ 
+ 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+Here is some of the cumulative statistics from the 2024 data with my comments in brackets: 
+ About 834 Canadian registered charities identified having DAFs. 
+ # of DAF Accounts is listed as 185,506 [highly exaggerated by transpositional errors, etc.] 
+ Total Value DAF accounts is listed as $16,644,279,820 or $16.6 billion. [This approximately 10% of the 
+assets of the private and public foundations in Canada and growing] 
+ Donations to DAF Accounts were $3,280,632,301 or about $3.2 billion. [This means that about 1 in 10 
+dollars donated to the charity sector goes to DAFs and not directly to operating charities] 
+ Total Value of Gifts from DAF Accounts is $1,918,665,555 or over $1.9 billion. [About $1.3 billion 
+more stayed in DAF accounts than went out in 2024 increasing the size of DAFs assets but 
+compounding the difficulty of average operational charities to fundraise and increasing inequality in 
+Canada] 
+ Gifts as a Percentage of Donations is 58%. [As above it shows the capital appreciation in DAFs is 
+because more money is going in than coming out and it does not hurt that investments are not taxed] 
+ Total DAF Expenditures as a Percentage of Total DAF Assets is 12% [some are much lower and others 
+much higher but some of this is flowthrough during the year. Some of the biggest donations are 
+movements from one DAF to another or from a DAF to a private foundation] 
+ Average Account Value is $89,723.67 [This reflects some very large DAF accounts and many small 
+accounts.  We don’t have the median value of DAFs and therefore don’t know about capital 
+concentration or what is the typical DAF account.] 
+ 
+Keep in mind the many caveats about T3010 information, including that registered charities sometimes make 
+mistakes when they file their return, and sometimes CRA inputs the information incorrectly. Also keep in mind 
+that money coming into DAFs is not necessarily new money for the charitable sector. It is sometimes just money 
+coming from another DAF. Also, when money is leaving a DAF, it is not always going to an operating charity 
+but may just be going to another DAF or a private foundation. 
+Some of the columns like “Total DAF Expenditures as a % of Total DAF Assets” and “DAF Gifts as a % of 
+DAF Donations” were calculations that we have made. However, if a particular T3010 question is not answered 
+or a zero is inserted, the calculation is not applicable and marked with a “N/A”. 
+ 
+Further Information 
+Are you interested in more information on Transparency in the charity sector? If so, you might find these links 
+helpful including our Blumbergs’ Directory on Transparency: 
+ 
+ 
+ 
+ 
+ 
+ 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+ 
+Here is a list of all Canadian charities that identified they have a donor advised fund in 2024 sorted by Total Value of DAF accounts. 
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+1 
+Charitable Gift Funds Canada Foundation / Fonds de Bienfaisance Canada 
+3,306 
+ $2,434,703,930  
+ $619,223,788  
+ $215,549,604  
+9% 
+ $736,450  
+35% 
+2 
+JEWISH COMMUNITY FOUNDATION OF MONTREAL/LA FOUNDATION 
+COMMUNAUTAIRE JUIVE DE MONTREAL 
+2,275 
+ $2,114,069,187  
+ $341,672,318  
+ $213,926,858  
+10% 
+ $929,261  
+63% 
+3 
+THE WINNIPEG FOUNDATION 
+945 
+ $1,002,938,062  
+ $62,127,826  
+ $46,748,872  
+5% 
+ $1,061,310  
+75% 
+4 
+PRIVATE GIVING FOUNDATION 
+1,956 
+ $972,258,588  
+ $195,031,329  
+ $131,949,032  
+14% 
+ $497,065 
+68% 
+5 
+AQUEDUCT FOUNDATION 
+645 
+ $840,240,597  
+ $89,823,539  
+ $78,746,526  
+9% 
+ $1,302,699  
+88% 
+6 
+BenefAction Foundation 
+1,438 
+ $792,040,070  
+ $ 256,907,711  
+ $80,888,808  
+10% 
+ $550,793  
+31% 
+7 
+Jewish Foundation of Greater Toronto 
+1,390 
+ $719,169,504  
+ $91,421,614  
+ $67,936,038  
+9% 
+ $517,388  
+74% 
+8 
+CHIMP: CHARITABLE IMPACT FOUNDATION (CANADA) 
+13,661 
+ $676,462,878  
+ $214,210,539  
+ $73,626,114  
+11% 
+ $49,518  
+34% 
+9 
+THE CALGARY FOUNDATION 
+658 
+ $570,797,953  
+ $59,320,257  
+ $39,575,329  
+7% 
+ $867,474  
+67% 
+10 
+STRATEGIC CHARITABLE GIVING FOUNDATION 
+3,386 
+ $510,404,676  
+ $58,501,691  
+ $32,894,613  
+6% 
+ $150,740  
+56% 
+11 
+Brookfield Partners Foundation 
+17 
+ $414,177,823  
+ $107,447,321  
+ $69,206,212  
+17% 
+ $24,363,401  
+64% 
+12 
+VANCOUVER FOUNDATION 
+1,031 
+ $408,722,371  
+ $26,949,830  
+ $38,480,691  
+9% 
+ $396,433  
+143% 
+13 
+MORRIS AND ROSALIND GOODMAN FAMILY FOUNDATION / FONDATION DE LA 
+FAMILLE MORRIS ET ROSALIND GOODMAN 
+203 
+ $377,651,003  
+ $53,144,546  
+ $16,926,031  
+4% 
+ $1,860,350  
+32% 
+14 
+Nicola Wealth Private Giving Foundation 
+567 
+ $364,526,590  
+ $50,523,633  
+ $39,515,408  
+11% 
+ $642,904  
+78% 
+15 
+CANADA GIVES 
+339 
+ $331,771,470  
+ $58,045,205  
+ $35,329,782  
+11% 
+ $978,677  
+61% 
+16 
+UNIVERSITE LAVAL 
+887 
+ $289,545,462  
+ $20,417,195  
+ $29,152,334  
+10% 
+ $326,432  
+143% 
+17 
+ABUNDANCE CANADA 
+1,504 
+ $266,582,228  
+ $83,102,863  
+ $53,118,775  
+20% 
+ $177,249  
+64% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+18 
+Toronto Foundation 
+742 
+ $204,482,827  
+ $26,148,898  
+ $22,822,246  
+11% 
+ $275,583  
+87% 
+19 
+THE EDMONTON COMMUNITY FOUNDATION 
+481 
+ $174,950,420  
+ $8,105,192  
+ $6,487,021  
+4% 
+ $363,722  
+80% 
+20 
+HAMILTON COMMUNITY FOUNDATION 
+79 
+ $151,817,194  
+ $4,497,622  
+ $5,354,383  
+4% 
+ $1,921,737  
+119% 
+21 
+Ottawa Community Foundation / Fondation Communautaire d'Ottawa 
+504 
+ $140,644,201  
+ $20,818,068  
+ $23,274,881  
+17% 
+ $ 279,056  
+112% 
+22 
+VICTORIA FOUNDATION 
+285 
+ $138,155,176  
+ $16,913,933  
+ $6,169,219  
+4% 
+ $484,755  
+36% 
+23 
+Waterloo Region Community Foundation 
+428 
+ $129,843,870  
+ $6,125,480  
+ $7,548,542  
+6% 
+ $ 303,374  
+123% 
+24 
+Fondation Philantra Philantra Foundation 
+105 
+ $115,752,280  
+ $43,391,309  
+ $8,122,265  
+7% 
+ $1,102,403  
+19% 
+25 
+OAKVILLE COMMUNITY FOUNDATION 
+311 
+ $108,158,547  
+ $18,104,715  
+ $4,873,506  
+5% 
+ $347,777  
+27% 
+26 
+Raymond James Canada Foundation 
+278 
+ $102,389,307  
+ $29,472,228  
+ $9,881,252  
+10% 
+ $368,307  
+34% 
+27 
+WCPD FOUNDATION 
+527 
+ $97,822,329  
+ $32,638,627  
+ $27,437,829  
+28% 
+ $185,621  
+84% 
+28 
+CANADIAN NATIONAL CHRISTIAN FOUNDATION 
+289 
+ $90,098,881  
+ $52,374,500  
+ $41,719,337  
+46% 
+ $311,761  
+80% 
+29 
+Canada's National Ballet School Foundation/Fondation de l'École nationale de ballet 
+du Canada 
+64 
+ $83,972,180  
+ $566,616  
+ $4,082,560  
+5% 
+ $1,312,065  
+721% 
+30 
+BRANDON UNIVERSITY FOUNDATION 
+586 
+ $82,012,655  
+ $902,191  
+ $2,328,836  
+3% 
+ $139,953  
+258% 
+31 
+The Foundation Office.ca 
+30 
+ $81,698,305  
+ $41,137,313  
+ $15,684,716  
+19% 
+ $2,723,277  
+38% 
+32 
+LA FONDATION DU GRAND MONTREAL/THE FOUNDATION OF GREATER MONTREAL 
+150 
+ $79,287,176  
+ $5,572,852  
+ $8,052,585  
+10% 
+ $528,581  
+144% 
+33 
+Cidel Foundation 
+31 
+ $73,600,720  
+ $10,256,915  
+ $6,210,830  
+8% 
+ $2,374,217  
+61% 
+34 
+VANCITY COMMUNITY FOUNDATION 
+265 
+ $71,299,343  
+ $4,127,152  
+ $4,277,913  
+6% 
+ $269,054  
+104% 
+35 
+SASKATCHEWAN COMMUNITY FOUNDATION CORP. 
+97 
+ $67,276,350  
+ $3,490,753  
+ $3,772,989  
+6% 
+ $693,571  
+108% 
+36 
+LONDON COMMUNITY FOUNDATION 
+118 
+ $51,412,318  
+ $14,559,671  
+ $7,647,243  
+15% 
+ $435,698  
+53% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+37 
+FONDATION DESJARDINS 
+146 
+ $48,240,069  
+ $10,559,916  
+ $2,135,104  
+4% 
+ $330,411  
+20% 
+38 
+The Banff Centre Foundation 
+198 
+ $47,283,052  
+ $450,086  
+ $2,322,602  
+5% 
+ $238,803  
+516% 
+39 
+THE JEWISH FOUNDATION OF MANITOBA 
+359 
+ $45,113,877  
+ $7,379,373  
+ $1,618,870  
+4% 
+ $125,665  
+22% 
+40 
+Makeway Foundation 
+150 
+ $44,504,048  
+ $15,506,052  
+ $13,644,661  
+31% 
+ $296,694  
+88% 
+41 
+BISHOPS COLLEGE SCHOOL FOUNDATION 
+1 
+ $42,487,607  
+ $782,111  
+ 
+N/A 
+ $42,487,607  
+N/A 
+42 
+LINK CHARITY CANADA INC 
+390 
+ $41,281,925  
+ $20,539,096  
+ $13,817,985  
+33% 
+ $105,851  
+67% 
+43 
+ATB Investor Services Foundation 
+60 
+ $40,945,608  
+ $24,477,351  
+ $6,636,617  
+16% 
+ $682,427  
+27% 
+44 
+GiftPact Foundation Inc. 
+429 
+ $37,703,292  
+ $35,349,654  
+ $33,400,992  
+89% 
+ $87,886  
+94% 
+45 
+GiveWise Foundation Canada 
+470 
+ $37,598,792  
+ $15,534,196  
+ $15,438,757  
+41% 
+ $79,997  
+99% 
+46 
+UNITED WAY OF GREATER TORONTO 
+101 
+ $33,223,914  
+ $703,757  
+ $1,214,945  
+4% 
+ $328,950  
+173% 
+47 
+JEWISH FEDERATION OF BRITISH COLUMBIA 
+113 
+ $32,325,154  
+ $3,149,870  
+ $2,253,800  
+7% 
+ $286,063  
+72% 
+48 
+Burgundy Legacy Foundation 
+25 
+ $32,003,440  
+ $9,322,518  
+ $3,405,625  
+11% 
+ $1,280,138  
+37% 
+49 
+Community Foundation of Lethbridge and Southwestern Alberta 
+151 
+ $28,995,685  
+ $1,510,507  
+ $1,025,488  
+4% 
+ $192,024  
+68% 
+50 
+Roman Catholic Episcopal Corporation of the Diocese of Toronto, in Canada 
+11 
+ $28,958,978  
+ $14,715,004  
+ $9,329,715  
+32% 
+ $2,632,634  
+63% 
+51 
+Canadian Online Giving Foundation / Fondation canadienne de dons en ligne 
+8,648 
+ $23,629,062  
+ $173,204,066  
+ $ 171,064,537  
+724% 
+ $2,732  
+99% 
+52 
+THE COMMUNITY FOUNDATION OF NOVA SCOTIA SOCIETY 
+59 
+ $22,277,837  
+ $1,863,691  
+ $2,012,069  
+9% 
+ $377,590  
+108% 
+53 
+DOUGLAS COLLEGE FOUNDATION 
+255 
+ $21,864,438  
+ $657,529  
+ $ 933,186  
+4% 
+ $85,743  
+142% 
+54 
+Fiducie Courtois 
+1 
+ $20,576,742  
+ $20,000,000  
+ 
+N/A 
+ $20,576,742  
+N/A 
+55 
+Université de Saint-Boniface 
+141 
+ $20,365,343  
+ $385,398  
+ $ 538,102  
+3% 
+ $144,435  
+140% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+56 
+CHRISTIAN STEWARDSHIP SERVICES 
+283 
+ $19,605,765  
+ $9,382,603  
+ $5,941,942  
+30% 
+ $69,278  
+63% 
+57 
+SASKATOON COMMUNITY FOUNDATION 
+55 
+ $19,314,071  
+ $1,249,115  
+ $1,679,203  
+9% 
+ $351,165  
+134% 
+58 
+Waterloo Regional Health Network Foundation 
+202 
+ $19,049,556  
+ $5,217,644  
+ $4,685,745  
+25% 
+ $94,305  
+90% 
+59 
+Place2Give Foundation 
+15 
+ $18,284,611  
+ $724,654  
+ $2,445,714  
+13% 
+ $1,218,974  
+338% 
+60 
+BOW VALLEY COLLEGE 
+45 
+ $18,088,238  
+ $1,236,513  
+ $ 404,634  
+2% 
+ $401,961  
+33% 
+61 
+THE GUELPH COMMUNITY FOUNDATION 
+172 
+ $17,310,193  
+ $1,669,791  
+ $1,189,077  
+7% 
+ $100,641  
+71% 
+62 
+The Cardinal Foundation 
+29 
+ $17,265,320  
+ $4,311,328  
+ $ 933,611  
+5% 
+ $595,356  
+22% 
+63 
+FRANCOFONDS INC. 
+215 
+ $17,252,810  
+ $755,094  
+ $ 650,434  
+4% 
+ $80,246  
+86% 
+64 
+Mississauga Foundation 
+15 
+ $16,356,220  
+ $434,206  
+ $ 495,590  
+3% 
+ $1,090,415  
+114% 
+65 
+FONDATION COMMUNAUTAIRE DE LANAUDIÈRE 
+30 
+ $16,121,504  
+ $2,115,871  
+ $ 560,293  
+3% 
+ $537,383  
+26% 
+66 
+ZLC FOUNDATION 
+253 
+ $14,184,028  
+ $9,968,694  
+ $8,742,831  
+62% 
+ $56,063  
+88% 
+67 
+BRANT COMMUNITY FOUNDATION 
+14 
+ $13,627,280  
+ $334,857  
+ $ 515,745  
+4% 
+ $973,377  
+154% 
+68 
+CANADIAN MEDICAL FOUNDATION / FONDATION MÉDICALE CANADIENNE 
+51 
+ $13,057,409  
+ $92,879  
+ $ 577,924  
+4% 
+ $256,028  
+622% 
+69 
+UNITED WAY OF CALGARY AND AREA 
+20 
+ $12,743,644  
+ $2,573,302  
+ $1,189,848  
+9% 
+ $637,182  
+46% 
+70 
+THE BRANDON AREA COMMUNITY FOUNDATION INC. 
+10 
+ $12,740,439  
+ $100,077  
+ $ 570,373  
+4% 
+ $1,274,044  
+570% 
+71 
+Value Partners Charitable Foundation Inc. 
+39 
+ $11,648,686  
+ $8,902,575  
+ $ 679,531  
+6% 
+ $298,684  
+8% 
+72 
+SARNIA COMMUNITY FOUNDATION 
+167 
+ $10,742,321  
+ $975,625  
+ $ 468,415  
+4% 
+ $64,325  
+48% 
+73 
+THE COMMUNITY FOUNDATION OF ORILLIA AND AREA 
+7 
+ $10,423,406  
+ $1,140,250  
+ $ 444,300  
+4% 
+ $1,489,058  
+39% 
+74 
+Covenant Foundation 
+25 
+ $10,389,160  
+ $109,000  
+ $83,932  
+1% 
+ $415,566  
+77% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+75 
+FONDATION FAMILLE BENOIT 
+7 
+ $9,910,520  
+ $740,000  
+ $ 471,500  
+5% 
+ $1,415,789  
+64% 
+76 
+CANADA-UKRAINE FOUNDATION 
+16 
+ $9,871,799  
+ $10,627,903  
+ $14,109,661  
+143% 
+ $616,987  
+133% 
+77 
+Jeunesse au Soleil / Sun Youth Organization 
+13 
+ $9,708,306  
+ $8,210,860  
+ $2,197,204  
+23% 
+ $746,793  
+27% 
+78 
+COMMUNITY FOUNDATION GREY BRUCE 
+45 
+ $9,641,081  
+ $253,994  
+ $ 417,086  
+4% 
+ $214,246  
+164% 
+79 
+BURLINGTON COMMUNITY FOUNDATION 
+39 
+ $9,600,019  
+ $238,135  
+ $ 295,171  
+3% 
+ $246,154  
+124% 
+80 
+KEYANO COLLEGE 
+1 
+ $9,266,934  
+ $43,378  
+ $1,247,801  
+13% 
+ $9,266,934  
+2877% 
+81 
+ROTARY CLUB OF TORONTO CHARITABLE FOUNDATION, 
+5 
+ $9,249,870  
+ $48,500  
+ $ 438,500  
+5% 
+ $1,849,974  
+904% 
+82 
+PCC Prostate Cancer Centre 
+44 
+ $9,161,446  
+ $5,857,228  
+ $7,072,637  
+77% 
+ $208,215  
+121% 
+83 
+UKRAINIAN CANADIAN FOUNDATION OF TARAS SHEVCHENKO, 
+59 
+ $9,008,797  
+ $1,343,219  
+ $ 298,391  
+3% 
+ $152,691  
+22% 
+84 
+NANAIMO COMMUNITY FOUNDATION 
+32 
+ $8,388,048  
+ $503,811  
+ $ 308,206  
+4% 
+ $262,127  
+61% 
+85 
+ELGIN-ST. THOMAS COMMUNITY FOUNDATION 
+29 
+ $8,102,022  
+ $238,432  
+ $ 145,803  
+2% 
+ $279,380  
+61% 
+86 
+UNIVERSITE DU QUEBEC A CHICOUTIMI 
+19 
+ $8,101,643  
+ $1,044,815  
+ $ 757,028  
+9% 
+ $426,402  
+72% 
+87 
+THE YUKON FOUNDATION 
+140 
+ $8,007,580  
+ $195,876  
+ $ 381,948  
+5% 
+ $57,197  
+195% 
+88 
+COLLEGE D'ARTS APPLIQUES ET DE TECHNOLOGIE LA CITE COLLEGIALE 
+66 
+ $7,634,025  
+ $107,720  
+ $ 261,750  
+3% 
+ $115,667  
+243% 
+89 
+SELKIRK COLLEGE FOUNDATION 
+338 
+ $7,558,589  
+ $362,882  
+ $ 348,812  
+5% 
+ $22,363  
+96% 
+90 
+SPIRIT OF THE NORTH HEALTHCARE FOUNDATION 
+67 
+ $7,522,676  
+ $4,340,481  
+ $2,036,761  
+27% 
+ $112,279  
+47% 
+91 
+Red and White Educational Foundation / La Fondation Collegiale Rouge et Blanc 
+1 
+ $7,429,882  
+ $196,708  
+ $ 318,150  
+4% 
+ $7,429,882  
+162% 
+92 
+JEWISH COMMUNITY FOUNDATION OF CALGARY 
+108 
+ $7,336,988  
+ $1,835,451  
+ $1,717,746  
+23% 
+ $67,935  
+94% 
+93 
+THE BIERER FOUNDATION 
+4 
+ $7,322,568  
+ 
+ $75,800  
+1% 
+ $1,830,642  
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+94 
+THE PERTH AND DISTRICT COMMUNITY FOUNDATION 
+70 
+ $7,071,726  
+ $331,030  
+ $ 298,000  
+4% 
+ $101,025  
+90% 
+95 
+COMMUNITY FOUNDATION OF GREATER PETERBOROUGH 
+42 
+ $6,819,002  
+ $162,230  
+ $ 282,700  
+4% 
+ $162,357  
+174% 
+96 
+LITHUANIAN CANADIAN FOUNDATION 
+14 
+ $6,641,568  
+ $56,795  
+ $1,312  
+0% 
+ $474,398  
+2% 
+97 
+A PLACE CALLED HOME RESIDENCE IN LINDSAY 
+13 
+ $6,618,215  
+ $79,315  
+ $ 240,227  
+4% 
+ $509,093  
+303% 
+98 
+NORTHWESTERN ALBERTA FOUNDATION 
+28 
+ $6,602,168  
+ $175,907  
+ $ 131,760  
+2% 
+ $235,792  
+75% 
+99 
+YMCA OF NORTHERN ALBERTA FOUNDATION 
+51 
+ $6,443,536  
+ $177,308  
+ $ 282,000  
+4% 
+ $126,344  
+159% 
+100 
+FONDATION SANTÉ HAUT-RICHELIEU - ROUVILLE 
+3 
+ $6,435,400  
+ $495,756  
+ $1,359,167  
+21% 
+ $2,145,133  
+274% 
+101 
+CREDIT UNION FOUNDATION OF BRITISH COLUMBIA 
+55 
+ $6,264,368  
+ $4,100  
+ 
+N/A 
+ $113,898  
+N/A 
+102 
+C.D. HOWE INSTITUTE 
+5 
+ $6,261,452  
+ 
+ $ 174,267  
+3% 
+ $1,252,290  
+N/A 
+103 
+FONDATION DU CENTRE HOSPITALIER UNIVERSITAIRE DE SHERBROOKE INC. 
+3 
+ $6,231,788  
+ 
+ $ 100,000  
+2% 
+ $2,077,263  
+N/A 
+104 
+WATERLOO LUTHERAN SEMINARY 
+70 
+ $6,203,893  
+ $49,705  
+ 
+N/A 
+ $88,627  
+N/A 
+105 
+THE CHATHAM KENT COMMUNITY FOUNDATION 
+6 
+ $6,079,507  
+ $467,447  
+ $ 387,676  
+6% 
+ $1,013,251  
+83% 
+106 
+FONDATION POUR LA SANTÉ DU NORD DE LANAUDIÈRE 
+82 
+ $6,000,369  
+ $696,577  
+ $ 810,435  
+14% 
+ $73,175  
+116% 
+107 
+Calgary Health Foundation 
+12 
+ $5,984,049  
+ $600,046  
+ $2,957,157  
+49% 
+ $498,671  
+493% 
+108 
+THE BROWNING WATT FOUNDATION 
+ $5,914,671  
+ $1,000,000  
+ $ 686,100  
+12% 
+ 
+69% 
+109 
+The Veritas Foundation/La Fondation Veritas 
+75 
+ $5,885,007  
+ $4,093,272  
+ $3,724,488  
+63% 
+ $78,467  
+91% 
+110 
+Fondation Santé Trois-Rivières 
+43 
+ $5,707,277  
+ $764,455  
+ $ 701,208  
+12% 
+ $132,727  
+92% 
+111 
+SICKKIDS CHARITABLE GIVING FUND 
+19 
+ $5,591,614  
+ $780,466  
+ $ 704,871  
+13% 
+ $294,295  
+90% 
+112 
+THE TORONTO UNITED CHURCH COUNCIL 
+5 
+ $5,324,909  
+ 
+ $ 147,916  
+3% 
+ $1,064,982  
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+113 
+LA FONDATION DE MA VIE 
+2 
+ $5,173,176  
+ $685,173  
+ $ 491,564  
+10% 
+ $2,586,588  
+72% 
+114 
+BRAMPTON AND CALEDON COMMUNITY FOUNDATION 
+28 
+ $5,067,345  
+ $32,484  
+ $ 140,525  
+3% 
+ $180,977  
+433% 
+115 
+Centre Wellington Community Foundation 
+16 
+ $5,061,921  
+ $3,503,905  
+ $70,245  
+1% 
+ $316,370  
+2% 
+116 
+North Peace Community Foundation 
+9 
+ $4,966,388  
+ $1,788,935  
+ $ 614,335  
+12% 
+ $551,821  
+34% 
+117 
+CENTRAL OKANAGAN FOUNDATION 
+48 
+ $4,883,787  
+ $1,893,546  
+ $1,975,081  
+40% 
+ $101,746  
+104% 
+118 
+NORTHERN COLLEGE OF APPLIED ARTS AND TECHNOLOGY 
+62 
+ $4,839,799  
+ $14,637  
+ $ 114,359  
+2% 
+ $78,061  
+781% 
+119 
+UHN FOUNDATION 
+16 
+ $4,163,594  
+ $507,571  
+ $ 503,644  
+12% 
+ $260,225  
+99% 
+120 
+THE BETHESDA FOUNDATION INCORPORATED 
+1 
+ $4,041,871  
+ 
+ 
+N/A 
+ $4,041,871  
+N/A 
+121 
+Fragrance Foundation 
+1 
+ $4,032,149  
+ $2,132,600  
+ $1,216,500  
+30% 
+ $4,032,149  
+57% 
+122 
+NATURE-ACTION QUEBEC INC. 
+111 
+ $4,009,069  
+ 
+ $1,415,920  
+35% 
+ $36,118  
+N/A 
+123 
+Dufferin Community Foundation 
+6 
+ $3,479,798  
+ $541,923  
+ $67,000  
+2% 
+ $ 579,966  
+12% 
+124 
+WORLD ASSOCIATION FOR CHRISTIAN COMMUNICATION 
+1 
+ $3,432,974  
+ 
+ $ 225,000  
+7% 
+ $3,432,974  
+N/A 
+125 
+Centraide Du Grand Montréal 
+4 
+ $3,414,397  
+ 
+ 
+N/A 
+ $853,599  
+N/A 
+126 
+Qube Charitable Foundation 
+8 
+ $3,397,556  
+ $1,888,397  
+ $ 278,250  
+8% 
+ $424,695  
+15% 
+127 
+COMMUNITY FOUNDATION OF MEDICINE HAT AND SOUTHEASTERN ALBERTA 
+28 
+ $3,363,161  
+ $664,454  
+ $76,750  
+2% 
+ $120,113  
+12% 
+128 
+STRATFORD AND PERTH COUNTY COMMUNITY FOUNDATION 
+26 
+ $3,323,270  
+ $142,889  
+ $ 104,804  
+3% 
+ $127,818  
+73% 
+129 
+Chartered Professional Accountants of Manitoba Foundation Inc. 
+31 
+ $3,257,471  
+ $84,738  
+ 
+N/A 
+ $105,080  
+N/A 
+130 
+Lawton Partners Charitable Giving Foundation Inc. 
+32 
+ $3,239,328  
+ $723,380  
+ $1,065,694  
+33% 
+ $101,229  
+147% 
+131 
+COMMUNITY FOUNDATION FOR KINGSTON & AREA 
+30 
+ $3,207,320  
+ $243,478  
+ $ 108,593  
+3% 
+ $106,911  
+45% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+132 
+ST. JOHN THE EVANGELIST ANGLICAN CHURCH 
+81 
+ $3,047,821  
+ $260,615  
+ 
+N/A 
+ $37,627  
+N/A 
+133 
+ANGLICAN DIOCESE OF TORONTO FOUNDATION 
+16 
+ $3,033,352  
+ $500,573  
+ $99,858  
+3% 
+ $189,585  
+20% 
+134 
+COMMUNITY FOUNDATION OF THE NORTH OKANAGAN 
+32 
+ $3,002,171  
+ $685,295  
+ $ 654,798  
+22% 
+ $93,818  
+96% 
+135 
+SUDBURY COMMUNITY FOUNDATION / FONDATION COMMUNAUTAIRE DE 
+SUDBURY 
+18 
+ $2,988,487  
+ $92,096  
+ $75,000  
+3% 
+ $166,027  
+81% 
+136 
+BATTLE RIVER COMMUNITY FOUNDATION 
+37 
+ $2,981,878  
+ $215,770  
+ $37,300  
+1% 
+ $80,591  
+17% 
+137 
+WELLINGTON WEST FOUNDATION INC. 
+1 
+ $2,972,482  
+ 
+ $ 336,790  
+11% 
+ $2,972,482  
+N/A 
+138 
+SELKIRK & DISTRICT COMMUNITY FOUNDATION INC. 
+14 
+ $2,857,268  
+ $30,440  
+ $ 127,340  
+4% 
+ $204,091  
+418% 
+139 
+RICHMOND COMMUNITY FOUNDATION 
+33 
+ $2,781,363  
+ $23,164  
+ $53,757  
+2% 
+ $84,284  
+232% 
+140 
+FONDATION FRANCO-ONTARIENNE 
+49 
+ $2,770,523  
+ 
+ 
+N/A 
+ $56,541  
+N/A 
+141 
+THE YELLOWKNIFE COMMUNITY FOUNDATION 
+28 
+ $2,681,006  
+ $159,435  
+ $94,200  
+4% 
+ $95,750  
+59% 
+142 
+THE DR R E M LEE HOSPITAL FOUNDATION 
+4 
+ $2,650,075  
+ $ 3,003,945  
+ $ 692,312  
+26% 
+ $662,519  
+23% 
+143 
+ABBOTSFORD COMMUNITY FOUNDATION 
+20 
+ $2,576,351  
+ $22,512  
+ $57,937  
+2% 
+ $128,818  
+257% 
+144 
+LA FONDATION DE L'HÔPITAL GÉNÉRAL DE MONTRÉAL - THE MONTREAL GENERAL 
+HOSPITAL FOUNDATION 
+9 
+ $2,551,045  
+ $1,386,490  
+ $1,063,712  
+42% 
+ $283,449  
+77% 
+145 
+YORK REGION DISTRICT SCHOOL BOARD 
+121 
+ $2,524,409  
+ $111,144  
+ $ 119,876  
+5% 
+ $20,863  
+108% 
+146 
+THUNDER BAY COMMUNITY FOUNDATION 
+21 
+ $2,501,543  
+ $126,070  
+ $ 218,707  
+9% 
+ $119,121  
+173% 
+147 
+THE CATHOLIC FOUNDATION OF MANITOBA, LA FONDATION CATHOLIQUE DU 
+MANITOBA 
+9 
+ $2,479,963  
+ $22,510  
+ $ 104,626  
+4% 
+ $275,551  
+465% 
+148 
+THE COMMUNITY FOUNDATION OF NEWFOUNDLAND AND LABRADOR 
+40 
+ $2,433,732  
+ $124,506  
+ $ 112,087  
+5% 
+ $60,843  
+90% 
+149 
+DELTA COMMUNITY FOUNDATION 
+31 
+ $2,421,297  
+ $21,344  
+ $66,187  
+3% 
+ $78,106  
+310% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+150 
+La Fondation Familles Samara 
+21 
+ $2,397,230  
+ $734,153  
+ $ 421,783  
+18% 
+ $114,154  
+57% 
+151 
+CALGARY YOUNG MEN'S CHRISTIAN ASSOCIATION 
+7 
+ $2,354,111  
+ $73,470  
+ $85,000  
+4% 
+ $336,302  
+116% 
+152 
+THE UNITED CHURCH OF CANADA FOUNDATION / FONDATION DE L'ÉGLISE UNIE 
+DU CANADA 
+126 
+ $2,351,119  
+ $5,149,584  
+ $4,716,967  
+201% 
+ $18,660  
+92% 
+153 
+FREDERICTON COMMUNITY FOUNDATION INC. 
+14 
+ $2,309,243  
+ $316,453  
+ $73,800  
+3% 
+ $164,946  
+23% 
+154 
+Fondation Communautaire de l'Abitibi-Témiscamingue 
+22 
+ $2,282,611  
+ $294,444  
+ $ 294,444  
+13% 
+ $103,755  
+100% 
+155 
+CRESTON VALLEY COMMUNITY FOUNDATION 
+6 
+ $2,282,336  
+ $55,170  
+ $37,048  
+2% 
+ $380,389  
+67% 
+156 
+FONDATION DE L'HÔPITAL DU SUROÎT 
+35 
+ $2,246,227  
+ $1,035,615  
+ $ 174,672  
+8% 
+ $64,178  
+17% 
+157 
+Muskoka Community Foundation 
+26 
+ $2,203,105  
+ $198,688  
+ $ 293,706  
+13% 
+ $84,735  
+148% 
+158 
+Myriad Canada Foundation 
+2 
+ $2,197,471  
+ 
+ $ 161,216  
+7% 
+ $1,098,736  
+N/A 
+159 
+BARRIE COMMUNITY FOUNDATION 
+27 
+ $2,038,517  
+ $128,368  
+ $49,510  
+2% 
+ $75,501  
+39% 
+160 
+BRITISH COLUMBIA'S CHILDREN'S HOSPITAL FOUNDATION 
+2 
+ $2,014,214  
+ $6,962  
+ $86,962  
+4% 
+ $1,007,107  
+1249% 
+161 
+Waterloo Region District School Board 
+180 
+ $1,957,917  
+ $148,378  
+ $ 185,483  
+9% 
+ $10,877  
+125% 
+162 
+COLLINGWOOD GENERAL & MARINE HOSPITAL FOUNDATION 
+6 
+ $1,944,905  
+ $23,223  
+ $93,625  
+5% 
+ $324,151  
+403% 
+163 
+KITIMAT COMMUNITY DEVELOPMENT CENTRE SOCIETY 
+5 
+ $1,883,505  
+ $3,320,686  
+ $2,812,231  
+149% 
+ $376,701  
+85% 
+164 
+FONDATION HÉMA-QUÉBEC/HÉMA-QUÉBEC FOUNDATION 
+4 
+ $1,792,370  
+ $182,092  
+ $ 244,093  
+14% 
+ $448,093  
+134% 
+165 
+WATERLOO EDUCATION FOUNDATION INC. 
+425 
+ $1,791,205  
+ $404,345  
+ $ 357,190  
+20% 
+ $4,215  
+88% 
+166 
+Aux Trois Sentiers - Soins Palliactifs 
+1 
+ $1,768,903  
+ $1,928,556  
+ $ 159,653  
+9% 
+ $1,768,903  
+8% 
+167 
+CANADIAN FOUNDATION FOR UKRAINIAN STUDIES 
+10 
+ $1,766,593  
+ 
+ $95,669  
+5% 
+ $176,659  
+N/A 
+168 
+FONDATION VITAE - VITAE FOUNDATION 
+3 
+ $1,763,436  
+ 
+ 
+N/A 
+ $587,812  
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+169 
+FONDATION DE L'HOPITAL MONTFORT 
+57 
+ $1,684,005  
+ $497,995  
+ $ 547,560  
+33% 
+ $29,544  
+110% 
+170 
+The Provident Foundation 
+5 
+ $1,673,686  
+ $206,300  
+ $ 173,500  
+10% 
+ $334,737  
+84% 
+171 
+COLUMBIA VALLEY COMMUNITY FOUNDATION 
+6 
+ $1,670,726  
+ $42,025  
+ $68,700  
+4% 
+ $278,454  
+163% 
+172 
+ECOLE DE TECHNOLOGIE SUPERIEURE/INSTITUTE OF HIGHER TECHNOLOGY 
+26 
+ $1,662,711  
+ $429,393  
+ $ 408,403  
+25% 
+ $63,950  
+95% 
+173 
+CMTN Foundation 
+47 
+ $1,643,012  
+ $568,805  
+ $ 208,821  
+13% 
+ $34,958  
+37% 
+174 
+MOOSE JAW SCHOOL DISTRICT NO. 1 BURSARY FUND INC. 
+82 
+ $1,638,234  
+ $38,668  
+ $92,519  
+6% 
+ $19,978  
+239% 
+175 
+SUNSHINE COAST FOUNDATION 
+21 
+ $1,575,551  
+ $65,828  
+ $23,640  
+2% 
+ $75,026  
+36% 
+176 
+Salt Spring Island Foundation 
+18 
+ $1,570,615  
+ $201,946  
+ $ 157,837  
+10% 
+ $87,256  
+78% 
+177 
+THE QUESNEL COMMUNITY FOUNDATION 
+23 
+ $1,509,775  
+ $134,756  
+ $32,175  
+2% 
+ $65,642  
+24% 
+178 
+UNITED WAY HALTON & HAMILTON 
+1 
+ $1,499,191  
+ 
+ $51,065  
+3% 
+ $1,499,191  
+N/A 
+179 
+4-H ALBERTA 
+9 
+ $1,495,709  
+ 
+ 
+N/A 
+ $ 166,190  
+N/A 
+180 
+Children's Hearing and Speech Centre of BC Inc. 
+2 
+ $1,459,786  
+ $3,738  
+ $28,728  
+2% 
+ $ 729,893  
+769% 
+181 
+PARKSVILLE - QUALICUM COMMUNITY FOUNDATION 
+11 
+ $1,454,161  
+ 
+ $69,856  
+5% 
+ $132,196  
+N/A 
+182 
+HOLLAND BLOORVIEW KIDS REHABILITATION HOSPITAL 
+89 
+ $1,438,535  
+ $820,599  
+ $ 938,848  
+65% 
+ $16,163  
+114% 
+183 
+ONTARIO ARTS FOUNDATION/FONDATION DES ARTS DE L'ONTARIO 
+3 
+ $1,413,274  
+ $307,775  
+ $ 120,300  
+9% 
+ $471,091  
+39% 
+184 
+THE DIOCESAN SYNOD OF WESTERN NEWFOUNDLAND 
+8 
+ $1,332,133  
+ 
+ 
+N/A 
+ $166,517  
+N/A 
+185 
+BATTLEFORDS AND DISTRICT COMMUNITY FOUNDATION INC. 
+13 
+ $1,315,648  
+ $1,119,094  
+ $60,404  
+5% 
+ $101,204  
+5% 
+186 
+THE ROGAN FOUNDATION 
+2 
+ $1,315,379  
+ 
+ $90,694  
+7% 
+ $ 657,690  
+N/A 
+187 
+LUTHERAN CHURCH - CANADA FINANCIAL MINISTRIES 
+2 
+ $1,287,023  
+ $9,495  
+ $ 160,500  
+12% 
+ $643,512  
+1690% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+188 
+LOWER THAMES VALLEY CONSERVATION AUTHORITY 
+24 
+ $1,280,874  
+ $1,140,559  
+ $1,325,639  
+103% 
+ $53,370  
+116% 
+189 
+FONDATION DE L'ASSOMPTION MUTUELLE-VIE INC./ASSUMPTION MUTUAL LIFE 
+FOUNDATION INC. 
+3 
+ $1,253,562  
+ $25,000  
+ $17,500  
+1% 
+ $417,854  
+70% 
+190 
+THE GREAT COMMISSION FOUNDATION 
+14 
+ $1,252,332  
+ $5,009,677  
+ $4,381,529  
+350% 
+ $89,452  
+87% 
+191 
+FONDATION INSTITUT DE GÉRIATRIE DE MONTRÉAL 
+4 
+ $1,241,664  
+ $1,314,957  
+ $1,933,765  
+156% 
+ $310,416  
+147% 
+192 
+KENORA & LAKE OF THE WOODS REGIONAL COMMUNITY FOUNDATION 
+9 
+ $1,235,659  
+ $109,797  
+ $ 126,560  
+10% 
+ $137,295  
+115% 
+193 
+COMMUNITY FOUNDATION OF CENTRAL ALBERTA 
+5 
+ $1,214,255  
+ $310,447  
+ $22,000  
+2% 
+ $242,851  
+7% 
+194 
+KSAN HOUSE SOCIETY 
+10 
+ $1,198,730  
+ $9,793,892  
+ $9,380,888  
+783% 
+ $119,873  
+96% 
+195 
+OXFORD COMMUNITY FOUNDATION 
+6 
+ $1,190,008  
+ $266,598  
+ $ 101,600  
+9% 
+ $198,335  
+38% 
+196 
+CANADIAN FRIENDS OF TEL AVIV UNIVERSITY INC.- LES AMIS CANADIENS DE 
+L'UNIVERSITE DE TEL AVIV, INC. 
+3 
+ $1,178,795  
+ $491,476  
+ $33,000  
+3% 
+ $392,932  
+7% 
+197 
+SkeenaWild Conservation Trust 
+13 
+ $1,174,029  
+ $1,835,807  
+ $1,479,754  
+126% 
+ $90,310  
+81% 
+198 
+Community Foundation of the South Okanagan Similkameen 
+1 
+ $1,152,764  
+ 
+ $4,500  
+0% 
+ $1,152,764  
+N/A 
+199 
+Fondation Autiste & majeur 
+4 
+ $1,145,000  
+ $1,240,000  
+ $ 350,000  
+31% 
+ $ 286,250  
+28% 
+200 
+Gathering of Rivers for Community Care 
+1 
+ $1,118,891  
+ $1,150,472  
+ 
+N/A 
+ $1,118,891  
+N/A 
+201 
+THE LITTLE MOUNTAIN NEIGHBOURHOOD HOUSE SOCIETY 
+1 
+ $1,117,172  
+ $48,302  
+ 
+N/A 
+ $1,117,172  
+N/A 
+202 
+ANNE & MAX TANENBAUM COMMUNITY HEBREW ACADEMY OF TORONTO 
+44 
+ $1,092,360  
+ $126,394  
+ $35,606  
+3% 
+ $24,826  
+28% 
+203 
+GRANDVIEW CHILDREN'S FOUNDATION 
+1 
+ $1,082,928  
+ $1,000,000  
+ 
+N/A 
+ $1,082,928  
+N/A 
+204 
+LIFEWATER CANADA 
+2 
+ $1,050,580  
+ $250,000  
+ 
+N/A 
+ $525,290  
+N/A 
+205 
+HAMILTON PUBLIC LIBRARY BOARD 
+4 
+ $1,047,444  
+ 
+ 
+N/A 
+ $261,861  
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+206 
+THE DIOCESAN SYNOD OF CENTRAL NEWFOUNDLAND 
+12 
+ $1,020,160  
+ 
+ 
+N/A 
+ $85,013  
+N/A 
+207 
+Centraide Québec,Chaudière-Appalaches et Bas-Saint-Laurent 
+19 
+ $975,512  
+ $38,690  
+ $34,507  
+4% 
+ $51,343  
+89% 
+208 
+BIRTLE AND DISTRICT FOUNDATION INC. 
+5 
+ $971,748  
+ $10,902  
+ 
+N/A 
+ $194,350  
+N/A 
+209 
+Canadian Foundation for Food and Agricultural Education / Fondation canadienne 
+pour l'éducation alimentaire et agricole 
+2 
+ $958,205  
+ 
+ $27,000  
+3% 
+ $479,103  
+N/A 
+210 
+NSO FOUNDATION INC. 
+3 
+ $928,244  
+ 
+ $45,110  
+5% 
+ $309,415  
+N/A 
+211 
+ALZHEIMER SOCIETY OF B.C. 
+7 
+ $923,630  
+ 
+ $40,000  
+4% 
+ $131,947  
+N/A 
+212 
+YMCA OF SIMCOE/MUSKOKA 
+1 
+ $880,372  
+ $23,042  
+ $33,597  
+4% 
+ $880,372  
+146% 
+213 
+Charitus 
+6 
+ $877,092  
+ $427,081  
+ $ 118,315  
+13% 
+ $146,182  
+28% 
+214 
+LA FONDATION CARITAS-SHERBROOKE INC. 
+1 
+ $819,112  
+ 
+ $33,000  
+4% 
+ $819,112  
+N/A 
+215 
+Canadian Wildlife Foundation / Fondation canadienne de la faune 
+6 
+ $817,233  
+ $100,000  
+ $6,800  
+1% 
+ $136,206  
+7% 
+216 
+PUBLICATIONS CHRETIENNES INC. 
+11 
+ $813,594  
+ $1,177,747  
+ 
+N/A 
+ $73,963  
+N/A 
+217 
+ST MARY'S GENERAL HOSPITAL FOUNDATION KITCHENER-WATERLOO 
+1 
+ $810,626  
+ $313,032  
+ $1,000,000  
+123% 
+ $810,626  
+319% 
+218 
+LA CORPORATION ÉPISCOPALE CATHOLIQUE ROMAINE DE VALLEYFIELD 
+13 
+ $800,551  
+ $12,039  
+ $39,496  
+5% 
+ $61,581  
+328% 
+219 
+LITTLE WARRIORS 
+1 
+ $800,000  
+ 
+ $ 200,000  
+25% 
+ $800,000  
+N/A 
+220 
+Banff Canmore Community Foundation 
+9 
+ $788,938  
+ $70,247  
+ $78,533  
+10% 
+ $87,660  
+112% 
+221 
+VANCOUVER HOSPICE SOCIETY 
+4 
+ $785,247  
+ $16,052  
+ $14,814  
+2% 
+ $196,312  
+92% 
+222 
+GRANDE PRAIRIE PUBLIC LIBRARY 
+2 
+ $745,902  
+ 
+ $15,955  
+2% 
+ $372,951  
+N/A 
+223 
+FESTIVAL DE MUSIQUE DE CHAMBRE DE MONTREAL/MONTREAL CHAMBER MUSIC 
+FESTIVAL 
+2 
+ $742,549  
+ 
+ 
+N/A 
+ $371,275  
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+224 
+METRO VANCOUVER REGIONAL PARKS FOUNDATION 
+1 
+ $713,446  
+ 
+ 
+N/A 
+ $ 713,446  
+N/A 
+225 
+MSC CANADA 
+6 
+ $706,067  
+ $ 489,432  
+ $1,764,547  
+250% 
+ $ 117,678  
+361% 
+226 
+WEST VANCOUVER COMMUNITY FOUNDATION 
+12 
+ $703,128  
+ $ 471,887  
+ $1,444,973  
+206% 
+ $58,594  
+306% 
+227 
+SD43 Education Foundation 
+40 
+ $694,661  
+ $60,839  
+ $41,950  
+6% 
+ $17,367  
+69% 
+228 
+Peninsula Community Foundation 
+15 
+ $681,343  
+ $3,476  
+ $7,424  
+1% 
+ $45,423  
+214% 
+229 
+NEW VIEW SOCIETY 
+1 
+ $654,703  
+ 
+ 
+N/A 
+ $ 654,703  
+N/A 
+230 
+TERRACE PUBLIC LIBRARY ASSOCIATION 
+6 
+ $647,853  
+ $ 926,097  
+ $ 892,310  
+138% 
+ $ 107,976  
+96% 
+231 
+LONGO FAMILY FOUNDATION 
+6 
+ $645,894  
+ $ 393,358  
+ $ 375,000  
+58% 
+ $ 107,649  
+95% 
+232 
+FONDATION JEUNESSE SOLEIL / SUN YOUTH ORGANIZATION FOUNDATION 
+2 
+ $640,302  
+ $ 100,000  
+ 
+N/A 
+ $ 320,151  
+N/A 
+233 
+THE PEMBINA HILLS SCHOOL DIVISION 
+7 
+ $635,230  
+ 
+ $500  
+0% 
+ $90,747  
+N/A 
+234 
+Centre d'archives Mgr-Antoine-Racine 
+2 
+ $625,886  
+ 
+ $15,854  
+3% 
+ $ 312,943  
+N/A 
+235 
+Université de l'Ontario français 
+14 
+ $620,100  
+ $ 401,000  
+ $900  
+0% 
+ $44,293  
+0% 
+236 
+MOUNT PLEASANT MISSIONARY CHURCH 
+2 
+ $613,451  
+ 
+ 
+N/A 
+ $ 306,726  
+N/A 
+237 
+TERRACE & DISTRICT CHRISTIAN COUNCIL FOR SOCIAL RESOURCES 
+7 
+ $610,364  
+ 
+ $88,585  
+15% 
+ $87,195  
+N/A 
+238 
+CANADIAN CENTRE FOR CHRISTIAN CHARITIES 
+4 
+ $602,417  
+ 
+ $3,597,601  
+597% 
+ $ 150,604  
+N/A 
+239 
+Health Sciences North Foundation / Fondation Horizon Sante-Nord 
+1 
+ $601,818  
+ $51,109  
+ $3,801  
+1% 
+ $ 601,818  
+7% 
+240 
+Halifax Regional Centre for Education 
+32 
+ $596,604  
+ 
+ $68,070  
+11% 
+ $18,644  
+N/A 
+241 
+FONDATION COMMUNAUTAIRE DU TEMISKAMING 
+27 
+ $589,205  
+ $13,078  
+ $17,775  
+3% 
+ $21,822  
+136% 
+242 
+MADA Community Center Inc. - Centre communautaire MADA inc. 
+1 
+ $581,673  
+ 
+ 
+N/A 
+ $ 581,673  
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+243 
+ARTS UMBRELLA FOUNDATION 
+1 
+ $581,130  
+ 
+ $30,600  
+5% 
+ $ 581,130  
+N/A 
+244 
+United Way British Columbia 
+6 
+ $578,404  
+ 
+ 
+N/A 
+ $96,401  
+N/A 
+245 
+Fondation des maladies de l'oeil - Eye Disease Foundation 
+3 
+ $567,020  
+ $ 335,000  
+ $ 101,500  
+18% 
+ $ 189,007  
+30% 
+246 
+THE ROYAL CANADIAN LEGION, NOVA SCOTIA/NUNAVUT COMMAND - BENEVOLENT 
+FUND 
+1 
+ $559,809  
+ $ 154,024  
+ $56,338  
+10% 
+ $ 559,809  
+37% 
+247 
+ROTARY CLUB OF TSAWWASSEN CHARITABLE SOCIETY 
+1 
+ $551,283  
+ $13,310  
+ $24,150  
+4% 
+ $ 551,283  
+181% 
+248 
+ST. ANDREW'S PRESBYTERIAN CHURCH 
+3 
+ $548,927  
+ $26,338  
+ $35,856  
+7% 
+ $ 182,976  
+136% 
+249 
+WASKASOO ENVIRONMENTAL EDUCATION SOCIETY 
+18 
+ $543,049  
+ $ 502,500  
+ $ 46  
+0% 
+ $30,169  
+0% 
+250 
+The Eastern Canadian District of the Christian and Missionary Alliance in Canada 
+6 
+ $532,852  
+ $ 236,781  
+ 
+N/A 
+ $88,809  
+N/A 
+251 
+UNITED CHURCH OUTDOOR MINISTRIES-HAMILTON CONFERENCE 
+1 
+ $524,208  
+ $39,280  
+ $6,227  
+1% 
+ $ 524,208  
+16% 
+252 
+VANCOUVER HERITAGE FOUNDATION 
+1 
+ $518,497  
+ 
+ $23,946  
+5% 
+ $ 518,497  
+N/A 
+253 
+THE JUBILEE FUND INC 
+1 
+ $512,829  
+ 
+ 
+N/A 
+ $ 512,829  
+N/A 
+254 
+Airdrie and District Community Foundation 
+6 
+ $500,181  
+ $20,400  
+ 
+N/A 
+ $83,364  
+N/A 
+255 
+Fondation Village Monde 
+ 
+ $500,000  
+ 
+ 
+N/A 
+ 
+N/A 
+256 
+Christian School Foundation (Canada) Inc. 
+10 
+ $493,600  
+ $84,300  
+ $ 211,700  
+43% 
+ $49,360  
+251% 
+257 
+Airdrie and District Community Foundation 
+5 
+ $484,925  
+ $ 122,476  
+ $22,920  
+5% 
+ $96,985  
+19% 
+258 
+MOUVEMENT QUÉBÉCOIS DES VACANCES EN CAMP 
+3 
+ $479,558  
+ $ 436,955  
+ $ 436,955  
+91% 
+ $ 159,853  
+100% 
+259 
+Louis Riel School Division Trust Fund 
+29 
+ $472,398  
+ $ 190,179  
+ $86,948  
+18% 
+ $16,290  
+46% 
+260 
+Kieron P. O'Connor Foundation 
+1 
+ $451,799  
+ 
+ 
+N/A 
+ $ 451,799  
+N/A 
+261 
+COMMUNITY FOUNDATION OF SWAN VALLEY INC. 
+14 
+ $443,747  
+ $23,048  
+ $16,338  
+4% 
+ $31,696  
+71% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+262 
+AWARDS TRUST FUND OF THE THUNDER BAY CATHOLIC DISTRICT SCHOOL BOARD 
+67 
+ $428,126  
+ $84,819  
+ $55,300  
+13% 
+ $6,390  
+65% 
+263 
+Église Chrétienne de Laval/Laval Christian Fellowship 
+1 
+ $419,917  
+ $ 950  
+ 
+N/A 
+ $ 419,917  
+N/A 
+264 
+THE CATHOLIC DISTRICT SCHOOL BOARD OF EASTERN ONTARIO 
+39 
+ $419,236  
+ $44,237  
+ $54,160  
+13% 
+ $10,750  
+122% 
+265 
+Fondation des artistes du Québec/Quebec's Artists Foundation 
+4 
+ $415,628  
+ $ 876,557  
+ $ 911,513  
+219% 
+ $ 103,907  
+104% 
+266 
+Parish of Kente 
+2 
+ $404,713  
+ 
+ $18,094  
+4% 
+ $ 202,357  
+N/A 
+267 
+UNIVERSITE DU QUEBEC A TROIS-RIVIERES 
+1 
+ $401,249  
+ $ 401,249  
+ 
+N/A 
+ $ 401,249  
+N/A 
+268 
+CAMP BROCHET 
+2 
+ $395,582  
+ $ 345,514  
+ $ 262,519  
+66% 
+ $ 197,791  
+76% 
+269 
+THE DEEP RIVER AND DISTRICT COMMUNITY FOUNDATION 
+3 
+ $386,895  
+ $5,443  
+ $15,959  
+4% 
+ $ 128,965  
+293% 
+270 
+Coast Mountain College 
+50 
+ $378,315  
+ $ 270,314  
+ $ 302,560  
+80% 
+ $7,566  
+112% 
+271 
+SUSILA DHARMA ASSOCIATION (CANADA) 
+4 
+ $373,573  
+ $ 483,054  
+ $ 431,028  
+115% 
+ $93,393  
+89% 
+272 
+Grace Presbyterian Church of Calgary Alberta 
+8 
+ $372,784  
+ $80,527  
+ $81,093  
+22% 
+ $46,598  
+101% 
+273 
+COWICHAN DISTRICT HOSPITAL FOUNDATION 
+1 
+ $367,485  
+ $49,917  
+ $ 179,501  
+49% 
+ $ 367,485  
+360% 
+274 
+WINDSOR-ESSEX CATHOLIC DISTRICT SCHOOL BOARD 
+30 
+ $358,491  
+ $19,300  
+ $31,700  
+9% 
+ $11,950  
+164% 
+275 
+Youth for Christ Canada Foundation 
+2 
+ $351,490  
+ 
+ $12,000  
+3% 
+ $ 175,745  
+N/A 
+276 
+THE JOHN DAVID AND SIGNY EATON CHARITABLE FOUNDATION 
+1 
+ $348,000  
+ $ 825,000  
+ $ 477,000  
+137% 
+ $ 348,000  
+58% 
+277 
+WESTSHORE COMMUNITY FOUNDATION INC. 
+2 
+ $331,592  
+ $16,340  
+ $9,911  
+3% 
+ $ 165,796  
+61% 
+278 
+ST. JOSEPH'S CARE GROUP 
+1 
+ $318,000  
+ 
+ 
+N/A 
+ $ 318,000  
+N/A 
+279 
+KEEWATIN-PATRICIA DISTRICT SCHOOL BOARD 
+22 
+ $314,873  
+ 
+ $13,104  
+4% 
+ $14,312  
+N/A 
+280 
+THE COMMUNITY FOOD SHARING ASSOCIATION INC 
+5 
+ $310,705  
+ $ 179,287  
+ $29,061  
+9% 
+ $62,141  
+16% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+281 
+Team Broken Earth 
+4 
+ $308,753  
+ $10,400  
+ 
+N/A 
+ $77,188  
+N/A 
+282 
+Astley Family Foundation 
+1 
+ $305,000  
+ $ 354,594  
+ $ 585,000  
+192% 
+ $ 305,000  
+165% 
+283 
+FONDATION DU CÉGEP DE MATANE 
+1 
+ $303,646  
+ $2,000  
+ 
+N/A 
+ $ 303,646  
+N/A 
+284 
+LABOUR COLLEGE OF CANADA/COLLÈGE SYNDICAL DU CANADA 
+18 
+ $303,447  
+ $11,206  
+ 
+N/A 
+ $16,858  
+N/A 
+285 
+FUNDY COMMUNITY FOUNDATION 
+9 
+ $300,614  
+ $16,078  
+ $25,765  
+9% 
+ $33,402  
+160% 
+286 
+EGLISE NOUVELLE VIE DE LONGUEUIL 
+1 
+ $300,000  
+ $ 300,000  
+ 
+N/A 
+ $ 300,000  
+N/A 
+287 
+TERRACE WOMEN'S RESOURCE CENTRE SOCIETY 
+4 
+ $297,151  
+ $ 919,308  
+ $ 713,916  
+240% 
+ $74,288  
+78% 
+288 
+Fondation du Collège de l'Assomption 
+4 
+ $292,627  
+ $42,435  
+ $6,500  
+2% 
+ $73,157  
+15% 
+289 
+Accueil-Parrainage Outaouais 
+1 
+ $291,997  
+ $ 201,230  
+ $97,000  
+33% 
+ $ 291,997  
+48% 
+290 
+CARMAN AREA FOUNDATION INC 
+3 
+ $290,916  
+ $29,437  
+ $16,785  
+6% 
+ $96,972  
+57% 
+291 
+ASSOCIATION OF CANADIAN CHINESE THEOLOGICAL EDUCATION 
+1 
+ $290,581  
+ 
+ $14,000  
+5% 
+ $ 290,581  
+N/A 
+292 
+ROBBINS HEBREW ACADEMY 
+16 
+ $286,772  
+ $ 243,266  
+ $ 194,432  
+68% 
+ $17,923  
+80% 
+293 
+NIAGARA CATHOLIC DISTRICT SCHOOL BOARD 
+8 
+ $285,174  
+ $5,782  
+ $10,225  
+4% 
+ $35,647  
+177% 
+294 
+Journey Church 
+5 
+ $283,885  
+ $ 418,763  
+ $ 224,308  
+79% 
+ $56,777  
+54% 
+295 
+The First Unitarian Congregation of Ottawa 
+7 
+ $281,250  
+ 
+ $20,220  
+7% 
+ $40,179  
+N/A 
+296 
+Louisbourg Foundation / Fondation Louisbourg 
+1 
+ $278,116  
+ $ 108,036  
+ 
+N/A 
+ $ 278,116  
+N/A 
+297 
+ÉGLISE BAPTISTE ÉVANGÉLIQUE DE LA GRÂCE 
+2 
+ $274,995  
+ $48,808  
+ $48,808  
+18% 
+ $ 137,498  
+100% 
+298 
+THE DEAN AND CHAPTER OF CATHEDRAL CHURCH OF ALL SAINTS, HALIFAX 
+16 
+ $274,258  
+ 
+ $4,535  
+2% 
+ $17,141  
+N/A 
+299 
+THE LONDON JEWISH COMMUNITY FOUNDATION 
+12 
+ $266,840  
+ $ 182,700  
+ $ 213,713  
+80% 
+ $22,237  
+117% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+300 
+THE INTERNATIONAL CENTRE FOR CRIMINAL LAW REFORM AND CRIMINAL JUSTICE 
+POLICY 
+1 
+ $261,833  
+ 
+ $11,906  
+5% 
+ $ 261,833  
+N/A 
+301 
+Heart River Housing 
+4 
+ $259,628  
+ $ 700  
+ $700  
+0% 
+ $64,907  
+100% 
+302 
+FONDATION DU MUSEE D'ARCHEOLOGIE ET D'HISTOIRE DE MONTREAL POINTE-A-
+CALLIERE 
+1 
+ $257,944  
+ $ 105,927  
+ 
+N/A 
+ $ 257,944  
+N/A 
+303 
+WESTERN REGIONAL HOSPITAL FOUNDATION INC. 
+30 
+ $255,150  
+ $49,831  
+ $53,130  
+21% 
+ $8,505  
+107% 
+304 
+R R SMITH MEMORIAL FUND FOUNDATION 
+1 
+ $251,838  
+ $78,392  
+ $56,350  
+22% 
+ $ 251,838  
+72% 
+305 
+APPLEWOOD UNITED CHURCH, 
+9 
+ $249,468  
+ 
+ $2,520  
+1% 
+ $27,719  
+N/A 
+306 
+FONDATION DE L'HÔPITAL D'ARGENTEUIL 
+1 
+ $248,633  
+ 
+ 
+N/A 
+ $ 248,633  
+N/A 
+307 
+Mom to Mom Child Poverty Initiative Society 
+1 
+ $248,296  
+ 
+ 
+N/A 
+ $ 248,296  
+N/A 
+308 
+The Altruly Foundation 
+44 
+ $246,702  
+ $50,250  
+ $11,000  
+4% 
+ $5,607  
+22% 
+309 
+FONDATION DU COLLÈGE DE MAISONNEUVE 
+28 
+ $245,647  
+ $ 279,720  
+ 
+N/A 
+ $8,773  
+N/A 
+310 
+ROBLIN PASTORAL CHARGE 
+1 
+ $244,996  
+ 
+ $42,483  
+17% 
+ $ 244,996  
+N/A 
+311 
+Hemisphere Foundation 
+4 
+ $244,186  
+ $17,466  
+ $6,500  
+3% 
+ $61,047  
+37% 
+312 
+ST. MICHAEL'S CHURCH 
+4 
+ $243,622  
+ $50,000  
+ 
+N/A 
+ $60,906  
+N/A 
+313 
+LES RELIGIEUSES SERVITES DE MARIE 
+ $242,434  
+ $16,153  
+ 
+N/A 
+ 
+N/A 
+314 
+LIONS FOUNDATION OF NOVA SCOTIA 
+2 
+ $241,001  
+ 
+ 
+N/A 
+ $ 120,501  
+N/A 
+315 
+ROYAL AGRICULTURAL WINTER FAIR ASSOCIATION OF CANADA 
+7 
+ $240,913  
+ 
+ $11,178  
+5% 
+ $34,416  
+N/A 
+316 
+CHRISTADELPHIAN BIBLE MISSION (CANADA) 
+5 
+ $236,914  
+ 
+ $82,726  
+35% 
+ $47,383  
+N/A 
+317 
+COVENANT REFORMED CHURCH OF TORONTO 
+1 
+ $236,686  
+ 
+ 
+N/A 
+ $ 236,686  
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+318 
+Relèven 
+1 
+ $235,610  
+ $ 440,382  
+ $ 440,382  
+187% 
+ $ 235,610  
+100% 
+319 
+THE HOSPITAL FOR SICK CHILDREN FOUNDATION 
+2 
+ $234,223  
+ 
+ $492  
+0% 
+ $ 117,112  
+N/A 
+320 
+MORDEN AREA FOUNDATION INC 
+4 
+ $230,160  
+ $18,160  
+ $15,433  
+7% 
+ $57,540  
+85% 
+321 
+PARISH OF ST DAVID 
+2 
+ $229,116  
+ 
+ $23,070  
+10% 
+ $ 114,558  
+N/A 
+322 
+MAYNE ISLAND CONSERVANCY SOCIETY 
+2 
+ $228,633  
+ 
+ $8,785  
+4% 
+ $ 114,317  
+N/A 
+323 
+SOUTH COUNTRY HEALTH CARE FOUNDATION, INC 
+8 
+ $227,156  
+ $ 188,981  
+ $ 171,917  
+76% 
+ $28,395  
+91% 
+324 
+THE HEBREW CONGREGATION OF NEWFOUNDLAND 
+3 
+ $224,964  
+ 
+ 
+N/A 
+ $74,988  
+N/A 
+325 
+HOCKEY ALBERTA FOUNDATION 
+2 
+ $224,868  
+ $ 224,868  
+ 
+N/A 
+ $ 112,434  
+N/A 
+326 
+ALDER FOUNDATION 
+3 
+ $224,221  
+ $4,000  
+ $15,000  
+7% 
+ $74,740  
+375% 
+327 
+CHRIST LUTHERAN CHURCH 
+3 
+ $219,504  
+ $29,356  
+ $22,944  
+10% 
+ $73,168  
+78% 
+328 
+ALTONA COMMUNITY FOUNDATION INC. 
+8 
+ $218,857  
+ $14,945  
+ $14,978  
+7% 
+ $27,357  
+100% 
+329 
+THE WINKLER COMMUNITY FOUNDATION INC. 
+5 
+ $217,828  
+ $31,017  
+ $5,866  
+3% 
+ $43,566  
+19% 
+330 
+PALLISER REGIONAL DIVISION # 26 
+24 
+ $217,574  
+ 
+ $8,749  
+4% 
+ $9,066  
+N/A 
+331 
+TERRACE CHRISTIAN REFORMED CHURCH, 
+6 
+ $215,350  
+ $ 310,311  
+ $ 188,676  
+88% 
+ $35,892  
+61% 
+332 
+THE TORONTO CHURCH OF CHRIST 
+5 
+ $215,142  
+ $ 154,101  
+ $8,100  
+4% 
+ $43,028  
+5% 
+333 
+Camp Nutimik Foundation Inc. 
+16 
+ $213,229  
+ $13,834  
+ $74,786  
+35% 
+ $13,327  
+541% 
+334 
+COMMUNITY FOUNDATION OF WHISTLER 
+3 
+ $211,721  
+ $77,265  
+ $23,430  
+11% 
+ $70,574  
+30% 
+335 
+ANGLICAN PARISH OF ST. MARGARET, EDMONTON 
+8 
+ $207,389  
+ $14,680  
+ $ 530,256  
+256% 
+ $25,924  
+3612% 
+336 
+SOCIETE PROTECTRICE DES ANIMAUX DE L'ESTRIE 
+1 
+ $205,000  
+ 
+ 
+N/A 
+ $ 205,000  
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+337 
+LE SAMARITAIN DU NORD 
+3 
+ $202,058  
+ $67,770  
+ 
+N/A 
+ $67,353  
+N/A 
+338 
+WILLOW PARK CHURCH MENNONITE BRETHREN 
+1 
+ $200,498  
+ $ 186,927  
+ $ 359,506  
+179% 
+ $ 200,498  
+192% 
+339 
+TISDALE PENTECOSTAL TABERNACLE 
+ $198,990  
+ 
+ 
+N/A 
+ 
+N/A 
+340 
+CHILD EVANGELISM FELLOWSHIP OF CANADA 
+1 
+ $196,227  
+ $ 421,350  
+ $ 394,927  
+201% 
+ $ 196,227  
+94% 
+341 
+CALVARY CHURCH (ST. CATHARINES) 
+12 
+ $195,602  
+ $ 165,715  
+ $22,380  
+11% 
+ $16,300  
+14% 
+342 
+REGINA MUSIC FESTIVAL ASSOCIATION INC. 
+2 
+ $194,692  
+ $20,150  
+ $25,050  
+13% 
+ $97,346  
+124% 
+343 
+THE CATHOLIC ARCHDIOCESE OF EDMONTON 
+3 
+ $194,458  
+ $5,120  
+ $750  
+0% 
+ $64,819  
+15% 
+344 
+THE UNITED CHURCH OF GOD - CANADA 
+6 
+ $192,160  
+ $56,352  
+ 
+N/A 
+ $32,027  
+N/A 
+345 
+L'ÉVÊQUE CATHOLIQUE ROMAIN DE SAINTE-ANNE-DE-LA-POCATIÈRE 
+1 
+ $192,013  
+ 
+ $2,346  
+1% 
+ $ 192,013  
+N/A 
+346 
+Église Évangélique Baptiste de Magog 
+11 
+ $191,685  
+ $5,149  
+ $6,193  
+3% 
+ $17,426  
+120% 
+347 
+EGLISE BAPTISTE DE LA FOI / FAITH BAPTIST CHURCH 
+8 
+ $190,580  
+ $48,852  
+ $ 104,266  
+55% 
+ $23,823  
+213% 
+348 
+NORTHSIDE/HARBOURVIEW HOSPITAL FOUNDATION 
+21 
+ $187,748  
+ $10,465  
+ $20,287  
+11% 
+ $8,940  
+194% 
+349 
+OSTENFELD LUTHERAN CHURCH 
+2 
+ $187,339  
+ 
+ 
+N/A 
+ $93,670  
+N/A 
+350 
+Pinawa Community Foundation Inc. 
+8 
+ $187,045  
+ $18,209  
+ $8,057  
+4% 
+ $23,381  
+44% 
+351 
+LOGE FRONTIERE - FRONTIER LODGE 
+2 
+ $185,648  
+ $1,950  
+ $3,000  
+2% 
+ $92,824  
+154% 
+352 
+FALLINGBROOK HEIGHTS BAPTIST CHURCH 
+2 
+ $182,102  
+ $48,577  
+ $22,987  
+13% 
+ $91,051  
+47% 
+353 
+NORTH SHORE BETHEL CHRISTIAN MB CHURCH 
+2 
+ $180,739  
+ $4,930  
+ $5,380  
+3% 
+ $90,370  
+109% 
+354 
+UNITED WAY HALIBURTON KAWARTHA LAKES 
+100 
+ $174,802  
+ $ 406,095  
+ $ 342,232  
+196% 
+ $1,748  
+84% 
+355 
+PARAMOUNT DRIVE ALLIANCE CHURCH 
+7 
+ $172,955  
+ $ 172,568  
+ $ 169,187  
+98% 
+ $24,708  
+98% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+356 
+BOW VALLEY CHRISTIAN CHURCH 
+5 
+ $169,229  
+ $ 218,393  
+ $ 179,870  
+106% 
+ $33,846  
+82% 
+357 
+NORTHERN NEIGHBOURS FOUNDATION, INC. 
+2 
+ $166,355  
+ $7,798  
+ $6,000  
+4% 
+ $83,178  
+77% 
+358 
+AWINAKOLA FOUNDATION 
+2 
+ $164,636  
+ $ 160,000  
+ $3,363  
+2% 
+ $82,318  
+2% 
+359 
+Assemblée évangélique de la Haute-Mauricie 
+2 
+ $163,654  
+ $39,038  
+ $45,418  
+28% 
+ $81,827  
+116% 
+360 
+CALGARY DREAM CENTRE 
+1 
+ $162,500  
+ 
+ 
+N/A 
+ $ 162,500  
+N/A 
+361 
+Calgary Young Women's Christian Association 
+2 
+ $161,660  
+ $ 264  
+ 
+N/A 
+ $80,830  
+N/A 
+362 
+FORT SASKATCHEWAN ALLIANCE CHURCH 
+3 
+ $161,559  
+ $18,635  
+ $56,317  
+35% 
+ $53,853  
+302% 
+363 
+The Board of Education of School District No. 72 (Campbell River) 
+11 
+ $156,032  
+ $58,091  
+ $53,310  
+34% 
+ $14,185  
+92% 
+364 
+Port Coquitlam Community Foundation 
+4 
+ $153,433  
+ $37,224  
+ $ 120,635  
+79% 
+ $38,358  
+324% 
+365 
+Waterloo Region Green Solutions 
+1 
+ $150,000  
+ $ 150,000  
+ 
+N/A 
+ $ 150,000  
+N/A 
+366 
+GALMELSAN CHURCH 
+2 
+ $150,000  
+ $ 150,000  
+ 
+N/A 
+ $75,000  
+N/A 
+367 
+GREATER VANCOUVER YOUTH FOR CHRIST 
+1 
+ $149,118  
+ 
+ $4,400  
+3% 
+ $ 149,118  
+N/A 
+368 
+ROTARY DISTRICT 5370 CHARITABLE FOUNDATION 
+27 
+ $149,069  
+ $90,749  
+ $ 113,965  
+76% 
+ $5,521  
+126% 
+369 
+HURON HOUSE BOYS' HOME FOUNDATION INC. 
+3 
+ $148,841  
+ 
+ 
+N/A 
+ $49,614  
+N/A 
+370 
+ORILLIA PRESBYTERIAN CHURCH 
+5 
+ $148,742  
+ $56,800  
+ $62,528  
+42% 
+ $29,748  
+110% 
+371 
+LACOMBE KOZY KORNER COMMUNITY CENTRE 
+1 
+ $144,487  
+ 
+ $73,924  
+51% 
+ $ 144,487  
+N/A 
+372 
+SOCIETE D'HISTOIRE ET DU PATRIMOINE DE BURY / BURY HISTORICAL AND 
+HERITAGE SOCIETY 
+2 
+ $144,421  
+ $ 100,000  
+ 
+N/A 
+ $72,211  
+N/A 
+373 
+THE NIAGARA FOUNDATION FOR CATHOLIC EDUCATION 
+9 
+ $142,968  
+ $5,000  
+ $1,925  
+1% 
+ $15,885  
+39% 
+374 
+MEADOWLODGE BIBLE CAMP 
+1 
+ $142,556  
+ $20,000  
+ $13,020  
+9% 
+ $ 142,556  
+65% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+375 
+St. Andrew's Presbyterian and St. James Anglican Shared Ministry 
+3 
+ $140,000  
+ 
+ 
+N/A 
+ $46,667  
+N/A 
+376 
+Coe Hill-St. Ola-Pastoral Charge 
+10 
+ $139,963  
+ $92,540  
+ 
+N/A 
+ $13,996  
+N/A 
+377 
+CEGEP DE BAIE-COMEAU 
+1 
+ $139,603  
+ $25,000  
+ $28,500  
+20% 
+ $ 139,603  
+114% 
+378 
+BURLINGTON PUBLIC LIBRARY 
+6 
+ $136,986  
+ $ 109,264  
+ $27,722  
+20% 
+ $22,831  
+25% 
+379 
+Global Organization for Divinity 
+2 
+ $136,724  
+ $45,506  
+ 
+N/A 
+ $68,362  
+N/A 
+380 
+THE R C PARISH OF ST. MARY IN REGINA 
+1 
+ $134,255  
+ $ 130,030  
+ 
+N/A 
+ $ 134,255  
+N/A 
+381 
+EPWORTH UNITED CHURCH 
+7 
+ $133,646  
+ 
+ 
+N/A 
+ $19,092  
+N/A 
+382 
+THE SALVATION ARMY COMMUNITY CHURCH (SWIFT CURRENT) 
+1 
+ $133,268  
+ 
+ $ 133,268  
+100% 
+ $ 133,268  
+N/A 
+383 
+EGLISE ORTHODOXE SAINT-NICHOLAS D'ANTIOCHE/SAINT NICHOLAS ANTIOCHIAN 
+ORTHODOX CHURCH 
+3 
+ $131,612  
+ 
+ 
+N/A 
+ $43,871  
+N/A 
+384 
+CENTRAL ALBERTA'S SAFE HARBOUR SOCIETY FOR HEALTH AND HOUSING 
+1 
+ $131,037  
+ 
+ 
+N/A 
+ $ 131,037  
+N/A 
+385 
+Conseil scolaire catholique Providence 
+5 
+ $130,998  
+ $ 500  
+ $11,850  
+9% 
+ $26,200  
+2370% 
+386 
+ST. PAUL'S EVANGELICAL LUTHERAN CHURCH OF SASKATOON, INC. 
+6 
+ $129,926  
+ $10,045  
+ $4,008  
+3% 
+ $21,654  
+40% 
+387 
+ELKHORN & AREA FOUNDATION INC. 
+5 
+ $128,026  
+ $ 625  
+ $4,050  
+3% 
+ $25,605  
+648% 
+388 
+ST. GEORGE'S ANGLICAN CHURCH 
+12 
+ $126,983  
+ $ 122,339  
+ $ 144,537  
+114% 
+ $10,582  
+118% 
+389 
+THE LIONS BAY COMMUNITY SCHOLARSHIP FOUNDATION 
+1 
+ $126,760  
+ $2,000  
+ $5,005  
+4% 
+ $ 126,760  
+250% 
+390 
+THE ENGINEERING INSTITUTE OF CANADA FUND 
+2 
+ $125,632  
+ $11,722  
+ $9,000  
+7% 
+ $62,816  
+77% 
+391 
+L'association pour la protection du Lac Brompton inc. 
+1 
+ $125,572  
+ $55,001  
+ $55,000  
+44% 
+ $ 125,572  
+100% 
+392 
+DEHCHO DIVISIONAL BOARD OF EDUCATION 
+3 
+ $124,806  
+ 
+ $5,000  
+4% 
+ $41,602  
+N/A 
+393 
+APOSTOLIC CHRISTIAN CHURCH MISSION BOARD OF CANADA 
+4 
+ $123,479  
+ $66,983  
+ $ 175,511  
+142% 
+ $30,870  
+262% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+394 
+LE CONSEIL SCOLAIRE DE DISTRICT CATHOLIQUE DU NOUVEL-ONTARIO 
+2 
+ $123,434  
+ $5,369  
+ $2,000  
+2% 
+ $61,717  
+37% 
+395 
+MAISON DES JEUNES DE ST-MARC SUR LE RICHELIEU 
+1 
+ $121,609  
+ 
+ 
+N/A 
+ $ 121,609  
+N/A 
+396 
+NOLALU EMERGENCY SERVICES TEAM INC. 
+2 
+ $119,942  
+ 
+ $7,700  
+6% 
+ $59,971  
+N/A 
+397 
+SOURIS HEALTH AUXILIARY OF THE ASSINIBOINE REGIONAL HEALTH AUTHORITY 
+INC. 
+3 
+ $119,682  
+ $34,371  
+ $52,241  
+44% 
+ $39,894  
+152% 
+398 
+OTTAWA PEACE AND ENVIRONMENT RESOURCE CENTRE 
+1 
+ $119,678  
+ 
+ $5,009  
+4% 
+ $ 119,678  
+N/A 
+399 
+CITY HOUSE FOUNDATION-LA FONDATION CITY HOUSE 
+1 
+ $117,421  
+ 
+ $7,725  
+7% 
+ $ 117,421  
+N/A 
+400 
+Caledonia Community Foundation 
+3 
+ $116,016  
+ $5,000  
+ $1,000  
+1% 
+ $38,672  
+20% 
+401 
+LISTOWEL BAPTIST CHURCH 
+6 
+ $115,813  
+ $48,527  
+ $69,770  
+60% 
+ $19,302  
+144% 
+402 
+FOURTH AVENUE BAPTIST CHURCH 
+5 
+ $114,904  
+ $47,500  
+ $24,225  
+21% 
+ $22,981  
+51% 
+403 
+THE EDMONTON KIWANIS MUSIC FESTIVAL ASSOCIATION 
+3 
+ $112,961  
+ $90,593  
+ $ 101,384  
+90% 
+ $37,654  
+112% 
+404 
+FONDATION DU COLLÈGE DE VALLEYFIELD INC. 
+1 
+ $110,000  
+ 
+ $13,203  
+12% 
+ $ 110,000  
+N/A 
+405 
+THE MILITARY AND HOSPITALLER ORDER OF SAINT LAZARUS OF JERUSALEM IN 
+CANADA L'ORDRE MILITAIRE ET HOSPITALIER DE SAINT-LAZARE-DE-JERUSALEM AU 
+CANADA 
+13 
+ $109,681  
+ $25,580  
+ $35,080  
+32% 
+ $8,437  
+137% 
+406 
+THE ELGIN CHILDREN'S FOUNDATION 
+2 
+ $107,927  
+ $5,003  
+ $2,500  
+2% 
+ $53,964  
+50% 
+407 
+Inclusion Canada Newfoundland and Labrador Inc. 
+4 
+ $106,502  
+ 
+ 
+N/A 
+ $26,626  
+N/A 
+408 
+ASSOCIATION LES CHEMINS DU SOLEIL 
+1 
+ $106,317  
+ 
+ 
+N/A 
+ $ 106,317  
+N/A 
+409 
+UNITED WAY OF REGINA 
+1 
+ $106,057  
+ 
+ 
+N/A 
+ $ 106,057  
+N/A 
+410 
+FRIENDS IN NEED FOOD BANK SOCIETY 
+1 
+ $105,766  
+ 
+ 
+N/A 
+ $ 105,766  
+N/A 
+411 
+Lord Selkirk Robert Fraser Memorial Pipe Band 
+2 
+ $105,622  
+ 
+ 
+N/A 
+ $52,811  
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+412 
+CANADIAN INTENSIVE CARE FOUNDATION/FONDATION CANADIENNE POURLES 
+SOINS INTENSIFS 
+1 
+ $105,589  
+ 
+ $3,500  
+3% 
+ $ 105,589  
+N/A 
+413 
+NA'AMAT CANADA INC. 
+1 
+ $104,048  
+ 
+ $6,400  
+6% 
+ $ 104,048  
+N/A 
+414 
+CANADIAN CENTRE FOR OCCUPATIONAL HEALTH AND SAFETY 
+2 
+ $103,986  
+ 
+ $3,000  
+3% 
+ $51,993  
+N/A 
+415 
+FOUNTAINHEAD CHRISTIAN CHARITABLE ASSOCIATION 
+6 
+ $102,861  
+ $ 148,342  
+ $ 108,888  
+106% 
+ $17,144  
+73% 
+416 
+SOCIÉTÉ DES RELIGIEUSES DE NOTRE-DAME DE SION 
+1 
+ $102,000  
+ 
+ 
+N/A 
+ $ 102,000  
+N/A 
+417 
+LA FONDATION PAUL GERIN-LAJOIE POUR LA COOPERATION INTERNATIONALE / THE 
+PAUL GERIN-LAJOIE FOUNDATION FOR INTERNATIONAL CO-OPERATION 
+3 
+ $101,694  
+ 
+ 
+N/A 
+ $33,898  
+N/A 
+418 
+MISSION ST-FRANCOIS-XAVIER 
+3 
+ $101,312  
+ 
+ 
+N/A 
+ $33,771  
+N/A 
+419 
+SUMMERLAND ROTARY CHARITABLE TRUST FUND 
+3 
+ $100,756  
+ $71,526  
+ $44,591  
+44% 
+ $33,585  
+62% 
+420 
+LITTLE BRITAIN COMMUNITY BAPTIST CHURCH 
+2 
+ $100,275  
+ $1,035  
+ $10,685  
+11% 
+ $50,138  
+1032% 
+421 
+Westlock Community Foundation 
+1 
+ $100,123  
+ $99,983  
+ 
+N/A 
+ $ 100,123  
+N/A 
+422 
+OLIVE TREE FOUNDATION 
+2 
+ $100,025  
+ 
+ 
+N/A 
+ $50,013  
+N/A 
+423 
+Centre de pédiatrie sociale de Trois-Rivières 
+1 
+ $100,000  
+ $ 100,000  
+ 
+N/A 
+ $ 100,000  
+N/A 
+424 
+BONNYVILLE HEALTH FOUNDATION 
+1 
+ $100,000  
+ 
+ 
+N/A 
+ $ 100,000  
+N/A 
+425 
+BRITISH COLUMBIA WATERFOWL SOCIETY 
+1 
+ $100,000  
+ 
+ 
+N/A 
+ $ 100,000  
+N/A 
+426 
+TERRACE REGIONAL HOSPICE NETWORK SOCIETY 
+5 
+ $99,522  
+ $ 294,301  
+ $ 245,087  
+246% 
+ $19,904  
+83% 
+427 
+MEMPHREMAGOG CONSERVATION INC. 
+2 
+ $98,894  
+ $35,510  
+ 
+N/A 
+ $49,447  
+N/A 
+428 
+PLUM COULEE COMMUNITY FOUNDATION INC. 
+2 
+ $98,224  
+ $1,332  
+ $13,869  
+14% 
+ $49,112  
+1041% 
+429 
+LA FABRIQUE DE LA PAROISSE DE SAINT BONAVENTURE ARCHIDIOCESE DE 
+MONTREAL 
+2 
+ $97,899  
+ $ 201,548  
+ $ 155,705  
+159% 
+ $48,950  
+77% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+430 
+GRACE FELLOWSHIP CHURCH CHILLIWACK 
+3 
+ $97,654  
+ $5,958  
+ $10,365  
+11% 
+ $32,551  
+174% 
+431 
+Legacy Ministries Canada 
+4 
+ $97,356  
+ 
+ $28,312  
+29% 
+ $24,339  
+N/A 
+432 
+THE BOISSEVAIN AND MORTON FOUNDATION INCORPORATED 
+5 
+ $96,458  
+ $ 450  
+ $4,405  
+5% 
+ $19,292  
+979% 
+433 
+TERRACE SALMONID ENHANCEMENT SOCIETY 
+2 
+ $95,869  
+ $ 236,846  
+ $ 211,083  
+220% 
+ $47,935  
+89% 
+434 
+Holy Cross Evangelical Lutheran Church of Kitchener 
+1 
+ $95,420  
+ 
+ $16,795  
+18% 
+ $95,420  
+N/A 
+435 
+BRITISH COLUMBIA PARAPLEGIC FOUNDATION 
+1 
+ $94,419  
+ 
+ 
+N/A 
+ $94,419  
+N/A 
+436 
+Food4Kids Muskoka 
+1 
+ $92,709  
+ $18,942  
+ $6,216  
+7% 
+ $92,709  
+33% 
+437 
+ABBA MISSIONS AND MEDICAL FOUNDATION 
+2 
+ $92,000  
+ 
+ $18,000  
+20% 
+ $46,000  
+N/A 
+438 
+ST PAUL'S ANGLICAN CHURCH 
+1 
+ $91,589  
+ 
+ 
+N/A 
+ $91,589  
+N/A 
+439 
+SYNOD OF THE DIOCESE OF NEW WESTMINSTER 
+5 
+ $89,781  
+ 
+ 
+N/A 
+ $17,956  
+N/A 
+440 
+OPERATION SPRINGBOARD 
+1 
+ $89,761  
+ 
+ 
+N/A 
+ $89,761  
+N/A 
+441 
+Squamish Streamkeepers Society 
+1 
+ $88,219  
+ $90,000  
+ $1,781  
+2% 
+ $88,219  
+2% 
+442 
+Wadena and Area Health Action Group 
+3 
+ $87,580  
+ 
+ 
+N/A 
+ $29,193  
+N/A 
+443 
+Bethel Shalom Tamil Church Ministry 
+3 
+ $83,834  
+ $33,648  
+ 
+N/A 
+ $27,945  
+N/A 
+444 
+GUYANA CHRISTIAN CHARITIES (CANADA) INC 
+7 
+ $83,662  
+ $18,184  
+ $17,804  
+21% 
+ $11,952  
+98% 
+445 
+ST ANDREWS UNITED CHURCH 
+1 
+ $83,659  
+ $84,772  
+ $90,803  
+109% 
+ $83,659  
+107% 
+446 
+CAMP PENIEL INC. 
+1 
+ $83,652  
+ $ 190,606  
+ $ 106,953  
+128% 
+ $83,652  
+56% 
+447 
+KELOWNA PROFESSIONAL FIREFIGHTERS CHARITABLE SOCIETY 
+1 
+ $82,125  
+ $ 191,604  
+ $ 122,750  
+149% 
+ $82,125  
+64% 
+448 
+EGLISE CHRETIENNE EVANGELIQUE (BAPTISTE) DE SEPT ILES 
+ $81,413  
+ 
+ 
+N/A 
+ 
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+449 
+Humane Society of Kawartha Lakes 
+2 
+ $79,993  
+ $81,741  
+ $1,747  
+2% 
+ $39,997  
+2% 
+450 
+1221652 Alberta Ltd. 
+ 
+ $79,567  
+ $ 164,076  
+ $ 156,927  
+197% 
+ 
+96% 
+451 
+Lac du Bonnet & District Charitable Foundation Inc. 
+2 
+ $79,295  
+ $3,000  
+ $4,800  
+6% 
+ $39,648  
+160% 
+452 
+Fondation des pères de la dame 
+1 
+ $78,955  
+ $6,130  
+ $17,245  
+22% 
+ $78,955  
+281% 
+453 
+THE UKRAINIAN ORTHODOX PARISH OF ST. JOHN 
+3 
+ $76,433  
+ 
+ $1,916  
+3% 
+ $25,478  
+N/A 
+454 
+PAROISSE ST-JEAN DE BREBEUF 
+3 
+ $76,197  
+ $94,431  
+ $ 130,629  
+171% 
+ $25,399  
+138% 
+455 
+FABRIQUE DE LA PAROISSE SAINT-JEAN-EUDES 
+1 
+ $75,000  
+ $75,000  
+ 
+N/A 
+ $75,000  
+N/A 
+456 
+FONDS SOEUR IMELDA-LOSIER, R.H.S.J. 
+1 
+ $74,963  
+ 
+ 
+N/A 
+ $74,963  
+N/A 
+457 
+UKRAINIAN CANADIAN SOCIAL SERVICES (EDMONTON) (U.C.S.S. EDMONTON) 
+3 
+ $74,963  
+ 
+ 
+N/A 
+ $24,988  
+N/A 
+458 
+UKRAINIAN ORTHODOX CHURCH OF CANADA FOUNDATION 
+2 
+ $74,897  
+ 
+ 
+N/A 
+ $37,449  
+N/A 
+459 
+OSPREY MUSEUM 
+1 
+ $74,244  
+ 
+ $3,295  
+4% 
+ $74,244  
+N/A 
+460 
+ALZHEIMER SOCIETY OF NEW BRUNSWICK INC./SOCIETE ALZHEIMER DE NOUVEAU 
+BRUNSWICK INC. 
+1 
+ $73,550  
+ 
+ 
+N/A 
+ $73,550  
+N/A 
+461 
+Fondation du collège Lionel-Groulx 
+2 
+ $73,426  
+ $8,000  
+ $1,500  
+2% 
+ $36,713  
+19% 
+462 
+TERRACE PENTECOSTAL ASSEMBLY 
+1 
+ $73,334  
+ $ 588,053  
+ $ 343,020  
+468% 
+ $73,334  
+58% 
+463 
+ROMAN CATHOLIC ARCHBISHOP OF VANCOUVER 
+1 
+ $71,574  
+ $ 197,795  
+ $ 181,115  
+253% 
+ $71,574  
+92% 
+464 
+FONDATION RICHELIEU VERDUN 
+ $71,169  
+ $1,000  
+ $1,000  
+1% 
+ 
+100% 
+465 
+Save the Mothers 
+3 
+ $70,365  
+ $65,307  
+ $65,307  
+93% 
+ $23,455  
+100% 
+466 
+GREATER VICTORIA RETIRED TEACHERS' SCHOLARSHIP FOUNDATION 
+2 
+ $68,486  
+ 
+ 
+N/A 
+ $34,243  
+N/A 
+467 
+Calgary Mosquito Aircraft Preservation Society 
+1 
+ $68,272  
+ $79,878  
+ $13,068  
+19% 
+ $68,272  
+16% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+468 
+L'EGLISE BAPTISTE DE SAINT-CONSTANT 
+3 
+ $67,166  
+ $67,166  
+ $67,166  
+100% 
+ $22,389  
+100% 
+469 
+MANOR ROAD UNITED CHURCH 
+1 
+ $66,435  
+ 
+ $2,230  
+3% 
+ $66,435  
+N/A 
+470 
+FIRST NATIONS ALLIANCE CHURCH 
+4 
+ $66,302  
+ $6,611  
+ $4,205  
+6% 
+ $16,576  
+64% 
+471 
+MOUNT ROYAL MENNONITE CHURCH 
+11 
+ $64,611  
+ $41,356  
+ $32,792  
+51% 
+ $5,874  
+79% 
+472 
+Le service Caritas Estrie Inc. 
+1 
+ $63,576  
+ $33,000  
+ $33,000  
+52% 
+ $63,576  
+100% 
+473 
+Positive Lamb Foundation 
+1 
+ $63,195  
+ 
+ $37,425  
+59% 
+ $63,195  
+N/A 
+474 
+WESTWOOD MENNONITE BRETHREN CHURCH 
+3 
+ $62,450  
+ $ 139,158  
+ $76,708  
+123% 
+ $20,817  
+55% 
+475 
+KEYSTONE CHURCH 
+17 
+ $62,065  
+ $28,302  
+ 
+N/A 
+ $3,651  
+N/A 
+476 
+Église Horizon 
+15 
+ $58,573  
+ $64,692  
+ $60,897  
+104% 
+ $3,905  
+94% 
+477 
+MOUNT ZION UNITED CHURCH 
+4 
+ $57,546  
+ $40,640  
+ $42,815  
+74% 
+ $14,387  
+105% 
+478 
+FONDATION DE L'INSTITUT NAZARETH ET LOUIS-BRAILLE 
+1 
+ $56,786  
+ 
+ 
+N/A 
+ $56,786  
+N/A 
+479 
+ST. PAUL'S UNITED CHURCH 
+1 
+ $56,519  
+ $10,000  
+ $6,866  
+12% 
+ $56,519  
+69% 
+480 
+BETHEL CHRISTIAN REFORMED CHURCH 
+4 
+ $56,479  
+ $21,470  
+ $1,666  
+3% 
+ $14,120  
+8% 
+481 
+OBSERVER PUBLICATIONS INC. 
+2 
+ $56,013  
+ 
+ 
+N/A 
+ $28,007  
+N/A 
+482 
+FAIRVIEW HEALTH COMPLEX FOUNDATION 
+3 
+ $54,135  
+ $ 548  
+ $2,000  
+4% 
+ $18,045  
+365% 
+483 
+ALLIANCE EVANGELIQUE REFORMEE-INSTITUT FAREL, FACULTE DE THEOLOGIE 
+REFORMEE DE QUEBEC 
+1 
+ $54,104  
+ $30,743  
+ $46,972  
+87% 
+ $54,104  
+153% 
+484 
+Imamia Association of Regina Inc. 
+1 
+ $53,836  
+ $53,836  
+ 
+N/A 
+ $53,836  
+N/A 
+485 
+LUMARA GRIEF AND BEREAVEMENT CARE SOCIETY 
+2 
+ $53,728  
+ $20,008  
+ $19,692  
+37% 
+ $26,864  
+98% 
+486 
+Four Feet Companion Foundation 
+1 
+ $53,432  
+ $83,195  
+ $49,140  
+92% 
+ $53,432  
+59% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+487 
+GRANDVIEW & DISTRICT COMMUNITY FOUNDATION INC 
+1 
+ $52,667  
+ 
+ $2,170  
+4% 
+ $52,667  
+N/A 
+488 
+CLAYOQUOT BIOSPHERE TRUST SOCIETY 
+2 
+ $52,561  
+ $ 162,256  
+ $ 136,430  
+260% 
+ $26,281  
+84% 
+489 
+HAVEN FOUNDATION 
+1 
+ $52,366  
+ 
+ $12,419  
+24% 
+ $52,366  
+N/A 
+490 
+Fondation Monseigneur André Daoust 
+2 
+ $52,283  
+ $62,767  
+ $15,900  
+30% 
+ $26,142  
+25% 
+491 
+ASSEMBLEE EVANGELIQUE DE PENTECOTE 
+8 
+ $51,961  
+ $ 202,996  
+ $28,780  
+55% 
+ $6,495  
+14% 
+492 
+THE NORTHEAST REGIONAL COMMUNITY FOUNDATION 
+1 
+ $51,879  
+ 
+ 
+N/A 
+ $51,879  
+N/A 
+493 
+Les amis du CCFM inc. 
+1 
+ $51,830  
+ $51,830  
+ 
+N/A 
+ $51,830  
+N/A 
+494 
+THE CAMROSE ASSOCIATION FOR COMMUNITY LIVING 
+1 
+ $50,673  
+ $50,000  
+ 
+N/A 
+ $50,673  
+N/A 
+495 
+Definity Insurance Foundation / La Fondation Definity Assurance 
+1 
+ $50,000  
+ $50,000  
+ $12,505  
+25% 
+ $50,000  
+25% 
+497 
+CANADIAN FEDERATION OF UNIVERSITY WOMEN/SALT SPRING ISLAND 
+SCHOLARSHIP BURSARY FUND 
+1 
+ $50,000  
+ $ 100,000  
+ $50,000  
+100% 
+ $50,000  
+50% 
+496 
+SOCIETE D'HISTOIRE DE MISSISQUOI/ MISSISQUOI HISTORICAL SOCIETY 
+1 
+ $50,000  
+ $50,000  
+ 
+N/A 
+ $50,000  
+N/A 
+498 
+LIVING HOPE CHRISTIAN REFORMED CHURCH 
+2 
+ $48,911  
+ $ 120,829  
+ $88,175  
+180% 
+ $24,456  
+73% 
+499 
+HOPE LUTHERAN CHURCH 
+5 
+ $48,507  
+ $3,250  
+ $3,516  
+7% 
+ $9,701  
+108% 
+500 
+The Students' Association of Mount Royal University 
+1 
+ $48,395  
+ $50,000  
+ $1,605  
+3% 
+ $48,395  
+3% 
+501 
+PARISH OF ALL SAINTS CHURCH 
+17 
+ $48,310  
+ $6,343  
+ $11,131  
+23% 
+ $2,842  
+175% 
+502 
+The FEIA Fund 
+1 
+ $47,485  
+ $42,485  
+ 
+N/A 
+ $47,485  
+N/A 
+503 
+CHRIST CHURCH, HOLLAND LANDING 
+5 
+ $47,192  
+ 
+ $1,956  
+4% 
+ $9,438  
+N/A 
+504 
+FIRST BAPTIST CHURCH 
+4 
+ $47,007  
+ $44,570  
+ $56,654  
+121% 
+ $11,752  
+127% 
+505 
+BONNYVILLE BAPTIST CHURCH 
+ $46,286  
+ $ 144,541  
+ $98,255  
+212% 
+ 
+68% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+506 
+OSPREY COMMUNITY FOUNDATION 
+22 
+ $46,251  
+ $7,894  
+ $49,518  
+107% 
+ $2,102  
+627% 
+507 
+Fondation des bourses de la relève Vallée de la Gatineau 
+2 
+ $46,009  
+ $15,050  
+ $15,050  
+33% 
+ $23,005  
+100% 
+508 
+Saint Francis Scholarship Fund Foundation 
+7 
+ $44,695  
+ $11,180  
+ $20,100  
+45% 
+ $6,385  
+180% 
+509 
+ST. AIDAN'S PRESBYTERIAN CHURCH 
+2 
+ $44,000  
+ 
+ 
+N/A 
+ $22,000  
+N/A 
+510 
+FOUNDATION OF CHRISTIAN SERVICE 
+3 
+ $43,984  
+ $ 306,258  
+ $ 306,252  
+696% 
+ $14,661  
+100% 
+511 
+GOLDEN AND DISTRICT COMMUNITY FOUNDATION 
+1 
+ $43,370  
+ 
+ $1,770  
+4% 
+ $43,370  
+N/A 
+512 
+The United Churches of Langley 
+17 
+ $43,091  
+ 
+ 
+N/A 
+ $2,535  
+N/A 
+513 
+THE CORPORATION OF THE ANGLICAN PARISH OF RICHMOND 
+9 
+ $43,031  
+ $18,744  
+ $12,730  
+30% 
+ $4,781  
+68% 
+514 
+4LIFELONDON ASSOCIATION 
+ $42,365  
+ 
+ 
+N/A 
+ 
+N/A 
+515 
+RURAL COMMUNITIES FOUNDATION OF NOVA SCOTIA 
+1 
+ $41,974  
+ $36,583  
+ $ 104,000  
+248% 
+ $41,974  
+284% 
+516 
+LA FONDATION DU CÉGEP DE BAIE-COMEAU INC. 
+3 
+ $41,255  
+ $3,754  
+ $61,500  
+149% 
+ $13,752  
+1638% 
+517 
+KNOX PRESBYTERIAN CHURCH, 
+1 
+ $41,150  
+ $41,150  
+ 
+N/A 
+ $41,150  
+N/A 
+518 
+TSUU T'INA NATION BAND - STONEY CORRECTIONS SOCIETY 
+4 
+ $40,947  
+ $ 722,153  
+ $ 711,555  
+1738% 
+ $10,237  
+99% 
+519 
+PAROISSE DE L'ASSOMPTION 
+7 
+ $40,836  
+ 
+ 
+N/A 
+ $5,834  
+N/A 
+520 
+ST. JOHN BOSCO PARISH 
+1 
+ $40,000  
+ $40,000  
+ 
+N/A 
+ $40,000  
+N/A 
+521 
+CALVARY CHRISTIAN REFORMED CHURCH OF OTTAWA (EAST) 
+1 
+ $38,433  
+ $17,745  
+ $19,890  
+52% 
+ $38,433  
+112% 
+522 
+KEMPTVILLE DISTRICT HOSPITAL 
+1 
+ $38,162  
+ 
+ 
+N/A 
+ $38,162  
+N/A 
+523 
+MID ISLAND PERFORMING ARTS FESTIVAL SOCIETY 
+9 
+ $37,394  
+ $2,150  
+ $4,800  
+13% 
+ $4,155  
+223% 
+524 
+THE CHILDREN'S AID SOCIETY OF THE UNITED COUNTIES OF STORMONT, DUNDAS 
+AND GLENGARRY 
+1 
+ $37,000  
+ 
+ 
+N/A 
+ $37,000  
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+525 
+Arthouse for Children and Youth 
+1 
+ $36,550  
+ 
+ 
+N/A 
+ $36,550  
+N/A 
+526 
+NORTON UNITED BAPTIST CHURCH 
+4 
+ $36,416  
+ 
+ $587  
+2% 
+ $9,104  
+N/A 
+527 
+Église Baptiste Évangélique de Gatineau 
+24 
+ $36,010  
+ $ 134,288  
+ $ 134,288  
+373% 
+ $1,500  
+100% 
+528 
+REAL HOPE CHRISTIAN ASSEMBLY 
+5 
+ $35,581  
+ $5,317  
+ $6,302  
+18% 
+ $7,116  
+119% 
+529 
+LEADER & DISTRICT DONOR'S CHOICE ORGANIZATION 
+41 
+ $34,765  
+ $6,260  
+ 
+N/A 
+ $848  
+N/A 
+530 
+Harvest of Hope Society 
+1 
+ $34,560  
+ $ 502,900  
+ $ 503,400  
+1457% 
+ $34,560  
+100% 
+531 
+Co-Operative Education and Work-Integrated Learning Canada - Enseignement 
+coopératif et l'apprentissage en milieu de travail Canada 
+1 
+ $34,149  
+ $1,500  
+ $1,000  
+3% 
+ $34,149  
+67% 
+532 
+GLORIA DEI LUTHERAN CHURCH 
+2 
+ $34,100  
+ 
+ 
+N/A 
+ $17,050  
+N/A 
+533 
+EGLISE BAPTISTE CREDO/ CREDO BAPTIST CHURCH 
+5 
+ $33,935  
+ $7,700  
+ $11,812  
+35% 
+ $6,787  
+153% 
+534 
+KIDS COTTAGE DAYCARE SOCIETY 
+1 
+ $33,878  
+ 
+ 
+N/A 
+ $33,878  
+N/A 
+535 
+STUARTBURN GOSPEL CHAPEL INC. 
+3 
+ $33,027  
+ $11,100  
+ $3,523  
+11% 
+ $11,009  
+32% 
+536 
+INTERNATIONAL EVANGELICAL MINISTRIES OF RED DEER 
+4 
+ $32,205  
+ $33,950  
+ $1,745  
+5% 
+ $8,051  
+5% 
+537 
+Calgary Chin Evangelical Fellowship 
+2 
+ $31,659  
+ $6,203  
+ 
+N/A 
+ $15,830  
+N/A 
+538 
+LA FABRIQUE DE LA PAROISSE MARIE-REINE DES COEURS DE LOTS RENVERSES 
+3 
+ $31,626  
+ $9,122  
+ 
+N/A 
+ $10,542  
+N/A 
+539 
+GRACE CHRISTIAN REFORMED CHURCH OF COBOURG 
+2 
+ $31,244  
+ $18,370  
+ $13,400  
+43% 
+ $15,622  
+73% 
+540 
+TRAIL OF THE CARIBOU RESEARCH GROUP INC. 
+1 
+ $31,132  
+ 
+ $125  
+0% 
+ $31,132  
+N/A 
+541 
+CATCH THE FIRE TORONTO 
+6 
+ $31,087  
+ $ 115,391  
+ $ 124,994  
+402% 
+ $5,181  
+108% 
+542 
+LIBRA HOUSE INC. 
+1 
+ $30,546  
+ 
+ $25,840  
+85% 
+ $30,546  
+N/A 
+543 
+ONTARIO ASSOCIATION OF CRIME STOPPERS 
+6 
+ $30,518  
+ $1,474  
+ $96,041  
+315% 
+$5,086 
+6516% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+544 
+CHURCH OF CHRIST THE KING 
+2 
+ $30,372  
+ $25,860  
+ $5,928  
+20% 
+$15,186 
+23% 
+545 
+D GRANT BOWLBY MEMORIAL TRUST 
+1 
+ $29,713  
+ 
+ 
+N/A 
+$29,713 
+N/A 
+546 
+Somerset Lorne Citizen Museum 
+2 
+ $29,600  
+ 
+ 
+N/A 
+$14,800 
+N/A 
+547 
+BANFF PUBLIC LIBRARY BOARD 
+1 
+ $29,376  
+ 
+ 
+N/A 
+$29,376 
+N/A 
+548 
+The Perley and Rideau Veterans' Health Centre Foundation/La Fondation du Centre 
+de santé Perley et Rideau pour anciens combattants 
+1 
+ $29,343  
+ 
+ $1,123  
+4% 
+$29,343 
+N/A 
+549 
+WASA COMMUNITY CHURCH 
+3 
+ $29,245  
+ $40,759  
+ $34,863  
+119% 
+$9,748 
+86% 
+550 
+Glace Bay Pastoral Charge 
+ 
+ $29,225  
+ 
+ 
+N/A 
+ 
+N/A 
+551 
+SOUTH RIVER - MACHAR AGRICULTURAL SOCIETY 
+3 
+ $28,971  
+ 
+ 
+N/A 
+$9,657 
+N/A 
+552 
+PORTAGE EVANGELICAL CHURCH INC. 
+4 
+ $28,685  
+ 
+ $3,513  
+12% 
+$7,171 
+N/A 
+553 
+ÉGLISE RÉFORMÉE ST-PAUL 
+3 
+ $28,369  
+ $6,047  
+ $6,062  
+21% 
+$9,456 
+100% 
+554 
+Light & Life Programming 
+1 
+ $28,150  
+ $21,867  
+ 
+N/A 
+$28,150 
+N/A 
+555 
+LA BOUCHÉE GÉNÉREUSE 
+1 
+ $27,890  
+ $3,420  
+ $1,603  
+6% 
+$27,890 
+47% 
+556 
+GOOD SHEPHERD UNITED ANGLICAN CHURCH 
+2 
+ $27,165  
+ 
+ 
+N/A 
+$13,583 
+N/A 
+557 
+La Société de Saint-Vincent de Paul- Conseil particulier St-Charles de Gatineau, QC 
+2 
+ $27,050  
+ 
+ $75,528  
+279% 
+$13,525 
+N/A 
+558 
+MIRA SENIORS & PENSIONERS CENTRE 
+3 
+ $26,874  
+ 
+ 
+N/A 
+$8,958 
+N/A 
+559 
+St. Paul's Church Dunrobin 
+1 
+ $26,775  
+ $4,761  
+ $21,397  
+80% 
+$26,775 
+449% 
+560 
+ST. KEVIN'S CHURCH 
+2 
+ $26,603  
+ $28,174  
+ $1,570  
+6% 
+$13,302 
+6% 
+561 
+THE ESSEX REGION CONSERVATION FOUNDATION 
+1 
+ $26,494  
+ 
+ $5,000  
+19% 
+$26,494 
+N/A 
+562 
+CCI Scholarship Funds 
+26,451 
+ $26,451  
+ $26,451  
+ $26,451  
+100% 
+$1 
+100% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+563 
+ST. ANDREW THE APOSTLE PARISH 
+2 
+ $25,401  
+ $29,663  
+ $12,479  
+49% 
+$12,701 
+42% 
+564 
+ALBERTA AVIATION MUSEUM ASSOCIATION 
+11 
+ $25,166  
+ 
+ 
+N/A 
+$2,288 
+N/A 
+565 
+ST. JOSEPH'S LIFECARE FOUNDATION, BRANTFORD 
+1 
+ $25,000  
+ 
+ 
+N/A 
+$25,000 
+N/A 
+566 
+Jewish Genealogical Society of Toronto 
+2 
+ $24,608  
+ $1,150  
+ 
+N/A 
+$12,304 
+N/A 
+567 
+ÉGLISE GRÂCE & VÉRITÉ 
+5 
+ $24,190  
+ $16,548  
+ $16,360  
+68% 
+$4,838 
+99% 
+568 
+Jesus' Great Commission Church of Calgary 
+3 
+ $23,851  
+ $23,851  
+ $23,754  
+100% 
+$7,950 
+100% 
+569 
+LINDSAY CENTRE FOR PRESCHOOL ENRICHMENT INC. 
+1 
+ $23,609  
+ $3,333  
+ 
+N/A 
+$23,609 
+N/A 
+570 
+FAITH LIFE CHURCH INC. 
+3 
+ $23,351  
+ $ 147,964  
+ $11,164  
+48% 
+$7,784 
+8% 
+571 
+THE BAY OF ISLANDS SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS 
+CORP. 
+3 
+ $23,102  
+ 
+ 
+N/A 
+$7,701 
+N/A 
+572 
+CHRISTIAN MEDICAL AND DENTAL ASSOCIATION OF CANADA / L'Association des 
+Médecins et Dentistes Chrétiens du Canada 
+1 
+ $23,030  
+ 
+ $7,911  
+34% 
+$23,030 
+N/A 
+573 
+Truro Alliance Church of The Christian and Missionary Alliance in Canada 
+11 
+ $22,145  
+ $93,856  
+ $99,698  
+450% 
+$2,013 
+106% 
+574 
+Les Oeuvres de Mère d'Youville 
+1 
+ $21,636  
+ 
+ 
+N/A 
+$21,636 
+N/A 
+575 
+St Mark's Presbyterian Church 
+1 
+ $21,487  
+ $7,905  
+ $617  
+3% 
+$21,487 
+8% 
+576 
+Gateway International Christian Church 
+3 
+ $21,276  
+ $1,000  
+ 
+N/A 
+$7,092 
+N/A 
+577 
+ALBERTA MUSEUMS ASSOCIATION 
+1 
+ $21,259  
+ $3,000  
+ 
+N/A 
+$21,259 
+N/A 
+578 
+PAROISSE DE ST-GEORGES 
+8 
+ $21,257  
+ 
+ 
+N/A 
+$2,657 
+N/A 
+579 
+IGLESIA EVANGELICA HISPANA DE MEDICINE HAT 
+3 
+ $21,250  
+ $28,490  
+ $5,200  
+24% 
+$7,083 
+18% 
+580 
+HOLY TRINITY UKRAINIAN ORTHODOX PARISH OF CALMAR, ALBERTA 
+3 
+ $21,077  
+ 
+ 
+N/A 
+$7,026 
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+581 
+SOMERSET BIBLE CHAPEL 
+1 
+ $20,767  
+ 
+ 
+N/A 
+$20,767 
+N/A 
+582 
+Fatal Light Awareness Program (FLAP) Canada 
+1 
+ $20,758  
+ 
+ $1,265  
+6% 
+$20,758 
+N/A 
+583 
+THE CHURCH OF THE OPEN BIBLE 
+2 
+ $20,673  
+ $ 141,058  
+ $ 117,764  
+570% 
+$10,337 
+83% 
+584 
+CHILDREN'S SERVICES COUNCIL OF VICTORIA COUNTY 
+3 
+ $20,619  
+ $9,162  
+ 
+N/A 
+$6,873 
+N/A 
+585 
+MY ARTIST'S CORNER SOCIETY, BC 
+4 
+ $20,580  
+ 
+ $10,920  
+53% 
+$5,145 
+N/A 
+586 
+The Board of Education of School District No. 84 (Vancouver Island West) 
+2 
+ $20,332  
+ $11,300  
+ $1,000  
+5% 
+$10,166 
+9% 
+587 
+INSTITUT DE LA LIBERTÉ DE CONSCIENCE AU CANADA/FREEDOM OF CONSCIENCE 
+INSTITUTE IN CANADA 
+1 
+ $19,977  
+ 
+ 
+N/A 
+$19,977 
+N/A 
+588 
+PAROISSE ST-DOMINIQUE 
+2 
+ $19,389  
+ $34,405  
+ $21,765  
+112% 
+$9,695 
+63% 
+590 
+CLARINGTON LUTHERAN CHURCH 
+11 
+ $19,379  
+ $17,328  
+ $10,068  
+52% 
+$1,762 
+58% 
+589 
+MILLARVILLE COMMUNITY CHURCH 
+3 
+ $19,379  
+ $13,365  
+ $15,666  
+81% 
+$6,460 
+117% 
+591 
+BOW RIVER BASIN COUNCIL SOCIETY 
+1 
+ $19,209  
+ 
+ $849  
+4% 
+$19,209 
+N/A 
+592 
+CANADIAN COMPASS ROSE SOCIETY INC. 
+5 
+ $18,490  
+ $16,720  
+ $78,750  
+426% 
+$3,698 
+471% 
+593 
+Fortune United Church 
+6 
+ $18,319  
+ 
+ $400  
+2% 
+$3,053 
+N/A 
+594 
+PAROISSE ST-MARC 
+2 
+ $18,193  
+ $28,396  
+ $27,102  
+149% 
+$9,097 
+95% 
+595 
+FONDATION DES POMPIERS DE LÉVIS 
+1 
+ $18,118  
+ 
+ 
+N/A 
+$18,118 
+N/A 
+596 
+Veterans House Alliance International / Alliance Internationale de la Maison des 
+Anciens Combattants 
+2 
+ $18,012  
+ $95,450  
+ $77,439  
+430% 
+$9,006 
+81% 
+597 
+ST. MARY'S CHURCH 
+8 
+ $17,904  
+ $1,370  
+ $11,012  
+62% 
+$2,238 
+804% 
+598 
+THE WESTERN MANITOBA REGIONAL LIBRARY 
+2 
+ $17,763  
+ 
+ $2,688  
+15% 
+$8,882 
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+599 
+THE BOARD OF TRUSTEES OF LAKELAND ROMAN CATHOLIC SEPARATE SCHOOL 
+DISTRICT NO 150 
+1 
+ $17,760  
+ $10,000  
+ $1,000  
+6% 
+$17,760 
+10% 
+600 
+Rotary Club of Charleswood Charitable Foundation (RCCCF)Inc. 
+3 
+ $17,705  
+ $27,615  
+ $6,534  
+37% 
+$5,902 
+24% 
+601 
+BLF CANADA 
+5 
+ $17,406  
+ $76,679  
+ $63,399  
+364% 
+$3,481 
+83% 
+602 
+LA FABRIQUE DE LA PAROISSE DE SAINT JEAN BERCHMANS ARCHIDIOCESE DE 
+MONTREAL 
+1 
+ $16,796  
+ 
+ 
+N/A 
+$16,796 
+N/A 
+603 
+Their Opportunity Minor Sports Corporation 
+3 
+ $16,505  
+ $37,325  
+ $20,820  
+126% 
+$5,502 
+56% 
+604 
+AIR CADET LEAGUE OF CANADA - ALBERTA PROVINCIAL COMMITTEE 
+3 
+ $16,400  
+ $2,300  
+ $5,300  
+32% 
+$5,467 
+230% 
+605 
+REDEEMER LUTHERAN CHURCH 
+13 
+ $15,391  
+ $2,546  
+ $2,842  
+18% 
+$1,184 
+112% 
+606 
+We are the Villagers 
+1 
+ $15,246  
+ $15,246  
+ 
+N/A 
+$15,246 
+N/A 
+607 
+SALISBURY UNITED CHURCH OF THE CLOVER BAR PASTORAL CHARGE 
+1 
+ $14,582  
+ $ 250  
+ 
+N/A 
+$14,582 
+N/A 
+608 
+FRIENDS OF THE NORTH VANCOUVER MUSEUM AND ARCHIVES SOCIETY 
+1 
+ $14,314  
+ 
+ 
+N/A 
+$14,314 
+N/A 
+609 
+KING ROAD MENNONITE BRETHREN CHURCH 
+5 
+ $13,915  
+ $15,766  
+ $17,169  
+123% 
+$2,783 
+109% 
+610 
+GRAVENHURST HIGH SCHOOL BURSARY FUND 
+9 
+ $13,724  
+ $59,296  
+ $31,421  
+229% 
+$1,525 
+53% 
+611 
+TEMPLE SINAI CONGREGATION OF TORONTO 
+2 
+ $13,721  
+ $1,674  
+ $13,223  
+96% 
+$6,861 
+790% 
+612 
+ÉGLISE PROTESTANTE ÉVANGELIQUE LA BIBLE PARLE DE MONT-JOLI INC. 
+10 
+ $13,669  
+ $13,669  
+ $13,669  
+100% 
+$1,367 
+100% 
+613 
+COMITE DES OEUVRES CHARITABLES DU CONSEIL ALMA 2722 
+13,256 
+ $13,256  
+ $13,256  
+ $13,256  
+100% 
+$1 
+100% 
+614 
+DAVIDSON PASTORAL CHARGE, 
+2 
+ $12,754  
+ $ 310  
+ 
+N/A 
+$6,377 
+N/A 
+615 
+CENTRAL BAPTIST CHURCH 
+13 
+ $12,637  
+ $20,966  
+ $14,847  
+117% 
+$972 
+71% 
+616 
+KNOX UNITED CHURCH 
+7 
+ $12,628  
+ $59,423  
+ $54,805  
+434% 
+$1,804 
+92% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+617 
+SAINT THOMAS BAPTIST CHURCH 
+1 
+ $12,590  
+ $2,200  
+ 
+N/A 
+$12,590 
+N/A 
+618 
+ALL SAINTS CHURCH (ERIN) 
+1 
+ $12,531  
+ 
+ $2,450  
+20% 
+$12,531 
+N/A 
+619 
+The Today Family Violence Help Centre 
+2 
+ $12,374  
+ $10,000  
+ $934  
+8% 
+$6,187 
+9% 
+620 
+Level Ground Mennonite Church 
+3 
+ $12,122  
+ $5,803  
+ $7,155  
+59% 
+$4,041 
+123% 
+621 
+ASSOCIATION URANTIA DU QUÉBEC 
+1 
+ $11,939  
+ $5,041  
+ 
+N/A 
+$11,939 
+N/A 
+622 
+PAROISSE NOTRE-DAME-DE-LA-MERCI 
+2 
+ $11,666  
+ $24,463  
+ $12,906  
+111% 
+$5,833 
+53% 
+623 
+Canadian Friends of IIT Madras 
+2 
+ $11,590  
+ $ 1,381,875  
+ $1,352,411  
+11669% 
+$5,795 
+98% 
+624 
+FREDERICTON ARTS AND LEARNING INCORPORATED 
+1 
+ $11,198  
+ 
+ 
+N/A 
+$11,198 
+N/A 
+625 
+ALMA BIBLE CHURCH 
+4 
+ $11,071  
+ $16,600  
+ $6,065  
+55% 
+$2,768 
+37% 
+626 
+PAROISSE ST-JACQUES 
+2 
+ $10,945  
+ $29,184  
+ $25,653  
+234% 
+$5,473 
+88% 
+627 
+Christian Aboriginal Fellowship of Canada 
+3 
+ $10,160  
+ $22,358  
+ $11,988  
+118% 
+$3,387 
+54% 
+628 
+ARNAUD MENNONITE CHURCH 
+1 
+ $10,092  
+ $10,092  
+ 
+N/A 
+$10,092 
+N/A 
+629 
+KILLARNEY PARK MENNONITE BRETHREN CHURCH 
+6 
+ $10,042  
+ $ 895  
+ $3,378  
+34% 
+$1,674 
+377% 
+630 
+CORNER GOSPEL CHURCH 
+1 
+ $10,000  
+ 
+ 
+N/A 
+$10,000 
+N/A 
+631 
+Friends of the Meaford Library 
+1 
+ $10,000  
+ $10,000  
+ 
+N/A 
+$10,000 
+N/A 
+633 
+RICHMOND COMMUNITY BAND SOCIETY 
+1 
+ $9,809  
+ $12,000  
+ $2,191  
+22% 
+$9,809 
+18% 
+632 
+THE NICOLA VALLEY EVANGELICAL FREE CHURCH 
+5 
+ $9,809  
+ $48,931  
+ $70,744  
+721% 
+$1,962 
+145% 
+634 
+CHURCH OF THE GOOD SHEPHERD 
+5 
+ $9,747  
+ $6,620  
+ $1,129  
+12% 
+$1,949 
+17% 
+635 
+LA FÉDÉRATION QUÉBÉCOISE DES ASSOCIATIONS FOYERS-ÉCOLES/QUÉBEC 
+FEDERATION OF HOME AND SCHOOL ASSOCIATIONS 
+1 
+ $9,500  
+ 
+ $307  
+3% 
+$9,500 
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+636 
+ST JOHN'S KANATA NORTH ANGLICAN CHURCH 
+3 
+ $9,474  
+ $23,125  
+ $ 108,455  
+1145% 
+$3,158 
+469% 
+637 
+Connect Quinte Affordable Housing Corporation 
+1 
+ $9,415  
+ $2,525  
+ 
+N/A 
+$9,415 
+N/A 
+638 
+Together Instead Christian Community Association 
+1 
+ $9,394  
+ $10,000  
+ $605  
+6% 
+$9,394 
+6% 
+639 
+TRINITY PENTECOSTAL CHURCH 
+8 
+ $9,321  
+ $13,635  
+ $6,422  
+69% 
+$1,165 
+47% 
+640 
+PORTAGE AVENUE CHURCH 
+2 
+ $9,263  
+ 
+ $6,350  
+69% 
+$4,632 
+N/A 
+641 
+Fellowship Baptist Church Collingwood 
+1 
+ $9,182  
+ $8,000  
+ $7,969  
+87% 
+$9,182 
+100% 
+642 
+Grunthal Evangelical Bible Church Inc. 
+1 
+ $9,022  
+ $ 175,994  
+ $ 172,555  
+1913% 
+$9,022 
+98% 
+643 
+ST. GEORGE'S CHURCH 
+1 
+ $8,891  
+ 
+ 
+N/A 
+$8,891 
+N/A 
+644 
+Parish of South Dundas 
+7 
+ $8,709  
+ $8,709  
+ $8,709  
+100% 
+$1,244 
+100% 
+645 
+YORKMINSTER PARK MEALS ON WHEELS 
+2 
+ $8,437  
+ 
+ $451  
+5% 
+$4,219 
+N/A 
+646 
+RIVER CITY CHRISTIAN REFORMED CHURCH 
+3 
+ $8,224  
+ $9,650  
+ $2,530  
+31% 
+$2,741 
+26% 
+647 
+Fondation au coeur de notre héritage 
+2 
+ $8,178  
+ $8,178  
+ 
+N/A 
+$4,089 
+N/A 
+648 
+STETTLER AND DISTRICT MUSICAL FESTIVAL ASSOCIATION 
+3 
+ $8,171  
+ 
+ $200  
+2% 
+$2,724 
+N/A 
+649 
+AVONLEA UNITED CHURCH 
+2 
+ $8,152  
+ $ 700  
+ 
+N/A 
+$4,076 
+N/A 
+650 
+The Morris Area Foundation Inc. 
+1 
+ $8,110  
+ 
+ $254  
+3% 
+$8,110 
+N/A 
+651 
+PAROISSE STE-ANNE-DES-PINS 
+1 
+ $7,875  
+ $9,230  
+ $4,005  
+51% 
+$7,875 
+43% 
+652 
+Restoration International Community Outreach Association 
+1 
+ $7,799  
+ 
+ 
+N/A 
+$7,799 
+N/A 
+653 
+KAWARTHA TURTLE TRAUMA CENTRE 
+30 
+ $7,546  
+ $ 635,792  
+ $ 643,852  
+8532% 
+$252 
+101% 
+654 
+The CLAC Foundation 
+1 
+ $7,485  
+ $1  
+ $10,960  
+146% 
+$7,485 
+1096000% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+655 
+LA SAMARITAINE DE MONT-TREMBLANT 
+1 
+ $7,125  
+ 
+ $190  
+3% 
+$7,125 
+N/A 
+656 
+Cherryfield Baptist Church Limited 
+7 
+ $7,098  
+ $19,573  
+ $16,487  
+232% 
+$1,014 
+84% 
+657 
+FONDATION LE RENFORT GRANDE LIGNE 
+1 
+ $6,839  
+ $39,265  
+ $36,792  
+538% 
+$6,839 
+94% 
+658 
+EGLISE BONNE NOUVELLE 
+7 
+ $6,565  
+ $15,420  
+ $2,476  
+38% 
+$938 
+16% 
+659 
+CORNERBEND GRIEF MINISTRIES CALGARY 
+1 
+ $6,424  
+ 
+ 
+N/A 
+$6,424 
+N/A 
+660 
+MEADOW GREEN ACADEMY SCHOLARSHIP FOUNDATION 
+1 
+ $6,375  
+ $1,500  
+ 
+N/A 
+$6,375 
+N/A 
+661 
+ST. JAMES EVANGELICAL LUTHERAN CHURCH 
+1 
+ $6,249  
+ $2,976  
+ $1,212  
+19% 
+$6,249 
+41% 
+662 
+Headingley Community Foundation Inc. 
+1 
+ $6,193  
+ $1,313  
+ $500  
+8% 
+$6,193 
+38% 
+663 
+COALITION FOR MUSIC EDUCATION IN CANADA 
+3 
+ $6,188  
+ $40,183  
+ $27,237  
+440% 
+$2,063 
+68% 
+664 
+PINE RIVER PASTORAL CHARGE, 
+1 
+ $5,691  
+ 
+ 
+N/A 
+$5,691 
+N/A 
+665 
+Rotary Club Of Cobourg Robert S. Scott Charitable Trust 
+2 
+ $5,500  
+ $6,000  
+ $5,093  
+93% 
+$2,750 
+85% 
+666 
+MANOR GOSPEL CHURCH 
+3 
+ $5,430  
+ $16,058  
+ $19,317  
+356% 
+$1,810 
+120% 
+667 
+Lacombe Evangelical Free Church 
+4 
+ $5,429  
+ $24,018  
+ $22,706  
+418% 
+$1,357 
+95% 
+668 
+ST. GEORGE'S ANGLICAN CHURCH 
+4 
+ $5,421  
+ $ 146  
+ 
+N/A 
+$1,355 
+N/A 
+669 
+BRITANNIA COMMUNITY SERVICES CENTRE SOCIETY 
+1 
+ $5,285  
+ $2,500  
+ $555  
+11% 
+$5,285 
+22% 
+670 
+PAROISE SAINT JUDE PARISH 
+1 
+ $5,198  
+ $4,470  
+ $1,550  
+30% 
+$5,198 
+35% 
+671 
+WESTERN DEVELOPMENT MUSEUM, 
+1 
+ $5,087  
+ 
+ 
+N/A 
+$5,087 
+N/A 
+672 
+TUCKER HOUSE RENEWAL CENTRE/MAISON TUCKER: CENTRE DE 
+RENOUVELLEMENT 
+1 
+ $5,000  
+ 
+ $399  
+8% 
+$5,000 
+N/A 
+673 
+ERC CONCEPTS LTD. 
+ 
+ $5,000  
+ 
+ 
+N/A 
+ 
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+674 
+CONGREGATION EMANU-EL 
+1 
+ $4,963  
+ 
+ 
+N/A 
+$4,963 
+N/A 
+675 
+SOUTHERN VANCOUVER ISLAND NATURE TRAILS SOCIETY 
+1 
+ $4,921  
+ 
+ 
+N/A 
+$4,921 
+N/A 
+676 
+SUNSHINE COAST MUSEUM & ARCHIVES SOCIETY 
+1 
+ $4,868  
+ $ 890  
+ 
+N/A 
+$4,868 
+N/A 
+677 
+St. Andrew's United / St. Mary's Anglican (SM) Pastoral Charge 
+5 
+ $4,802  
+ $3,360  
+ $2,882  
+60% 
+$960 
+86% 
+678 
+DEUXIEME EGLISE DU CHRIST, SCIENTISTE 
+1 
+ $4,777  
+ $ 682,715  
+ $ 682,715  
+14292% 
+$4,777 
+100% 
+679 
+Kulikayo Organization for the Support of Children in Uganda 
+1 
+ $4,391  
+ 
+ 
+N/A 
+$4,391 
+N/A 
+680 
+CMAC CHRISTIAN MISSION AID CANADA 
+4 
+ $4,222  
+ $21,627  
+ 
+N/A 
+$1,056 
+N/A 
+681 
+Emmanuel Iranian Church 
+1 
+ $4,000  
+ 
+ 
+N/A 
+$4,000 
+N/A 
+682 
+ST JOHN'S LUTHERAN CHURCH 
+2 
+ $3,927  
+ 
+ 
+N/A 
+$1,964 
+N/A 
+683 
+ST. PETERS ANGLICAN CHURCH, MONTE CREEK, B.C. 
+2 
+ $3,769  
+ $ 500  
+ $ 73  
+2% 
+$1,885 
+15% 
+684 
+OUR LADY OF HOPE PARISH 
+1 
+ $3,655  
+ $12,000  
+ $4,005  
+110% 
+$3,655 
+33% 
+685 
+CENTRE BÉNÉVOLE UNI-JOIE 
+1 
+ $3,529  
+ 
+ 
+N/A 
+$3,529 
+N/A 
+686 
+MISSISSAUGA ARTS COUNCIL 
+1 
+ $3,500  
+ 
+ 
+N/A 
+$3,500 
+N/A 
+687 
+ChamberFest West Society 
+1 
+ $3,468  
+ $5,000  
+ $1,532  
+44% 
+$3,468 
+31% 
+688 
+Wood Buffalo Community Foundation 
+15 
+ $3,458  
+ $65,211  
+ $41,614  
+1203% 
+$231 
+64% 
+689 
+GREAT LAKES FISHERY COMMISSION TRUST FUND 
+1 
+ $3,429  
+ 
+ 
+N/A 
+$3,429 
+N/A 
+690 
+La Clairière, Église chrétienne de Saint-Jérôme 
+3,000 
+ $3,410  
+ $ 410  
+ 
+N/A 
+$1 
+N/A 
+691 
+Daybreak Community Church of Airdrie 
+1 
+ $3,087  
+ $3,679  
+ $2,109  
+68% 
+$3,087 
+57% 
+692 
+ROYAL VIEW DEAF CHURCH 
+8 
+ $3,034  
+ $15,847  
+ $18,013  
+594% 
+$379 
+114% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+693 
+British Columbia Sustainable Energy Association 
+1 
+ $3,000  
+ $28,000  
+ $25,000  
+833% 
+$3,000 
+89% 
+694 
+Soroptimist International of Kawartha Lakes 
+1 
+ $2,936  
+ $3,000  
+ $ 64  
+2% 
+$2,936 
+2% 
+695 
+The Corporation of Bloor West Village Baptist Church 
+2 
+ $2,916  
+ 
+ 
+N/A 
+$1,458 
+N/A 
+696 
+Lifespring Church of Edmonton 
+2 
+ $2,866  
+ $3,866  
+ $1,000  
+35% 
+$1,433 
+26% 
+697 
+LAKE OF THE WOODS WATER SUSTAINABILITY FOUNDATION 
+1 
+ $2,760  
+ 
+ 
+N/A 
+$2,760 
+N/A 
+698 
+Le Chemin - Maniwaki 
+3 
+ $2,615  
+ $2,615  
+ $2,615  
+100% 
+$872 
+100% 
+699 
+LA FONDATION DU MONT ST-BRUNO 
+1 
+ $2,501  
+ $40,000  
+ $37,499  
+1499% 
+$2,501 
+94% 
+700 
+PAROISSE DE L'IMMACULEE CONCEPTION 
+1 
+ $2,387  
+ $3,225  
+ $5,040  
+211% 
+$2,387 
+156% 
+701 
+THE TIM ARMSTRONG EDUCATIONAL FOUNDATION 
+ $2,307  
+ $2,300  
+ 
+N/A 
+ 
+N/A 
+702 
+Orchestre Symphonique des Jeunes de l'Outaouais 
+1 
+ $2,236  
+ $1,000  
+ $1,000  
+45% 
+$2,236 
+100% 
+703 
+Adaptive Sports at Sun Peaks Society 
+2 
+ $2,175  
+ $1,020  
+ $1,775  
+82% 
+$1,088 
+174% 
+704 
+NEW LIFE DEAF CHURCH 
+5 
+ $2,040  
+ $21,665  
+ $20,114  
+986% 
+$408 
+93% 
+705 
+NATIONAL SERVICE DOG TRAINING CENTRE INC. 
+2 
+ $2,038  
+ $46,303  
+ 
+N/A 
+$1,019 
+N/A 
+706 
+PAROISSE ST-JOSEPH 
+1 
+ $2,027  
+ $6,310  
+ $5,105  
+252% 
+$2,027 
+81% 
+707 
+SMITH'S COVE UNITED BAPTIST CHURCH 
+1 
+ $2,004  
+ 
+ 
+N/A 
+$2,004 
+N/A 
+708 
+Rock Community Christian School 
+1 
+ $2,000  
+ 
+ 
+N/A 
+$2,000 
+N/A 
+709 
+CAMROSE & DISTRICT MUSIC FESTIVAL ASSOCIATION 
+1 
+ $1,952  
+ $2,102  
+ $150  
+8% 
+$1,952 
+7% 
+710 
+ST PAULS UNITED CHURCH 
+4 
+ $1,743  
+ $13,453  
+ $9,009  
+517% 
+$436 
+67% 
+711 
+HOPE MENNONITE FELLOWSHIP 
+1 
+ $1,535  
+ $2,219  
+ $684  
+45% 
+$1,535 
+31% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+712 
+ST PAUL'S CHURCH 
+4 
+ $1,401  
+ 
+ 
+N/A 
+$350 
+N/A 
+713 
+LA FABRIQUE DE LA PAROISSE DE SAINTE-CECILE ARCHIDIOCESE DE MONTREAL 
+1 
+ $1,342  
+ $9,554  
+ $18,261  
+1361% 
+$1,342 
+191% 
+714 
+MUSIC ALIVE SOCIETY 
+1 
+ $1,265  
+ $9  
+ 
+N/A 
+$1,265 
+N/A 
+715 
+Centre évangélique la Plénitude de Dieu 
+ $1,169  
+ 
+ $2,420  
+207% 
+ 
+N/A 
+716 
+GRACE LUTHERAN CHURCH 
+1 
+ $1,098  
+ 
+ 
+N/A 
+$1,098 
+N/A 
+717 
+Ryga Festival Society 
+1 
+ $1,081  
+ 
+ 
+N/A 
+$1,081 
+N/A 
+718 
+EMMANUEL PENTECOSTAL TABERNACLE 
+1 
+ $960  
+ $ 960  
+ $960  
+100% 
+$960 
+100% 
+719 
+Portage Breath of Life Church Inc. 
+3 
+ $954  
+ $1,929  
+ $975  
+102% 
+$318 
+51% 
+720 
+THE CATHOLIC PARISHES OF ONAPING FALLS AND CARTIER 
+1 
+ $929  
+ $4,350  
+ $3,910  
+421% 
+$929 
+90% 
+721 
+The NCIC Foundation - Eastern Ontario and Outaouais District Inc. 
+ $898  
+ 
+ 
+N/A 
+ 
+N/A 
+722 
+Foam Lake Daycare Inc. 
+2 
+ $743  
+ $1,075  
+ $257  
+35% 
+$372 
+24% 
+723 
+BRUCE PENINSULA SUPERBUS MINISTRIES 
+1 
+ $721  
+ 
+ $ 60  
+8% 
+$721 
+N/A 
+724 
+Reformation Presbyterian Church 
+1 
+ $720  
+ $ 720  
+ 
+N/A 
+$720 
+N/A 
+725 
+MILDEN ALLIANCE CHURCH 
+1 
+ $665  
+ $44,575  
+ $44,575  
+6703% 
+$665 
+100% 
+726 
+LORD OF LIFE LUTHERAN CHURCH 
+1 
+ $580  
+ $ 580  
+ 
+N/A 
+$580 
+N/A 
+727 
+COMITE DES OEUVRES CHARITABLES DU CONSEIL AUDET 9812 
+1 
+ $500  
+ 
+ $300  
+60% 
+$500 
+N/A 
+728 
+SOINTULA COMMUNITY CHURCH 
+2 
+ $377  
+ 
+ $4,003  
+1062% 
+$189 
+N/A 
+729 
+OCEAN VIEW CHRISTIAN ASSEMBLY 
+2 
+ $338  
+ $ 838  
+ $1,920  
+568% 
+$169 
+229% 
+730 
+Jesus Our Rock Christian Church 
+1 
+ $260  
+ $ 260  
+ 
+N/A 
+$260 
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+731 
+Deaf Alive Revival Evangelism (D.A.R.E) 
+3 
+ $237  
+ $ 731  
+ $12,850  
+5422% 
+$ 79 
+1758% 
+732 
+LA FONDATION PAULINE RONDEAU INC. 
+1 
+ $230  
+ $ 230  
+ $230  
+100% 
+$230 
+100% 
+733 
+NORTH END SPONSORSHIP TEAM (N.E.S.T.) INC. 
+1 
+ $158  
+ 
+ 
+N/A 
+$158 
+N/A 
+734 
+FELLOWSHIP BAPTIST STEWARDSHIP SERVICES SOCIETY 
+1 
+ $155  
+ $ 184,824  
+ $ 194,622  
+125563
+% 
+$155 
+105% 
+735 
+GRACE INTERNATIONAL BAPTIST CHURCH 
+1 
+ $152  
+ $ 372  
+ $220  
+145% 
+$152 
+59% 
+736 
+BOUNDARY PASTORAL CHARGE 
+1 
+ $150  
+ $5,790  
+ $5,640  
+3760% 
+$150 
+97% 
+737 
+ST PAULS ANGLICAN CHURCH 
+5 
+ $148  
+ $75  
+ 
+N/A 
+$ 30 
+N/A 
+738 
+The Meadows Auxiliary 
+1 
+ $130  
+ $ 130  
+ $130  
+100% 
+$130 
+100% 
+739 
+UPPER PINE GOSPEL CHAPEL 
+1 
+ $ 80  
+ $22,305  
+ $22,305  
+27881% 
+$ 80 
+100% 
+740 
+MISSION MOISSON INTERNATIONALE/MISSION HARVEST MINISTRIES INTERNATIONAL 
+ $ 51  
+ 
+ 
+N/A 
+ 
+N/A 
+741 
+Caribbean Jewish Community 
+4 
+ $ 4  
+ $ 2,806,758  
+ $2,990,188  
+7475470
+0% 
+$1 
+107% 
+742 
+THE SOCRATES EDUCATIONAL FOUNDATION/LA FONDATION EDUCATIONNELLE 
+SOCRATE 
+1 
+ $ 2  
+ 
+ 
+N/A 
+$2 
+N/A 
+743 
+The Grant Morris Foundation 
+1 
+ $ 1  
+ $97,399  
+ $20,861  
+2086100
+% 
+$1 
+21% 
+744 
+OSGOODE PRESBYTERIAN CHURCH 
+6,000 
+ $ 1  
+ 
+ $6,000  
+600000
+% 
+$0 
+N/A 
+754 
+THE SJ HILLSIDE CEMETERY ASSOCIATION 
+ 
+ $ 731  
+ $731  
+N/A 
+ 
+100% 
+757 
+THE CONFLUENCE HERITAGE SOCIETY 
+ 
+ $11,905  
+ $11,905  
+N/A 
+ 
+100% 
+758 
+Garaga: Un Rayon de Soleil 
+ 
+ $ 931  
+ $931  
+N/A 
+ 
+100% 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+759 
+The Volunteer Well 
+1 
+ 
+ $23,766  
+ $23,766  
+N/A 
+ 
+100% 
+766 
+STRATHMORE FULL GOSPEL CHURCH 
+ 
+ $8,185  
+ $8,185  
+N/A 
+ 
+100% 
+773 
+WHITEHORSE UNITED CHURCH 
+1 
+ 
+ $14,100  
+ $14,100  
+N/A 
+ 
+100% 
+774 
+EGLISE ALLIANCE CHRETIENNE 
+7 
+ 
+ $17,325  
+ $17,325  
+N/A 
+ 
+100% 
+787 
+GABRIOLA ISLAND COMMUNITY HALL ASSOCIATION 
+ $22,889  
+ $22,889  
+N/A 
+ 
+100% 
+789 
+Wawanesa & Area Donor's Choice 
+12 
+ 
+ $9,950  
+ $9,950  
+N/A 
+ 
+100% 
+790 
+KAMLOOPS ART GALLERY 
+ 
+ 
+ $30,000  
+ $30,000  
+N/A 
+ 
+100% 
+797 
+Fondation Père-Ménard 
+ 
+ 
+ $30,921  
+ $30,921  
+N/A 
+ 
+100% 
+801 
+CARIBOO COMMUNITY CHURCH 
+1 
+ 
+ $44,450  
+ $44,450  
+N/A 
+ 
+100% 
+809 
+WITHROW GOSPEL MISSION, 
+9 
+ 
+ $15,037  
+ $15,037  
+N/A 
+ 
+100% 
+811 
+EGLISE BAPTISTE EVANGELIQUE DES LAURENTIDES INC 
+ $ 350  
+ $350  
+N/A 
+ 
+100% 
+822 
+ARROWWOOD MUNICIPAL LIBRARY SOCIETY 
+ 
+ $2,000  
+ $2,000  
+N/A 
+ 
+100% 
+823 
+LAKEHEAD BAPTIST CHURCH 
+ 
+ $ 365  
+ $365  
+N/A 
+ 
+100% 
+826 
+WILLOWDALE CHRISTIAN ASSEMBLY, 
+ 
+ $ 535,255  
+ $ 535,255  
+N/A 
+ 
+100% 
+832 
+WILLIAM ABERHART MUSIC PARENTS ASSOCIATION 
+ $6,000  
+ $6,000  
+N/A 
+ 
+100% 
+834 
+SPRAGGE BIBLE CHURCH, INC. 
+1 
+ 
+ $ 402  
+ $900  
+N/A 
+ 
+224% 
+745 
+G2G Foundation 
+ 
+ 
+ $22,500  
+ $69,000  
+N/A 
+ 
+307% 
+788 
+GEORGETOWN CHRISTIAN FELLOWSHIP 
+2 
+ 
+ $2,197  
+ $8,140  
+N/A 
+ 
+371% 
+746 
+THE GIBBONS-DALEY FOUNDATION 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+747 
+Veterans Association Food Bank 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+748 
+The Gwen Simmonds Foundation 
+1 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+749 
+Dee Foundation 
+ 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+750 
+CENTRE DE REFERENCE DU GRAND MONTREAL-INFORMATION AND REFERRAL CENTER OF GREATER MONTREAL 
+ 
+N/A 
+ 
+N/A 
+751 
+Conseil de Sauvegarde de l'Église Carillon 
+38,980 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+752 
+The Groundwater Project 
+1 
+ 
+ $34,957  
+ 
+N/A 
+ 
+N/A 
+753 
+EVANGELICAL MENNONITE MISSION CHURCH OF MORDEN 
+ 
+ 
+N/A 
+ 
+N/A 
+755 
+FONDATION DE BÉCANCOUR-NICOLET-YAMASKA SANTÉ-SERVICES SOCIAUX 
+ 
+ 
+N/A 
+ 
+N/A 
+756 
+Dufferin Child and Family Foundation 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+760 
+Fondation des Soeurs de Saint-Joseph de Saint-Hyacinthe 
+1 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+761 
+Entraide Ste-Croix 
+ 
+ 
+ 
+ $28,667  
+N/A 
+ 
+N/A 
+762 
+OCWEDID Foundation 
+ 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+763 
+SIMCOE SEVENTH-DAY ADVENTIST CHURCH 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+764 
+Fondation Pierre Légaré pour la Jeunesse 
+ 
+ $5,000  
+ 
+N/A 
+ 
+N/A 
+765 
+HEATHER RYAN & L. DAVID DUBE FOUNDATION INC. 
+ 
+ 
+N/A 
+ 
+N/A 
+767 
+Fasil Charitable Foundation 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+768 
+FRIENDS OF THE NAVAL MUSEUM INC. 
+25,781 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+769 
+Communauté chrétienne Siloé Canada 
+2 
+ 
+ $ 100,000  
+ 
+N/A 
+ 
+N/A 
+770 
+The Ottawa Mission Foundation 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+771 
+THE R.A.U.S.I. FOUNDATION 
+ 
+ 
+ $10,000  
+N/A 
+ 
+N/A 
+772 
+Vulcan County Health and Wellness Foundation 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+775 
+ST. BARNABAS' CHURCH 
+ 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+776 
+ASSEMBLEE EVANGELIQUE DE LA RIVE-SUD 
+1 
+ 
+ 
+ $79,985  
+N/A 
+ 
+N/A 
+777 
+THE TRUE RESTORED PENTECOSTAL TABERNACLE 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+778 
+VICTORY OUTREACH FOUNDATION 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+779 
+Fondation Martin Roberge 
+ 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+780 
+CALGARY KOREAN OPEN COMMUNITY CHURCH 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+781 
+Bethel Kingdom Ministries Inc. 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+782 
+CANADIAN THERAPEUTIC RIDING ASSOCIATION 
+ 
+N/A 
+ 
+N/A 
+783 
+Susan and Gregory Guichon Foundation 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+784 
+St. George Ukrainian Greek Catholic Church 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+785 
+Centre d'appui communautaire et d'encadrement jeunesse (Cacej) 
+ 
+ 
+N/A 
+ 
+N/A 
+786 
+Academics without Borders / Universitaires sans frontières 
+1 
+ 
+ $ 500  
+ 
+N/A 
+ 
+N/A 
+791 
+ÉGLISE BAPTISTE ÉVANGÉLIQUE DE LA HAUTE-GATINEAU 
+1 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+792 
+HENRI NOUWEN SOCIETY 
+ 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+793 
+DMI MINISTRIES 
+8 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+794 
+COMITE DES OEUVRES CHARITABLES DU CONSEIL ST-JEAN DE MATHA 7661 
+ $2,700  
+ 
+N/A 
+ 
+N/A 
+795 
+FONDATION DONAT GRENIER 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+796 
+MILLWOODS EVANGELICAL FREE CHURCH 
+ 
+ $18,770  
+ 
+N/A 
+ 
+N/A 
+798 
+NIAGARA YOUTH ORCHESTRA ASSOCIATION 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+799 
+RED DEER MEALS ON WHEELS 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+800 
+ROLAND UNITED CHURCH 
+ 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+802 
+THE CHILDREN'S FAMILY HOUSE SOCIETY OF B C 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+803 
+CANADIAN RADIOLOGICAL FOUNDATION/FONDATION RADIOLOGIQUE CANADIENNE 
+ 
+N/A 
+ 
+N/A 
+804 
+THE JOHN HUSSEY FOUNDATION 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+805 
+THE PETRO JACYK EDUCATION FOUNDATION 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+806 
+Comox Valley Community Foundation 
+2 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+807 
+THE PHINEAS KURTZ FAMILY FOUNDATION 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+808 
+Fondation Poverello 
+ 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+810 
+YASODHARA ASHRAM SOCIETY 
+1 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+812 
+LOUGHEED HOUSE CONSERVATION SOCIETY 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+813 
+LENNOX & ADDINGTON RESOURCES FOR CHILDREN 
+ 
+ 
+N/A 
+ 
+N/A 
+814 
+ASSOCIATION ST-JOSEPH (A.S.J.)/ST.JOSEPH ASSOCIATION (S.J.A.) 
+ 
+ 
+N/A 
+ 
+N/A 
+815 
+FOUNDATION FOR EDUCATIONAL EXCHANGE BETWEEN CANADA AND THE UNITED STATES OF AMERICA 
+ 
+N/A 
+ 
+N/A 
+816 
+DWPV (QUEBEC) FOUNDATION INC./FONDATION DWPV (QUÉBEC) INC. 
+ 
+ 
+N/A 
+ 
+N/A 
+817 
+ROTARY CLUB OF VIEUX MONTREAL WELFARE FUND  
+N/A 
+ 
+N/A 
+818 
+COMITE DES OEUVRES CHARITABLES DE L'ASSEMBLEE EVEQUE BRUNO 
+DESROCHERS 1033 
+12,518 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+# 
+Account name 
+# of DAF Accounts 
+ Total Value DAF 
+Accounts  
+Donations to 
+DAF Accounts  
+ Total Value of 
+Gifts from DAF 
+Accounts  
+ Total DAF 
+Expenditures as a 
+% of Total DAF 
+Assets  
+ Average 
+Account 
+Value  
+Gifts as a 
+Percentage 
+of 
+Donations 
+819 
+FONDATION CLAUDE-EDOUARD HETU 
+4 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+820 
+FONDATION CHAMPLAIN-LENNOXVILLE INC. 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+821 
+THE MATT FOUNDATION 
+ 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+824 
+PEOPLE IN TRANSITION (ALLISTON) INC. 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+825 
+ONTARIO 4-H FOUNDATION 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+827 
+INDEPENDENT CHURCH OF GOD WINNIPEG INC 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+828 
+LUTHERAN CHURCH OF THE GOOD SHEPHERD 
+1 
+ 
+ 
+ $10,000  
+N/A 
+ 
+N/A 
+829 
+KALA BHARATI FOUNDATION/LA FONDATION KALA BHARATI 
+ 
+ 
+N/A 
+ 
+N/A 
+830 
+COMMUNITY FOUNDATION OF PORTAGE AND DISTRICT, INC. 
+7 
+ 
+ $53,957  
+ 
+N/A 
+ 
+N/A 
+831 
+Fondation de la Clinique de Réadaptation de Québec, Inc. 
+ 
+ 
+N/A 
+ 
+N/A 
+833 
+Friends of Freeman Station 
+ 
+ 
+ 
+N/A 
+ 
+N/A 
+ 
+ 
+ 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+Resources on Transparency 
+Fundamentals of the T3010 and Transparency for Canadian Charities (paid online course) 
+Blumbergs’ Pre-Budget Submission for the 2025 Canadian Federal Budget – dated July 28, 2025 
+CRA’s Charities Listing vs. Blumbergs’ CharityData.ca 2023 
+RCAAA Transparency Project 2023 -Registered Canadian Amateur Athletic Association filings and their financial statements 
+Corporations Canada getting serious about filings including non-filing of financial statements 
+Corp. Canada dissolution program will be launched for CNCA corps that have not filed their AR in 3 years 
+Federal Government draft legislation for enhanced reporting by non-profits that are not charities from the 2024 Fall Economic Statement 
+How much publicly listed securities are donated to Canadian charities and how will AMT changes affect charities? 
+Good news from Australia on the charity transparency front 
+Some customized data from Statistics Canada on donations to charities by families and income percentile in 2021 
+Some customized data from Statistics Canada on donations to charities by individuals and income percentile in 2021 
+CharityVillage Connects: Full interview with Mark Blumberg from Blumbergs about trust and transparency in the Canadian charity sector 
+Breakdown of Data on CRA Categories for the Canadian Registered Charity Sector 
+List of municipal or public bodies performing a function of government in Canada has now increased to 555 entities 
+Statement by the Canada’s Taxpayers’ Ombudsperson on CRA examination will be significantly hindered by the confidentiality provisions of the ITA relating to charities 
+Big improvements to transparency from Corporations Canada relating to CNCA corporations 
+Key statistics on Canada’s charity and non-profit sector 2023 
+Open data on T3010 information has improved 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2023 
+Blumbergs’ Snapshot of the British Columbia Charity Sector 2023 
+Blumbergs’ Snapshot of the Ontario Charity Sector 2023 
+Blumbergs’ Snapshot of the Quebec Charity Sector 2023 
+Blumbergs’ Snapshot of the Atlantic Provinces Charity Sector 2023 
+Blumbergs Snapshots of Designations – Charitable Org, Public Foundations and Private Foundations 2023 
+Blumbergs’ Pre-Budget Submission for the 2024 Canadian Federal Budget 
+How to get a list of Canadian registered charities in 25 seconds! 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+How much did the largest Canadian private foundations spend in 2023? 
+Largest Canadian Registered Charities by Employment Compensation 2023 
+Which Canadian charities received the most revenue from the Federal government in 2023? 
+Which Canadian charities received the most revenue from Provincial Governments in 2023? 
+Which Canadian charities received the most revenue from Municipal Governments in 2023? 
+Which Canadian charities spent money on foreign activities in 2023 and how much did they spend? 
+Some preliminary data from the 2023 T3010 on Donor Advised Funds (DAFs) in Canada 
+What is the average revenue of a Canadian registered charity? 
+How many Canadian registered charities have filed their T3010s using CRA online system? 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2022 
+Blumbergs’ Snapshot of the British Columbia Charity Sector 2022 
+Blumbergs’ Snapshot of the Manitoba Charity Sector 2022 
+Blumbergs’ Snapshot of the Ontario Charity Sector 2022 
+Blumbergs’ Snapshot of the Quebec Charity Sector 2022 
+Blumbergs’ Snapshot of the Atlantic Provinces Charity Sector 2022 
+Largest Gifts from Canadian Charities to all other Qualified Donees in 2022 
+Blumbergs Snapshots of Designations – Charitable Organizations, Public Foundations and Private Foundations 2022 
+Blumbergs Snapshots of Designations – Charitable Org, Public Foundations and Private Foundations 2021 
+Blumbergs’ Canadian Charity Sector Snapshot 2021  
+Blumbergs Snapshot of the British Columbia Charity Sector 2021 – a census of the BC charity sector 
+Blumbergs Snapshot of the Alberta Charity Sector 2021 – a census of the Alberta charity sector 
+Blumbergs Snapshot of the Ontario Charity Sector 2021 – a census of the Ontario charity sector 
+Blumbergs Snapshot of the Quebec Charity Sector 2021 – a census of the Quebec charity sector 
+Blumbergs Snapshot of the Atlantic Provinces Charity Sector 2021 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2020 
+Blumbergs’ Snapshot of the Ontario Charity Sector 2020 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2019 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+Blumbergs’ Snapshot of the Ontario Charity Sector 2019  
+Blumbergs’ Snapshot of the Canadian Charity Sector 2018 
+Blumbergs’ Snapshot of the British Columbia Charity Sector 2018 
+Blumbergs’ Snapshot of the Alberta Charity Sector 2018 
+Blumbergs’ Snapshot of the Ontario Charity Sector 2018 
+Blumbergs’ Snapshot of the Quebec Charity Sector 2018 
+Blumbergs’ Snapshot of the Nova Scotia Charity Sector 2018 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2017 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2016 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2015 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2014 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2013 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2012 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2011 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2010 
+Blumbergs’ Snapshot of the BC Charity Sector 2012 
+Blumbergs’ Snapshot of the Alberta Charity Sector 2012 
+Blumbergs’ Snapshot of the Ontario Charity Sector 2011 
+Blumbergs Canadian Charity Sector Snapshot 2011 - understanding the charity sector through the T3010 
+Blumbergs Canadian Charity Sector Snapshot 2010 - a little more perspective on the sector 
+Blumbergs’ Directory on Transparency Related Articles 
+Blumbergs’ Directory on Canadian charity statistics 
+Comparison of the CRA’s Charities Listing and Blumbergs’ CharityData.ca 
+Blumbergs’ Pre-Budget Submission – 2023 
+Blumbergs’ Pre-Budget Submission – February 25, 2022 
+Blumbergs’ Submission for the Pre-Budget Consultations for the Canadian Federal Budget 2022 with a focus on Transparency and Accountability in the Non-profit and Charity Sector 
+“Confidence in charity leaders has fallen sharply over the last two decades – what does that mean for the sector?” 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+How Has COVID Affected Funding of the Canadian Charity Sector? Part 4 – The Final Edition 
+How has COVID affected funding of the Canadian charity sector? Part 3 
+How has COVID affected funding of the Canadian charity sector? Part 2 – more data from the T3010  
+How has COVID affected funding of the Canadian charity sector? Part 1 
+Canadian charities giving to Indigenous Charities and Qualified Donees – 2019  
+Canadian charities giving to Indigenous Charities and Qualified Donees – 2018  
+Discussion paper from the T3010 User Group on improvements to the T3010  
+When is a financial statement not a financial statement? 
+Registered Canadian Amateur Athletic Associations and their financial statements  
+CRA charity audit statistics released through freedom of information in 2022  
+Update completed to CharityData.ca website (May 2022) 
+Gifts by Canadian Charities to the United Nations and its Agencies in 2019  
+Gifts by Canadian Charities to Donor Advised Funds in 2019 
+Gifts by Canadian Registered Charities to the Registered Foreign Universities in 2019  
+Recent CRA letters of revocation for Canadian registered charities – received December 2021  
+Recent CRA letters of revocation for Canadian registered charities – 2021 
+Canadian Federal Budget 2022 and its impact on non-profits and charities 
+List of Canadian Registered Charities Revoked as a Result of an Audit Over the Last 30 Years  
+Blumbergs Snapshot of the Canadian Charity Sector 2018 – Fundraising Activity 
+Top Fallacies about Canadian Private Foundations in Canada in 2022 
+National Post article “Charity sector worth $300B per year, but CRA audits have dropped four-fold since 2010”  
+Dramatic changes to charity audits by CRA over the last few years 
+Budget Implementation Act passed allowing certain additional charitable partnerships  
+How to search for an Ontario non-profit corporation using the Ontario Business Registry  
+Which Canadian registered charities had the largest assets in 2019? 
+Which Charities Received the Most Money from the Federal Government in 2019? 
+Blumbergs’ Pre-Budget Submission for the Federal Budget 2021 relating to charities and transparency  
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+CRA provides additional information on foreign activities by Canadian charities 
+Another version of CRA’s guidance on advancement of religion released in an access to information request  
+The Charity Report provides a profile of the Blumbergs’ Snapshot of the Canadian Charity Sector  
+Dramatic changes to the CRA Charities Listing 
+If the T3010 annual charity return improves perhaps the charity sector and transparency will also improve 
+CRA publishes new web page on “How to get information about a charity” 
+New Transparency in Ontario for Non-Profits to be released in next few months 
+Finance Memo on Registered Charities - Political Activities, Foreign Funding and Transparency 
+Which Canadian Charities Spent Money on “political activities” and how much did they spend 
+So how much do Canadian charities receive from foreign sources according to the T3010 Returns? 
+Transparency - What can the Charities Directorate of CRA disclose about registered charities? 
+How accurate are the T3010 charity returns when it comes to political activities? 
+How to Decide Which Charity to Support 
+Community Foundations of Canada 2013 Conference in Winnipeg -some interesting stats 
+CRA publishes new web page on “How to get information about a charity” 
+CRA releases new T3010 (13) for registered charities with fiscal year ends after January 1, 2013 
+List of Ontario Non-Profit Corporations finally revealed for the first time 
+Who are the Canadian environmental charities? 
+Which Canadian Registered Charities Received the Most Money from Municipal Governments in 2012? 
+Which Canadian Registered Charities Received the Most Money from Provincial Governments in 2012? 
+Which Charities Received the Most Money from the Federal Government – 2012? 
+Largest Gifts from Canadian Charities to other Qualified Donees - 2012 
+Which Canadian Private Foundations had the largest total expenditures in 2013-2015? 
+More from the T3010-13 on political activities 
+Latest statistics on “abusive charity gifting tax schemes” 
+Some simple and free steps to increase your Canadian registered charity’s transparency 
+CRA released it’s 2018 T3010 annual return form for Canadian registered charities 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+Corporations Canada has made a giant leap forward in increasing transparency of Federal corporations 
+Top Canadian Charity Law Issues by Mark Blumberg – For Charity Village – March 2018 
+Key statistics on Canada’s charity and non-profit sector 
+Discussion paper from the T3010 User Group on improvements to the T3010 
+CRA provides additional details as to changes with the T3010 over the last few years Largest Gifts from Canadian Charities to all other Qualified Donees – 2020 
+Which Canadian charities received the most revenue from Provincial Governments in 2020?  
+Which Canadian charities received the most revenue from Municipal Governments in 2020?  
+Which Canadian charities received the most revenue from the Federal government in 2020? 
+Canadian Soccer Association not filing financial statements with Corporations Canada as required by the Canada Not-for-profit Corporations Act (“CNCA”) 
+Canadian Federal Non-Profit Corporations under the CNCA need to ensure that they do their filings 
+Which Canadian charities spent money on foreign activities in 2020 and how much did they spend?  
+Key statistics on Canada’s charity and non-profit sector 2023 
+List of municipal or public bodies performing a function of government in Canada has increased to 555  
+How much did the largest Canadian private foundations spend in 2018, 2019 and 2020? CRA's list of RCAAAs  
+ 
+ 
+ 
+ 
+ 
+
+---PAGE BREAK---
+www.CanadianCharityLaw.ca  
+Limitations and Caveats 
+There are a number of cautions in dealing with the information from the T3010. You can access the CRA Charities Listing database directly on the CRA website at: www.canada.ca/en/revenue-agency/services/charities-giving/list-
+charities/list-charities-other-qualified-donees.html. As well, Blumbergs also maintains Canada's largest charity information portal at www.CharityData.ca with up to 20 years of information on every Canadian registered charity. The portal 
+is free, and the aim is to increase transparency in the Canadian charity sector. With CRA removing over 10 years’ worth of information from the Charities Listing, www.CharityData.ca has far more years available. Currently, CRA is only 
+providing 5 years of historical information on each charity. 
+ 
+1) The data in this note is based on the 2024 T3010 Registered Charity Information Return filings. Although all charities are supposed to file their T3010 within six months of their fiscal year end, some charities file late or do not file at all 
+and then will lose their charitable status. Depending on the data set from CRA, not every charity may have filed their T3010 or been inputted yet.  
+2) Registered charities complete the T3010, and one person signs the form. The T3010 information is not independently verified by CRA when it is posted on the CRA site or placed in the CRA database. 
+3) Although an important legal document, the T3010 is often completed by volunteers or others who may have little understanding of the nuances of the Income Tax Act (Canada), limited language skills, may not have easy access to the 
+correct information or are in a hurry to file the form to avoid deregistration. In the case of larger institutions, it is typically accountants or finance staff who prepare the T3010. One would expect greater accuracy with the larger institutions. 
+However, as they also tend to be more complicated and involve bigger numbers, the likelihood of a significant inaccuracy in their T3010 filings is great. 
+4) The T3010s are filed with CRA and in many cases need to be coded by hand at CRA which can also introduce mistakes. Only a small number of T3010s have 2D bar code technology which can eliminate most processing errors on 
+CRA’s part. Canadian charities can, as of June 2019, electronically file the T3010 which does reduce errors and speed up the time that T3010 data is processed and available to the public. All charities should be filing their T3010’s 
+electronically using the CRA MyBA system.  
+ 
+5) In some cases, those completing the T3010 for a charity are deliberately deceptive when completing the T3010. For example, an organization knows that it has substantial fundraising expenses but chooses to put them under charitable 
+activities. Or an organization claims pharmaceuticals that it can purchase for $50,000 are really worth $50 million. 
+6) Don’t rely on any of this information without checking with the charity and appropriate due diligence as required.  
+7) The T3010 is a tax form which is supposed to be completed according to guidance provided by the CRA in Guide Completing the Registered Charity Information Return (T-4033) and also various other CRA guidances and policies. The 
+information inputted may not conform to Generally Accepted Accounting Principles (GAAP) and often the numbers will not match what is in a financial statement. You can obtain copies of financial statements, whether audited or not, on 
+any registered charity by requesting the financial statements from CRA. These financial statements are filed with CRA but not placed on the CRA website and they can sometimes add further information. Charities are not required to post 
+their financial statements on their website, but charities should put up at least the last 5 years financial statements to make it easier for donors and the public to access them. 
+8) Some questions on the T3010 are more prone to error than others. Some questions are complicated, while others are quite straightforward. Some matters are easily quantifiable, like value of official donation receipts, while others require 
+allocation and other subjective measurements. Some questions, like revenue, are answered by almost every charity and if a charity makes a mistake, the likelihood is that such a mistake will not have much impact on the bigger picture. On 
+the other hand, to take a historical example some numbers like political expenditures by Canadian charities are often incorrectly completed and even one or two charities by mistakenly inserting large numbers in this category can distort the 
+picture. With the 2012 numbers, the top six organizations listing political expenditures appear to be all mistakes. This seems to have inflated the numbers by about 1000%. You can see my article “Did the University of Windsor spend $285 
+million on political activities in 2012”. For 2013, the political numbers were $171 million on the T3010. If one reviews the actual organizations, the number is probably about $26 million. For 2017, the number is $28 million. For 2018, the 
+number is $30 million. Unfortunately, today the CRA does not ask any questions about political activities of Canadian charities.  
+9) The T3010 asks certain questions. Many important questions are not asked on the T3010. Relying on the T3010 to make decisions on whether a charity is efficient or worthwhile to support is prone to failure. We have established a 
+website at www.SmartGiving.ca which discusses in detail questions donors may want to ask before donating to charity. 
+This analysis was prepared as part of the Sean Blumberg Transparency Project. 
+Mark Blumberg is a lawyer at Blumbergs in Toronto, Ontario. He works almost exclusively in the area of non-profit and charity law. Henri Pasha is a consultant working with Blumbergs. To find out more about legal services that 
+Blumbergs provides to charities and non-profits please visit www.CanadianCharityLaw.ca 
+This article is for information purposes only. It is not intended to be legal advice. You should not act or abstain from acting based upon such information without first consulting a legal professional. 
+
+---PAGE BREAK---

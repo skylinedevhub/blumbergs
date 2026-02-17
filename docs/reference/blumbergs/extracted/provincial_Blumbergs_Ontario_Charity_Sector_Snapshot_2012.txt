@@ -1,0 +1,1234 @@
+www.canadiancharitylaw.ca 
+  
+ 
+Blumbergs’ Snapshot of the 
+Ontario Charity Sector 2012 
+ 
+By Mark Blumberg (October 28, 2014) 
+ 
+We recently reviewed the T3010 Registered Charity Information Return database for 2012 as part of 
+the Sean Blumberg Transparency Project.   We provided an overview of the whole charity sector 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2012.   We have taken a subset of the 2012 
+T3010 data to look at only registered charities based in Ontario.   This article provides a snapshot of the 
+registered charity sector in Ontario based on the 2012 T3010 filings.  
+The Canadian charity sector is a vital part of Canadian society and economy with revenue in total of 
+over $223 billion and expenditures of about $218 billion.  A large part of that charity sector is based in 
+Ontario and it is important that there be up-to-date numbers on the sector in Ontario.   
+ 
+Some of the highlights of the Blumbergs’ Snapshot of the Ontario Charity Sector 2012 include (2011 
+numbers are in brackets): 
+ 
+30,260 (30,092) registered charities in Ontario 
+26,760 (26,736) identified themselves as active and 2,619 (2471) as inactive 
+11,878 (11, 837) made gifts to other charities or qualified donees during their 2012 fiscal year 
+$90.9 billion ($86 billion) in total revenue for Ontario charities and total expenditures of $87.7 billion 
+($84 billion). 
+
+---PAGE BREAK---
+www.canadiancharitylaw.ca 
+  
+2413 (2,398) conducted activities outside of Canada and spent about $2 billion ($2.1 billion) outside of 
+Canada  
+116 (127) Ontario charities received funds from CIDA 
+164 (181) identified carrying on political activities 
+13,570 (13,376) identified having employment expenses while 16,289 (16,274) did not have any 
+employment expenses 
+682,449 (669,368) full time employees and 687,342 (612,482) part-time employees 
+$49.5 Billion ($46 Billion) was spent by Ontario charities on salaries and other compensation 
+expenditures 
+$7 Billion ($6.8 Billion) in official donation receipts were issued by Ontario charities 
+ 
+The Sean Blumberg Transparency Project is in memory of my youngest brother Sean Blumberg.  Sean 
+was a sweet, kind person, a great brother who helped me on a number of occasions with many tasks 
+including the time consuming and arduous task of reviewing T3010 databases and making them into 
+something useful.  As part of the Sean Blumberg Transparency Project, Blumbergs will be releasing 
+information on the Canadian charity sector to provide a better understanding of the size, scope, 
+complexity and challenges of the sector.   
+Please review the caveats at the end about the reliability and usage of T3010 information. 
+Thank you to Celeste Bonas, an intern at Blumbergs, for helping with this project and to my late 
+brother Sean for being such an inspiration. 
+
+---PAGE BREAK---
+(Ce formulaire existe en français.)
+T3010-1 E
+REGISTERED CHARITY INFORMATION RETURN
+Section A:  Identification
+  Guide T4033, Completing the Registered Charity Information Return, is available through our Forms and publications Web pages at
+www.cra.gc.ca/charities.
+  The Privacy Act protects all personal information given on this form, which is kept in personal information bank CRA PPU 200. The Canada Revenue
+Agency (CRA) will make this form and all attachments available to the public on the Charities Directorate Web site, except for information or data identified
+as confidential. All of the information collected on this form may be shared as permitted by law (e.g., with certain other government departments and
+agencies).
+Remember: Even if the charity goes through an inactive period, you must continue to file information returns to maintain its registered status.
+If you did not receive a barcode label to affix to the return, please complete the following:
+1.  Charity name:
+Year
+Day
+Month
+2.  Return for fiscal period ending:
+3.   BN/registration number:
+A1 Was the charity in a subordinate position to a parent organization? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+If yes, please provide the name and BN/registration number of the organization.
+No
+Yes
+1510
+Name
+BN (if applicable)
+A2 Has the charity wound-up, dissolved, or terminated operations?. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+No
+Yes
+1570
+All charities are designated as one of the following:  a charitable organization, a public foundation, or a private foundation.
+Is your organization designated as a public foundation or private foundation? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(Refer to the Form TF725, Registered Charity Basic Information Sheet (BIS) to confirm. This form is included in the return
+package.)
+If yes, you must complete and attach Schedule 1, Foundations, to your return.
+A3
+No
+Yes
+1600
+Section B:  Directors/trustees and like officials
+B1 The charity is required to provide certain information for all members of its board of directors/trustees for the complete fiscal period. Only the public
+information section on the worksheet is available to the public. The confidential data section is for the CRA's use but may be shared as permitted by law
+(e.g., with certain other government departments and agencies). Use Form T1235, Directors/Trustees and Like Officials Worksheet, or include your own
+sheet with the same information. Charities subject to the Ontario Corporations Act may complete a blended worksheet.
+4.   Web address (if applicable):
+RR
+Section C:  Programs and general information
+C1
+No
+Yes
+1800
+Was the charity active during the fiscal period? If no, explain why in the
+"Ongoing programs" space provided at C2. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+In the space provided, describe all ongoing and new charitable programs the charity carried on to further its charitable purpose(s) (as defined in its
+governing documents) this fiscal period. “Programs” includes all of the charitable work the charity carries out on its own through employees or volunteers as
+well as through qualified donees and intermediaries. The charity may also use this space to describe the contributions of its volunteers in carrying out its
+programs (e.g., number of volunteers and/or hours). Grant-making charities should describe the types of organizations they support. Please note that
+“programs” does not include fundraising activities. Do not attach additional sheets of paper or annual reports.
+C2
+Ongoing programs:
+New programs:
+Place bar code label here
+w
+30,260
+5,722
+23,430
+266
+29,569
+4,142
+25,398
+26,760 2,741
+27,492
+5,171
+NA 2,841
+
+---PAGE BREAK---
+Registered charities may make gifts to qualified donees. Qualified donees are other registered Canadian charities, as well as certain other
+organizations described in the Income Tax Act.
+C3 Did the charity make gifts or transfer funds to qualified donees or other organizations? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+If yes, you must complete and attach Form T1236, Qualified Donees Worksheet/Amounts Provided to Other Organizations,
+to your return.
+No
+Yes
+2000
+C4
+No
+Yes
+2100
+Did the charity carry on, fund, or provide any resources through employees, volunteers, agents, joint ventures, contractors, or
+any other individuals, intermediaries, entities, or means (other than qualified donees) for any activity/program/project outside
+Canada? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+If yes, you must complete and attach Schedule 2, Activities Outside Canada, to your return.
+5030
+(a)  Did the charity carry on any political activities during the fiscal period? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+If the charity carried on fundraising activities or engaged third parties to carry on fundraising activities on its behalf, tick all fundraising methods that it
+used during the fiscal period.
+C6
+2500
+2510
+2530
+2540
+2550
+2560
+Draws/lotteries
+Fundraising dinners/galas/concerts
+Advertisements/print/radio/
+TV commercials
+Auctions
+Collection plate/boxes
+Door-to-door solicitation
+5450
+$
+C7 Did the charity pay external fundraisers? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+If yes , you must complete the following lines, and complete and attach Schedule 4, Confidential Data, 1. Information
+about Fundraisers.
+(a)  Enter the gross revenue collected by the fundraisers on behalf of the charity. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(b)  Enter the amounts paid to and/or retained by the fundraisers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(c)  Identify the method of payment to the fundraiser:
+No
+Yes
+2700
+2730
+2740
+2770
+Honoraria
+Other
+2780
+2790
+Commissions
+Bonuses
+2750
+2760
+Finder’s fees
+Set fee for services
+Specify:
+Did the charity compensate any of its directors/trustees or like officials or persons not at arm's length from the charity for
+services provided during the fiscal period (other than reimbursement for out-of pocket expenses)? . . . . . . . . . . . . . . . . . . . . .
+No
+Yes
+3200
+C8
+C9 Did the charity incur any expenses for compensation of employees during the fiscal period?. . . . . . . . . . . . . . . . . . . . . . . . . . .
+If yes, you must complete and attach Schedule 3, Compensation, to your return.
+No
+Yes
+3400
+Did the charity receive any donations or gifts of any kind valued at $10,000 or more from any donor that was not resident
+in Canada and was not any of the following: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  A Canadian citizen, nor
+  Employed in Canada, nor
+  Carrying on a business in Canada, nor
+  A person having disposed of taxable Canadian property?
+If yes, you must complete and attach Schedule 4, Confidential Data, 2. Information about Donors Not Resident in Canada,
+for each donation of $10,000 or more.
+C10
+C5
+(b)  Enter the total amount spent by the charity on these activities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+No
+Yes
+$
+2400
+A registered charity may pursue political activities to retain, oppose, or change the law, policy, or decision of any level of government inside or
+outside Canada provided the activities are non-partisan, related to its charitable purposes, and limited in extent.
+2570
+2575
+2580
+2590
+2600
+2610
+Targeted corporate donations/
+sponsorships
+Targeted contacts
+Fundraising sales (e.g., cookies)
+Internet
+Mail campaigns
+Planned-giving programs
+2620
+2630
+2640
+2650
+2660
+Specify:
+Telephone/TV solicitations
+Tournament/sporting events
+Cause-related marketing
+Other
+5460
+$
+(d) Did the fundraiser issue tax receipts on behalf of the charity?. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+No
+Yes
+2800
+No
+Yes
+3900
+Did the charity receive any non-cash gifts (gifts-in-kind) for which it issued tax receipts?. . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+If yes, you must complete and attach Schedule 5, Non-Cash Gifts, to your return.
+C11
+No
+Yes
+4000
+Did the charity acquire a non-qualifying security? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+C12
+No
+Yes
+5800
+Did the charity allow a donor to use any of the charity's property during the fiscal period?
+(except for permissible uses) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+C13
+No
+Yes
+5810
+Did the charity issue any of its tax receipts for donations on behalf of another organization?. . . . . . . . . . . . . . . . . . . . . . . . . .
+C14
+No
+Yes
+5820
+Page 2 of 9
+11,878
+18,213
+2,413
+27,687
+164
+29,854
+330,077,712.00 
+317,863,604.00 
+80,650,229.00 
+3,335
+2,513
+7,812
+296
+2,475
+6,977
+5,675
+2,311
+3,797
+1,884
+3,699
+3,629
+681
+2,120
+357
+3,677
+431
+29,384
+95
+3
+5
+265
+16
+51
+564
+7,920
+2,015
+27,989
+13,570
+16,289
+370
+29,640
+4,857
+25,121
+17
+30,058
+25
+30,056
+194
+29,883
+
+---PAGE BREAK---
+4020
+Was the financial information reported below prepared on an accrual or cash basis? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+D1
+Cash
+Accrual
+Please show all figures to the nearest single dollar.
+Summary of financial position:
+D2
+Using the charity's own financial statements, provide the following:
+Total assets (including land and buildings) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4200
+$
+Total liabilities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4350
+$
+Revenue:
+D3
+Did the charity borrow from, loan to, or invest assets with any non-arm's length parties?. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+No
+Yes
+Did the charity issue tax receipts for donations? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+No
+Yes
+4490
+What is the total amount for all other donations received for which a tax receipt was not issued by the charity?
+(excluding amounts at lines 4575 and 4630) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4530
+$
+Total amount received from other registered charities. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4510
+$
+Did the charity receive any revenue from any level of Canadian government? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4570
+$
+Total non tax-receipted amounts from fundraising  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4630
+$
+Other amounts not already included in the amounts above. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4650
+$
+Total revenue (Add lines 4500 to 4650, excluding line 4505) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4700
+$
+4565
+No
+Yes
+If yes, total amount received . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Expenditures:
+D4
+What was the charity's total expenditure on professional and consulting fees?  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4860
+Total expenditures (excluding gifts to qualified donees) (Add lines 4860, 4810, and 4920) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4950
+$
+What was the charity's total expenditure on travel and vehicles? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4810
+$
+All other expenditures not already included in the amounts above (excluding gifts to qualified donees)  . . . . . . . . . . . . . . . . . . . . . .
+4920
+$
+$
+Of the total amount at line 4950:
+a) How much did the charity spend on charitable programs?. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+b) How much did the charity spend on management and administration?. . . . . . . . . . . . . . . . . .
+5000
+Total expenditures (Add lines 4950 and 5050) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5100
+$
+5010
+$
+$
+Total non tax-receipted amounts from all sources outside Canada (government and non-government). . . . . . . . . . . . . . . . . . . . . . .
+4575
+$
+Total revenue from sale of goods and services (except to any level of Canadian government) . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4640
+$
+Total amount of gifts made to all qualified donees  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5050
+$
+If yes, what is the total eligible amount of all donations for which the charity issued tax receipts?. . . . . . . . . . . . . . . . . . . . . . . . . . .
+4500
+$
+Does the charity own land and/or buildings? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+No
+Yes
+4050
+4400
+Section D:  Financial Information
+If any of the following applies to your charity, proceed to Schedule 6, Detailed Financial Information, and do not complete Section D below. If none of the
+following applies, complete Section D.
+a)  The charity's revenue exceeds $100,000.
+b)  The amount of all property (e.g., investments, rental properties) not used in charitable programs exceeds $25,000.
+c)  The charity currently has permission to accumulate funds during this fiscal period.
+Page 3 of 9
+4505
+$
+Total amount of 10 year gifts received . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+16,786
+11,126
+1,401
+6,799
+143,611,202,813
+83,440,359,697
+325
+7,602
+6,521
+1,761
+7,081,709,265
+325,063,733
+2,397,344,024
+1.096,894,128
+1,178 Yes
+6,504 No
+45,660,534
+858,672,606
+1,334,421,693
+7,747,007,729
+8,961,948,582
+90,965,722,657
+1,913,578,450
+888,894,693
+12,353,786,051
+84,342,473,945
+66,745,441,456
+8,394,823,895
+3,140,599,895
+87,746,857,873
+
+---PAGE BREAK---
+This return must be signed by a director/trustee or like official of the registered charity who has authority to sign on behalf of the charity. It is a serious offence
+under the Income Tax Act to provide false or deceptive information.
+I certify that the information given on this form, the basic information sheet, and any attachment is, to the best of my knowledge, correct, complete, and current.
+Section E:  Certification
+Name (please print):
+Position in charity:
+Date:
+Signature:
+Telephone No.:
+Provide the physical address of the charity and the address in Canada for the charity's books and records. Post office box numbers and rural routes are
+not sufficient.
+F1
+Number, street, apt.  no., or lot and
+concession no.
+City
+Province or territory and postal code
+Physical address of the charity
+Address for the charity's books and records
+Name and address of individual who completed this return.
+F2
+Section F:  Confidential Data
+Firm name (if applicable):
+Name:
+City, province or territory, and postal code:
+Number, street, apt. no., R.R. no., or P.O. box no.:
+Is this the same individual who certified in Section E?
+Telephone No.:
+No
+Yes
+T3010, Registered Charity Information Return, checklist
+Have you confirmed that all charity information included in the Form TF725, Registered Charity Basic Information Sheet (BIS) is correct?
+  Some changes can be made directly on the BIS.
+Have you attached Form TF725, Registered Charity Basic Information Sheet (BIS)?
+Has the charity made any amendments to its governing documents during the fiscal period?
+ If yes, have you sent us an official copy of the amended governing documents in a separate envelope?
+Have you completed Schedule 1, Foundations, if required?
+Have you attached Form T1235, Directors/Trustees and Like Officials Worksheet?
+Have you attached Form T1236, Qualified Donees Worksheet/Amounts Provided to Other Organizations, if required?
+Have you completed Schedule 2, Activities Outside Canada, if required?
+Have you completed Schedule 3, Compensation, if required?
+Have you completed Schedule 4, Confidential Data, if required?
+Have you completed Schedule 5, Non-Cash Gifts, if required?
+Have you completed Schedule 6, Detailed Financial Information, if required?
+Have you attached a copy of the charity's financial statements?
+Page 4 of 9
+
+---PAGE BREAK---
+Foundations
+              Schedule 1
+For private foundations only:
+1
+Did the foundation acquire control of a corporation in the fiscal period? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+No
+Yes
+100
+2
+No
+Yes
+110
+Did the foundation incur any debts at any time during the fiscal period other than for current operating expenses,
+purchasing or selling investments, or in administering charitable programs? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+No
+Yes
+120
+At any time during the fiscal period, did the foundation hold any shares, rights to acquire shares, or debts
+owing to it that meet the definition of a non-qualified investment?  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4
+Did the foundation own more than 2% of any class of shares of a corporation at any time during this fiscal period? . . . . . . . . .
+If yes, you must complete and attach Form T2081, Excess Corporate Holdings Worksheet, to your return.
+(Note:  Only private foundations will have this worksheet included in their return package.)
+No
+Yes
+130
+Activities Outside Canada 
+      Schedule 2
+For more information about carrying on programs outside Canada see the Charities Directorate website at www.cra.gc.ca/charities
+3
+Using the list on the reverse, identify the countries where the charity itself carried on programs or provided any of its resources. Enter the appropriate
+country codes in the following spaces.
+No
+Yes
+220
+4
+Are any projects undertaken outside Canada funded by the
+Canadian International Development Agency (CIDA)?. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+230
+$
+5
+Were any programs carried on outside Canada carried out by employees of the charity? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+No
+Yes
+240
+Name of individual/organization
+Using the list on the reverse,
+identify country code where
+activities were carried on.
+Amount ($)
+Show amounts to the
+nearest single dollar.
+What were total expenditures on activities/programs/projects carried on outside Canada during the fiscal period,
+excluding gifts to qualified donees? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1
+Were any of the charity's resources provided for programs outside Canada under any kind of an arrangement including a
+contract, agency agreement, or joint venture to any other individual or entity (excluding gifts to qualified donees)? . . . . . . . . .
+2
+6
+No
+Yes
+250
+Were any programs carried on outside Canada carried out by volunteers of the charity?. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7
+No
+Yes
+260
+Is the charity exporting goods as part of its charitable programs? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+200
+$
+No
+Yes
+210
+If yes, what was the total amount of funds expended under this arrangement? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Item
+Value
+Destination (city/region)
+Country code
+If yes, list the items being exported, their value, their destination (city/region) and country code.
+If yes, enter the amounts of the total reported on line 200 transferred to these individuals/organizations as required in the following table:
+Page 5 of 9
+24
+9,227
+35
+9,109
+26
+5,744
+41
+5,723
+2,001,258,216
+2758
+10,386
+116
+10,799
+264,326,614
+590 Yes
+10,259 No
+1,180 Yes
+9,677 No
+175
+10,708
+
+---PAGE BREAK---
+COUNTRY CODES
+Americas-Central and South
+AR-Argentina
+BO-Bolivia
+BR-Brazil
+CL-Chile
+CO-Columbia
+CR-Costa Rica
+CU-Cuba
+DO-Dominican Republic
+EC-Ecuador
+SV-El Salvador
+GT-Guatemala
+GY-Guyana
+HT-Haiti
+HN-Honduras
+JM-Jamaica
+MX-Mexico
+NI-Nicaragua
+PA-Panama
+PE-Peru
+UY-Uruguay
+VE-Venezuela
+QM-Other
+Americas-North
+US-United States of America
+QN-Other
+Middle East
+IR-Iran
+IQ-Iraq
+IL-Israel
+PS-Israeli Occupied Territories
+JO-Jordan
+KW-Kuwait
+LB-Lebanon
+OM-Oman
+QA-Qatar
+SA-Saudi Arabia
+SY-Syrian Arab Republic
+YE-Yemen
+QO-Other
+Europe
+AL- Albania
+AM-Armenia
+BA-Bosnia and Herzegovina
+BY-Belarus
+BG-Bulgaria
+DK-Denmark
+ES-Spain
+FR-France
+GE-Georgia
+DE-Germany
+GB-United Kingdom
+HR-Croatia
+IT-Italy
+CY-Cyprus
+MK-Macedonia
+ME-Montenegro
+NL-Netherlands
+PL-Poland
+RO-Romania
+RU-Russia
+RS-Serbia
+TR-Turkey
+UA-Ukraine
+QP-Other
+Asia and Oceania
+AF- Afghanistan
+AZ-Azerbaijan
+BD-Bangladesh
+BT-Bhutan
+KH-Cambodia
+CN-China
+IN-India
+ID-Indonesia
+KZ-Kazakhstan
+KG-Kyrgyzstan
+LA-Laos
+LK-Sri Lanka
+MY-Malaysia
+MN-Mongolia
+MM-Myanmar (Burma)
+KP-North Korea
+KR-South Korea
+PK-Pakistan
+PH-Philippines
+SG-Singapore
+TH-Thailand
+TJ-Tajikistan
+TL-Timor-Leste
+UZ-Uzbekistan
+VN-Vietnam
+QR-Other
+Africa
+DZ-Algeria
+AO-Angola
+BW-Botswana
+CM-Cameroon
+CF-Central African Republic
+TD-Chad
+CG-Republic of Congo
+CD- Democratic Republic of Congo
+EG-Egypt
+ET-Ethiopia
+GA-Gabon
+GM-Gambia
+GH-Ghana
+NA-Namibia
+KE-Kenya
+LR-Liberia
+MG-Madagascar
+NE-Niger
+NG-Nigeria
+RW-Rwanda
+SL-Sierra Leone
+SO-Somalia
+SD-Sudan
+UG-Uganda
+ZM-Zambia
+ZW-Zimbabwe
+QS-Other
+                                                    Compensation
+Schedule 3
+(a)  Enter the number of permanent, full-time, compensated positions in the fiscal period. This number should represent the
+number of positions the charity had including both managerial positions and others, and should not include independent
+contractors. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(b)  For the ten (10) highest compensated, permanent, full-time positions enter the number falling within each of the following
+annual compensation categories.
+1
+380
+$
+300
+305
+$1 – $39, 999
+330
+$200,000 – $249,999
+310
+$40,000 – $79,999
+335
+$250,000 – $299,999
+315
+$80,000 – $119,999
+340
+$300,000 – $349,999
+320
+$120,000 – $159,999
+345
+$350,000 and over
+325
+$160,000 – $199,999
+(a)  Enter the number of part-time or part-year (for example, seasonal) employees the charity employed during
+the fiscal period . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+(b)  What was the total expenditure on compensation for part-time or part-year employees in the fiscal period?. . . . . . . . . . . .
+2
+370
+390
+$
+What was the charity's total expenditure on all compensation in the fiscal period? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+Page 6 of 9
+682,449
+687,342
+8,957,583,283
+49,500,071,707
+55,733
+26,694
+7,246
+2,148
+1,733
+584
+294
+188
+233
+
+---PAGE BREAK---
+                                                  Non-Cash Gifts
+Schedule 5
+Identify all types of non-cash gifts (gifts-in-kind) received for which a tax receipt was issued:
+1
+580
+$
+500
+Artwork/wine/jewellery
+530
+Life insurance policies
+525
+Ecological properties
+555
+Books (literature, comics)
+550
+Publicly traded securities/mutual funds
+505
+Building materials
+Indicate the total eligible amount of tax-receipted non-cash gifts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+510
+Clothing/furniture/food
+540
+Privately-held securities
+535
+Medical equipment/supplies
+565
+Specify:
+560
+Other
+515
+Vehicles
+520
+Cultural properties
+545
+Machinery/equipment (including computers and software)
+                                           Confidential Data
+Schedule 4
+Complete this schedule to report any donation of $10,000 or more received from any donor that was not resident in Canada and was not
+any of the following:
+  A Canadian citizen, nor
+  Employed in Canada, nor
+  Carrying on business in Canada, nor
+  A person having disposed of taxable Canadian property
+Provide the name of the donor and the value of the donation in the chart below.  You must also indicate whether the donor was an organization (for example a
+business, corporate entity, charity, non-profit organization), a government or an individual by placing a check mark in the appropriate box.
+Name
+Amount
+Organization
+Government
+Individual
+The information in this confidential data schedule is for the CRA's use but may be shared as permitted by law (e.g., with certain other government
+departments and agencies).
+1. Information about Fundraisers
+Please provide the name(s) and arm's length status of external fundraiser(s).
+2. Information about Donors Not Resident in Canada
+Name
+At arm's length? Yes/No
+Page 7 of 9
+1,126
+529
+1,908
+163
+101
+24
+291
+211
+53
+830
+874
+600
+2,446
+785,563,876
+
+---PAGE BREAK---
+Detailed Financial Information
+          Schedule 6
+Statement of financial position
+Show figures to the nearest single dollar.
+Assets:
+Liabilities:
+Cash, bank accounts, and short-term investments. . .
+4100
+$
+Accounts payable and accrued liabilities. . . .
+4300
+Amounts receivable from non-arm's length parties. . .
+4110
+Deferred revenue. . . . . . . . . . . . . . . . . . . . . .
+4310
+Amounts receivable from all others . . . . . . . . . . . . . .
+4120
+Amounts owing to non-arm's length parties. .
+4320
+Investments in non-arm's length parties. . . . . . . . . . .
+4130
+Other liabilities . . . . . . . . . . . . . . . . . . . . . . . .
+4330
+Long-term investments. . . . . . . . . . . . . . . . . . . . . . . .
+4140
+Total liabilities (add lines 4300 to 4330) . . .
+4350
+Inventories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4150
+Land and buildings in Canada . . . . . . . . . . . . . . . . . .
+4155
+Other capital assets in Canada. . . . . . . . . . . . . . . . . .
+4160
+Capital assets outside Canada. . . . . . . . . . . . . . . . . .
+4165
+Accumulated amortization of capital assets . . . . . . . .
+4166
+Other assets. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4170
+Total assets (add lines 4100 to 4170) . . . . . . . . . . .
+4200
+$
+Statement of operations
+Revenue:
+Total eligible amount of all gifts for which the charity issued tax receipts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4500
+Total eligible amount of tax-receipted tuition fees  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5610
+$
+4590
+$
+Total other gifts received for which a tax receipt was not issued by the charity  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Total revenue received from federal government. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Total revenue received from provincial/territorial governments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Total revenue received from municipal/regional governments. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Total revenue received from all sources outside Canada  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4530
+4540
+4550
+4560
+4575
+4580
+Gross proceeds from disposition of assets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Net proceeds from disposition of assets (show a negative amount with brackets). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4600
+Gross income received from rental of land and/or buildings  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4610
+Non tax-receipted revenues received for memberships, dues, and association fees  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4620
+Total non tax-receipted revenue from fundraising . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4630
+Total revenue from sale of goods and services (except to government) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4640
+4650
+Total revenue (add lines 4500, 4510 to 4580, and 4600 to 4650) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4700
+Total interest and investment income received or earned . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Advertising and promotion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4800
+Travel and vehicle expenses . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4810
+Interest and bank charges . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4820
+Licences, memberships, and dues . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . .
+4830
+Office supplies and expenses. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4840
+Occupancy costs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4850
+Professional and consulting fees . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4860
+Total expenditure on all compensation (enter the amount reported at line 390 in Schedule 3, if applicable) . . . . . . . . . . . . . . . . . . .
+4880
+Fair market value of all donated goods used in charitable programs  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4890
+Total cost of all purchased supplies and assets. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4891
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+Education and training for staff and volunteers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4870
+$
+Expenditures:
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+Other revenue not already included in the amounts above . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Specify type(s) of revenue included in the amount reported at 4650 (e.g., dividends)
+4655
+Total amount received from other registered charities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4510
+$
+$
+4505
+Total amount of 10 year gifts received . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+$
+Amount included in lines 4150, 4155, 4160,
+4165 and 4170 not used in charitable
+programs. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4250
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+4020
+Was the financial information reported below prepared on an accrual or cash basis?. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Cash
+Accrual
+Page 8 of 9
+10 year gifts . . . . . . . . .
+4180
+$
+12,130,450,415
+27,787,825,402
+1,958,967,371
+41,386,662,831
+83,440,359,697
+5,117,423,042
+143,611,202,813
+2,826,499,653
+7,699,536,709
+-33,394,302,713
+242,699,831
+26,189,324,334
+77,411,739,069
+696,188,165
+31,628,252,090
+16,786
+11,126
+17,317,440,219
+2,144,706,388
+10,725,395,567
+951,751,121
+7,081,709,265
+236,442,566
+325,063,733
+2,397,344,024
+1,096,894,128
+3,337,026,520
+48,602,842,000
+7,271,433,086
+858,672,606
+1,327,301,453
+3,595,380,245
+318,357,982
+1,037,445,561
+668,130,206
+1,334,421,693
+7,747,007,729
+8,961,948,582
+90,965,722,657
+639,447,850
+888,894,693
+923,774,545
+179,389,391
+1,610,512,207
+3,365,154,855
+1,913,578,450
+308,840,569
+50,004,106,169
+570,257,462
+570,257,462
+
+---PAGE BREAK---
+Lines 5000 to 5040 represent a breakdown of the expenditures on lines 4800 to 4920.  The total of lines 5000 to 5040 should equal line 4950.
+Total expenditures on charitable programs  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5000
+Total expenditures on management and administration. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5010
+Total expenditures on fundraising  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5020
+Total expenditures on political activities, inside or outside Canada . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5030
+Total amount of gifts made to all qualified donees. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5050
+Total expenditures (add amounts from lines 4950 and 5050) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5100
+5500
+5510
+$
+$
+5750
+$
+If the charity has received approval from the Charities Directorate to make a reduction to its disbursement quota,
+enter the amount for the fiscal period  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5900
+5910
+$
+$
+Property not used in charitable activities:
+Enter the value of property not used for charitable activities or administration during:
+  The 24 months before the beginning of the fiscal period . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  The 24 months before the end of the fiscal period. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Permission to reduce disbursement quota:
+  Enter the amount accumulated for the fiscal period, including income earned on accumulated funds . . . . . . . . . . . . . . . . . . . . . .
+  Enter the amount disbursed for the fiscal period for the specified purpose we have permitted. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+$
+Permission to accumulate property:
+Only registered charities that have written permission to accumulate should complete this section.
+Other financial information
+$
+$
+$
+$
+$
+Other expenditures not included in the amounts above (excluding gifts to qualified donees) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4920
+Total expenditures before gifts to qualified donees (add lines 4800 to 4920) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4950
+$
+$
+Specify type(s) of expenditures included in the amount reported at 4920
+4930
+Total other expenditures included in line 4950. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5040
+$
+4900
+Total expenditure for research grants and scholarships as part of charitable programs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4910
+$
+$
+Amortization of capitalized assets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Page 9 of 9
+3,528,950,362
+1,703,709,135
+12,353,786,051
+84,342,473,945
+66,745,441,456
+8,394,823,895
+1,359,733,130
+330,045,965
+3,140,599,895
+87,746,857,873
+3,965,446,083
+133,708,372
+68,992,988
+4,114,201
+21,045,024,592
+22,782,315,015
+
+---PAGE BREAK---
+www.canadiancharitylaw.ca 
+  
+ 
+Further information 
+Are you interested in more information on Transparency in the charity sector?  If so, you might find these links 
+helpful. 
+ 
+Blumbergs’ Snapshot of the Canadian Charity Sector 2012 
+Blumbergs Canadian Charity Sector Snapshot 2011 -understanding the charity sector through the T3010 
+Blumbergs Canadian Charity Sector Snapshot 2010 -a little more perspective on the sector 
+Blumbergs’ Directory on Transparency Related Articles 
+Blumbergs’ Directory on Canadian charity statistics 
+Some questions to add to the T3010 Registered Charity Information Return 
+Mark Blumberg’s submission to the Standing Committee on Finance on transparency 
+Canadian Charities and Free Transparency Tools - look before you donate your time or money 
+CRA publishes new web page on “How to get information about a charity” 
+New Transparency in Ontario for Non-Profits to be released in next few months 
+Finance Memo on Registered Charities - Political Activities, Foreign Funding and Transparency 
+Which Canadian Charities Spent Money on “political activities” and how much did they spend 
+So how much do Canadian charities receive from foreign sources according to the T3010 Returns? 
+Transparency - What can the Charities Directorate of CRA disclose about registered charities? 
+How accurate are the T3010 charity returns when it comes to political activities? 
+How to Decide Which Charity to Support 
+Community Foundations of Canada 2013 Conference in Winnipeg -some interesting stats 
+CRA publishes new web page on “How to get information about a charity” 
+CRA releases new T3010 (13)  for registered charities with fiscal year ends after January 1, 2013 
+ 
+If you are interested in more detailed information on the T3010 or customized analysis using the T3010 and 
+other datasets you should contact Steven Ayer at Common Good Strategies.  http://goodstrategy.ca/  Steven is 
+extremely knowledgeable about the T3010 and its uses.
+
+---PAGE BREAK---
+www.canadiancharitylaw.ca 
+  
+Limitations and Caveats 
+ 
+There are a number of cautions in dealing with the information from the T3010.  You can access the CRA 
+Charities Listing database directly on the CRA website at: http://www.cra-arc.gc.ca/charities/  As well, Imagine 
+Canada has a website with a tremendous amount of T3010 information at www.charityfocus.ca  
+ 
+1) The data in this note is based on the 2012 T3010 Registered Charity Information Return  filings.  Although 
+all charities are supposed to file their T3010 within 6 months of their fiscal year end, some charities file late or 
+do not file at all and then will lose their charitable status.  Depending on the data set from CRA not every 
+charity may have filed their T3010 or been inputted yet.   
+2) Registered charities complete the T3010 and one person signs the form.  The T3010 information is not 
+independently verified by CRA when it is posted on the CRA site or placed in the CRA database.   
+3) Although an important legal document, the T3010 is often completed by volunteers or others who may have 
+little understanding of the nuances of the Income Tax Act (Canada), limited language skills, may not have easy 
+access to the correct information or are in a hurry to file the form to avoid deregistration.  In the case of larger 
+institutions it is typically accountants or finance staff who prepare the T3010.  One would expect greater 
+accuracy with the larger institutions.  However, as they also tend to be more complicated and involve bigger 
+numbers the likelihood of a significant inaccuracy in their T3010 filings is great.   
+4) The T3010s are filed with CRA and in many cases needs to be coded by hand at CRA which can also 
+introduce mistakes.  Only a small number of T3010s have 2D bar code technology which can eliminate most 
+processing errors on CRA’s part.  Canadian charities still cannot electronically file the T3010. 
+ 
+5) In some cases those completing the T3010 for a charity are deliberately deceptive when completing the 
+T3010.  For example, an organizations knows that it has substantial fundraising or political expenses but 
+chooses to put them under charitable activities.  Or an organization claims pharmaceuticals that it can purchase 
+for $50,000 are really worth $50 million. 
+6) Don’t rely on any of this information without checking with the charity and appropriate due diligence as 
+required. 
+7) The T3010 is a tax form which is supposed to be completed according to guidance provided by the CRA in 
+Guide Completing the Registered Charity Information Return (T-4033) and also various other CRA guidances 
+and policies.  The information inputted may not conform to Generally Accepted Accounting Principles (GAAP)  
+and many not match what is in a financial statement.  You can obtain copies of financial statements, whether 
+audited or not, on any registered charity by requesting the financial statements from CRA.  These financial 
+statements are filed with CRA but not placed on the CRA website and they can sometimes add further 
+information.   
+8) Some questions on the T3010 or more prone to error than others.  Some questions are complicated, while 
+others are quite straightforward.  Some matters are easily quantifiable like value of receipts, while others require 
+allocation and other subjective measurements. Some questions, like revenue, are answered by almost every 
+
+---PAGE BREAK---
+www.canadiancharitylaw.ca 
+  
+charity and if a charity makes a mistake the likelihood is that such a mistake will not have much impact on the 
+bigger picture.  On the other hand some numbers like political expenditures by Canadian charities are often 
+incorrectly completed and even one or two charities by mistakenly inserting large numbers in this category can 
+distort the picture.     
+9) The T3010 asks certain questions.  Many important questions are not asked on the T3010.  Relying on the 
+T3010 to make decisions on whether a charity is efficient or worthwhile to support is prone to failure.   We have 
+established a website at www.smartgiving.ca which discusses in detail questions donors may want to ask before 
+donating to charity. 
+ 
+Mark Blumberg is a lawyer at Blumberg Segal LLP in Toronto, Ontario.  He works almost exclusively in the area of non-
+profit and charity law.   To find out more about legal services that Blumbergs provides to charities and non-profits please 
+visit www.canadiancharitylaw.ca  or www.globalphilanthropy.ca 
+ 
+This article is for information purposes only. It is not intended to be legal advice. You should not act or abstain from 
+acting based upon such information without first consulting a legal professional. 
+
+---PAGE BREAK---
