@@ -15,12 +15,16 @@ blumbergs/
 │   ├── db/                 # cra_charities.duckdb (built by loader)
 │   └── exports/            # Generated output files
 ├── docs/
-│   ├── reference/          # T3010 form PDFs, Blumbergs Snapshot report
+│   ├── context/            # AI-optimized context docs (read these for domain expertise)
+│   ├── reference/          # T3010 form PDFs, Blumbergs publications
+│   │   └── blumbergs/      # 51 Blumbergs PDFs + extracted text
 │   └── plans/              # Design and implementation docs
 ├── scripts/
 │   ├── load_csv.py         # CSV → DuckDB loader
+│   ├── validate_db.py      # Post-load database integrity checks (35 checks)
 │   ├── queries/            # Reusable .sql files
 │   └── reports/            # Report-generating Python scripts
+├── requirements.txt        # Python dependencies (duckdb, openpyxl, pymupdf)
 ├── CLAUDE.md
 └── CRA_T3010_Reference.md
 ```
@@ -30,6 +34,9 @@ blumbergs/
 ```bash
 # Rebuild database from CSVs (idempotent, ~20s)
 python3 scripts/load_csv.py
+
+# Validate database after loading (35 integrity checks)
+python3 scripts/validate_db.py
 
 # Load a different year
 python3 scripts/load_csv.py data/raw/2025/
@@ -50,7 +57,7 @@ print(con.execute(open('scripts/queries/sector_snapshot.sql').read()).fetchdf().
 "
 ```
 
-DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=True` unless intentionally modifying.
+DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=True` unless intentionally modifying. `openpyxl` is installed for Excel workbook generation. `pymupdf` (fitz) is available for PDF rendering/extraction.
 
 ## Database Schema
 
@@ -95,13 +102,15 @@ DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=
 
 1. **Currency fields are text** — Format `"$1,234,567"`. Convert with:
    ```sql
-   CAST(REPLACE(REPLACE(column, '$', ''), ',', '') AS DECIMAL)
+   TRY_CAST(REPLACE(REPLACE(column, '$', ''), ',', '') AS DECIMAL)
    ```
+   Use `TRY_CAST` not `CAST` — some rows have non-numeric values (letters, blanks) that cause `CAST` to fail.
 2. **Always LEFT JOIN from ident/charity_base** — Not all charities appear in every table
 3. **Column names in raw tables use T3010 line numbers** (e.g., `"4700"` = total revenue). Use the views for readable names.
 4. **BN column name varies by table** — `"BN/Registration Number"` vs `"BN/Registration number"`. Views normalize to `bn`.
 5. **Designation codes**: A = Public Foundation, B = Private Foundation, C = Charitable Organization (~85% of charities)
 6. **CSV encoding** — Files are ISO-8859/CP1252. The loader uses DuckDB encoding `CP1252` (NOT `IBM_1252` which is EBCDIC and mangles ASCII to fullwidth Unicode).
+7. **schedule_3_compensation mixed types** — Lines 300/370 are BIGINT (no currency formatting), but line 390 is VARCHAR (has `$` and `,`). Don't apply REPLACE() to BIGINT columns.
 
 ## T3010 Form Structure
 
@@ -125,7 +134,8 @@ The T3010 has 5 sections mapped to the database:
 | 4500 | Tax-receipted gifts |
 | 4510 | Gifts from other charities |
 | 4540/4550/4560 | Government funding (fed/prov/muni) |
-| 4570 | Total government funding |
+| 4570 | Total government funding (**UNRELIABLE** — compute as 4540+4550+4560 instead) |
+| 4880 | Total compensation (mirrors schedule_3 line 390) |
 | 4700 | Total revenue |
 | 5000 | Charitable program expenditures |
 | 5010 | Management and admin |
@@ -152,9 +162,17 @@ Per the Blumbergs Snapshot methodology:
 2. Move lookup tables to `data/raw/{year}/lookups/`
 3. Run `python3 scripts/load_csv.py data/raw/{year}/`
 
+## AI Context Documents
+
+Read these before any analysis task — they encode 14 years of Blumbergs domain expertise:
+- `docs/context/data-interpretation-guide.md` — How to correctly interpret every T3010 line, designation-specific patterns, data type gotchas
+- `docs/context/sector-trends.md` — Historical baselines 2010-2023 (revenue, govt funding, compensation, foreign activities by year)
+- `docs/context/methodology-notes.md` — Snapshot methodology, all data quality caveats, known unreliable fields
+- `docs/context/regulatory-context.md` — DQ rules, DAF regulation, political activities history, CRA oversight, transparency advocacy
+
 ## Reference Documentation
 
 - `CRA_T3010_Reference.md` — Field mappings and relationship diagrams
 - `docs/reference/t3010-24e.pdf` — Official T3010 form (2024 version)
 - `docs/reference/t3010-lp-24e.pdf` — T3010 large print version (detailed field descriptions)
-- `docs/reference/blumbergs-snapshot-2022.pdf` — Blumbergs' Snapshot analysis methodology and findings
+- `docs/reference/blumbergs/` — 51 Blumbergs PDFs (snapshots, provincial, designation, DAF, pre-budget) + extracted text in `extracted/`
