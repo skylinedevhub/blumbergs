@@ -455,13 +455,79 @@ def build_section_d(wb, con, where):
 
 
 def build_schedule_1(wb, con, where):
+    """Schedule 1: Foundations."""
     ws = wb.create_sheet("Schedule 1")
-    ws.append(["Schedule 1", "", "placeholder"])
+    bold = Font(bold=True)
+    st = scoped_table
+
+    ws.append(["Blumbergs Snapshot 2024 — Schedule 1: Foundations"])
+    ws["A1"].font = bold
+    ws.append([])
+    ws.append(["Line", "Question", "Yes / Value", "No"])
+    for c in ["A", "B", "C", "D"]:
+        ws[f"{c}3"].font = bold
+
+    def yn(col, label):
+        y = con.execute(f"SELECT COUNT(*) FROM {st('schedule_1_foundations', where)} AND t.\"{col}\" = 'Y'").fetchone()[0]
+        n = con.execute(f"SELECT COUNT(*) FROM {st('schedule_1_foundations', where)} AND t.\"{col}\" = 'N'").fetchone()[0]
+        ws.append([col, label, y, n])
+
+    yn("100", "Did foundation acquire control of a corporation?")
+    yn("110", "Did foundation incur debts other than operating?")
+
+    val_111 = con.execute(f"SELECT SUM({money('t.\"111\"')}) FROM {st('schedule_1_foundations', where)}").fetchone()[0]
+    val_112 = con.execute(f"SELECT SUM({money('t.\"112\"')}) FROM {st('schedule_1_foundations', where)}").fetchone()[0]
+    ws.append(["111", "Total value of restricted funds", val_111])
+    ws.append(["112", "Amount not permitted to spend (funder direction)", val_112])
+
+    ws.append([])
+    ws.append(["", "FOR PRIVATE FOUNDATIONS ONLY"])
+    ws[f"B{ws.max_row}"].font = bold
+    yn("120", "Hold non-qualified investments?")
+    yn("130", "Own >2% of any class of shares?")
+
+    ws.column_dimensions["A"].width = 10
+    ws.column_dimensions["B"].width = 55
+    ws.column_dimensions["C"].width = 15
+    ws.column_dimensions["D"].width = 12
 
 
 def build_schedule_2(wb, con, where):
+    """Schedule 2: Activities outside Canada."""
     ws = wb.create_sheet("Schedule 2")
-    ws.append(["Schedule 2", "", "placeholder"])
+    bold = Font(bold=True)
+    st = scoped_table
+
+    ws.append(["Blumbergs Snapshot 2024 — Schedule 2: Activities Outside Canada"])
+    ws["A1"].font = bold
+    ws.append([])
+    ws.append(["Line", "Question / Metric", "Yes / Value", "No"])
+    for c in ["A", "B", "C", "D"]:
+        ws[f"{c}3"].font = bold
+
+    # Line 200: total foreign expenditures
+    val_200 = con.execute(f"SELECT SUM({money('t.\"200\"')}) FROM {st('schedule_2_summary', where)}").fetchone()[0]
+    ws.append(["200", "Total expenditures on activities outside Canada", val_200])
+
+    def yn(col, label):
+        y = con.execute(f"SELECT COUNT(*) FROM {st('schedule_2_summary', where)} AND t.\"{col}\" = 'Y'").fetchone()[0]
+        n = con.execute(f"SELECT COUNT(*) FROM {st('schedule_2_summary', where)} AND t.\"{col}\" = 'N'").fetchone()[0]
+        ws.append([col, label, y, n])
+
+    yn("210", "Financial resources spent via contracts/arrangements?")
+
+    yn("220", "Projects funded by Global Affairs Canada?")
+    val_230 = con.execute(f"SELECT SUM({money('t.\"230\"')}) FROM {st('schedule_2_summary', where)}").fetchone()[0]
+    ws.append(["230", "  Total amount from Global Affairs Canada", val_230])
+
+    yn("240", "Employees conducted activities outside Canada?")
+    yn("250", "Volunteers conducted foreign activities?")
+    yn("260", "Export goods as charitable activities?")
+
+    ws.column_dimensions["A"].width = 10
+    ws.column_dimensions["B"].width = 55
+    ws.column_dimensions["C"].width = 15
+    ws.column_dimensions["D"].width = 12
 
 
 def build_schedule_3(wb, con, where):
