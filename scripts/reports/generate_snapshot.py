@@ -20,6 +20,7 @@ import time
 import duckdb
 from openpyxl import Workbook
 from openpyxl.styles import Font, numbers
+from openpyxl.utils import get_column_letter
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DB_PATH = os.path.join(PROJECT_ROOT, "data", "db", "cra_charities.duckdb")
@@ -45,6 +46,26 @@ DESIGNATIONS = {
     "B": "Private Foundation",
     "C": "Charitable Organization",
 }
+
+SECTION_LABELS = {
+    "a": "SECTION A: IDENTIFICATION",
+    "c": "SECTION C: PROGRAMS AND GENERAL INFORMATION",
+    "d": "SECTION D: FINANCIAL INFORMATION",
+    "s1": "SCHEDULE 1: FOUNDATIONS",
+    "s2": "SCHEDULE 2: ACTIVITIES OUTSIDE CANADA",
+    "s3": "SCHEDULE 3: COMPENSATION",
+    "s5": "SCHEDULE 5: NON-CASH GIFTS",
+    "s6": "SCHEDULE 6: DETAILED FINANCIAL INFORMATION",
+    "s8": "SCHEDULE 8: DISBURSEMENT QUOTA",
+}
+
+
+def section_divider(ws, key):
+    """Append a blank row + bold size-12 section title on the shared Summary sheet."""
+    ws.append([])
+    ws.append([SECTION_LABELS[key]])
+    ws[f"A{ws.max_row}"].font = Font(bold=True, size=12)
+    ws.append([])
 
 
 def money(col):
@@ -109,16 +130,29 @@ def generate_snapshot(filter_type, filter_value):
     total = con.execute(f"SELECT COUNT(*) FROM charity_base cb WHERE {where}").fetchone()[0]
     print(f"  Generating {filename} — {description} ({total:,} charities)")
 
-    # Build each sheet
-    build_section_a(wb, con, where, description, total)
-    build_section_c(wb, con, where)
-    build_section_d(wb, con, where)
-    build_schedule_1(wb, con, where)
-    build_schedule_2(wb, con, where)
-    build_schedule_3(wb, con, where)
-    build_schedule_5(wb, con, where)
-    build_schedule_6(wb, con, where)
-    build_schedule_8(wb, con, where)
+    # Combined Summary sheet
+    ws_summary = wb.create_sheet("Summary")
+    ws_summary.column_dimensions["A"].width = 12
+    ws_summary.column_dimensions["B"].width = 55
+    ws_summary.column_dimensions["C"].width = 20
+    ws_summary.column_dimensions["D"].width = 15
+    ws_summary.column_dimensions["E"].width = 20
+
+    # Global header
+    ws_summary.append([f"Blumbergs Snapshot 2024 — {description}"])
+    ws_summary["A1"].font = Font(bold=True, size=14)
+    ws_summary.append([f"Based on T3010 filings for {total:,} registered charities."])
+
+    # All 9 section builders write to the same Summary sheet
+    build_section_a(ws_summary, con, where, description, total)
+    build_section_c(ws_summary, con, where)
+    build_section_d(ws_summary, con, where)
+    build_schedule_1(ws_summary, con, where)
+    build_schedule_2(ws_summary, con, where)
+    build_schedule_3(ws_summary, con, where)
+    build_schedule_5(ws_summary, con, where)
+    build_schedule_6(ws_summary, con, where)
+    build_schedule_8(ws_summary, con, where)
 
     # Add row-level detail sheets for audit verification
     print("  Adding detail sheets...")
@@ -142,6 +176,8 @@ def build_detail_sheet(wb, con, where, table, sheet_name):
 
     Currency VARCHAR columns (containing '$') are auto-converted to DECIMAL.
     The source table's BN column is replaced by cb.bn and cb.designation_code.
+    Row 2 contains Excel formulas (SUM for numeric, COUNTIF for Y/N) so users
+    can see how the Summary aggregates are computed.
     """
     bold = Font(bold=True)
     bn_col = BN_COL[table]
@@ -167,9 +203,26 @@ def build_detail_sheet(wb, con, where, table, sheet_name):
             if sample and "$" in str(sample[0]):
                 currency_cols.add(name)
 
-    # Build SELECT clause
+    # Auto-detect Y/N columns: VARCHAR columns (not currency) with only Y/N values
+    yn_cols = set()
+    for name, ctype in col_types.items():
+        if name == bn_raw:
+            continue
+        if ctype == "VARCHAR" and name not in currency_cols:
+            sample = con.execute(
+                f'SELECT DISTINCT t."{name}" FROM {table} t '
+                f'WHERE t."{name}" IS NOT NULL AND t."{name}" != \'\' LIMIT 10'
+            ).fetchall()
+            vals = {r[0] for r in sample}
+            if vals and vals.issubset({"Y", "N"}):
+                yn_cols.add(name)
+
+    # Build SELECT clause — prepend cb.bn and cb.designation_code
     select_parts = ["cb.bn", "cb.designation_code"]
     header = ["bn", "designation_code"]
+    # Track column types for formula generation (indexed by position in header)
+    col_formula_type = ["text", "text"]  # bn and designation_code are text
+
     for name in col_names:
         if name == bn_raw:
             continue
@@ -177,8 +230,17 @@ def build_detail_sheet(wb, con, where, table, sheet_name):
             select_parts.append(
                 f"TRY_CAST(REPLACE(REPLACE(t.\"{name}\", '$', ''), ',', '') AS DECIMAL) AS \"{name}\""
             )
+            col_formula_type.append("sum")
         else:
             select_parts.append(f't."{name}"')
+            ctype = col_types[name]
+            if name in yn_cols:
+                col_formula_type.append("yn")
+            elif ctype in ("BIGINT", "INTEGER", "DOUBLE", "FLOAT", "DECIMAL"):
+                # Skip Form ID-like columns (first BIGINT named like an ID)
+                col_formula_type.append("sum")
+            else:
+                col_formula_type.append("text")
         header.append(name)
 
     sql = f"""
@@ -192,11 +254,31 @@ def build_detail_sheet(wb, con, where, table, sheet_name):
     rows = con.execute(sql).fetchall()
 
     ws = wb.create_sheet(sheet_name)
+
+    # Row 1: header
     ws.append(header)
     for cell in ws[1]:
         cell.font = bold
+
+    # Row 2: formula placeholder (filled after data)
+    ws.append(["TOTALS"])
+    ws["A2"].font = bold
+
+    # Rows 3+: data
     for row in rows:
         ws.append(list(row))
+
+    # Fill row 2 with formulas
+    last_row = ws.max_row
+    if last_row >= 3:
+        for col_idx in range(len(header)):
+            ftype = col_formula_type[col_idx]
+            col_letter = get_column_letter(col_idx + 1)
+            cell = ws[f"{col_letter}2"]
+            if ftype == "sum":
+                cell.value = f"=SUM({col_letter}3:{col_letter}{last_row})"
+            elif ftype == "yn":
+                cell.value = f'=COUNTIF({col_letter}3:{col_letter}{last_row},"Y")'
 
     return len(rows)
 
@@ -221,17 +303,12 @@ def build_detail_sheets(wb, con, where):
         print(f"    {sheet_name}: {count:,} rows")
 
 
-def build_section_a(wb, con, where, description, total):
+def build_section_a(ws, con, where, description, total):
     """Section A: Identification — charity counts, contact info, A1-A3."""
-    ws = wb.create_sheet("Section A")
     bold = Font(bold=True)
     st = scoped_table
 
-    # Header
-    ws.append([f"Blumbergs Snapshot 2024 — {description}"])
-    ws["A1"].font = bold
-    ws.append([f"Based on T3010 filings for {total:,} registered charities."])
-    ws.append([])
+    section_divider(ws, "a")
 
     ws.append(["", "Metric", "Value"])
     ws[f"B{ws.max_row}"].font = bold
@@ -284,25 +361,17 @@ def build_section_a(wb, con, where, description, total):
         n = con.execute(f"SELECT COUNT(*) FROM {st('financial_abc', where)} AND t.{col} = 'N'").fetchone()[0]
         ws.append([line.split(" ")[0] if " " in line else line, label, y, n])
 
-    # Column widths
-    ws.column_dimensions["A"].width = 12
-    ws.column_dimensions["B"].width = 45
-    ws.column_dimensions["C"].width = 15
-    ws.column_dimensions["D"].width = 15
 
-
-def build_section_c(wb, con, where):
+def build_section_c(ws, con, where):
     """Section C: Programs, general info, fundraising, DAF."""
-    ws = wb.create_sheet("Section C")
     bold = Font(bold=True)
     st = scoped_table
 
-    ws.append(["Blumbergs Snapshot 2024 — Section C: Programs and General Information"])
-    ws["A1"].font = bold
-    ws.append([])
+    section_divider(ws, "c")
+
     ws.append(["Line", "Question / Metric", "Yes / Count", "No", "Notes"])
     for c in ["A", "B", "C", "D", "E"]:
-        ws[f"{c}3"].font = bold
+        ws[f"{c}{ws.max_row}"].font = bold
 
     def yn(col_name, label, notes=""):
         """Add a yes/no count row for a financial_abc column."""
@@ -417,26 +486,17 @@ def build_section_c(wb, con, where):
         val = con.execute(f"SELECT SUM({money(f't.\"{col}\"')}) FROM {st('financial_abc', where)}").fetchone()[0]
         ws.append([col, f"  {label}", val])
 
-    # Column widths
-    ws.column_dimensions["A"].width = 12
-    ws.column_dimensions["B"].width = 50
-    ws.column_dimensions["C"].width = 18
-    ws.column_dimensions["D"].width = 12
-    ws.column_dimensions["E"].width = 20
 
-
-def build_section_d(wb, con, where):
+def build_section_d(ws, con, where):
     """Section D: Financial information summary (lines 4020-5100)."""
-    ws = wb.create_sheet("Section D")
     bold = Font(bold=True)
     st = scoped_table
 
-    ws.append(["Blumbergs Snapshot 2024 — Section D: Financial Information"])
-    ws["A1"].font = bold
-    ws.append([])
+    section_divider(ws, "d")
+
     ws.append(["Line", "Description", "Value"])
     for c in ["A", "B", "C"]:
-        ws[f"{c}3"].font = bold
+        ws[f"{c}{ws.max_row}"].font = bold
 
     def sum_line(col):
         return con.execute(
@@ -538,23 +598,17 @@ def build_section_d(wb, con, where):
     for line, desc in exp_lines:
         ws.append([line, desc, sum_line(line)])
 
-    ws.column_dimensions["A"].width = 12
-    ws.column_dimensions["B"].width = 55
-    ws.column_dimensions["C"].width = 20
 
-
-def build_schedule_1(wb, con, where):
+def build_schedule_1(ws, con, where):
     """Schedule 1: Foundations."""
-    ws = wb.create_sheet("Schedule 1")
     bold = Font(bold=True)
     st = scoped_table
 
-    ws.append(["Blumbergs Snapshot 2024 — Schedule 1: Foundations"])
-    ws["A1"].font = bold
-    ws.append([])
+    section_divider(ws, "s1")
+
     ws.append(["Line", "Question", "Yes / Value", "No"])
     for c in ["A", "B", "C", "D"]:
-        ws[f"{c}3"].font = bold
+        ws[f"{c}{ws.max_row}"].font = bold
 
     def yn(col, label):
         y = con.execute(f"SELECT COUNT(*) FROM {st('schedule_1_foundations', where)} AND t.\"{col}\" = 'Y'").fetchone()[0]
@@ -575,24 +629,17 @@ def build_schedule_1(wb, con, where):
     yn("120", "Hold non-qualified investments?")
     yn("130", "Own >2% of any class of shares?")
 
-    ws.column_dimensions["A"].width = 10
-    ws.column_dimensions["B"].width = 55
-    ws.column_dimensions["C"].width = 15
-    ws.column_dimensions["D"].width = 12
 
-
-def build_schedule_2(wb, con, where):
+def build_schedule_2(ws, con, where):
     """Schedule 2: Activities outside Canada."""
-    ws = wb.create_sheet("Schedule 2")
     bold = Font(bold=True)
     st = scoped_table
 
-    ws.append(["Blumbergs Snapshot 2024 — Schedule 2: Activities Outside Canada"])
-    ws["A1"].font = bold
-    ws.append([])
+    section_divider(ws, "s2")
+
     ws.append(["Line", "Question / Metric", "Yes / Value", "No"])
     for c in ["A", "B", "C", "D"]:
-        ws[f"{c}3"].font = bold
+        ws[f"{c}{ws.max_row}"].font = bold
 
     # Line 200: total foreign expenditures
     val_200 = con.execute(f"SELECT SUM({money('t.\"200\"')}) FROM {st('schedule_2_summary', where)}").fetchone()[0]
@@ -613,24 +660,17 @@ def build_schedule_2(wb, con, where):
     yn("250", "Volunteers conducted foreign activities?")
     yn("260", "Export goods as charitable activities?")
 
-    ws.column_dimensions["A"].width = 10
-    ws.column_dimensions["B"].width = 55
-    ws.column_dimensions["C"].width = 15
-    ws.column_dimensions["D"].width = 12
 
-
-def build_schedule_3(wb, con, where):
+def build_schedule_3(ws, con, where):
     """Schedule 3: Compensation by salary band."""
-    ws = wb.create_sheet("Schedule 3")
     bold = Font(bold=True)
     st = scoped_table
 
-    ws.append(["Blumbergs Snapshot 2024 — Schedule 3: Compensation"])
-    ws["A1"].font = bold
-    ws.append([])
+    section_divider(ws, "s3")
+
     ws.append(["Line", "Description", "Value"])
     for c in ["A", "B", "C"]:
-        ws[f"{c}3"].font = bold
+        ws[f"{c}{ws.max_row}"].font = bold
 
     def sum_bigint(col):
         """Sum a BIGINT column (no currency formatting)."""
@@ -679,23 +719,17 @@ def build_schedule_3(wb, con, where):
     ).fetchone()[0]
     ws.append(["", "Cross-check: financial_d line 4880", val_4880])
 
-    ws.column_dimensions["A"].width = 10
-    ws.column_dimensions["B"].width = 40
-    ws.column_dimensions["C"].width = 20
 
-
-def build_schedule_5(wb, con, where):
+def build_schedule_5(ws, con, where):
     """Schedule 5: Non-cash gifts by type."""
-    ws = wb.create_sheet("Schedule 5")
     bold = Font(bold=True)
     st = scoped_table
 
-    ws.append(["Blumbergs Snapshot 2024 — Schedule 5: Non-cash Gifts"])
-    ws["A1"].font = bold
-    ws.append([])
+    section_divider(ws, "s5")
+
     ws.append(["Line", "Gift Type", "Count"])
     for c in ["A", "B", "C"]:
-        ws[f"{c}3"].font = bold
+        ws[f"{c}{ws.max_row}"].font = bold
 
     gift_types = [
         ("500", "Artwork/wine/jewellery"),
@@ -726,23 +760,17 @@ def build_schedule_5(wb, con, where):
     ).fetchone()[0]
     ws.append(["580", "Total amount of tax-receipted non-cash gifts", val_580])
 
-    ws.column_dimensions["A"].width = 10
-    ws.column_dimensions["B"].width = 50
-    ws.column_dimensions["C"].width = 20
 
-
-def build_schedule_6(wb, con, where):
+def build_schedule_6(ws, con, where):
     """Schedule 6: Detailed financial information (all line items)."""
-    ws = wb.create_sheet("Schedule 6")
     bold = Font(bold=True)
     st = scoped_table
 
-    ws.append(["Blumbergs Snapshot 2024 — Schedule 6: Detailed Financial Information"])
-    ws["A1"].font = bold
-    ws.append([])
+    section_divider(ws, "s6")
+
     ws.append(["Line", "Description", "Value"])
     for c in ["A", "B", "C"]:
-        ws[f"{c}3"].font = bold
+        ws[f"{c}{ws.max_row}"].font = bold
 
     def s(col):
         """Sum a currency column from financial_d."""
@@ -863,23 +891,17 @@ def build_schedule_6(wb, con, where):
     for line, desc in other:
         ws.append([line, desc, s(line)])
 
-    ws.column_dimensions["A"].width = 10
-    ws.column_dimensions["B"].width = 55
-    ws.column_dimensions["C"].width = 20
 
-
-def build_schedule_8(wb, con, where):
+def build_schedule_8(ws, con, where):
     """Schedule 8: Disbursement quota calculations."""
-    ws = wb.create_sheet("Schedule 8")
     bold = Font(bold=True)
     st = scoped_table
 
-    ws.append(["Blumbergs Snapshot 2024 — Schedule 8: Disbursement Quota"])
-    ws["A1"].font = bold
-    ws.append([])
+    section_divider(ws, "s8")
+
     ws.append(["Line", "Description", "Value"])
     for c in ["A", "B", "C"]:
-        ws[f"{c}3"].font = bold
+        ws[f"{c}{ws.max_row}"].font = bold
 
     def s(col):
         return con.execute(
@@ -920,10 +942,6 @@ def build_schedule_8(wb, con, where):
     ]
     for line, desc in step2:
         ws.append([line, desc, s(line)])
-
-    ws.column_dimensions["A"].width = 10
-    ws.column_dimensions["B"].width = 55
-    ws.column_dimensions["C"].width = 20
 
 
 def main():
