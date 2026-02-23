@@ -55,9 +55,32 @@ import duckdb
 con = duckdb.connect('data/db/cra_charities.duckdb', read_only=True)
 print(con.execute(open('scripts/queries/sector_snapshot.sql').read()).fetchdf().to_string())
 "
+
+# Generate snapshot Excel workbooks (requires database built first)
+python3 scripts/reports/generate_snapshot.py            # Canada-wide only
+python3 scripts/reports/generate_snapshot.py --all      # All 13 workbooks (Canada + 9 provincial + 3 designation)
+python3 scripts/reports/generate_snapshot.py --province ON
+python3 scripts/reports/generate_snapshot.py --provincial  # All 9 provincial workbooks
+python3 scripts/reports/generate_snapshot.py --designation A  # Public Foundations only
+python3 scripts/reports/generate_snapshot.py --designations   # All 3 designation workbooks
+
+# Charity lookup (replace BN)
+python3 -c "
+import duckdb, sys
+bn = sys.argv[1]
+con = duckdb.connect('data/db/cra_charities.duckdb', read_only=True)
+sql = open('scripts/queries/charity_lookup.sql').read().replace('\$BN', bn)
+for stmt in sql.split(';\n'):
+    stmt = stmt.strip()
+    if stmt and not stmt.startswith('--'):
+        print(con.execute(stmt).fetchdf().to_string()); print()
+con.close()
+" 119080464RR0001
 ```
 
-DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=True` unless intentionally modifying. `openpyxl` is installed for Excel workbook generation. `pymupdf` (fitz) is available for PDF rendering/extraction.
+DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=True` unless intentionally modifying. `openpyxl` is installed for Excel workbook generation. `pymupdf` (fitz) is available for PDF rendering/extraction. `python-docx` is available for Word document manipulation.
+
+**No test suite exists.** Validation is done via `scripts/validate_db.py` (35 integrity checks on the database).
 
 ## Database Schema
 
@@ -89,7 +112,7 @@ DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=
 - **lookup_category** (252), **lookup_country** (250), **lookup_designation** (3), **lookup_programs** (71), **lookup_province** (13), **lookup_form_versioning** (5), **lookup_us_state** (51)
 
 ### Views (use these for friendlier column names)
-- **v_financial_d** — `bn`, `fiscal_period_end`, `total_revenue` (4200), `total_expenditures` (5000), `total_assets` (5030)
+- **v_financial_d** — `bn`, `fiscal_period_end`, `total_revenue` (4700), `total_expenditures` (5100), `total_assets` (4200)
 - **v_financial_abc** — `bn`, `fiscal_period_end`, `is_subsidiary`, `parent_bn`, `parent_name`
 - **v_compensation** — `bn`, `fiscal_period_end`, `ft_employees`, `pt_employees`, `total_compensation`
 - **v_programs** — `bn`, `fiscal_period_end`, `program_type`, `description`
@@ -107,7 +130,7 @@ DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=
    Use `TRY_CAST` not `CAST` — some rows have non-numeric values (letters, blanks) that cause `CAST` to fail.
 2. **Always LEFT JOIN from ident/charity_base** — Not all charities appear in every table
 3. **Column names in raw tables use T3010 line numbers** (e.g., `"4700"` = total revenue). Use the views for readable names.
-4. **BN column name varies by table** — `"BN/Registration Number"` vs `"BN/Registration number"`. Views normalize to `bn`.
+4. **BN column name varies by table** — `"BN/Registration Number"` (capital N) in `ident`, `financial_d`, `schedule_8_disbursement`; `"BN/Registration number"` (lowercase n) everywhere else. Views normalize to `bn`.
 5. **Designation codes**: A = Public Foundation, B = Private Foundation, C = Charitable Organization (~85% of charities)
 6. **CSV encoding** — Files are ISO-8859/CP1252. The loader uses DuckDB encoding `CP1252` (NOT `IBM_1252` which is EBCDIC and mangles ASCII to fullwidth Unicode).
 7. **schedule_3_compensation mixed types** — Lines 300/370 are BIGINT (no currency formatting), but line 390 is VARCHAR (has `$` and `,`). Don't apply REPLACE() to BIGINT columns.
@@ -155,6 +178,17 @@ Per the Blumbergs Snapshot methodology:
 - Subjective fields (like political expenditures, program allocations) are prone to errors
 - Larger institutions tend to be more accurate but also more complex
 - Some questions changed between form versions (see `lookup_form_versioning`)
+
+## Snapshot Generator Architecture
+
+`scripts/reports/generate_snapshot.py` produces 13 Excel workbooks (1 Canada-wide, 9 provincial, 3 by designation). Each workbook has 9 sheets mirroring T3010 sections (A, C, D, Schedules 1-3, 5-6, 8).
+
+Key patterns:
+- **Scope filtering**: `get_scope_filter()` returns a WHERE clause against `charity_base cb` — all queries INNER JOIN through `charity_base` to restrict scope
+- **Currency conversion**: `money(col)` helper wraps the `TRY_CAST(REPLACE(REPLACE(...)))` pattern
+- **BN column mapping**: `BN_COL` dict maps table names to their specific BN column name (capital vs lowercase N)
+- **Sheet builders**: Each `build_*()` function takes `(wb, con, where)` and appends a worksheet
+- Output goes to `data/exports/snapshots_2024/`
 
 ## Adding a New Year
 

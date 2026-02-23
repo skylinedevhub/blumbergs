@@ -82,8 +82,8 @@ VIEWS_SQL = [
     """
     CREATE OR REPLACE VIEW v_financial_d AS
     SELECT "BN/Registration Number" AS bn, "Fiscal Period End" AS fiscal_period_end,
-           "Form ID" AS form_id, "4200" AS total_revenue, "5000" AS total_expenditures,
-           "5030" AS total_assets, *
+           "Form ID" AS form_id, "4700" AS total_revenue, "5100" AS total_expenditures,
+           "4200" AS total_assets, *
     FROM financial_d;
     """,
     """
