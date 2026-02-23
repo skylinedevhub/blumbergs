@@ -531,8 +531,68 @@ def build_schedule_2(wb, con, where):
 
 
 def build_schedule_3(wb, con, where):
+    """Schedule 3: Compensation by salary band."""
     ws = wb.create_sheet("Schedule 3")
-    ws.append(["Schedule 3", "", "placeholder"])
+    bold = Font(bold=True)
+    st = scoped_table
+
+    ws.append(["Blumbergs Snapshot 2024 — Schedule 3: Compensation"])
+    ws["A1"].font = bold
+    ws.append([])
+    ws.append(["Line", "Description", "Value"])
+    for c in ["A", "B", "C"]:
+        ws[f"{c}3"].font = bold
+
+    def sum_bigint(col):
+        """Sum a BIGINT column (no currency formatting)."""
+        return con.execute(
+            f'SELECT SUM(t."{col}") FROM {st("schedule_3_compensation", where)}'
+        ).fetchone()[0]
+
+    def sum_currency(col):
+        return con.execute(
+            f"SELECT SUM({money(f't.\"{col}\"')}) FROM {st('schedule_3_compensation', where)}"
+        ).fetchone()[0]
+
+    # Full-time positions
+    ws.append(["", "FULL-TIME POSITIONS"])
+    ws[f"B{ws.max_row}"].font = bold
+
+    ws.append(["300", "Total FT compensated positions", sum_bigint("300")])
+
+    bands = [
+        ("305", "$1 - $39,999"),
+        ("310", "$40,000 - $79,999"),
+        ("315", "$80,000 - $119,999"),
+        ("320", "$120,000 - $159,999"),
+        ("325", "$160,000 - $199,999"),
+        ("330", "$200,000 - $249,999"),
+        ("335", "$250,000 - $299,999"),
+        ("340", "$300,000 - $349,999"),
+        ("345", "$350,000 and over"),
+    ]
+    for line, desc in bands:
+        ws.append([line, f"  {desc}", sum_bigint(line)])
+
+    # Part-time
+    ws.append([])
+    ws.append(["", "PART-TIME AND TOTAL"])
+    ws[f"B{ws.max_row}"].font = bold
+
+    ws.append(["370", "PT/seasonal positions", sum_bigint("370")])
+    ws.append(["380", "PT/seasonal compensation", sum_currency("380")])
+    ws.append(["390", "TOTAL COMPENSATION (all)", sum_currency("390")])
+
+    # Cross-check with financial_d line 4880
+    ws.append([])
+    val_4880 = con.execute(
+        f"SELECT SUM({money('t.\"4880\"')}) FROM {scoped_table('financial_d', where)}"
+    ).fetchone()[0]
+    ws.append(["", "Cross-check: financial_d line 4880", val_4880])
+
+    ws.column_dimensions["A"].width = 10
+    ws.column_dimensions["B"].width = 40
+    ws.column_dimensions["C"].width = 20
 
 
 def build_schedule_5(wb, con, where):
