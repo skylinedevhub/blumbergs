@@ -643,8 +643,140 @@ def build_schedule_5(wb, con, where):
 
 
 def build_schedule_6(wb, con, where):
+    """Schedule 6: Detailed financial information (all line items)."""
     ws = wb.create_sheet("Schedule 6")
-    ws.append(["Schedule 6", "", "placeholder"])
+    bold = Font(bold=True)
+    st = scoped_table
+
+    ws.append(["Blumbergs Snapshot 2024 — Schedule 6: Detailed Financial Information"])
+    ws["A1"].font = bold
+    ws.append([])
+    ws.append(["Line", "Description", "Value"])
+    for c in ["A", "B", "C"]:
+        ws[f"{c}3"].font = bold
+
+    def s(col):
+        """Sum a currency column from financial_d."""
+        return con.execute(
+            f"SELECT SUM({money(f't.\"{col}\"')}) FROM {st('financial_d', where)}"
+        ).fetchone()[0]
+
+    def section(title):
+        ws.append([])
+        ws.append([title])
+        ws[f"A{ws.max_row}"].font = bold
+
+    # --- ASSETS ---
+    section("ASSETS")
+    assets = [
+        ("4100", "Cash, bank accounts, short-term investments"),
+        ("4101", "  Cash and bank accounts"),
+        ("4102", "  Short-term investments"),
+        ("4110", "Amounts receivable from non-arm's length persons"),
+        ("4120", "Amounts receivable from all others"),
+        ("4130", "Investments in non-arm's length persons"),
+        ("4140", "Long-term investments"),
+        ("4150", "Inventories"),
+        ("4155", "Land and buildings in Canada"),
+        ("4157", "  Used for charitable programs or admin"),
+        ("4158", "  Used for other purposes"),
+        ("4160", "Other capital assets in Canada"),
+        ("4165", "Capital assets outside Canada"),
+        ("4166", "Accumulated amortization of capital assets"),
+        ("4170", "Other assets"),
+        ("4190", "Impact investments"),
+        ("4200", "TOTAL ASSETS"),
+    ]
+    for line, desc in assets:
+        ws.append([line, desc, s(line)])
+
+    # --- LIABILITIES ---
+    section("LIABILITIES")
+    liabilities = [
+        ("4300", "Accounts payable and accrued liabilities"),
+        ("4310", "Deferred revenue"),
+        ("4320", "Amounts owing to non-arm's length persons"),
+        ("4330", "Other liabilities"),
+        ("4350", "TOTAL LIABILITIES"),
+    ]
+    for line, desc in liabilities:
+        ws.append([line, desc, s(line)])
+
+    # Property not used in charitable activities
+    ws.append([])
+    ws.append(["4250", "Property not used in charitable activities", s("4250")])
+
+    # --- REVENUE ---
+    section("REVENUE")
+    revenue = [
+        ("4500", "Tax-receipted gifts (donation receipts issued)"),
+        ("5610", "Tax-receipted tuition fees"),
+        ("4510", "Gifts from other registered charities"),
+        ("4530", "Other gifts (no tax receipt)"),
+        ("4540", "Revenue from FEDERAL government"),
+        ("4550", "Revenue from PROVINCIAL/TERRITORIAL governments"),
+        ("4560", "Revenue from MUNICIPAL/REGIONAL governments"),
+        ("4571", "Tax-receipted revenue from outside Canada (govt+non-govt)"),
+        ("4575", "Non-tax-receipted revenue from outside Canada"),
+        ("4576", "Interest/investment income from impact investments"),
+        ("4577", "Interest/investment income from non-arm's length persons"),
+        ("4580", "Interest/investment income received or earned"),
+        ("4590", "Gross proceeds from disposition of assets"),
+        ("4600", "Net proceeds from disposition of assets"),
+        ("4610", "Gross income from rental of land/buildings"),
+        ("4620", "Membership fees, dues, association fees"),
+        ("4630", "Non-tax-receipted revenue from fundraising"),
+        ("4640", "Revenue from sale of goods and services"),
+        ("4650", "Other revenue"),
+        ("4700", "TOTAL REVENUE"),
+    ]
+    for line, desc in revenue:
+        ws.append([line, desc, s(line)])
+
+    # --- EXPENDITURES ---
+    section("EXPENDITURES")
+    expenditures = [
+        ("4800", "Advertising and promotion"),
+        ("4810", "Travel and vehicle expenses"),
+        ("4820", "Interest and bank charges"),
+        ("4830", "Licences, memberships, and dues"),
+        ("4840", "Office supplies and expenses"),
+        ("4850", "Occupancy costs"),
+        ("4860", "Professional and consulting fees"),
+        ("4870", "Education and training for staff and volunteers"),
+        ("4880", "Total expenditure on all compensation"),
+        ("4890", "Fair market value of donated goods used"),
+        ("4891", "Purchased supplies and assets"),
+        ("4900", "Amortization of capitalized assets"),
+        ("4910", "Research grants and scholarships"),
+        ("4920", "All other expenditures"),
+        ("4950", "Total expenditures before qualifying disbursements"),
+        ("5000", "  (a) Charitable activities"),
+        ("5010", "  (b) Management and administration"),
+        ("5020", "  (c) Fundraising"),
+        ("5040", "  (d) Other expenditures included in 4950"),
+        ("5045", "Grants to non-qualified donees"),
+        ("5050", "Gifts to all qualified donees"),
+        ("5100", "TOTAL EXPENDITURES"),
+    ]
+    for line, desc in expenditures:
+        ws.append([line, desc, s(line)])
+
+    # --- OTHER FINANCIAL INFO ---
+    section("OTHER FINANCIAL INFORMATION")
+    other = [
+        ("5500", "Amount accumulated (permission to accumulate)"),
+        ("5510", "Amount disbursed for specified purpose"),
+        ("5750", "Permission to reduce disbursement quota"),
+        ("5900", "Property not used — beginning of period (24 months)"),
+        ("5910", "Property not used — end of period (24 months)"),
+    ]
+    for line, desc in other:
+        ws.append([line, desc, s(line)])
+
+    ws.column_dimensions["A"].width = 10
+    ws.column_dimensions["B"].width = 55
+    ws.column_dimensions["C"].width = 20
 
 
 def build_schedule_8(wb, con, where):
