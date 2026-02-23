@@ -337,8 +337,121 @@ def build_section_c(wb, con, where):
 
 
 def build_section_d(wb, con, where):
+    """Section D: Financial information summary (lines 4020-5100)."""
     ws = wb.create_sheet("Section D")
-    ws.append(["Section D", "", "placeholder"])
+    bold = Font(bold=True)
+    st = scoped_table
+
+    ws.append(["Blumbergs Snapshot 2024 — Section D: Financial Information"])
+    ws["A1"].font = bold
+    ws.append([])
+    ws.append(["Line", "Description", "Value"])
+    for c in ["A", "B", "C"]:
+        ws[f"{c}3"].font = bold
+
+    def sum_line(col):
+        return con.execute(
+            f"SELECT SUM({money(f't.\"{col}\"')}) FROM {st('financial_d', where)}"
+        ).fetchone()[0]
+
+    def yn_line(col, table="financial_d"):
+        """Count yes/no responses."""
+        bn = BN_COL[table]
+        y = con.execute(f"""
+            SELECT COUNT(*) FROM {table} t
+            INNER JOIN charity_base cb ON t.{bn} = cb.bn
+            WHERE {where} AND t."{col}" = 'Y'
+        """).fetchone()[0]
+        n = con.execute(f"""
+            SELECT COUNT(*) FROM {table} t
+            INNER JOIN charity_base cb ON t.{bn} = cb.bn
+            WHERE {where} AND t."{col}" = 'N'
+        """).fetchone()[0]
+        return y, n
+
+    # D1: Accrual vs Cash (coded as 'A' and 'C')
+    accrual = con.execute(f"""
+        SELECT COUNT(*) FROM {st('financial_d', where)} AND t."4020" = 'A'
+    """).fetchone()[0]
+    cash = con.execute(f"""
+        SELECT COUNT(*) FROM {st('financial_d', where)} AND t."4020" = 'C'
+    """).fetchone()[0]
+    ws.append(["4020", "D1: Accrual basis", accrual])
+    ws.append(["", "    Cash basis", cash])
+
+    # D2: Balance sheet
+    ws.append([])
+    ws.append(["", "D2: SUMMARY OF FINANCIAL POSITION"])
+    ws[f"B{ws.max_row}"].font = bold
+
+    y4050, n4050 = yn_line("4050")
+    ws.append(["4050", "Own land and/or buildings?", f"Yes: {y4050:,}  No: {n4050:,}"])
+    ws.append(["4200", "Total assets", sum_line("4200")])
+    ws.append(["4350", "Total liabilities", sum_line("4350")])
+
+    y4400, n4400 = yn_line("4400")
+    ws.append(["4400", "Borrow from non-arm's length?", f"Yes: {y4400:,}  No: {n4400:,}"])
+
+    # D3: Revenue
+    ws.append([])
+    ws.append(["", "D3: REVENUE"])
+    ws[f"B{ws.max_row}"].font = bold
+
+    y4490, n4490 = yn_line("4490")
+    ws.append(["4490", "Issue tax receipts for gifts?", f"Yes: {y4490:,}  No: {n4490:,}"])
+
+    revenue_lines = [
+        ("4500", "Tax-receipted gifts"),
+        ("5610", "Tax-receipted tuition fees"),
+        ("4510", "Gifts from other registered charities"),
+        ("4530", "Other gifts (no tax receipt)"),
+        ("4540", "Revenue from FEDERAL government"),
+        ("4550", "Revenue from PROVINCIAL/TERRITORIAL governments"),
+        ("4560", "Revenue from MUNICIPAL/REGIONAL governments"),
+    ]
+    for line, desc in revenue_lines:
+        ws.append([line, desc, sum_line(line)])
+
+    # Computed government total (4540+4550+4560)
+    govt = con.execute(f"""
+        SELECT SUM({money('t."4540"')}) + SUM({money('t."4550"')}) + SUM({money('t."4560"')})
+        FROM {st('financial_d', where)}
+    """).fetchone()[0]
+    ws.append(["4570*", "Total government (computed: 4540+4550+4560)", govt])
+
+    more_revenue = [
+        ("4571", "Tax-receipted revenue from outside Canada (govt+non-govt)"),
+        ("4575", "Non-tax-receipted revenue from outside Canada"),
+        ("4630", "Non-tax-receipted revenue from fundraising"),
+        ("4640", "Revenue from sale of goods and services"),
+        ("4650", "Other revenue"),
+        ("4700", "TOTAL REVENUE"),
+    ]
+    for line, desc in more_revenue:
+        ws.append([line, desc, sum_line(line)])
+
+    # D4: Expenditures
+    ws.append([])
+    ws.append(["", "D4: EXPENDITURES"])
+    ws[f"B{ws.max_row}"].font = bold
+
+    exp_lines = [
+        ("4860", "Professional and consulting fees"),
+        ("4810", "Travel and vehicle expenses"),
+        ("4920", "All other expenditures"),
+        ("4950", "Total expenditures excl. qualifying disbursements"),
+        ("5000", "  (a) Charitable activities"),
+        ("5010", "  (b) Management and administration"),
+        ("5045", "Grants to non-qualified donees"),
+        ("5050", "Gifts to all qualified donees"),
+        ("5100", "TOTAL EXPENDITURES"),
+    ]
+    for line, desc in exp_lines:
+        ws.append([line, desc, sum_line(line)])
+
+    ws.column_dimensions["A"].width = 12
+    ws.column_dimensions["B"].width = 55
+    ws.column_dimensions["C"].width = 20
 
 
 def build_schedule_1(wb, con, where):
