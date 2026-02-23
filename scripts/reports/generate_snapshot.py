@@ -133,9 +133,73 @@ def generate_snapshot(filter_type, filter_value):
 
 
 def build_section_a(wb, con, where, description, total):
-    """Placeholder."""
+    """Section A: Identification — charity counts, contact info, A1-A3."""
     ws = wb.create_sheet("Section A")
-    ws.append(["Section A - Identification", "", "placeholder"])
+    bold = Font(bold=True)
+    st = scoped_table
+
+    # Header
+    ws.append([f"Blumbergs Snapshot 2024 — {description}"])
+    ws["A1"].font = bold
+    ws.append([f"Based on T3010 filings for {total:,} registered charities."])
+    ws.append([])
+
+    ws.append(["", "Metric", "Value"])
+    ws[f"B{ws.max_row}"].font = bold
+    ws[f"C{ws.max_row}"].font = bold
+
+    # Total charities (from charity_base, the scope table)
+    ws.append(["", "Total registered charities in scope", total])
+
+    # By designation
+    rows = con.execute(f"""
+        SELECT designation_code, designation_desc, COUNT(*)
+        FROM charity_base cb WHERE {where}
+        GROUP BY 1, 2 ORDER BY 1
+    """).fetchall()
+    for code, desc, cnt in rows:
+        ws.append(["", f"  {code}: {desc}", cnt])
+
+    # Contact info
+    phone = con.execute(f"""
+        SELECT COUNT(*) FROM ident t
+        INNER JOIN charity_base cb ON t."BN/Registration Number" = cb.bn
+        WHERE {where} AND t."Contact Phone" IS NOT NULL AND t."Contact Phone" != ''
+    """).fetchone()[0]
+    email = con.execute(f"""
+        SELECT COUNT(*) FROM ident t
+        INNER JOIN charity_base cb ON t."BN/Registration Number" = cb.bn
+        WHERE {where} AND t."Contact Email" IS NOT NULL AND t."Contact Email" != ''
+    """).fetchone()[0]
+    url = con.execute(f"""
+        SELECT COUNT(*) FROM ident t
+        INNER JOIN charity_base cb ON t."BN/Registration Number" = cb.bn
+        WHERE {where} AND t."Contact URL" IS NOT NULL AND t."Contact URL" != ''
+    """).fetchone()[0]
+    ws.append(["", "Provided phone numbers", phone])
+    ws.append(["", "Provided email addresses", email])
+    ws.append(["", "Provided websites", url])
+
+    # A1-A3 yes/no counts
+    ws.append([])
+    ws.append(["Line", "Question", "Yes", "No"])
+    ws[f"A{ws.max_row}"].font = bold
+
+    for line, label in [
+        ("1510 Subordinate position to a parent organization?", "A1: Subordinate to parent org?"),
+        ("1570", "A2: Wound up/dissolved/terminated?"),
+        ("1600", "A3: Designated as public/private foundation?"),
+    ]:
+        col = f'"{line}"'
+        y = con.execute(f"SELECT COUNT(*) FROM {st('financial_abc', where)} AND t.{col} = 'Y'").fetchone()[0]
+        n = con.execute(f"SELECT COUNT(*) FROM {st('financial_abc', where)} AND t.{col} = 'N'").fetchone()[0]
+        ws.append([line.split(" ")[0] if " " in line else line, label, y, n])
+
+    # Column widths
+    ws.column_dimensions["A"].width = 12
+    ws.column_dimensions["B"].width = 45
+    ws.column_dimensions["C"].width = 15
+    ws.column_dimensions["D"].width = 15
 
 
 def build_section_c(wb, con, where):
