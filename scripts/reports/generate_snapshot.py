@@ -203,8 +203,137 @@ def build_section_a(wb, con, where, description, total):
 
 
 def build_section_c(wb, con, where):
+    """Section C: Programs, general info, fundraising, DAF."""
     ws = wb.create_sheet("Section C")
-    ws.append(["Section C", "", "placeholder"])
+    bold = Font(bold=True)
+    st = scoped_table
+
+    ws.append(["Blumbergs Snapshot 2024 — Section C: Programs and General Information"])
+    ws["A1"].font = bold
+    ws.append([])
+    ws.append(["Line", "Question / Metric", "Yes / Count", "No", "Notes"])
+    for c in ["A", "B", "C", "D", "E"]:
+        ws[f"{c}3"].font = bold
+
+    def yn(col_name, label, notes=""):
+        """Add a yes/no count row for a financial_abc column."""
+        col = f'"{col_name}"'
+        y = con.execute(f"SELECT COUNT(*) FROM {st('financial_abc', where)} AND t.{col} = 'Y'").fetchone()[0]
+        n = con.execute(f"SELECT COUNT(*) FROM {st('financial_abc', where)} AND t.{col} = 'N'").fetchone()[0]
+        ws.append([col_name, label, y, n, notes])
+
+    def count_method(col_name, label):
+        """Count non-null checkboxes for fundraising methods."""
+        col = f'"{col_name}"'
+        cnt = con.execute(f"SELECT COUNT(*) FROM {st('financial_abc', where)} AND t.{col} = 'Y'").fetchone()[0]
+        ws.append([col_name, label, cnt])
+
+    # C1 Active?
+    yn("1800", "C1: Was charity active during fiscal period?")
+
+    # Programs count
+    prog_type_col = '"Program type OP=ongoing program, NP=new program, NA=not active"'
+    ongoing = con.execute(f"""
+        SELECT COUNT(*) FROM programs t
+        INNER JOIN charity_base cb ON t."BN/Registration number" = cb.bn
+        WHERE {where} AND t.{prog_type_col} = 'OP'
+    """).fetchone()[0]
+    new_prog = con.execute(f"""
+        SELECT COUNT(*) FROM programs t
+        INNER JOIN charity_base cb ON t."BN/Registration number" = cb.bn
+        WHERE {where} AND t.{prog_type_col} = 'NP'
+    """).fetchone()[0]
+    ws.append(["", "Ongoing programs", ongoing])
+    ws.append(["", "New programs", new_prog])
+
+    # C3-C4
+    yn("2000", "C3: Made gifts to qualified donees?")
+    yn("2100", "C4: Activities outside Canada?")
+
+    # C6 Fundraising methods
+    ws.append([])
+    ws.append(["", "FUNDRAISING METHODS (C6)"])
+    ws[f"B{ws.max_row}"].font = bold
+    methods = [
+        ("2500", "Advertisements/print/radio/TV"),
+        ("2510", "Auctions"),
+        ("2530", "Collection plates/boxes"),
+        ("2540", "Door-to-door"),
+        ("2550", "Draws/lotteries"),
+        ("2560", "Dinners/galas/concerts"),
+        ("2570", "Sales"),
+        ("2575", "Internet"),
+        ("2580", "Mail campaigns"),
+        ("2590", "Planned-giving programs"),
+        ("2600", "Targeted corporate donations/sponsorships"),
+        ("2610", "Targeted contacts"),
+        ("2620", "Telephone/TV solicitations"),
+        ("2630", "Tournament/sporting events"),
+        ("2640", "Cause-related marketing"),
+        ("2650", "Other"),
+    ]
+    for code, label in methods:
+        count_method(code, label)
+
+    # C7 External fundraisers
+    ws.append([])
+    yn("2700", "C7: Pay external fundraisers?")
+    # C7 sub-fields: gross revenue and amounts retained
+    for col, label in [("5450", "Gross revenue collected by fundraisers"), ("5460", "Amounts paid to/retained by fundraisers")]:
+        val = con.execute(f"SELECT SUM({money(f't.\"{col}\"')}) FROM {st('financial_abc', where)}").fetchone()[0]
+        ws.append([col, f"  {label}", val])
+
+    # C7 payment methods
+    for code, label in [("2730", "Commissions"), ("2740", "Bonuses"), ("2750", "Finder's fee"),
+                        ("2760", "Set fee for services"), ("2770", "Honoraria"), ("2780", "Other")]:
+        count_method(code, f"  {label}")
+
+    # C8-C11
+    ws.append([])
+    yn("3200", "C8: Compensate directors at arm's length?")
+    yn("3400", "C9: Employment expenses?")
+    yn("3900", "C10: Donations $10K+ from non-residents?")
+    yn("4000", "C11: Non-cash gifts for tax receipts?")
+
+    # C12-C15
+    yn("5800", "C12: Acquire a non-qualifying security?")
+    yn("5810", "C13: Allow donors to use property?")
+    yn("5820", "C14: Issue tax receipts for another org?")
+    yn("5830", "C15: Direct partnership holdings?")
+
+    # C16 Grants to non-QDs
+    ws.append([])
+    yn("5840", "C16: Grants to non-qualified donees?")
+    yn("5841", "  Grants > $5,000?")
+    val_5842 = con.execute(f"""
+        SELECT SUM(t."5842") FROM {st('financial_abc', where)} AND t."5842" IS NOT NULL
+    """).fetchone()[0]
+    val_5843 = con.execute(f"SELECT SUM({money('t.\"5843\"')}) FROM {st('financial_abc', where)}").fetchone()[0]
+    ws.append(["5842", "  Number of grantees ($5K or less)", val_5842])
+    ws.append(["5843", "  Total paid to grantees ($5K or less)", val_5843])
+
+    # C17 DQ threshold
+    yn("5850", "C17: Avg property > threshold?")
+
+    # C18 DAF
+    ws.append([])
+    ws.append(["", "DONOR ADVISED FUNDS"])
+    ws[f"B{ws.max_row}"].font = bold
+    yn("5860", "C18: Hold any DAF accounts?")
+    val_5861 = con.execute(f'SELECT SUM(t."5861") FROM {st("financial_abc", where)}').fetchone()[0]
+    ws.append(["5861", "  Total DAF accounts", val_5861])
+    for col, label in [("5862", "Total value of DAF accounts"),
+                       ("5863", "Donations to DAFs received"),
+                       ("5864", "Qualifying disbursements from DAFs")]:
+        val = con.execute(f"SELECT SUM({money(f't.\"{col}\"')}) FROM {st('financial_abc', where)}").fetchone()[0]
+        ws.append([col, f"  {label}", val])
+
+    # Column widths
+    ws.column_dimensions["A"].width = 12
+    ws.column_dimensions["B"].width = 50
+    ws.column_dimensions["C"].width = 18
+    ws.column_dimensions["D"].width = 12
+    ws.column_dimensions["E"].width = 20
 
 
 def build_section_d(wb, con, where):
