@@ -780,8 +780,61 @@ def build_schedule_6(wb, con, where):
 
 
 def build_schedule_8(wb, con, where):
+    """Schedule 8: Disbursement quota calculations."""
     ws = wb.create_sheet("Schedule 8")
-    ws.append(["Schedule 8", "", "placeholder"])
+    bold = Font(bold=True)
+    st = scoped_table
+
+    ws.append(["Blumbergs Snapshot 2024 — Schedule 8: Disbursement Quota"])
+    ws["A1"].font = bold
+    ws.append([])
+    ws.append(["Line", "Description", "Value"])
+    for c in ["A", "B", "C"]:
+        ws[f"{c}3"].font = bold
+
+    def s(col):
+        return con.execute(
+            f"SELECT SUM({money(f't.\"{col}\"')}) FROM {st('schedule_8_disbursement', where)}"
+        ).fetchone()[0]
+
+    ws.append(["", "STEP 1: Calculating DQ for current fiscal period"])
+    ws[f"B{ws.max_row}"].font = bold
+
+    step1 = [
+        ("805", "Avg value of property not used (line 5900)"),
+        ("810", "Total accumulated less disbursements"),
+        ("815", "Line 805 minus line 810 (if negative, 0)"),
+        ("820", "If ≤$1M: multiply 815 by 3.5%"),
+        ("825", "If >$1M: 815 minus $1,000,000"),
+        ("830", "Line 825 multiplied by 5%"),
+        ("835", "Line 830 plus $35,000"),
+        ("840", "DQ requirement for current period"),
+        ("845", "Total charitable activities (line 5000)"),
+        ("850", "Grants to non-qualified donees (line 5045)"),
+        ("855", "Gifts to qualified donees (line 5050)"),
+        ("860", "Add lines 845 to 855"),
+        ("865", "DQ excess or shortfall (860 minus 840)"),
+    ]
+    for line, desc in step1:
+        ws.append([line, desc, s(line)])
+
+    ws.append([])
+    ws.append(["", "STEP 2: Estimating DQ for next fiscal period"])
+    ws[f"B{ws.max_row}"].font = bold
+
+    step2 = [
+        ("870", "Avg property not used — next period (line 5910)"),
+        ("875", "If ≤$1M: multiply 870 by 3.5%"),
+        ("880", "If >$1M: 870 minus $1,000,000"),
+        ("885", "Line 880 multiplied by 5%"),
+        ("890", "Line 885 plus $35,000"),
+    ]
+    for line, desc in step2:
+        ws.append([line, desc, s(line)])
+
+    ws.column_dimensions["A"].width = 10
+    ws.column_dimensions["B"].width = 55
+    ws.column_dimensions["C"].width = 20
 
 
 def main():
