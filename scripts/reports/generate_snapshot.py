@@ -35,6 +35,7 @@ BN_COL = {
     "schedule_3_compensation": '"BN/Registration number"',
     "schedule_5_noncash": '"BN/Registration number"',
     "schedule_8_disbursement": '"BN/Registration Number"',
+    "programs": '"BN/Registration number"',
 }
 
 PROVINCES = ["ON", "QC", "BC", "AB", "MB", "SK", "NS", "NB"]
@@ -119,6 +120,10 @@ def generate_snapshot(filter_type, filter_value):
     build_schedule_6(wb, con, where)
     build_schedule_8(wb, con, where)
 
+    # Add row-level detail sheets for audit verification
+    print("  Adding detail sheets...")
+    build_detail_sheets(wb, con, where)
+
     # Remove default empty sheet if present
     if "Sheet" in wb.sheetnames and len(wb.sheetnames) > 1:
         del wb["Sheet"]
@@ -130,6 +135,90 @@ def generate_snapshot(filter_type, filter_value):
 
 
 # -- Sheet builders (Tasks 2-9) go here --
+
+
+def build_detail_sheet(wb, con, where, table, sheet_name):
+    """Dump all rows from a source table (filtered by scope) as an audit detail sheet.
+
+    Currency VARCHAR columns (containing '$') are auto-converted to DECIMAL.
+    The source table's BN column is replaced by cb.bn and cb.designation_code.
+    """
+    bold = Font(bold=True)
+    bn_col = BN_COL[table]
+
+    # Get column metadata
+    cols = con.execute(f"DESCRIBE {table}").fetchall()
+    col_names = [c[0] for c in cols]
+    col_types = {c[0]: c[1] for c in cols}
+
+    # Find the raw BN column name (without quotes) to skip it
+    bn_raw = bn_col.strip('"')
+
+    # Auto-detect currency columns: VARCHAR columns where a sampled value contains '$'
+    currency_cols = set()
+    for name, ctype in col_types.items():
+        if name == bn_raw:
+            continue
+        if ctype == "VARCHAR":
+            sample = con.execute(
+                f'SELECT t."{name}" FROM {table} t WHERE t."{name}" IS NOT NULL '
+                f"AND t.\"{name}\" != '' LIMIT 1"
+            ).fetchone()
+            if sample and "$" in str(sample[0]):
+                currency_cols.add(name)
+
+    # Build SELECT clause
+    select_parts = ["cb.bn", "cb.designation_code"]
+    header = ["bn", "designation_code"]
+    for name in col_names:
+        if name == bn_raw:
+            continue
+        if name in currency_cols:
+            select_parts.append(
+                f"TRY_CAST(REPLACE(REPLACE(t.\"{name}\", '$', ''), ',', '') AS DECIMAL) AS \"{name}\""
+            )
+        else:
+            select_parts.append(f't."{name}"')
+        header.append(name)
+
+    sql = f"""
+        SELECT {', '.join(select_parts)}
+        FROM {table} t
+        INNER JOIN charity_base cb ON t.{bn_col} = cb.bn
+        WHERE {where}
+        ORDER BY cb.bn
+    """
+
+    rows = con.execute(sql).fetchall()
+
+    ws = wb.create_sheet(sheet_name)
+    ws.append(header)
+    for cell in ws[1]:
+        cell.font = bold
+    for row in rows:
+        ws.append(list(row))
+
+    return len(rows)
+
+
+DETAIL_TABLES = [
+    ("ident", "Ident Detail"),
+    ("financial_abc", "Financial ABC Detail"),
+    ("financial_d", "Financial D Detail"),
+    ("programs", "Programs Detail"),
+    ("schedule_1_foundations", "Schedule 1 Detail"),
+    ("schedule_2_summary", "Schedule 2 Detail"),
+    ("schedule_3_compensation", "Schedule 3 Detail"),
+    ("schedule_5_noncash", "Schedule 5 Detail"),
+    ("schedule_8_disbursement", "Schedule 8 Detail"),
+]
+
+
+def build_detail_sheets(wb, con, where):
+    """Add row-level detail sheets for all 9 source tables."""
+    for table, sheet_name in DETAIL_TABLES:
+        count = build_detail_sheet(wb, con, where, table, sheet_name)
+        print(f"    {sheet_name}: {count:,} rows")
 
 
 def build_section_a(wb, con, where, description, total):
