@@ -596,8 +596,50 @@ def build_schedule_3(wb, con, where):
 
 
 def build_schedule_5(wb, con, where):
+    """Schedule 5: Non-cash gifts by type."""
     ws = wb.create_sheet("Schedule 5")
-    ws.append(["Schedule 5", "", "placeholder"])
+    bold = Font(bold=True)
+    st = scoped_table
+
+    ws.append(["Blumbergs Snapshot 2024 — Schedule 5: Non-cash Gifts"])
+    ws["A1"].font = bold
+    ws.append([])
+    ws.append(["Line", "Gift Type", "Count"])
+    for c in ["A", "B", "C"]:
+        ws[f"{c}3"].font = bold
+
+    gift_types = [
+        ("500", "Artwork/wine/jewellery"),
+        ("505", "Building materials"),
+        ("510", "Clothing/furniture/food"),
+        ("515", "Vehicles"),
+        ("520", "Cultural properties"),
+        ("525", "Ecological properties"),
+        ("530", "Life insurance policies"),
+        ("535", "Medical equipment/supplies"),
+        ("540", "Privately-held securities"),
+        ("545", "Machinery/equipment/computers/software"),
+        ("550", "Publicly traded securities/mutual funds"),
+        ("555", "Books"),
+        ("560", "Other"),
+    ]
+
+    for code, label in gift_types:
+        cnt = con.execute(f"""
+            SELECT COUNT(*) FROM {st('schedule_5_noncash', where)}
+            AND t."{code}" = 'Y'
+        """).fetchone()[0]
+        ws.append([code, label, cnt])
+
+    ws.append([])
+    val_580 = con.execute(
+        f"SELECT SUM({money('t.\"580\"')}) FROM {st('schedule_5_noncash', where)}"
+    ).fetchone()[0]
+    ws.append(["580", "Total amount of tax-receipted non-cash gifts", val_580])
+
+    ws.column_dimensions["A"].width = 10
+    ws.column_dimensions["B"].width = 50
+    ws.column_dimensions["C"].width = 20
 
 
 def build_schedule_6(wb, con, where):
