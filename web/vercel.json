@@ -1,0 +1,9 @@
+{
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "rewrites": [
+    { "source": "/api/query", "destination": "/api/query" },
+    { "source": "/api/export", "destination": "/api/export" },
+    { "source": "/api/lookups", "destination": "/api/lookups" }
+  ]
+}
