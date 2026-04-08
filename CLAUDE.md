@@ -14,16 +14,24 @@ blumbergs/
 │   ├── raw/2024/           # Source CSVs (snake_case), with lookups/ subfolder
 │   ├── db/                 # cra_charities.duckdb (built by loader)
 │   └── exports/            # Generated output files
+│       ├── snapshots_2024/     # 13 Excel snapshot workbooks
+│       ├── articles_2024/      # 13 Word article documents
+│       └── snapshot_comparison_2023_vs_2024.xlsx
 ├── docs/
 │   ├── context/            # AI-optimized context docs (read these for domain expertise)
 │   ├── reference/          # T3010 form PDFs, Blumbergs publications
-│   │   └── blumbergs/      # 51 Blumbergs PDFs + extracted text
+│   │   └── blumbergs/      # 51+ Blumbergs PDFs + extracted text
+│   │       ├── provincial/     # Provincial 2023 snapshot PDFs (ON, QC, BC, AB, Atlantic)
+│   │       └── other/          # Designation 2023 snapshot PDFs (Public/Private/Charitable)
 │   └── plans/              # Design and implementation docs
 ├── scripts/
 │   ├── load_csv.py         # CSV → DuckDB loader
 │   ├── validate_db.py      # Post-load database integrity checks (35 checks)
 │   ├── queries/            # Reusable .sql files
 │   └── reports/            # Report-generating Python scripts
+│       ├── generate_snapshot.py          # 13 Excel snapshot workbooks
+│       ├── generate_snapshot_articles.py # 13 Word article documents
+│       └── generate_comparison.py        # 2023 vs 2024 comparison workbook
 ├── requirements.txt        # Python dependencies (duckdb, openpyxl, pymupdf)
 ├── CLAUDE.md
 └── CRA_T3010_Reference.md
@@ -63,6 +71,12 @@ python3 scripts/reports/generate_snapshot.py --province ON
 python3 scripts/reports/generate_snapshot.py --provincial  # All 9 provincial workbooks
 python3 scripts/reports/generate_snapshot.py --designation A  # Public Foundations only
 python3 scripts/reports/generate_snapshot.py --designations   # All 3 designation workbooks
+
+# Generate comparison workbook (2023 vs 2024, requires Canada snapshot built first)
+python3 scripts/reports/generate_comparison.py
+
+# Generate snapshot article Word documents
+python3 scripts/reports/generate_snapshot_articles.py --all
 
 # Charity lookup (replace BN)
 python3 -c "
@@ -134,6 +148,7 @@ DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=
 5. **Designation codes**: A = Public Foundation, B = Private Foundation, C = Charitable Organization (~85% of charities)
 6. **CSV encoding** — Files are ISO-8859/CP1252. The loader uses DuckDB encoding `CP1252` (NOT `IBM_1252` which is EBCDIC and mangles ASCII to fullwidth Unicode).
 7. **schedule_3_compensation mixed types** — Lines 300/370 are BIGINT (no currency formatting), but line 390 is VARCHAR (has `$` and `,`). Don't apply REPLACE() to BIGINT columns.
+8. **T3010 form version changes (V23→V24)**: Lines 4575, 4580, 4101, 4102 changed definition. V23 4575="Tax-receipted from outside Canada" → V24 4575="Non-tax-receipted revenue from outside Canada". V23 4580="Non-tax-receipted from outside Canada" → V24 4580="Interest/investment income". V23 4101/4102="Receivables breakdown" → V24 4101/4102="Cash vs short-term investments". Direct year-over-year comparisons on these lines are invalid.
 
 ## T3010 Form Structure
 
@@ -190,6 +205,20 @@ Key patterns:
 - **Sheet builders**: Each `build_*()` function takes `(wb, con, where)` and appends a worksheet
 - Output goes to `data/exports/snapshots_2024/`
 
+### Comparison Workbook (`scripts/reports/generate_comparison.py`)
+Produces `data/exports/snapshot_comparison_2023_vs_2024.xlsx` with 5 sheets: Comparison, Canada 2024, All Financial Lines, By Designation, Compensation. 2024 values are Excel formulas referencing the embedded "Canada 2024" Summary sheet for full traceability. 2023 values are hardcoded from published Blumbergs Snapshot PDFs (exact Sch6 values where available, rounded text highlights otherwise). Requires `snapshot_2024_canada.xlsx` to exist first.
+
+### Article Generator (`scripts/reports/generate_snapshot_articles.py`)
+Produces 13 Word documents in `data/exports/articles_2024/` from a template. Comparison tables use standardized format: `[Scope 2024 | Scope 2023 | Canada 2024]` for provincial/designation articles, `[Canada 2024 | Canada 2023]` for national. 2023 data hardcoded from published Blumbergs PDFs. Uses `python-docx` with explicit `styled_run()` to maintain Times New Roman 13pt font consistency.
+
+## Published 2023 Snapshot Data
+
+2023 comparison data is hardcoded in scripts (not from database). Sources:
+- `docs/reference/blumbergs/provincial/` — ON, QC, BC, AB, Atlantic 2023 PDFs
+- `docs/reference/blumbergs/other/` — Public Foundation, Private Foundation, Charitable Org 2023 PDFs
+- Canada 2023 and MB 2023 data extracted from the national snapshot PDF
+- SK, NS, NB have no published 2023 snapshots — no prior year data available for those provinces
+
 ## Adding a New Year
 
 1. Place CSVs in `data/raw/{year}/` with the same snake_case naming convention
@@ -209,4 +238,6 @@ Read these before any analysis task — they encode 14 years of Blumbergs domain
 - `CRA_T3010_Reference.md` — Field mappings and relationship diagrams
 - `docs/reference/t3010-24e.pdf` — Official T3010 form (2024 version)
 - `docs/reference/t3010-lp-24e.pdf` — T3010 large print version (detailed field descriptions)
-- `docs/reference/blumbergs/` — 51 Blumbergs PDFs (snapshots, provincial, designation, DAF, pre-budget) + extracted text in `extracted/`
+- `docs/reference/blumbergs/` — 51+ Blumbergs PDFs (snapshots, provincial, designation, DAF, pre-budget) + extracted text in `extracted/`
+- `docs/reference/blumbergs/provincial/` — Provincial 2023 snapshot PDFs (ON, QC, BC, AB, Atlantic)
+- `docs/reference/blumbergs/other/` — Designation 2023 snapshot PDFs (Public/Private Foundations, Charitable Orgs)

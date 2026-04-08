@@ -448,6 +448,7 @@ def build_section_c(ws, con, where):
 
     # C8-C11
     ws.append([])
+    yn("2800", "C8: Issue tax receipts for fundraiser revenue?")
     yn("3200", "C8: Compensate directors at arm's length?")
     yn("3400", "C9: Employment expenses?")
     yn("3900", "C10: Donations $10K+ from non-residents?")
@@ -548,6 +549,9 @@ def build_section_d(ws, con, where):
 
     y4490, n4490 = yn_line("4490")
     ws.append(["4490", "Issue tax receipts for gifts?", f"Yes: {y4490:,}  No: {n4490:,}"])
+
+    y4565, n4565 = yn_line("4565")
+    ws.append(["4565", "Receive revenue from government?", f"Yes: {y4565:,}  No: {n4565:,}"])
 
     revenue_lines = [
         ("4500", "Tax-receipted gifts"),
