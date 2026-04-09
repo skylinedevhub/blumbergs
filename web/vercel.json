@@ -1,9 +1,12 @@
 {
-  "buildCommand": "",
-  "outputDirectory": "public",
-  "rewrites": [
-    { "source": "/api/query", "destination": "/api/query" },
-    { "source": "/api/export", "destination": "/api/export" },
-    { "source": "/api/lookups", "destination": "/api/lookups" }
+  "builds": [
+    { "src": "api/*.py", "use": "@vercel/python" },
+    { "src": "public/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/query", "dest": "api/query.py" },
+    { "src": "/api/export", "dest": "api/export.py" },
+    { "src": "/api/lookups", "dest": "api/lookups.py" },
+    { "src": "/(.*)", "dest": "public/$1" }
   ]
 }

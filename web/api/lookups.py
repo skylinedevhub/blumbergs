@@ -6,7 +6,7 @@ from http.server import BaseHTTPRequestHandler
 import psycopg2
 
 
-DATABASE_URL = os.environ.get("NEON_DATABASE_URL", "")
+DATABASE_URL = os.environ.get("NEON_DATABASE_URL", "") or os.environ.get("DATABASE_URL", "")
 
 
 class handler(BaseHTTPRequestHandler):

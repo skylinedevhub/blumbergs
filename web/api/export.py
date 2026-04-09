@@ -12,7 +12,7 @@ from openpyxl.utils import get_column_letter
 from openpyxl.styles import Font
 
 
-DATABASE_URL = os.environ.get("NEON_DATABASE_URL", "")
+DATABASE_URL = os.environ.get("NEON_DATABASE_URL", "") or os.environ.get("DATABASE_URL", "")
 
 
 def prep(sql):
