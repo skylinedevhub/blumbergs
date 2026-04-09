@@ -15,16 +15,13 @@ body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);hei
 .app{display:flex;height:100vh}
 
 /* ── Left panel ── */
-.ctrl{width:330px;min-width:330px;background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;padding:14px}
+.ctrl{width:360px;min-width:360px;background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;padding:14px}
 .ctrl::-webkit-scrollbar{width:6px}
 .ctrl::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 h1{font-size:15px;color:var(--accent);margin-bottom:2px}
 .sub{font-size:10px;color:var(--dim);margin-bottom:12px}
 .sec{margin-bottom:12px}
 .sec-label{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--dim);font-weight:700;margin-bottom:5px}
-.presets{display:flex;flex-wrap:wrap;gap:3px}
-.pbtn{font-size:10px;padding:3px 7px;background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:3px;cursor:pointer}
-.pbtn:hover,.pbtn.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .tg{display:flex;gap:1px;background:var(--bg);border-radius:5px;padding:2px}
 .tbtn{flex:1;padding:5px 10px;font-size:11px;background:0;border:0;color:var(--dim);border-radius:3px;cursor:pointer}
 .tbtn.on{background:var(--surface2);color:var(--text);font-weight:600}
@@ -37,18 +34,34 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
 .chip{font-size:10px;padding:2px 7px;background:var(--bg);border:1px solid var(--border);border-radius:10px;cursor:pointer;color:var(--dim);user-select:none}
 .chip.on{background:var(--accent2);border-color:var(--accent2);color:#000;font-weight:600}
 .chip:hover{border-color:var(--accent2)}
-.mg{margin-bottom:6px}
-.mg-label{font-size:9px;color:var(--accent2);font-weight:700;margin-bottom:3px}
-.mc{display:flex;flex-wrap:wrap;gap:2px}
+
+/* Metric groups */
+.mg{margin-bottom:3px;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.mg-head{display:flex;align-items:center;gap:5px;padding:4px 7px;background:var(--surface2);cursor:pointer;user-select:none;font-size:10px;color:var(--dim);font-weight:700}
+.mg-head:hover{color:var(--accent2)}
+.mg-arrow{font-size:8px;transition:transform .15s;display:inline-block;width:10px}
+.mg-head.open .mg-arrow{transform:rotate(90deg)}
+.mg-count{font-size:9px;color:var(--border);margin-left:auto}
+.mg-sel{font-size:9px;color:var(--accent2);margin-left:4px}
+.mc{display:none;flex-wrap:wrap;gap:2px;padding:4px}
+.mc.open{display:flex}
 .mx{font-size:10px;padding:2px 5px;background:var(--bg);border:1px solid var(--border);border-radius:2px;cursor:pointer;color:var(--dim);user-select:none}
 .mx.on{background:var(--surface2);border-color:var(--tbl);color:var(--tbl)}
 .mx:hover{border-color:var(--tbl)}
+.mx.hidden{display:none}
+.mg.hidden{display:none}
+
+/* Metric search */
+.metric-search{margin-bottom:6px}
+
+/* Filter rows */
 .frow{display:flex;gap:3px;align-items:center;margin-bottom:3px}
 .frow select{width:auto;min-width:90px}
 .frow input{width:70px}
 .rx{background:0;border:0;color:var(--accent);cursor:pointer;font-size:13px;padding:0 3px}
 .af{font-size:10px;padding:2px 7px;background:0;border:1px dashed var(--border);color:var(--dim);border-radius:3px;cursor:pointer}
 .af:hover{border-color:var(--accent2);color:var(--accent2)}
+
 .sr{display:flex;gap:5px;align-items:center}
 .sr select{flex:1}
 .dbtn{padding:4px 8px;font-size:10px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:3px;cursor:pointer;font-weight:700;min-width:40px}
@@ -123,11 +136,6 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
   </div>
 
   <div class="sec">
-    <div class="sec-label">Presets</div>
-    <div class="presets" id="presets"></div>
-  </div>
-
-  <div class="sec">
     <div class="sec-label">Mode</div>
     <div class="tg" id="mode">
       <button class="tbtn on" data-v="detail">Detail</button>
@@ -182,6 +190,9 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
 
   <div class="sec">
     <div class="sec-label">Metrics</div>
+    <div class="metric-search">
+      <input type="text" id="metric-search" placeholder="Search fields by name or line number...">
+    </div>
     <div id="metrics"></div>
   </div>
 
@@ -200,7 +211,7 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
         <div style="font-size:10px;color:var(--dim);margin-bottom:3px">Custom WHERE clause</div>
         <textarea id="custom-where" placeholder="e.g. cb.registration_date > '2020-01-01'"></textarea>
       </div>
-      <div style="font-size:9px;color:var(--dim)">Appended to generated WHERE. Use cb.*, fd.*, sc.*, cc.* aliases.</div>
+      <div style="font-size:9px;color:var(--dim)">Appended to generated WHERE. Use cb.*, fd.*, fabc.*, sc.*, cc.*, s1.*, s2s.*, s5.*, s8.* aliases.</div>
     </div>
   </div>
 
@@ -244,67 +255,226 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
 </div>
 
 <script>
-// ─── Metric definitions ─────────────────────────────────────────
-var M = [
-  {id:'total_revenue',      l:'Total Revenue',       ln:'4700',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'tax_receipted',      l:'Tax-Receipted Gifts', ln:'4500',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'gifts_charities',    l:'Gifts from Charities',ln:'4510',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'govt_federal',       l:'Federal Govt',        ln:'4540',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'govt_provincial',    l:'Provincial Govt',     ln:'4550',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'govt_municipal',     l:'Municipal Govt',      ln:'4560',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'investment_income',  l:'Investment Income',   ln:'4580',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'fundraising_rev',    l:'Fundraising Revenue', ln:'4630',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'sale_goods',         l:'Sale of Goods/Svcs',  ln:'4640',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'other_revenue',      l:'Other Revenue',       ln:'4650',t:'$',g:'Revenue',     tb:'fd'},
+// ─── Table definitions ──────────────────────────────────────────
+// [tableName, bnColumn] — bnColumn null means base table (always in FROM)
+var TBLS = {
+  cb:  ['charity_base', null],
+  fd:  ['financial_d', '"BN/Registration Number"'],
+  fabc:['financial_abc', '"BN/Registration number"'],
+  sc:  ['schedule_3_compensation', '"BN/Registration number"'],
+  cc:  ['charity_counts', 'bn'],
+  s1:  ['schedule_1_foundations', '"BN/Registration number"'],
+  s2s: ['schedule_2_summary', '"BN/Registration number"'],
+  s5:  ['schedule_5_noncash', '"BN/Registration number"'],
+  s8:  ['schedule_8_disbursement', '"BN/Registration Number"']
+};
 
-  {id:'total_expenditures', l:'Total Expenditures',  ln:'5100',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'charitable_programs',l:'Charitable Programs',  ln:'5000',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'mgmt_admin',         l:'Mgmt & Admin',        ln:'5010',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'fundraising_exp',    l:'Fundraising',         ln:'5020',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'political',          l:'Political Activities', ln:'5040',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'gifts_to_qds',       l:'Gifts to Qual. Donees',ln:'5050',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'grants_non_qds',     l:'Grants Non-Qual.',    ln:'5045',t:'$',g:'Expenditures',tb:'fd'},
+// ─── Field catalog ──────────────────────────────────────────────
+var M = [];
 
-  {id:'total_assets',       l:'Total Assets',        ln:'4200',t:'$',g:'Balance Sheet',tb:'fd'},
-  {id:'total_liabilities',  l:'Total Liabilities',   ln:'4350',t:'$',g:'Balance Sheet',tb:'fd'},
-  {id:'cash_investments',   l:'Cash & Investments',  ln:'4100',t:'$',g:'Balance Sheet',tb:'fd'},
-  {id:'receivables',        l:'Receivables',         ln:'4110',t:'$',g:'Balance Sheet',tb:'fd'},
-  {id:'long_term_invest',   l:'Long-term Investments',ln:'4140',t:'$',g:'Balance Sheet',tb:'fd'},
+(function buildFields(){
 
-  {id:'ft_employees',       l:'FT Employees',        col:'"300"', t:'i',g:'Employment',tb:'sc'},
-  {id:'pt_employees',       l:'PT Employees',        col:'"370"', t:'i',g:'Employment',tb:'sc'},
-  {id:'total_compensation', l:'Total Compensation',  col:'"390"', t:'$',g:'Employment',tb:'sc'},
-  {id:'compensation_fd',    l:'Compensation (fin_d)', ln:'4880',  t:'$',g:'Employment',tb:'fd'},
-
-  {id:'num_programs',       l:'Programs',            col:'num_programs',           t:'i',g:'Activity',tb:'cc'},
-  {id:'num_grants',         l:'Grants',              col:'num_grants',             t:'i',g:'Activity',tb:'cc'},
-  {id:'num_countries',      l:'Operating Countries', col:'num_operating_countries',t:'i',g:'Activity',tb:'cc'},
+// charity_base fields
+var CB = [
+  ['cb_bn','BN','bn','s'],
+  ['cb_legal_name','Legal Name','legal_name','s'],
+  ['cb_account_name','Account Name','account_name','s'],
+  ['cb_designation_code','Designation Code','designation_code','s'],
+  ['cb_designation_desc','Designation','designation_desc','s'],
+  ['cb_category_code','Category Code','category_code','s'],
+  ['cb_subcategory_code','Sub-Category Code','subcategory_code','s'],
+  ['cb_category_desc','Category','category_desc','s'],
+  ['cb_subcategory_desc','Sub-Category','subcategory_desc','s'],
+  ['cb_charity_type','Charity Type','charity_type','s'],
+  ['cb_registration_date','Registration Date','registration_date','s'],
+  ['cb_address','Address','address','s'],
+  ['cb_city','City','city','s'],
+  ['cb_province','Province','province','s'],
+  ['cb_postal_code','Postal Code','postal_code','s'],
+  ['cb_country','Country','country','s'],
+  ['cb_phone','Phone','phone','s'],
+  ['cb_email','Email','email','s'],
+  ['cb_website','Website','website','s']
 ];
+CB.forEach(function(f){ M.push({id:f[0],l:f[1],col:f[2],t:f[3],g:'Identification',tb:'cb'}); });
 
-var PRESETS = [
-  {n:'Sector Overview', s:{mode:'aggregate',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
-    metrics:['total_revenue','total_expenditures','total_assets','total_compensation'],
-    filters:[],sort:'total_revenue',dir:'DESC',lim:25,search:'',customWhere:''}},
-  {n:'By Province', s:{mode:'aggregate',prov:'',desig:'',cat:'',gb:'province',aggfn:'SUM',
-    metrics:['total_revenue','total_expenditures','ft_employees'],
-    filters:[],sort:'total_revenue',dir:'DESC',lim:25,search:'',customWhere:''}},
-  {n:'Top 25 Revenue', s:{mode:'detail',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
-    metrics:['total_revenue','total_expenditures','total_assets'],
-    filters:[],sort:'total_revenue',dir:'DESC',lim:25,search:'',customWhere:''}},
-  {n:'Top Employers', s:{mode:'detail',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
-    metrics:['ft_employees','pt_employees','total_compensation'],
-    filters:[],sort:'ft_employees',dir:'DESC',lim:25,search:'',customWhere:''}},
-  {n:'Foreign Activity', s:{mode:'detail',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
-    metrics:['total_revenue','num_countries','num_grants'],
-    filters:[{f:'num_countries',op:'>',v:'0'}],sort:'num_countries',dir:'DESC',lim:50,search:'',customWhere:''}},
-  {n:'Foundations Only', s:{mode:'detail',prov:'',desig:'A',cat:'',gb:'designation',aggfn:'SUM',
-    metrics:['total_revenue','total_assets','gifts_to_qds'],
-    filters:[],sort:'total_assets',dir:'DESC',lim:25,search:'',customWhere:''}},
+// financial_d — all VARCHAR currency fields
+var FD = {
+  '4020':'Land & buildings (charitable)','4050':'Other capital assets',
+  '4100':'Cash & short-term investments','4101':'Cash (V24)','4102':'Short-term investments (V24)',
+  '4110':'Amounts receivable','4120':'Receivables from related parties','4130':'Other receivables',
+  '4140':'Long-term investments','4150':'Inventories','4155':'10-year gifts',
+  '4157':'Other non-capital assets (V24)','4158':'Total non-capital assets (V24)',
+  '4160':'Land & buildings','4165':'Other capital assets (net)','4166':'Accumulated amortization',
+  '4170':'Other capital assets (gross)','4180':'Accum. amortization (capital)','4190':'Net capital assets (V24)',
+  '4200':'Total assets',
+  '4250':'Assets not for charitable use','4300':'Current liabilities',
+  '4310':'Amounts owing to related parties','4320':'Deferred revenue',
+  '4330':'Long-term liabilities','4350':'Total liabilities','4400':'Net assets start of year',
+  '4490':'Total tax-receipted donations','4500':'Tax-receipted gifts',
+  '4505':'Tax-receipted other sources','4510':'Gifts from other charities',
+  '4530':'Gifts from other sources','4540':'Government \u2014 federal',
+  '4550':'Government \u2014 provincial','4560':'Government \u2014 municipal',
+  '4565':'Government transfers','4570':'Total government funding',
+  '4571':'Revenue from govt contracts','4575':'Non-tax-receipted outside Canada',
+  '4576':'Foreign business activities (V24)','4577':'Related business activities (V24)',
+  '4580':'Interest & investment income','4590':'Net capital gains/losses',
+  '4600':'Disposition of assets','4610':'Rental income','4620':'Membership fees',
+  '4630':'Fundraising revenue','4640':'Sale of goods & services',
+  '4650':'Other revenue','4655':'Total non-tax-receipted revenue','4700':'Total revenue',
+  '5610':'Tax receipts issued',
+  '4800':'Advertising & promotion','4810':'Travel & vehicle',
+  '4820':'Interest & bank charges','4830':'Licenses, memberships, dues',
+  '4840':'Office supplies & expenses','4850':'Occupancy costs',
+  '4860':'Professional & consulting fees','4870':'Education & training',
+  '4880':'Total compensation','4890':'Amortization of capital assets',
+  '4891':'Research grants & scholarships','4900':'Other expenditures',
+  '4910':'Allocated to charitable programs','4920':'Allocated to mgmt & admin',
+  '4930':'Allocated to fundraising','4950':'Allocated to political activities',
+  '5000':'Charitable program expenditures','5010':'Management & admin',
+  '5020':'Fundraising','5030':'Gifts to qualified donees (total)',
+  '5040':'Political activities','5045':'Grants to non-qualified donees',
+  '5050':'Gifts to qualified donees','5100':'Total expenditures',
+  '5500':'Enduring property transfers','5510':'Net assets/equity end of year',
+  '5750':'Specified gifts','5900':'Other deductions','5910':'Amount subject to DQ'
+};
+function fdGroup(n){
+  if(n<=4200) return 'D \u2014 Assets';
+  if(n<=4400) return 'D \u2014 Liabilities & Equity';
+  if(n<=4700||n===5610) return 'D \u2014 Revenue';
+  if(n<=4950) return 'D \u2014 Expenditure Detail';
+  if(n<=5100) return 'D \u2014 Expenditure Totals';
+  return 'D \u2014 Other';
+}
+Object.keys(FD).forEach(function(ln){
+  M.push({id:'fd_'+ln, l:'['+ln+'] '+FD[ln], col:'"'+ln+'"', t:'$', g:fdGroup(parseInt(ln)), tb:'fd'});
+});
+
+// financial_abc — named columns
+var FABC_N = [
+  ['fabc_1200_code','"1200 Program Area Code"','[1200] Program Area Code 1','s'],
+  ['fabc_1200_pct','"1200 Percent"','[1200] Program Area 1 %','i'],
+  ['fabc_1210_code','"1210 Program Area Code"','[1210] Program Area Code 2','s'],
+  ['fabc_1210_pct','"1210 Percent"','[1210] Program Area 2 %','i'],
+  ['fabc_1220_code','"1220 Program Area Code"','[1220] Program Area Code 3','s'],
+  ['fabc_1220_pct','"1220 Percent"','[1220] Program Area 3 %','i'],
+  ['fabc_1510_sub','"1510 Subordinate position to a parent organization?"','[1510] Is Subordinate?','s'],
+  ['fabc_1510_bn','"1510 Parent Business Number"','[1510] Parent BN','s'],
+  ['fabc_1510_name','"1510 Parent Name"','[1510] Parent Name','s']
 ];
+FABC_N.forEach(function(f){ M.push({id:f[0],l:f[2],col:f[1],t:f[3],g:'ABC \u2014 Program & Org',tb:'fabc'}); });
+
+// financial_abc — numbered columns: {line: [desc, type]}
+var FABC = {
+  '1570':['Directors/trustees? (Y/N)','s'],'1600':['Unpaid directors? (Y/N)','s'],
+  '1800':['Arms-length transaction? (Y/N)','s'],'2000':['Compensation over threshold? (Y/N)','s'],
+  '2100':['Non-arm\'s length transactions? (Y/N)','s'],'2400':['Fundraising activities? (Y/N)','s'],
+  '2500':['Activities outside Canada? (Y/N)','s'],'2510':['Transferred to qual. donees? (Y/N)','s'],
+  '2530':['Compensation outside Canada? (Y/N)','s'],'2540':['Property outside Canada? (Y/N)','s'],
+  '2550':['Staff outside Canada? (Y/N)','s'],'2560':['Contractor outside Canada? (Y/N)','s'],
+  '2570':['Volunteer outside Canada? (Y/N)','s'],'2575':['Intermediary outside Canada? (Y/N)','s'],
+  '2580':['Agent outside Canada? (Y/N)','s'],'2590':['Transfer of funds outside? (Y/N)','s'],
+  '2600':['Recipient in country? (Y/N)','s'],'2610':['Purpose of activity? (Y/N)','s'],
+  '2620':['Ongoing monitoring? (Y/N)','s'],'2630':['Periodic transfers? (Y/N)','s'],
+  '2640':['Books & records? (Y/N)','s'],'2650':['Verified expenditures? (Y/N)','s'],
+  '2660':['Training & accountability? (Y/N)','s'],
+  '2700':['Received gifts over $10K? (Y/N)','s'],
+  '2730':['Conducted political activities? (Y/N)','s'],'2740':['Political expenditures? (Y/N)','s'],
+  '2750':['Research & education? (Y/N)','s'],'2760':['Representations to govt? (Y/N)','s'],
+  '2770':['Conferences/meetings? (Y/N)','s'],'2780':['Media campaigns? (Y/N)','s'],
+  '2790':['Demonstrations/rallies? (Y/N)','s'],'2800':['Other political? (Y/N)','s'],
+  '3200':['Permission to publish? (Y/N)','s'],'3400':['Third-party revenue? (Y/N)','s'],
+  '3900':['Owns 2%+ of corporation? (Y/N)','s'],'4000':['Received foreign funds? (Y/N)','s'],
+  '5030':['Gifts to qual. donees? (C) (Y/N)','s'],'5031':['Gifts to foreign donees? (Y/N)','s'],
+  '5032':['Political gifts? (Y/N)','s'],
+  '5450':['Total gifts to qual. donees','$'],'5460':['Total gifts to other charities','$']
+};
+Object.keys(FABC).forEach(function(ln){
+  var n=parseInt(ln), g;
+  if(n<2000) g='ABC \u2014 Program & Org';
+  else if(n<5000) g='ABC \u2014 Activities & Questions';
+  else g='ABC \u2014 Gifts';
+  M.push({id:'fabc_'+ln, l:'['+ln+'] '+FABC[ln][0], col:'"'+ln+'"', t:FABC[ln][1], g:g, tb:'fabc'});
+});
+
+// financial_abc — DAF fields
+var FABC_DAF = {
+  '5800':['Has DAF program? (Y/N)','s'],'5810':['DAF \u2014 had accounts? (Y/N)','s'],
+  '5820':['DAF \u2014 any value? (Y/N)','s'],'5830':['DAF \u2014 received donations? (Y/N)','s'],
+  '5840':['DAF \u2014 made grants? (Y/N)','s'],'5841':['DAF \u2014 investment income? (Y/N)','s'],
+  '5842':['DAF \u2014 number of accounts','i'],'5843':['DAF \u2014 other income','$'],
+  '5850':['DAF \u2014 total expenditures? (Y/N)','s'],
+  '5860':['Has DAF? (Y/N)','s'],'5861':['Number of DAF accounts','i'],
+  '5862':['Total value of DAFs','$'],'5863':['Total donations to DAFs','$'],
+  '5864':['Total grants from DAFs','$']
+};
+Object.keys(FABC_DAF).forEach(function(ln){
+  M.push({id:'fabc_'+ln, l:'['+ln+'] '+FABC_DAF[ln][0], col:'"'+ln+'"', t:FABC_DAF[ln][1], g:'ABC \u2014 DAF', tb:'fabc'});
+});
+
+// schedule_3_compensation
+var SC_INT = {'300':'FT employees','305':'Salary $1\u2013$39,999','310':'Salary $40K\u2013$79,999',
+  '315':'Salary $80K\u2013$119,999','320':'Salary $120K\u2013$159,999','325':'Salary $160K\u2013$199,999',
+  '330':'Salary $200K\u2013$249,999','335':'Salary $250K\u2013$299,999','340':'Salary $300K\u2013$349,999',
+  '345':'Salary $350K+','370':'PT employees'};
+Object.keys(SC_INT).forEach(function(ln){
+  M.push({id:'sc_'+ln, l:'['+ln+'] '+SC_INT[ln], col:'"'+ln+'"', t:'i', g:'Sch 3 \u2014 Compensation', tb:'sc'});
+});
+M.push({id:'sc_380', l:'[380] Top 10 FT compensation', col:'"380"', t:'$', g:'Sch 3 \u2014 Compensation', tb:'sc'});
+M.push({id:'sc_390', l:'[390] Total compensation', col:'"390"', t:'$', g:'Sch 3 \u2014 Compensation', tb:'sc'});
+
+// charity_counts
+M.push({id:'cc_has_filing',l:'Has Filing',col:'has_filing',t:'i',g:'Activity Counts',tb:'cc'});
+M.push({id:'cc_num_programs',l:'Programs',col:'num_programs',t:'i',g:'Activity Counts',tb:'cc'});
+M.push({id:'cc_num_grants',l:'Grants',col:'num_grants',t:'i',g:'Activity Counts',tb:'cc'});
+M.push({id:'cc_num_countries',l:'Operating Countries',col:'num_operating_countries',t:'i',g:'Activity Counts',tb:'cc'});
+
+// schedule_1_foundations
+var S1 = {'100':['Capital accumulation? (Y/N)','s'],'110':['Capital gains? (Y/N)','s'],
+  '111':['Capital gains \u2014 gifts','$'],'112':['Capital gains \u2014 other','$'],
+  '120':['Disbursement quota? (Y/N)','s'],'130':['Excess corporate holdings? (Y/N)','s']};
+Object.keys(S1).forEach(function(ln){
+  M.push({id:'s1_'+ln, l:'['+ln+'] '+S1[ln][0], col:'"'+ln+'"', t:S1[ln][1], g:'Sch 1 \u2014 Foundations', tb:'s1'});
+});
+
+// schedule_2_summary
+var S2S = {'200':['Expenditures outside Canada','$'],'210':['Transfers to qual. donees? (Y/N)','s'],
+  '220':['Amount to other orgs? (Y/N)','s'],'230':['Amount for own activities','$'],
+  '240':['Total outside Canada? (Y/N)','s'],'250':['Purposes outside Canada? (Y/N)','s'],
+  '260':['Activities outside Canada? (Y/N)','s']};
+Object.keys(S2S).forEach(function(ln){
+  M.push({id:'s2s_'+ln, l:'['+ln+'] '+S2S[ln][0], col:'"'+ln+'"', t:S2S[ln][1], g:'Sch 2 \u2014 Foreign Activities', tb:'s2s'});
+});
+
+// schedule_5_noncash
+var S5 = {'500':['Ecologically sensitive land? (Y/N)','s'],'505':['Eco land appraised? (Y/N)','s'],
+  '510':['Cultural property? (Y/N)','s'],'515':['Cultural prop appraised? (Y/N)','s'],
+  '520':['Listed securities? (Y/N)','s'],'525':['Securities appraised? (Y/N)','s'],
+  '530':['Art/antiques/collectibles? (Y/N)','s'],'535':['Art appraised? (Y/N)','s'],
+  '540':['Real estate? (Y/N)','s'],'545':['Real estate appraised? (Y/N)','s'],
+  '550':['Other non-cash? (Y/N)','s'],'555':['Other appraised? (Y/N)','s'],
+  '560':['Life insurance? (Y/N)','s'],'565':['Other property description','s'],
+  '580':['Total non-cash gifts','$']};
+Object.keys(S5).forEach(function(ln){
+  M.push({id:'s5_'+ln, l:'['+ln+'] '+S5[ln][0], col:'"'+ln+'"', t:S5[ln][1], g:'Sch 5 \u2014 Non-Cash Gifts', tb:'s5'});
+});
+
+// schedule_8_disbursement — all currency
+var S8 = {'805':'3.5% of avg property','810':'Tax-receipted gifts','815':'10-year gifts',
+  '820':'Gifts from other charities','825':'Specified gifts','830':'Enduring property',
+  '835':'Net increase DQ excess','840':'Permitted deductions','845':'Reduction from prior DQ',
+  '850':'DQ from prior year','855':'Net disbursement','860':'Sub-total',
+  '865':'Amount applied to DQ','870':'DQ excess','875':'Accumulated DQ excess',
+  '880':'Disbursement shortfall','885':'Reduced amount','890':'Adjusted cost base'};
+Object.keys(S8).forEach(function(ln){
+  M.push({id:'s8_'+ln, l:'['+ln+'] '+S8[ln], col:'"'+ln+'"', t:'$', g:'Sch 8 \u2014 Disbursement Quota', tb:'s8'});
+});
+
+})();
 
 // ─── State ───────────────────────────────────────────────────────
 var S = {mode:'detail',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
-  metrics:['total_revenue','total_expenditures'],filters:[],sort:'total_revenue',dir:'DESC',lim:25,
+  metrics:['fd_4700','fd_5100'],filters:[],sort:'fd_4700',dir:'DESC',lim:25,
   search:'',customWhere:''};
 
 var serverUp = false;
@@ -314,22 +484,18 @@ var tableSortAsc = true;
 
 // ─── Helpers ─────────────────────────────────────────────────────
 var gm = function(id){return M.find(function(m){return m.id===id})};
-var needs = function(a){
-  return S.metrics.some(function(id){var m=gm(id);return m&&m.tb===a}) ||
-         S.filters.some(function(f){var m=gm(f.f);return m&&m.tb===a});
-};
 
-function cr(m){
-  if(m.ln) return 'fd."'+m.ln+'"';
-  return m.tb+'.'+m.col;
-}
+function cr(m){ return m.tb+'.'+m.col; }
+
 function money(m){
-  if(m.t==='i') return cr(m);
-  return 'money('+cr(m)+')';
+  if(m.t==='$') return 'money('+cr(m)+')';
+  return cr(m);
 }
+
 function agg(m,fn){
+  if(m.t==='$') return fn+'(money('+cr(m)+'))';
   if(m.t==='i') return fn+'('+cr(m)+')';
-  return fn+'(money('+cr(m)+'))';
+  return 'COUNT(DISTINCT '+cr(m)+')';
 }
 
 function escSql(s){return s.replace(/'/g,"''");}
@@ -338,10 +504,16 @@ function escSql(s){return s.replace(/'/g,"''");}
 function genSQL(){
   var sel = S.metrics.map(gm).filter(Boolean);
   if(!sel.length) return '-- Select at least one metric';
-  var ufd=needs('fd'), usc=needs('sc'), ucc=needs('cc');
-  var usesMoney = sel.some(function(m){return m.t==='$'}) || S.filters.some(function(f){var m=gm(f.f);return m&&m.t==='$'});
-  var q='';
 
+  // Determine which tables are needed
+  var usedTables = {};
+  sel.forEach(function(m){ if(m.tb!=='cb') usedTables[m.tb]=true; });
+  S.filters.forEach(function(f){ var m=gm(f.f); if(m&&m.tb!=='cb') usedTables[m.tb]=true; });
+
+  var usesMoney = sel.some(function(m){return m.t==='$'}) ||
+    S.filters.some(function(f){var m=gm(f.f);return m&&m.t==='$'});
+
+  var q='';
   if(usesMoney){
     q+="-- Convert currency strings to numbers\n";
     q+="CREATE OR REPLACE MACRO money(x) AS\n  TRY_CAST(REPLACE(REPLACE(x, '$', ''), ',', '') AS DECIMAL);\n\n";
@@ -359,9 +531,12 @@ function genSQL(){
   }
 
   q+='FROM charity_base cb\n';
-  if(ufd) q+='LEFT JOIN financial_d fd ON fd."BN/Registration Number" = cb.bn\n';
-  if(usc) q+='LEFT JOIN schedule_3_compensation sc ON sc."BN/Registration number" = cb.bn\n';
-  if(ucc) q+='LEFT JOIN charity_counts cc ON cc.bn = cb.bn\n';
+  // Stable join order based on TBLS key order
+  ['fd','fabc','sc','cc','s1','s2s','s5','s8'].forEach(function(tb){
+    if(!usedTables[tb]) return;
+    var cfg = TBLS[tb];
+    q+='LEFT JOIN '+cfg[0]+' '+tb+' ON '+tb+'.'+cfg[1]+' = cb.bn\n';
+  });
 
   var w=[];
   if(S.prov) w.push("cb.province = '"+S.prov+"'");
@@ -374,8 +549,17 @@ function genSQL(){
   S.filters.forEach(function(f){
     var m=gm(f.f);
     if(!m||!f.v) return;
-    var e = m.t==='i'?cr(m):'money('+cr(m)+')';
-    w.push(e+' '+f.op+' '+f.v);
+    if(m.t==='s'){
+      var expr = cr(m);
+      if(f.op==='ILIKE'||f.op==='NOT ILIKE'){
+        w.push(expr+" "+f.op+" '%"+escSql(f.v)+"%'");
+      } else {
+        w.push(expr+" "+f.op+" '"+escSql(f.v)+"'");
+      }
+    } else {
+      var e = m.t==='$' ? 'money('+cr(m)+')' : cr(m);
+      w.push(e+' '+f.op+' '+f.v);
+    }
   });
   if(S.customWhere.trim()) w.push('('+S.customWhere.trim()+')');
   if(w.length) q+='WHERE '+w.join('\n  AND ')+'\n';
@@ -404,13 +588,15 @@ function hl(s){
   s=s.replace(/(--[^\n]*)/g,'<span class="cmt">$1</span>');
   s=s.replace(/'([^']*)'/g,"'<span class=\"str\">$1</span>'");
   var kws=['SELECT','FROM','LEFT JOIN','INNER JOIN','ON','WHERE','AND','OR','GROUP BY','ORDER BY',
-   'LIMIT','AS','CREATE','OR REPLACE','MACRO','SUM','AVG','MEDIAN','COUNT','MIN','MAX',
-   'NULLS LAST','DESC','ASC','TRY_CAST','REPLACE','DECIMAL','ILIKE'];
+   'LIMIT','AS','CREATE','OR REPLACE','MACRO','SUM','AVG','MEDIAN','COUNT','DISTINCT','MIN','MAX',
+   'NULLS LAST','DESC','ASC','TRY_CAST','REPLACE','DECIMAL','ILIKE','NOT ILIKE'];
   kws.forEach(function(k){
     s=s.replace(new RegExp('\\b('+k.replace(/ /g,'\\s+')+'(?!\\w))','g'),'<span class="kw">$1</span>');
   });
   s=s.replace(/\b(money)\b/g,'<span class="fn">$1</span>');
-  var tbls=['charity_base','financial_d','schedule_3_compensation','charity_counts','cb','fd','sc','cc'];
+  var tbls=['charity_base','financial_d','financial_abc','schedule_3_compensation','charity_counts',
+    'schedule_1_foundations','schedule_2_summary','schedule_5_noncash','schedule_8_disbursement',
+    'cb','fd','fabc','sc','cc','s1','s2s','s5','s8'];
   tbls.forEach(function(t){
     s=s.replace(new RegExp('\\b('+t+')\\b','g'),'<span class="tbl">$1</span>');
   });
@@ -433,24 +619,24 @@ function genPrompt(){
     if(S.prov) scope+=' in '+(pn[S.prov]||S.prov);
     if(S.desig) scope+=' that are '+(dn[S.desig]||S.desig);
     if(S.search) scope+=' matching "'+S.search+'"';
-    parts.push('List individual charities'+scope+' with: '+sel.map(function(m){return m.l.toLowerCase()}).join(', '));
+    parts.push('List individual charities'+scope+' with: '+sel.map(function(m){return m.l}).join(', '));
     if(S.filters.length){
-      var fd=S.filters.map(function(f){var m=gm(f.f);return m?(m.l.toLowerCase()+' '+f.op+' '+f.v):''}).filter(Boolean);
+      var fd=S.filters.map(function(f){var m=gm(f.f);return m?(m.l+' '+f.op+' '+f.v):''}).filter(Boolean);
       if(fd.length) parts.push('Filter where '+fd.join(', '));
     }
     var sm=gm(S.sort);
-    if(sm) parts.push('Sort by '+sm.l.toLowerCase()+' '+S.dir.toLowerCase()+', limit '+S.lim);
+    if(sm) parts.push('Sort by '+sm.l+' '+S.dir.toLowerCase()+', limit '+S.lim);
   } else {
     var gn={designation:'designation type',province:'province',category:'category'};
     var scope2='';
     if(S.prov) scope2+=' in '+(pn[S.prov]||S.prov);
     if(S.desig) scope2+=' ('+dn[S.desig]+' only)';
-    parts.push('Aggregate charities'+scope2+' by '+gn[S.gb]+', showing '+S.aggfn.toLowerCase()+' of: '+sel.map(function(m){return m.l.toLowerCase()}).join(', '));
+    parts.push('Aggregate charities'+scope2+' by '+gn[S.gb]+', showing '+S.aggfn+' of: '+sel.map(function(m){return m.l}).join(', '));
     var sm2=gm(S.sort);
-    if(sm2) parts.push('Sort by '+sm2.l.toLowerCase()+' '+S.dir.toLowerCase());
+    if(sm2) parts.push('Sort by '+sm2.l+' '+S.dir.toLowerCase());
   }
 
-  parts.push('\nDatabase: CRA T3010 2024 in DuckDB. charity_base (bn, legal_name, designation_code/desc, province, category_desc). financial_d (line numbers as columns, currency as "$1,234" VARCHAR \u2014 use TRY_CAST). Join fd on fd."BN/Registration Number" = cb.bn. schedule_3_compensation: "300" FT (BIGINT), "370" PT (BIGINT), "390" compensation (VARCHAR $). Join sc on "BN/Registration number" (lowercase n).');
+  parts.push('\nDatabase: CRA T3010 2024 in DuckDB. Tables: charity_base (cb), financial_d (fd), financial_abc (fabc), schedule_3_compensation (sc), charity_counts (cc), schedule_1 (s1), schedule_2_summary (s2s), schedule_5 (s5), schedule_8 (s8). Currency fields are "$1,234" VARCHAR \u2014 use TRY_CAST. BN column varies: "BN/Registration Number" (cap N) in fd, s8; "BN/Registration number" (lower n) elsewhere.');
   return parts.join('. ');
 }
 
@@ -648,15 +834,24 @@ function showError(msg){
 var sqlPanelOpen = true;
 
 function update(){
+  // Render highlighted SQL
   var preEl = document.getElementById('pre');
-  var sqlHtml = hl(genSQL());
-  while(preEl.firstChild) preEl.removeChild(preEl.firstChild);
-  var wrapper = document.createElement('div');
-  wrapper.innerHTML = sqlHtml;
-  while(wrapper.firstChild) preEl.appendChild(wrapper.firstChild);
+  var sqlStr = genSQL();
+  var highlighted = hl(sqlStr);
+  preEl.textContent = '';
+  var tmp = document.createElement('template');
+  tmp.innerHTML = highlighted;
+  preEl.appendChild(tmp.content);
 
   updSort();
   document.getElementById('gb-sec').style.display = S.mode==='aggregate' ? 'block' : 'none';
+
+  // Update selected counts on group headers
+  document.querySelectorAll('.mg').forEach(function(mgEl){
+    var selCount = mgEl.querySelectorAll('.mx.on').length;
+    var selSpan = mgEl.querySelector('.mg-sel');
+    if(selSpan) selSpan.textContent = selCount > 0 ? selCount + ' sel' : '';
+  });
 }
 
 function updSort(){
@@ -691,6 +886,15 @@ function sync(){
   update();
 }
 
+// ─── Ensure filter field is in metrics ──────────────────────────
+function ensureMetric(fieldId){
+  if(S.metrics.indexOf(fieldId)<0){
+    S.metrics.push(fieldId);
+    var chip = document.querySelector('.mx[data-id="'+fieldId+'"]');
+    if(chip) chip.classList.add('on');
+  }
+}
+
 // ─── Build controls ──────────────────────────────────────────────
 
 // Search
@@ -699,17 +903,6 @@ document.getElementById('search').oninput = function(e){
   clearTimeout(searchTimer);
   searchTimer = setTimeout(function(){ S.search = e.target.value; update(); }, 200);
 };
-
-// Presets
-var pe=document.getElementById('presets');
-PRESETS.forEach(function(p){
-  var b=document.createElement('button');b.className='pbtn';b.textContent=p.n;
-  b.onclick=function(){
-    Object.assign(S,JSON.parse(JSON.stringify(p.s)));sync();
-    pe.querySelectorAll('.pbtn').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
-  };
-  pe.appendChild(b);
-});
 
 // Mode
 document.querySelectorAll('#mode .tbtn').forEach(function(b){
@@ -749,18 +942,33 @@ document.querySelectorAll('#aggfn .chip').forEach(function(c){
   };
 });
 
-// Metrics
+// ─── Metrics ─────────────────────────────────────────────────────
 var mcon=document.getElementById('metrics');
-var grps=[];M.forEach(function(m){if(grps.indexOf(m.g)<0)grps.push(m.g)});
-grps.forEach(function(g){
-  var d=document.createElement('div');d.className='mg';
-  var lbl=document.createElement('div');lbl.className='mg-label';lbl.textContent=g;
+
+// Build groups
+var grpOrder=[];
+var grpFields={};
+M.forEach(function(m){
+  if(grpOrder.indexOf(m.g)<0){grpOrder.push(m.g);grpFields[m.g]=[];}
+  grpFields[m.g].push(m);
+});
+
+grpOrder.forEach(function(g){
+  var mgDiv=document.createElement('div');mgDiv.className='mg';
+
+  var head=document.createElement('div');head.className='mg-head';
+  var arrow=document.createElement('span');arrow.className='mg-arrow';arrow.textContent='\u25B6';
+  var title=document.createElement('span');title.textContent=g;
+  var count=document.createElement('span');count.className='mg-count';count.textContent=grpFields[g].length;
+  var selCount=document.createElement('span');selCount.className='mg-sel';selCount.textContent='';
+  head.appendChild(arrow);head.appendChild(title);head.appendChild(count);head.appendChild(selCount);
+  mgDiv.appendChild(head);
+
   var cd=document.createElement('div');cd.className='mc';
-  d.appendChild(lbl);d.appendChild(cd);
-  M.filter(function(m){return m.g===g}).forEach(function(m){
+  grpFields[g].forEach(function(m){
     var c=document.createElement('span');
     c.className='mx'+(S.metrics.indexOf(m.id)>=0?' on':'');
-    c.dataset.id=m.id;c.textContent=m.l;
+    c.dataset.id=m.id;c.textContent=m.l;c.title=m.g+' | '+m.tb+'.'+m.col+' ('+m.t+')';
     c.onclick=function(){
       var idx=S.metrics.indexOf(m.id);
       if(idx>=0) S.metrics.splice(idx,1); else S.metrics.push(m.id);
@@ -768,30 +976,107 @@ grps.forEach(function(g){
     };
     cd.appendChild(c);
   });
-  mcon.appendChild(d);
+  mgDiv.appendChild(cd);
+
+  head.onclick=function(){
+    var isOpen=cd.classList.contains('open');
+    cd.classList.toggle('open',!isOpen);
+    head.classList.toggle('open',!isOpen);
+    arrow.textContent=isOpen?'\u25B6':'\u25BC';
+  };
+
+  mcon.appendChild(mgDiv);
 });
 
-// Filters
+// Metric search
+document.getElementById('metric-search').oninput=function(e){
+  var q=e.target.value.toLowerCase().trim();
+  document.querySelectorAll('.mg').forEach(function(mgEl){
+    var chips=mgEl.querySelectorAll('.mx');
+    var anyVisible=false;
+    chips.forEach(function(c){
+      var match=!q||c.textContent.toLowerCase().indexOf(q)>=0||c.dataset.id.toLowerCase().indexOf(q)>=0;
+      c.classList.toggle('hidden',!match);
+      if(match) anyVisible=true;
+    });
+    mgEl.classList.toggle('hidden',!anyVisible);
+    if(q && anyVisible){
+      mgEl.querySelector('.mc').classList.add('open');
+      mgEl.querySelector('.mg-head').classList.add('open');
+      var arr=mgEl.querySelector('.mg-arrow');if(arr) arr.textContent='\u25BC';
+    }
+    if(!q){
+      var hasSelected = mgEl.querySelectorAll('.mx.on').length > 0;
+      if(!hasSelected){
+        mgEl.querySelector('.mc').classList.remove('open');
+        mgEl.querySelector('.mg-head').classList.remove('open');
+        var arr2=mgEl.querySelector('.mg-arrow');if(arr2) arr2.textContent='\u25B6';
+      }
+    }
+  });
+};
+
+// ─── Filters ─────────────────────────────────────────────────────
 var fcon=document.getElementById('filters');
+
+function buildFilterSelect(selectedId){
+  var fs=document.createElement('select');
+  grpOrder.forEach(function(g){
+    var og=document.createElement('optgroup');og.label=g;
+    grpFields[g].forEach(function(m){
+      var o=document.createElement('option');o.value=m.id;o.textContent=m.l;
+      og.appendChild(o);
+    });
+    fs.appendChild(og);
+  });
+  if(selectedId) fs.value=selectedId;
+  return fs;
+}
+
+function getOpsForField(fieldId){
+  var m=gm(fieldId);
+  if(m && m.t==='s') return ['=','!=','ILIKE','NOT ILIKE'];
+  return ['>','>=','<','<=','=','!='];
+}
+
 function renderFilters(){
   fcon.textContent='';
   S.filters.forEach(function(f,i){
     var r=document.createElement('div');r.className='frow';
-    var fs=document.createElement('select');
-    M.forEach(function(m){var o=document.createElement('option');o.value=m.id;o.textContent=m.l;fs.appendChild(o);});
-    fs.value=f.f;fs.onchange=function(e){S.filters[i].f=e.target.value;update();};
-    var os=document.createElement('select');os.style.width='55px';os.style.minWidth='55px';
-    ['>','>=','<','<=','=','!='].forEach(function(op){var o=document.createElement('option');o.value=op;o.textContent=op;os.appendChild(o);});
-    os.value=f.op;os.onchange=function(e){S.filters[i].op=e.target.value;update();};
+
+    var fs=buildFilterSelect(f.f);
+    fs.style.width='auto';fs.style.minWidth='140px';fs.style.maxWidth='200px';
+    fs.onchange=function(e){
+      S.filters[i].f=e.target.value;
+      ensureMetric(e.target.value);
+      renderFilters();
+      update();
+    };
+
+    var ops=getOpsForField(f.f);
+    var os=document.createElement('select');os.style.width='75px';os.style.minWidth='75px';
+    ops.forEach(function(op){var o=document.createElement('option');o.value=op;o.textContent=op;os.appendChild(o);});
+    if(ops.indexOf(f.op)>=0) os.value=f.op; else { os.value=ops[0]; S.filters[i].op=ops[0]; }
+    os.onchange=function(e){S.filters[i].op=e.target.value;update();};
+
     var vi=document.createElement('input');vi.type='text';vi.value=f.v;vi.placeholder='value';
     vi.oninput=function(e){S.filters[i].v=e.target.value;update();};
+
     var rb=document.createElement('button');rb.className='rx';rb.textContent='\u00d7';
     rb.onclick=function(){S.filters.splice(i,1);renderFilters();update();};
+
     r.appendChild(fs);r.appendChild(os);r.appendChild(vi);r.appendChild(rb);
     fcon.appendChild(r);
   });
 }
-document.getElementById('addf').onclick=function(){S.filters.push({f:'total_revenue',op:'>',v:'1000000'});renderFilters();update();};
+
+document.getElementById('addf').onclick=function(){
+  var defaultField='fd_4700';
+  S.filters.push({f:defaultField,op:'>',v:'1000000'});
+  ensureMetric(defaultField);
+  renderFilters();
+  update();
+};
 
 // Advanced panel toggle
 document.getElementById('adv-toggle').onclick=function(){
