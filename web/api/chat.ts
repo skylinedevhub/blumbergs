@@ -89,7 +89,12 @@ export default async function handler(
       const google = createGoogleGenerativeAI({ apiKey });
       return google('gemini-2.5-pro');
     }
-    // Default: Vercel AI Gateway
+    // Default: use server-side Gemini key if available, else AI Gateway
+    const serverGeminiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+    if (serverGeminiKey) {
+      const google = createGoogleGenerativeAI({ apiKey: serverGeminiKey });
+      return google('gemini-2.5-pro');
+    }
     return gateway('anthropic/claude-opus-4.6');
   }
 
