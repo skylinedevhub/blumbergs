@@ -1,6 +1,8 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { streamText, stepCountIs, type ModelMessage } from 'ai';
+import { streamText, stepCountIs, type ModelMessage, type LanguageModel } from 'ai';
 import { gateway } from '@ai-sdk/gateway';
+import { createAnthropic } from '@ai-sdk/anthropic';
+import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { SYSTEM_PROMPT } from '../lib/agents/system-prompt.js';
 import { lookupSchema } from '../lib/tools/lookup-schema.js';
 import { generateQuery } from '../lib/tools/generate-query.js';
@@ -58,12 +60,16 @@ export default async function handler(
   }
 
   let messages: ModelMessage[];
+  let provider: string;
+  let apiKey: string | undefined;
   try {
-    const parsed = JSON.parse(body) as { messages: unknown };
+    const parsed = JSON.parse(body) as { messages: unknown; provider?: string; apiKey?: string };
     if (!Array.isArray(parsed.messages)) {
       throw new Error('messages must be an array');
     }
     messages = parsed.messages as ModelMessage[];
+    provider = parsed.provider || 'gateway';
+    apiKey = parsed.apiKey;
   } catch (err) {
     for (const [k, v] of Object.entries(CORS_HEADERS)) {
       res.setHeader(k, v);
@@ -71,6 +77,20 @@ export default async function handler(
     res.writeHead(400, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ error: 'Invalid JSON body — expected { messages: [...] }' }));
     return;
+  }
+
+  // Resolve the model based on provider + API key
+  function resolveModel(): LanguageModel {
+    if (provider === 'anthropic' && apiKey) {
+      const anthropic = createAnthropic({ apiKey });
+      return anthropic('claude-opus-4.6');
+    }
+    if (provider === 'google' && apiKey) {
+      const google = createGoogleGenerativeAI({ apiKey });
+      return google('gemini-2.5-pro');
+    }
+    // Default: Vercel AI Gateway
+    return gateway('anthropic/claude-opus-4.6');
   }
 
   // Set response headers for NDJSON streaming
@@ -83,7 +103,7 @@ export default async function handler(
 
   try {
     const result = streamText({
-      model: gateway('anthropic/claude-opus-4.6'),
+      model: resolveModel(),
       system: SYSTEM_PROMPT,
       messages,
       tools: {
@@ -101,14 +121,14 @@ export default async function handler(
 
       switch (part.type) {
         case 'text-delta':
-          event = { type: 'text-delta', textDelta: String(part.textDelta ?? '') };
+          event = { type: 'text-delta', textDelta: String((part as any).textDelta ?? (part as any).text ?? '') };
           break;
         case 'tool-call':
           event = {
             type: 'tool-call',
             toolName: part.toolName,
             toolCallId: part.toolCallId,
-            args: part.args,
+            args: (part as any).input ?? (part as any).args,
           };
           break;
         case 'tool-result':
@@ -116,7 +136,7 @@ export default async function handler(
             type: 'tool-result',
             toolName: part.toolName,
             toolCallId: part.toolCallId,
-            result: part.result,
+            result: (part as any).output ?? (part as any).result,
           };
           break;
         case 'error':

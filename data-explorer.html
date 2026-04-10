@@ -149,6 +149,13 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
 .ai-input-row button{padding:7px 14px;background:var(--accent2);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer}
 .ai-input-row button:hover{opacity:.85}
 .ai-input-row button:disabled{opacity:.4;cursor:not-allowed}
+.ai-settings{padding:8px 12px;border-bottom:1px solid var(--border);background:var(--bg);display:none}
+.ai-settings.open{display:block}
+.ai-settings-toggle{background:0;border:0;font-size:14px;cursor:pointer;color:var(--dim);padding:0 4px;line-height:1}
+.ai-settings-toggle:hover{color:var(--accent2)}
+.ai-settings label{display:block;font-size:10px;color:var(--dim);margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px}
+.ai-settings select,.ai-settings input[type=password]{width:100%;padding:4px 7px;font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:3px;color:var(--text);margin-bottom:6px}
+.ai-settings .provider-note{font-size:9px;color:var(--dim);line-height:1.3}
 </style>
 </head>
 <body>
@@ -157,7 +164,23 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
 <div class="ai-sidebar" id="ai-sidebar">
   <div class="ai-header">
     <h2>AI Query Assistant</h2>
-    <button class="ai-close" id="ai-close">&times;</button>
+    <span style="display:flex;gap:4px;align-items:center">
+      <button class="ai-settings-toggle" id="ai-settings-toggle" title="Provider settings">&#9881;</button>
+      <button class="ai-close" id="ai-close">&times;</button>
+    </span>
+  </div>
+  <div class="ai-settings" id="ai-settings">
+    <label>Provider</label>
+    <select id="ai-provider">
+      <option value="gateway">Vercel AI Gateway (default)</option>
+      <option value="anthropic">Anthropic (own key)</option>
+      <option value="google">Google Gemini (own key)</option>
+    </select>
+    <div id="ai-key-row" style="display:none">
+      <label>API Key</label>
+      <input type="password" id="ai-api-key" placeholder="sk-... or AIza...">
+    </div>
+    <div class="provider-note">Keys are sent only to the server and never stored.</div>
   </div>
   <div class="ai-messages" id="ai-messages"></div>
   <div class="ai-input-row">
@@ -1178,8 +1201,21 @@ checkServer();
   var msgContainer = document.getElementById('ai-messages');
   var input = document.getElementById('ai-input');
   var sendBtn = document.getElementById('ai-send');
+  var providerSelect = document.getElementById('ai-provider');
+  var apiKeyInput = document.getElementById('ai-api-key');
+  var settingsPanel = document.getElementById('ai-settings');
+  var settingsToggle = document.getElementById('ai-settings-toggle');
+  var keyRow = document.getElementById('ai-key-row');
   var chatMessages = []; // conversation history for API
   var isStreaming = false;
+
+  // Settings panel toggle
+  settingsToggle.onclick = function() {
+    settingsPanel.classList.toggle('open');
+  };
+  providerSelect.onchange = function() {
+    keyRow.style.display = providerSelect.value === 'gateway' ? 'none' : 'block';
+  };
 
   // Toggle open/close
   toggle.onclick = function() {
@@ -1281,7 +1317,11 @@ checkServer();
       var resp = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: chatMessages })
+        body: JSON.stringify({
+          messages: chatMessages,
+          provider: providerSelect.value,
+          apiKey: apiKeyInput.value || undefined
+        })
       });
       if (!resp.ok) throw new Error('Request failed: ' + resp.status);
 
