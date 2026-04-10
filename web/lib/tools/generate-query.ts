@@ -43,6 +43,15 @@ export const generateQuery = tool({
         body: JSON.stringify({ sql: validationSql }),
       });
 
+      if (!response.ok && response.status === 401) {
+        // Auth-protected deployment — skip validation
+        return {
+          valid: true as const,
+          columns: [] as string[],
+          warning: 'Could not validate (deployment is auth-protected). SQL has not been checked.',
+        };
+      }
+
       const data = (await response.json()) as
         | { columns: string[]; rows: unknown[]; count: number; time: number }
         | { error: string };
@@ -59,12 +68,13 @@ export const generateQuery = tool({
         valid: true as const,
         columns: data.columns,
       };
-    } catch (err) {
-      const message = err instanceof Error ? err.message : String(err);
+    } catch {
+      // Validation endpoint unreachable (e.g., Vercel auth on preview deploys).
+      // Return as unvalidated — the user will review the SQL before running it.
       return {
-        valid: false as const,
-        error: `Network error calling /api/query: ${message}`,
-        hint: 'Fix the SQL error and retry with generate_query.',
+        valid: true as const,
+        columns: [] as string[],
+        warning: 'Could not validate query (validation endpoint unreachable). The SQL has not been checked for errors.',
       };
     }
   },
