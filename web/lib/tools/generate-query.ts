@@ -1,0 +1,71 @@
+import { tool } from 'ai';
+import { z } from 'zod';
+
+const baseUrl =
+  process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000';
+
+export const generateQuery = tool({
+  description:
+    'Submit a generated SQL SELECT query for validation. The query is validated by running it with LIMIT 0 against the live database. ' +
+    'On success, returns column names. On error, returns the error message with a hint to fix and retry. ' +
+    'Always call this after composing SQL — never present unvalidated SQL to the user.',
+  inputSchema: z.object({
+    sql: z.string().describe('The SELECT query to validate (do not include LIMIT yourself — it is appended automatically)'),
+    explanation: z
+      .string()
+      .describe('Plain English description of what this query does and what the results represent'),
+    explorer_state: z
+      .object({
+        scope: z.string().optional().describe('Filter scope, e.g. province code or designation code'),
+        metrics: z
+          .array(z.string())
+          .optional()
+          .describe('Metric IDs in {alias}_{line} format, e.g. ["fd_4700", "fd_5100"]'),
+        filters: z
+          .record(z.string())
+          .optional()
+          .describe('Key/value filter pairs, e.g. { "designation_code": "A" }'),
+        sort: z.string().optional().describe('Sort column expression'),
+        limit: z.number().optional().describe('Row limit'),
+      })
+      .optional()
+      .describe('Optional mapping of this query to the Data Explorer UI state'),
+  }),
+  execute: async ({ sql }) => {
+    const validationSql = sql.trimEnd().replace(/;?\s*$/, '') + ' LIMIT 0';
+
+    try {
+      const response = await fetch(`${baseUrl}/api/query`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sql: validationSql }),
+      });
+
+      const data = (await response.json()) as
+        | { columns: string[]; rows: unknown[]; count: number; time: number }
+        | { error: string };
+
+      if ('error' in data) {
+        return {
+          valid: false as const,
+          error: data.error,
+          hint: 'Fix the SQL error and retry with generate_query.',
+        };
+      }
+
+      return {
+        valid: true as const,
+        columns: data.columns,
+      };
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      return {
+        valid: false as const,
+        error: `Network error calling /api/query: ${message}`,
+        hint: 'Fix the SQL error and retry with generate_query.',
+      };
+    }
+  },
+});
