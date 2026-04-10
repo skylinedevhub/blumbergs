@@ -1196,6 +1196,7 @@ checkServer();
   function addTextBubble(role, text) {
     var div = document.createElement('div');
     div.className = 'ai-msg ' + role;
+    text = String(text || '');
     if (role === 'user') {
       div.textContent = text;
     } else {
