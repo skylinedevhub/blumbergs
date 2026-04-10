@@ -1323,7 +1323,11 @@ checkServer();
           apiKey: apiKeyInput.value || undefined
         })
       });
-      if (!resp.ok) throw new Error('Request failed: ' + resp.status);
+      if (!resp.ok) {
+        var errBody = '';
+        try { errBody = (await resp.json()).error; } catch(e2) { errBody = 'status ' + resp.status; }
+        throw new Error(errBody || 'Request failed: ' + resp.status);
+      }
 
       var reader = resp.body.getReader();
       var decoder = new TextDecoder();

@@ -80,22 +80,31 @@ export default async function handler(
   }
 
   // Resolve the model based on provider + API key
-  function resolveModel(): LanguageModel {
+  let model: LanguageModel;
+  try {
     if (provider === 'anthropic' && apiKey) {
       const anthropic = createAnthropic({ apiKey });
-      return anthropic('claude-opus-4.6');
-    }
-    if (provider === 'google' && apiKey) {
+      model = anthropic('claude-opus-4.6');
+    } else if (provider === 'google' && apiKey) {
       const google = createGoogleGenerativeAI({ apiKey });
-      return google('gemini-2.5-pro');
+      model = google('gemini-2.5-pro');
+    } else {
+      // Default: use server-side Gemini key if available, else AI Gateway
+      const serverGeminiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+      if (serverGeminiKey) {
+        const google = createGoogleGenerativeAI({ apiKey: serverGeminiKey });
+        model = google('gemini-2.5-pro');
+      } else {
+        model = gateway('anthropic/claude-opus-4.6');
+      }
     }
-    // Default: use server-side Gemini key if available, else AI Gateway
-    const serverGeminiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
-    if (serverGeminiKey) {
-      const google = createGoogleGenerativeAI({ apiKey: serverGeminiKey });
-      return google('gemini-2.5-pro');
+  } catch (err) {
+    for (const [k, v] of Object.entries(CORS_HEADERS)) {
+      res.setHeader(k, v);
     }
-    return gateway('anthropic/claude-opus-4.6');
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: `Model init failed: ${err instanceof Error ? err.message : String(err)}` }));
+    return;
   }
 
   // Set response headers for NDJSON streaming
@@ -108,7 +117,7 @@ export default async function handler(
 
   try {
     const result = streamText({
-      model: resolveModel(),
+      model,
       system: SYSTEM_PROMPT,
       messages,
       tools: {
