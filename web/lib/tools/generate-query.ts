@@ -18,20 +18,30 @@ export const generateQuery = tool({
       .describe('Plain English description of what this query does and what the results represent'),
     explorer_state: z
       .object({
-        scope: z.string().optional().describe('Filter scope, e.g. province code or designation code'),
+        scope: z.object({
+          province: z.string().optional().describe('Province code: ON, QC, BC, AB, MB, SK, NS, NB, NL, PE, NT, NU, YT'),
+          designation: z.string().optional().describe('Designation code: A (Public Foundation), B (Private Foundation), C (Charitable Org)'),
+          category: z.string().optional().describe('Category code from lookup_category'),
+        }).optional(),
         metrics: z
           .array(z.string())
           .optional()
           .describe('Metric IDs in {alias}_{line} format, e.g. ["fd_4700", "fd_5100"]'),
         filters: z
-          .record(z.string())
-          .optional()
-          .describe('Key/value filter pairs, e.g. { "designation_code": "A" }'),
-        sort: z.string().optional().describe('Sort column expression'),
-        limit: z.number().optional().describe('Row limit'),
+          .array(z.object({
+            column: z.string().describe('Metric ID, e.g. "fd_4700"'),
+            operator: z.string().describe('SQL operator: >, >=, <, <=, =, !=, ILIKE'),
+            value: z.string().describe('Filter value'),
+          }))
+          .optional(),
+        sort: z.object({
+          column: z.string().describe('Metric ID to sort by, e.g. "fd_4700"'),
+          direction: z.enum(['ASC', 'DESC']).describe('Sort direction'),
+        }).optional(),
+        limit: z.number().optional().describe('Row limit, e.g. 25'),
       })
       .optional()
-      .describe('Optional mapping of this query to the Data Explorer UI state'),
+      .describe('Maps query to the Data Explorer UI controls'),
   }),
   execute: async ({ sql }) => {
     const validationSql = sql.trimEnd().replace(/;?\s*$/, '') + ' LIMIT 0';

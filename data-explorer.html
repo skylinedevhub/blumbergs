@@ -1426,9 +1426,9 @@ checkServer();
           return { f: f.column, op: f.operator, v: f.value };
         });
       }
-      if (es.sort) {
-        S.sort = es.sort.column;
-        S.dir = es.sort.direction;
+      if (es.sort && typeof es.sort === 'object') {
+        if (es.sort.column) S.sort = es.sort.column;
+        if (es.sort.direction === 'ASC' || es.sort.direction === 'DESC') S.dir = es.sort.direction;
       }
       if (es.limit) S.lim = es.limit;
 
