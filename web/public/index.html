@@ -123,10 +123,48 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
 
 /* Status bar */
 .status{padding:5px 14px;background:var(--surface);border-top:1px solid var(--border);font-size:10px;color:var(--dim);display:flex;gap:12px}
+
+/* -- AI Chat Sidebar -- */
+.ai-toggle{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:100;background:var(--accent2);color:#fff;border:none;border-radius:0 6px 6px 0;padding:10px 6px;cursor:pointer;font-size:12px;font-weight:700;writing-mode:vertical-rl;letter-spacing:1px;opacity:.85;transition:opacity .2s}
+.ai-toggle:hover{opacity:1}
+.ai-toggle.hidden{display:none}
+.ai-sidebar{width:0;min-width:0;overflow:hidden;transition:width .2s,min-width .2s;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column}
+.ai-sidebar.open{width:340px;min-width:340px}
+.ai-header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--surface2)}
+.ai-header h2{font-size:13px;color:var(--accent2);margin:0}
+.ai-close{background:0;border:0;font-size:16px;cursor:pointer;color:var(--dim);padding:0 4px}
+.ai-close:hover{color:var(--accent)}
+.ai-messages{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
+.ai-msg{max-width:95%;padding:8px 10px;border-radius:8px;font-size:12px;line-height:1.5;word-wrap:break-word}
+.ai-msg.user{align-self:flex-end;background:var(--accent2);color:#fff;border-bottom-right-radius:2px}
+.ai-msg.assistant{align-self:flex-start;background:var(--surface2);color:var(--text);border-bottom-left-radius:2px}
+.ai-msg.error{align-self:center;background:#fef2f2;color:var(--accent);border:1px solid #fecaca;font-size:11px}
+.ai-msg .sql-block{background:var(--bg);padding:6px 8px;border-radius:4px;font-family:'SF Mono','Cascadia Code',monospace;font-size:11px;margin-top:6px;white-space:pre-wrap;word-break:break-all;max-height:200px;overflow:auto}
+.ai-msg .review-btn{display:inline-block;margin-top:6px;padding:4px 12px;background:var(--accent2);color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer}
+.ai-msg .review-btn:hover{opacity:.85}
+.ai-typing{align-self:flex-start;padding:8px 10px;font-size:11px;color:var(--dim);font-style:italic}
+.ai-input-row{display:flex;gap:6px;padding:10px;border-top:1px solid var(--border);background:var(--surface)}
+.ai-input-row input{flex:1;padding:7px 10px;font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:inherit}
+.ai-input-row input:focus{outline:0;border-color:var(--accent2)}
+.ai-input-row button{padding:7px 14px;background:var(--accent2);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer}
+.ai-input-row button:hover{opacity:.85}
+.ai-input-row button:disabled{opacity:.4;cursor:not-allowed}
 </style>
 </head>
 <body>
+<button class="ai-toggle" id="ai-toggle">AI</button>
 <div class="app">
+<div class="ai-sidebar" id="ai-sidebar">
+  <div class="ai-header">
+    <h2>AI Query Assistant</h2>
+    <button class="ai-close" id="ai-close">&times;</button>
+  </div>
+  <div class="ai-messages" id="ai-messages"></div>
+  <div class="ai-input-row">
+    <input type="text" id="ai-input" placeholder="Ask about charities data...">
+    <button id="ai-send">Send</button>
+  </div>
+</div>
 <div class="ctrl">
   <h1>T3010 Data Explorer</h1>
   <div class="sub">2024 &bull; ~83K charities &bull; DuckDB</div>
@@ -1131,6 +1169,249 @@ document.addEventListener('keydown', function(e){
 // ─── Init ────────────────────────────────────────────────────────
 update();
 checkServer();
+
+// -- AI Chat Sidebar --
+(function() {
+  var sidebar = document.getElementById('ai-sidebar');
+  var toggle = document.getElementById('ai-toggle');
+  var closeBtn = document.getElementById('ai-close');
+  var msgContainer = document.getElementById('ai-messages');
+  var input = document.getElementById('ai-input');
+  var sendBtn = document.getElementById('ai-send');
+  var chatMessages = []; // conversation history for API
+  var isStreaming = false;
+
+  // Toggle open/close
+  toggle.onclick = function() {
+    sidebar.classList.add('open');
+    toggle.classList.add('hidden');
+    input.focus();
+  };
+  closeBtn.onclick = function() {
+    sidebar.classList.remove('open');
+    toggle.classList.remove('hidden');
+  };
+
+  // Add a text bubble (user, assistant, or error)
+  function addTextBubble(role, text) {
+    var div = document.createElement('div');
+    div.className = 'ai-msg ' + role;
+    if (role === 'user') {
+      div.textContent = text;
+    } else {
+      // For assistant/error: split on newlines, use spans + br
+      var lines = text.split('\n');
+      for (var i = 0; i < lines.length; i++) {
+        if (i > 0) div.appendChild(document.createElement('br'));
+        div.appendChild(document.createTextNode(lines[i]));
+      }
+    }
+    msgContainer.appendChild(div);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+    return div;
+  }
+
+  // Add a query bubble with SQL and Review & Run button
+  function addQueryBubble(queryData) {
+    var div = document.createElement('div');
+    div.className = 'ai-msg assistant';
+
+    var strong = document.createElement('strong');
+    strong.textContent = 'Generated Query';
+    div.appendChild(strong);
+
+    var pre = document.createElement('pre');
+    pre.className = 'sql-block';
+    pre.textContent = queryData.sql;
+    div.appendChild(pre);
+
+    var p = document.createElement('p');
+    p.textContent = queryData.explanation;
+    div.appendChild(p);
+
+    var btn = document.createElement('button');
+    btn.className = 'review-btn';
+    btn.textContent = 'Review & Run \u25B6';
+    btn._queryData = queryData;
+    btn.onclick = function() {
+      applyQueryToExplorer(btn._queryData);
+    };
+    div.appendChild(btn);
+
+    msgContainer.appendChild(div);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+    return div;
+  }
+
+  // Typing indicator
+  var typingEl = null;
+  function showTyping() {
+    if (typingEl) return;
+    typingEl = document.createElement('div');
+    typingEl.className = 'ai-typing';
+    typingEl.textContent = 'Thinking...';
+    msgContainer.appendChild(typingEl);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+  }
+  function hideTyping() {
+    if (typingEl) {
+      typingEl.remove();
+      typingEl = null;
+    }
+  }
+
+  // Send message to /api/chat
+  async function sendMessage() {
+    var text = input.value.trim();
+    if (!text || isStreaming) return;
+    input.value = '';
+    addTextBubble('user', text);
+    chatMessages.push({ role: 'user', content: text });
+
+    isStreaming = true;
+    sendBtn.disabled = true;
+    showTyping();
+
+    var assistantText = '';
+    var currentBubble = null;
+    var lastGenerateArgs = null;
+
+    try {
+      var resp = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: chatMessages })
+      });
+      if (!resp.ok) throw new Error('Request failed: ' + resp.status);
+
+      var reader = resp.body.getReader();
+      var decoder = new TextDecoder();
+      var buffer = '';
+
+      while (true) {
+        var chunk = await reader.read();
+        if (chunk.done) break;
+        buffer += decoder.decode(chunk.value, { stream: true });
+        var lines = buffer.split('\n');
+        buffer = lines.pop();
+
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (!line) continue;
+          var part;
+          try { part = JSON.parse(line); } catch(e) { continue; }
+
+          // Text delta - append to current assistant bubble
+          if (part.type === 'text-delta') {
+            hideTyping();
+            assistantText += part.textDelta;
+            if (!currentBubble) {
+              currentBubble = addTextBubble('assistant', '');
+            }
+            // Update bubble text content by rebuilding
+            currentBubble.textContent = '';
+            var textLines = assistantText.split('\n');
+            for (var j = 0; j < textLines.length; j++) {
+              if (j > 0) currentBubble.appendChild(document.createElement('br'));
+              currentBubble.appendChild(document.createTextNode(textLines[j]));
+            }
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+          }
+
+          // Tool call - capture generate_query args
+          if (part.type === 'tool-call' && part.toolName === 'generate_query') {
+            lastGenerateArgs = part.args;
+          }
+
+          // Tool result - show query bubble if generate_query succeeded
+          if (part.type === 'tool-result' && part.toolName === 'generate_query') {
+            if (lastGenerateArgs && part.result && part.result.valid) {
+              hideTyping();
+              addQueryBubble(lastGenerateArgs);
+            }
+            lastGenerateArgs = null;
+          }
+
+          // Error
+          if (part.type === 'error') {
+            hideTyping();
+            addTextBubble('error', part.error || 'Unknown error');
+          }
+        }
+      }
+
+      if (assistantText) {
+        chatMessages.push({ role: 'assistant', content: assistantText });
+      }
+    } catch(e) {
+      hideTyping();
+      addTextBubble('error', 'Error: ' + (e.message || 'Connection failed'));
+    } finally {
+      isStreaming = false;
+      sendBtn.disabled = false;
+      input.focus();
+    }
+  }
+
+  // Apply a generated query to the explorer controls
+  function applyQueryToExplorer(qd) {
+    // Inject SQL into the SQL panel using the existing hl() function
+    // NOTE: hl() internally uses escHtml() which escapes &, <, > making its output safe.
+    // This is the only place where parsed HTML is used, via a template element.
+    var preEl = document.getElementById('pre');
+    preEl.textContent = ''; // clear first
+    var tmp = document.createElement('template');
+    tmp.innerHTML = hl(qd.sql); // safe: hl() escapes all input via escHtml()
+    preEl.appendChild(tmp.content);
+
+    // Open SQL panel if collapsed
+    if (!sqlPanelOpen) {
+      document.getElementById('toggle-sql').click();
+    }
+
+    // Apply explorer_state to the S object (the explorer's state)
+    var es = qd.explorer_state;
+    if (es) {
+      if (es.scope) {
+        if (es.scope.province !== undefined) S.prov = es.scope.province;
+        if (es.scope.designation !== undefined) S.desig = es.scope.designation;
+        if (es.scope.category !== undefined) S.cat = es.scope.category;
+      }
+      if (es.metrics && es.metrics.length) {
+        S.metrics = es.metrics.filter(function(id) { return gm(id); });
+      }
+      if (es.filters && es.filters.length) {
+        S.filters = es.filters.map(function(f) {
+          return { f: f.column, op: f.operator, v: f.value };
+        });
+      }
+      if (es.sort) {
+        S.sort = es.sort.column;
+        S.dir = es.sort.direction;
+      }
+      if (es.limit) S.lim = es.limit;
+
+      sync(); // refresh all UI controls
+    }
+
+    // Highlight Run button temporarily
+    var runBtn = document.getElementById('run-btn');
+    runBtn.style.boxShadow = '0 0 0 3px rgba(0,85,138,0.4)';
+    setTimeout(function() { runBtn.style.boxShadow = ''; }, 3000);
+  }
+
+  // Welcome message
+  addTextBubble('assistant', 'Ask me a question about Canadian charities data. I\'ll help you build a query.\n\nExamples:\n\u2022 "Show the 20 largest charities by revenue"\n\u2022 "How many charities in Ontario have foreign operations?"\n\u2022 "Compare fundraising vs program spending by designation"');
+
+  // Event listeners
+  sendBtn.onclick = sendMessage;
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+})();
 </script>
 </body>
 </html>
