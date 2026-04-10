@@ -542,6 +542,7 @@ var serverUp = false;
 var currentData = null;
 var tableSortCol = -1;
 var tableSortAsc = true;
+var aiOverrideSql = null; // When set, runQuery uses this instead of genSQL()
 
 // ─── Helpers ─────────────────────────────────────────────────────
 var gm = function(id){return M.find(function(m){return m.id===id})};
@@ -718,7 +719,9 @@ async function runQuery(){
   document.getElementById('status-text').textContent = 'Executing query...';
 
   try {
-    var resp = await apiPost('/api/query', {sql: genSQL()});
+    var sqlToRun = aiOverrideSql || genSQL();
+    aiOverrideSql = null; // clear after use — subsequent runs use explorer state
+    var resp = await apiPost('/api/query', {sql: sqlToRun});
     var data = await resp.json();
     if(data.error){
       showError(data.error);
@@ -1400,11 +1403,14 @@ checkServer();
 
   // Apply a generated query to the explorer controls
   function applyQueryToExplorer(qd) {
+    // Set the agent's SQL as the override — runQuery() will use this exact SQL
+    // instead of regenerating from the explorer state
+    aiOverrideSql = qd.sql;
+
     // Inject SQL into the SQL panel using the existing hl() function
     // NOTE: hl() internally uses escHtml() which escapes &, <, > making its output safe.
-    // This is the only place where parsed HTML is used, via a template element.
     var preEl = document.getElementById('pre');
-    preEl.textContent = ''; // clear first
+    preEl.textContent = '';
     var tmp = document.createElement('template');
     tmp.innerHTML = hl(qd.sql); // safe: hl() escapes all input via escHtml()
     preEl.appendChild(tmp.content);
@@ -1412,31 +1418,6 @@ checkServer();
     // Open SQL panel if collapsed
     if (!sqlPanelOpen) {
       document.getElementById('toggle-sql').click();
-    }
-
-    // Apply explorer_state to the S object (the explorer's state)
-    var es = qd.explorer_state;
-    if (es) {
-      if (es.scope) {
-        if (es.scope.province !== undefined) S.prov = es.scope.province;
-        if (es.scope.designation !== undefined) S.desig = es.scope.designation;
-        if (es.scope.category !== undefined) S.cat = es.scope.category;
-      }
-      if (es.metrics && es.metrics.length) {
-        S.metrics = es.metrics.filter(function(id) { return gm(id); });
-      }
-      if (es.filters && es.filters.length) {
-        S.filters = es.filters.map(function(f) {
-          return { f: f.column, op: f.operator, v: f.value };
-        });
-      }
-      if (es.sort && typeof es.sort === 'object') {
-        if (es.sort.column) S.sort = es.sort.column;
-        if (es.sort.direction === 'ASC' || es.sort.direction === 'DESC') S.dir = es.sort.direction;
-      }
-      if (es.limit) S.lim = es.limit;
-
-      sync(); // refresh all UI controls
     }
 
     // Highlight Run button temporarily
