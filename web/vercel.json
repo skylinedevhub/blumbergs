@@ -1,7 +1,7 @@
 {
   "builds": [
     { "src": "api/chat.ts", "use": "@vercel/node" },
-    { "src": "api/*.py", "use": "@vercel/python" },
+    { "src": "api/*.py", "use": "@vercel/python@4.3.1" },
     { "src": "public/**", "use": "@vercel/static" }
   ],
   "routes": [
