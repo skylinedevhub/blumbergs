@@ -1303,7 +1303,7 @@ checkServer();
           try { part = JSON.parse(line); } catch(e) { continue; }
 
           // Text delta - append to current assistant bubble
-          if (part.type === 'text-delta') {
+          if (part.type === 'text-delta' && typeof part.textDelta === 'string') {
             hideTyping();
             assistantText += part.textDelta;
             if (!currentBubble) {

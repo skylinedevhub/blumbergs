@@ -95,8 +95,42 @@ export default async function handler(
     });
 
     for await (const part of result.fullStream) {
-      const line = JSON.stringify(part);
-      res.write(line + '\n');
+      // Only send event types the client knows how to handle,
+      // with explicit field extraction to avoid serialization issues
+      let event: Record<string, unknown> | null = null;
+
+      switch (part.type) {
+        case 'text-delta':
+          event = { type: 'text-delta', textDelta: String(part.textDelta ?? '') };
+          break;
+        case 'tool-call':
+          event = {
+            type: 'tool-call',
+            toolName: part.toolName,
+            toolCallId: part.toolCallId,
+            args: part.args,
+          };
+          break;
+        case 'tool-result':
+          event = {
+            type: 'tool-result',
+            toolName: part.toolName,
+            toolCallId: part.toolCallId,
+            result: part.result,
+          };
+          break;
+        case 'error':
+          event = { type: 'error', error: String(part.error) };
+          break;
+        case 'finish':
+          event = { type: 'finish' };
+          break;
+        // step-finish, tool-call-streaming-start, etc. — skip silently
+      }
+
+      if (event) {
+        res.write(JSON.stringify(event) + '\n');
+      }
     }
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
