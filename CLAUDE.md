@@ -16,7 +16,8 @@ blumbergs/
 │   └── exports/            # Generated output files
 │       ├── snapshots_2024/     # 13 Excel snapshot workbooks
 │       ├── articles_2024/      # 13 Word article documents
-│       └── snapshot_comparison_2023_vs_2024.xlsx
+│       ├── snapshot_comparison_2023_vs_2024.xlsx
+│       └── jewish_sector_2024.xlsx  # Jewish charity sector workbook (4 sheets)
 ├── docs/
 │   ├── context/            # AI-optimized context docs (read these for domain expertise)
 │   ├── reference/          # T3010 form PDFs, Blumbergs publications
@@ -31,7 +32,8 @@ blumbergs/
 │   └── reports/            # Report-generating Python scripts
 │       ├── generate_snapshot.py          # 13 Excel snapshot workbooks
 │       ├── generate_snapshot_articles.py # 13 Word article documents
-│       └── generate_comparison.py        # 2023 vs 2024 comparison workbook
+│       ├── generate_comparison.py        # 2023 vs 2024 comparison workbook
+│       └── generate_jewish_sector.py     # Jewish charity sector workbook
 ├── requirements.txt        # Python dependencies (duckdb, openpyxl, pymupdf)
 ├── CLAUDE.md
 └── CRA_T3010_Reference.md
@@ -77,6 +79,9 @@ python3 scripts/reports/generate_comparison.py
 
 # Generate snapshot article Word documents
 python3 scripts/reports/generate_snapshot_articles.py --all
+
+# Generate Jewish charity sector workbook (4 sheets: Summary + 3 identification tiers)
+python3 scripts/reports/generate_jewish_sector.py
 
 # Charity lookup (replace BN)
 python3 -c "
@@ -210,6 +215,16 @@ Produces `data/exports/snapshot_comparison_2023_vs_2024.xlsx` with 5 sheets: Com
 
 ### Article Generator (`scripts/reports/generate_snapshot_articles.py`)
 Produces 13 Word documents in `data/exports/articles_2024/` from a template. Comparison tables use standardized format: `[Scope 2024 | Scope 2023 | Canada 2024]` for provincial/designation articles, `[Canada 2024 | Canada 2023]` for national. 2023 data hardcoded from published Blumbergs PDFs. Uses `python-docx` with explicit `styled_run()` to maintain Times New Roman 13pt font consistency.
+
+### Jewish Charity Sector Workbook (`scripts/reports/generate_jewish_sector.py`)
+Produces `data/exports/jewish_sector_2024.xlsx` with 4 sheets identifying ~1,129 Jewish charities across three tiers:
+
+- **Sheet 1 "Judaism Category"** (~391): Charities classified under CRA's `Judaism` category. Highest confidence.
+- **Sheet 2 "Name-Identified"** (~374): Charities with Jewish/Hebrew keywords in `legal_name` (e.g., `jewish`, `chabad`, `torah`, `synagogue`), not already on Sheet 1. Medium-confidence keywords (`shalom`, `israel`, `beth`) are restricted to religion-adjacent categories to exclude Christian organizations.
+- **Sheet 3 "Notable Foundations"** (~364): Multi-pass deep search — (1) known Jewish family foundations (Azrieli, Bronfman, etc.), (2) Jewish keywords in program descriptions, (3) grant flow analysis to Jewish organizations. Deduplicated against Sheets 1 & 2.
+- **Summary sheet**: Aggregated financial totals (revenue, assets, expenditures, compensation) for the entire Jewish charity sector.
+
+All detail sheets include 14 financial columns (LEFT JOINed through `latest_filing` to avoid fiscal-period duplicates) with a TOTALS row using SUM formulas.
 
 ## Published 2023 Snapshot Data
 
