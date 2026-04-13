@@ -343,7 +343,57 @@ def main():
     ws2.sheet_properties.tabColor = "70AD47"  # Green
     write_sheet(ws2, COLUMNS + ["Match Keyword"], sheet2_rows)
 
-    # Save (Sheet 3 added in later tasks)
+    # --- Sheet 3: Notable Foundations & Institutions ---
+    print("Building Sheet 3: Notable Foundations & Institutions...")
+    exclude_bns = sheet1_bns | sheet2_bns
+    sheet3_rows = []
+    sheet3_bns = set()
+
+    # Collect known Jewish names for grant flow matching
+    known_jewish_names = set()
+    for row in sheet1_rows:
+        if row[1]:
+            known_jewish_names.add(row[1])
+    for row in sheet2_rows:
+        if row[1]:
+            known_jewish_names.add(row[1])
+
+    # Pass 1: Family foundations
+    p1_rows, p1_bns = search_family_foundations(con, exclude_bns)
+    sheet3_rows.extend(p1_rows)
+    sheet3_bns.update(p1_bns)
+    exclude_bns.update(p1_bns)
+    for row in p1_rows:
+        if row[1]:
+            known_jewish_names.add(row[1])
+
+    # Pass 2: Program descriptions
+    p2_rows, p2_bns = search_program_descriptions(con, exclude_bns)
+    sheet3_rows.extend(p2_rows)
+    sheet3_bns.update(p2_bns)
+    exclude_bns.update(p2_bns)
+    for row in p2_rows:
+        if row[1]:
+            known_jewish_names.add(row[1])
+
+    # Pass 3: Grant flows
+    p3_rows, p3_bns = search_grant_flows(con, known_jewish_names, exclude_bns)
+    sheet3_rows.extend(p3_rows)
+    sheet3_bns.update(p3_bns)
+
+    print(f"  Sheet 3 — Total: {len(sheet3_rows)} charities")
+
+    ws3 = wb.create_sheet("Notable Foundations")
+    ws3.sheet_properties.tabColor = "ED7D31"  # Orange
+    write_sheet(ws3, COLUMNS + ["Detection Method"], sheet3_rows)
+
+    # --- Summary ---
+    total = len(sheet1_rows) + len(sheet2_rows) + len(sheet3_rows)
+    print(f"\n  Total Jewish charity sector: {total} charities")
+    print(f"    Sheet 1 (Judaism Category): {len(sheet1_rows)}")
+    print(f"    Sheet 2 (Name-Identified):  {len(sheet2_rows)}")
+    print(f"    Sheet 3 (Notable/Deep):     {len(sheet3_rows)}")
+
     wb.save(filepath)
     con.close()
 
