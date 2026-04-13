@@ -75,8 +75,11 @@ FINANCIAL_SELECT = f"""
 """
 
 FINANCIAL_JOINS = """
+    LEFT JOIN latest_filing lf ON lf.bn = cb.bn
     LEFT JOIN financial_d fd ON fd."BN/Registration Number" = cb.bn
+        AND fd."Fiscal period end" = lf.latest_fiscal_end
     LEFT JOIN schedule_3_compensation s3 ON s3."BN/Registration number" = cb.bn
+        AND s3."Fiscal period end" = lf.latest_fiscal_end
 """
 
 # High-confidence: include any charity matching these in legal_name
