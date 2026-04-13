@@ -161,6 +161,163 @@ def build_sheet2_name_identified(con, exclude_bns):
     return results, bns
 
 
+# Known Jewish philanthropic families — (search_term, false_positive_exclusions)
+JEWISH_FAMILY_NAMES = [
+    ("azrieli", []),
+    ("bronfman", []),
+    ("reichmann", []),
+    ("asper foundation", []),   # "asper" alone matches "asperger"
+    ("gail asper", []),
+    ("koffler", []),
+    ("schwartz/reisman", []),
+    ("schwartz reisman", []),
+    ("gerald schwartz", []),
+    ("prosserman", []),
+    ("sherman foundation", []),  # common name, narrow to foundation
+    ("reitman", []),
+    ("beutel", []),
+    ("cummings jewish", []),     # "cummings" alone matches non-Jewish
+    ("tauben", []),
+    ("frum", []),
+    ("crestohl", []),
+    ("drimmer", []),
+    ("deitcher", []),
+    ("silverstein", []),
+    ("rabinovitch", []),
+    ("reisman centre", []),
+    ("tanenbaum", []),
+    ("apotex", []),              # Sherman/Apotex
+    ("mirvish", []),
+    ("latner", []),
+    ("hennick", []),
+    ("muzzo", []),
+    ("wolfe foundation", []),
+    ("goldfarb", []),
+    ("schiff", []),
+    ("cohl", []),
+    ("rosen foundation", []),    # narrow to foundation
+    ("larry rosen", []),
+    ("weston jewish", []),       # narrow
+]
+
+
+def search_family_foundations(con, exclude_bns):
+    """Sheet 3 Pass 1: Known Jewish family foundations."""
+    results = []
+    bns = set()
+
+    for pattern, exclusions in JEWISH_FAMILY_NAMES:
+        sql = f"""
+            SELECT {SELECT_COLS}
+            FROM charity_base cb
+            WHERE LOWER(cb.legal_name) LIKE '%{pattern}%'
+            ORDER BY cb.legal_name
+        """
+        rows = con.execute(sql).fetchall()
+        for row in rows:
+            bn = row[0]
+            if bn in exclude_bns or bn in bns:
+                continue
+            name_lower = (row[1] or "").lower()
+            if any(ex in name_lower for ex in exclusions):
+                continue
+            results.append(row + (f"Family: {pattern}",))
+            bns.add(bn)
+
+    print(f"    Pass 1 — Family foundations: {len(results)}")
+    return results, bns
+
+
+PROGRAM_KEYWORDS = [
+    "jewish", "hebrew", "synagogue", "torah", "jewish community",
+    "holocaust", "antisemitism", "anti-semitism", "kosher", "talmud",
+    "yeshiva", "chabad", "sephardi", "israel bond", "state of israel",
+    "kibbutz", "zionist",
+]
+
+
+def search_program_descriptions(con, exclude_bns):
+    """Sheet 3 Pass 2: Charities with Jewish keywords in program descriptions."""
+    clauses = [f"LOWER(p.\"Program Description\") LIKE '%{kw}%'" for kw in PROGRAM_KEYWORDS]
+    where = " OR ".join(clauses)
+
+    sql = f"""
+        SELECT DISTINCT {SELECT_COLS}
+        FROM charity_base cb
+        INNER JOIN programs p ON p."BN/Registration number" = cb.bn
+        WHERE ({where})
+        ORDER BY cb.legal_name
+    """
+    all_rows = con.execute(sql).fetchall()
+
+    results = []
+    bns = set()
+    for row in all_rows:
+        bn = row[0]
+        if bn in exclude_bns or bn in bns:
+            continue
+        results.append(row + ("Program description",))
+        bns.add(bn)
+
+    print(f"    Pass 2 — Program descriptions: {len(results)}")
+    return results, bns
+
+
+def search_grant_flows(con, known_jewish_names, exclude_bns):
+    """Sheet 3 Pass 3: Charities granting to known Jewish organizations."""
+    grant_rows = con.execute("""
+        SELECT "BN/Registration number", "Grant Recipient Name"
+        FROM grants
+        WHERE "Grant Recipient Name" IS NOT NULL
+    """).fetchall()
+
+    jewish_recipient_kws = [
+        "jewish", "hebrew", "synagogue", "chabad", "torah", "yeshiva",
+        "israel", "zionist", "hadassah", "bnai",
+    ]
+
+    candidate_bns = set()
+    for bn, recipient in grant_rows:
+        if bn in exclude_bns:
+            continue
+        recipient_lower = (recipient or "").lower()
+
+        for name in known_jewish_names:
+            if name.lower() in recipient_lower or recipient_lower in name.lower():
+                candidate_bns.add(bn)
+                break
+        else:
+            for kw in jewish_recipient_kws:
+                if kw in recipient_lower:
+                    candidate_bns.add(bn)
+                    break
+
+    if not candidate_bns:
+        print("    Pass 3 — Grant flows: 0")
+        return [], set()
+
+    placeholders = ", ".join([f"'{bn}'" for bn in candidate_bns])
+    sql = f"""
+        SELECT {SELECT_COLS}
+        FROM charity_base cb
+        WHERE cb.bn IN ({placeholders})
+        ORDER BY cb.legal_name
+    """
+    all_rows = con.execute(sql).fetchall()
+
+    results = []
+    bns = set()
+    for row in all_rows:
+        bn = row[0]
+        if bn in exclude_bns or bn in bns:
+            continue
+        results.append(row + ("Grant to Jewish org",))
+        bns.add(bn)
+
+    print(f"    Pass 3 — Grant flows: {len(results)}")
+    return results, bns
+
+
 def main():
     start = time.time()
     os.makedirs(OUTPUT_DIR, exist_ok=True)
