@@ -142,7 +142,9 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
 .ai-msg{max-width:95%;padding:8px 10px;border-radius:8px;font-size:12px;line-height:1.5;word-wrap:break-word}
 .ai-msg.user{align-self:flex-end;background:var(--accent2);color:#fff;border-bottom-right-radius:2px}
 .ai-msg.assistant{align-self:flex-start;background:var(--surface2);color:var(--text);border-bottom-left-radius:2px}
-.ai-msg.error{align-self:center;background:#fef2f2;color:var(--accent);border:1px solid #fecaca;font-size:11px}
+.ai-msg.error{align-self:center;background:#fef2f2;color:var(--accent);border:1px solid #fecaca;font-size:11px;text-align:center}
+.ai-msg.error .retry-btn{display:inline-block;margin-top:6px;padding:4px 14px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer}
+.ai-msg.error .retry-btn:hover{opacity:.85}
 .ai-msg .sql-block{background:var(--bg);padding:6px 8px;border-radius:4px;font-family:'SF Mono','Cascadia Code',monospace;font-size:11px;margin-top:6px;white-space:pre-wrap;word-break:break-all;max-height:200px;overflow:auto}
 .ai-msg .review-btn{display:inline-block;margin-top:6px;padding:4px 12px;background:var(--accent2);color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer}
 .ai-msg .review-btn:hover{opacity:.85}
@@ -1409,6 +1411,41 @@ checkServer();
     }
   }
 
+  // Show an error bubble with an optional "Retry" button
+  function addErrorBubble(msg, retryable) {
+    var div = document.createElement('div');
+    div.className = 'ai-msg error';
+    div.appendChild(document.createTextNode(msg));
+    if (retryable) {
+      var btn = document.createElement('button');
+      btn.className = 'retry-btn';
+      btn.textContent = 'Retry';
+      btn.onclick = function() { div.remove(); doSend(); };
+      div.appendChild(document.createElement('br'));
+      div.appendChild(btn);
+    }
+    msgContainer.appendChild(div);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+  }
+
+  // Make a friendly message from raw AI errors
+  function friendlyError(raw) {
+    raw = String(raw || '');
+    if (/high demand|overloaded|rate.?limit|too many|429|529|503|capacity/i.test(raw)) {
+      return 'The AI model is busy right now. Please try again in a moment.';
+    }
+    if (/timeout|timed out|ETIMEDOUT/i.test(raw)) {
+      return 'The request timed out. Try a simpler question or try again.';
+    }
+    if (/network|fetch|connection|ECONNREFUSED/i.test(raw)) {
+      return 'Could not reach the server. Check your connection and try again.';
+    }
+    return raw;
+  }
+
+  var RETRY_MAX = 3;
+  var RETRY_DELAYS = [2000, 4000, 8000]; // exponential backoff
+
   // Send message to /api/chat
   async function sendMessage() {
     var text = input.value.trim();
@@ -1416,7 +1453,11 @@ checkServer();
     input.value = '';
     addTextBubble('user', text);
     chatMessages.push({ role: 'user', content: text });
+    doSend();
+  }
 
+  // Core send/retry logic (separated so the Retry button can call it)
+  async function doSend() {
     isStreaming = true;
     sendBtn.disabled = true;
     showTyping();
@@ -1424,90 +1465,113 @@ checkServer();
     var assistantText = '';
     var currentBubble = null;
     var lastGenerateArgs = null;
+    var success = false;
 
-    try {
-      var resp = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: chatMessages,
-          provider: providerSelect.value,
-          apiKey: apiKeyInput.value || undefined
-        })
-      });
-      if (!resp.ok) {
-        var errBody = '';
-        try { errBody = (await resp.json()).error; } catch(e2) { errBody = 'status ' + resp.status; }
-        throw new Error(errBody || 'Request failed: ' + resp.status);
+    for (var attempt = 0; attempt <= RETRY_MAX; attempt++) {
+      // Exponential backoff for retries
+      if (attempt > 0) {
+        if (typingEl) typingEl.textContent = 'Busy \u2014 retrying (' + attempt + '/' + RETRY_MAX + ')...';
+        await new Promise(function(r) { setTimeout(r, RETRY_DELAYS[attempt - 1]); });
       }
 
-      var reader = resp.body.getReader();
-      var decoder = new TextDecoder();
-      var buffer = '';
+      try {
+        var resp = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: chatMessages,
+            provider: providerSelect.value,
+            apiKey: apiKeyInput.value || undefined
+          })
+        });
 
-      while (true) {
-        var chunk = await reader.read();
-        if (chunk.done) break;
-        buffer += decoder.decode(chunk.value, { stream: true });
-        var lines = buffer.split('\n');
-        buffer = lines.pop();
+        if (!resp.ok) {
+          var errObj = {};
+          try { errObj = await resp.json(); } catch(e2) {}
+          // Server says retryable (503) — auto-retry if attempts remain
+          if (errObj.retryable && attempt < RETRY_MAX) continue;
+          throw new Error(errObj.error || 'Request failed: ' + resp.status);
+        }
 
-        for (var i = 0; i < lines.length; i++) {
-          var line = lines[i].trim();
-          if (!line) continue;
-          var part;
-          try { part = JSON.parse(line); } catch(e) { continue; }
+        // ── Stream NDJSON ──
+        var reader = resp.body.getReader();
+        var decoder = new TextDecoder();
+        var buffer = '';
 
-          // Text delta - append to current assistant bubble
-          if (part.type === 'text-delta' && typeof part.textDelta === 'string') {
-            hideTyping();
-            assistantText += part.textDelta;
-            if (!currentBubble) {
-              currentBubble = addTextBubble('assistant', '');
-            }
-            // Update bubble text content by rebuilding
-            currentBubble.textContent = '';
-            var textLines = assistantText.split('\n');
-            for (var j = 0; j < textLines.length; j++) {
-              if (j > 0) currentBubble.appendChild(document.createElement('br'));
-              currentBubble.appendChild(document.createTextNode(textLines[j]));
-            }
-            msgContainer.scrollTop = msgContainer.scrollHeight;
-          }
+        while (true) {
+          var chunk = await reader.read();
+          if (chunk.done) break;
+          buffer += decoder.decode(chunk.value, { stream: true });
+          var lines = buffer.split('\n');
+          buffer = lines.pop();
 
-          // Tool call - capture generate_query args
-          if (part.type === 'tool-call' && part.toolName === 'generate_query') {
-            lastGenerateArgs = part.args;
-          }
+          for (var i = 0; i < lines.length; i++) {
+            var line = lines[i].trim();
+            if (!line) continue;
+            var part;
+            try { part = JSON.parse(line); } catch(e) { continue; }
 
-          // Tool result - show query bubble if generate_query succeeded
-          if (part.type === 'tool-result' && part.toolName === 'generate_query') {
-            if (lastGenerateArgs && part.result && part.result.valid) {
+            if (part.type === 'text-delta' && typeof part.textDelta === 'string') {
               hideTyping();
-              addQueryBubble(lastGenerateArgs);
+              assistantText += part.textDelta;
+              if (!currentBubble) {
+                currentBubble = addTextBubble('assistant', '');
+              }
+              currentBubble.textContent = '';
+              var textLines = assistantText.split('\n');
+              for (var j = 0; j < textLines.length; j++) {
+                if (j > 0) currentBubble.appendChild(document.createElement('br'));
+                currentBubble.appendChild(document.createTextNode(textLines[j]));
+              }
+              msgContainer.scrollTop = msgContainer.scrollHeight;
             }
-            lastGenerateArgs = null;
-          }
 
-          // Error
-          if (part.type === 'error') {
-            hideTyping();
-            addTextBubble('error', part.error || 'Unknown error');
+            if (part.type === 'tool-call' && part.toolName === 'generate_query') {
+              lastGenerateArgs = part.args;
+            }
+
+            if (part.type === 'tool-result' && part.toolName === 'generate_query') {
+              if (lastGenerateArgs && part.result && part.result.valid) {
+                hideTyping();
+                addQueryBubble(lastGenerateArgs);
+              }
+              lastGenerateArgs = null;
+            }
+
+            if (part.type === 'error') {
+              hideTyping();
+              addErrorBubble(friendlyError(part.error), true);
+            }
           }
         }
-      }
 
-      if (assistantText) {
-        chatMessages.push({ role: 'assistant', content: assistantText });
+        if (assistantText) {
+          chatMessages.push({ role: 'assistant', content: assistantText });
+        }
+        success = true;
+        break; // success — exit retry loop
+
+      } catch(e) {
+        var msg = e.message || 'Connection failed';
+        // Auto-retry on network/overload errors if attempts remain
+        if (attempt < RETRY_MAX && /high demand|overloaded|rate.?limit|too many|429|529|503|busy|timeout|network|fetch/i.test(msg)) {
+          continue;
+        }
+        hideTyping();
+        addErrorBubble(friendlyError(msg), true);
+        break;
       }
-    } catch(e) {
-      hideTyping();
-      addTextBubble('error', 'Error: ' + (e.message || 'Connection failed'));
-    } finally {
-      isStreaming = false;
-      sendBtn.disabled = false;
-      input.focus();
     }
+
+    // All retries exhausted without success or explicit error
+    if (!success && typingEl) {
+      hideTyping();
+      addErrorBubble('The AI model is busy right now. Please try again in a moment.', true);
+    }
+
+    isStreaming = false;
+    sendBtn.disabled = false;
+    input.focus();
   }
 
   // Apply a generated query to the explorer controls
