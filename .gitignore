@@ -14,3 +14,14 @@ __pycache__/
 
 # Original CSV dump (archive, not tracked)
 CRA csvs/
+
+# Root-level DuckDB (symlink/copy)
+cra_charities.duckdb
+
+# Node
+node_modules/
+
+# Claude Code / session state
+.claude/
+.remember/
+.worktrees/

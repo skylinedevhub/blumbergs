@@ -14,8 +14,10 @@ blumbergs/
 │   ├── raw/2024/           # Source CSVs (snake_case), with lookups/ subfolder
 │   ├── db/                 # cra_charities.duckdb (built by loader)
 │   └── exports/            # Generated output files
-│       ├── snapshots_2024/     # 13 Excel snapshot workbooks
-│       ├── articles_2024/      # 13 Word article documents
+│       ├── snapshots_2024/        # 13 Excel snapshot workbooks
+│       ├── articles_2024/         # 13 Word article documents (with embedded T3010 PDF pages)
+│       ├── snapshot_pdfs_2024/    # 13 annotated T3010 PDF snapshots (source for article images)
+│       ├── t3010_data/            # 13 JSON data files (structured snapshot data)
 │       └── snapshot_comparison_2023_vs_2024.xlsx
 ├── docs/
 │   ├── context/            # AI-optimized context docs (read these for domain expertise)
@@ -31,7 +33,8 @@ blumbergs/
 │   └── reports/            # Report-generating Python scripts
 │       ├── generate_snapshot.py          # 13 Excel snapshot workbooks
 │       ├── generate_snapshot_articles.py # 13 Word article documents
-│       └── generate_comparison.py        # 2023 vs 2024 comparison workbook
+│       ├── generate_comparison.py        # 2023 vs 2024 comparison workbook
+│       └── update_article_pdfs.py        # Replace embedded T3010 PDF images in articles
 ├── requirements.txt        # Python dependencies (duckdb, openpyxl, pymupdf)
 ├── CLAUDE.md
 └── CRA_T3010_Reference.md
@@ -77,6 +80,10 @@ python3 scripts/reports/generate_comparison.py
 
 # Generate snapshot article Word documents
 python3 scripts/reports/generate_snapshot_articles.py --all
+
+# Replace T3010 PDF images in existing articles (after regenerating PDFs)
+python3 scripts/reports/update_article_pdfs.py          # All 13 articles
+python3 scripts/reports/update_article_pdfs.py --dry-run # Preview mapping only
 
 # Charity lookup (replace BN)
 python3 -c "
@@ -209,7 +216,10 @@ Key patterns:
 Produces `data/exports/snapshot_comparison_2023_vs_2024.xlsx` with 5 sheets: Comparison, Canada 2024, All Financial Lines, By Designation, Compensation. 2024 values are Excel formulas referencing the embedded "Canada 2024" Summary sheet for full traceability. 2023 values are hardcoded from published Blumbergs Snapshot PDFs (exact Sch6 values where available, rounded text highlights otherwise). Requires `snapshot_2024_canada.xlsx` to exist first.
 
 ### Article Generator (`scripts/reports/generate_snapshot_articles.py`)
-Produces 13 Word documents in `data/exports/articles_2024/` from a template. Comparison tables use standardized format: `[Scope 2024 | Scope 2023 | Canada 2024]` for provincial/designation articles, `[Canada 2024 | Canada 2023]` for national. 2023 data hardcoded from published Blumbergs PDFs. Uses `python-docx` with explicit `styled_run()` to maintain Times New Roman 13pt font consistency.
+Produces 13 Word documents in `data/exports/articles_2024/` from a template. Comparison tables use standardized format: `[Scope 2024 | Scope 2023 | Canada 2024]` for provincial/designation articles, `[Canada 2024 | Canada 2023]` for national. 2023 data hardcoded from published Blumbergs PDFs. Uses `python-docx` with explicit `styled_run()` to maintain Times New Roman 13pt font consistency. Title is 20pt Times New Roman centered; body is 13pt.
+
+### PDF Image Updater (`scripts/reports/update_article_pdfs.py`)
+Replaces embedded T3010 PDF page images in existing article Word documents without regenerating the full article content. Renders PDFs from `snapshot_pdfs_2024/` at 250 DPI and inserts them at full-page size (7.5" x 9.71" within 0.5" margins). Uses paragraph-level `pageBreakBefore` and zero before/after spacing for tight layout. Saves as `-v2.docx` alongside originals. Cleans orphaned media from docx zips to keep file sizes uniform (~4.2M each).
 
 ## Published 2023 Snapshot Data
 
