@@ -160,9 +160,61 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
 .ai-settings label{display:block;font-size:10px;color:var(--dim);margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px}
 .ai-settings select,.ai-settings input[type=password]{width:100%;padding:4px 7px;font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:3px;color:var(--text);margin-bottom:6px}
 .ai-settings .provider-note{font-size:9px;color:var(--dim);line-height:1.3}
+
+/* ── Welcome / Help modal ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;pointer-events:none}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal-box{background:var(--surface);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.25);max-width:520px;width:92%;max-height:85vh;overflow-y:auto;padding:28px 30px 22px}
+.modal-box h2{font-size:17px;color:var(--accent2);margin:0 0 4px;font-weight:700}
+.modal-box .modal-sub{font-size:11px;color:var(--dim);margin-bottom:16px}
+.modal-box h3{font-size:12px;color:var(--text);margin:14px 0 6px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.modal-box p,.modal-box li{font-size:12.5px;color:var(--text);line-height:1.6;margin:0 0 6px}
+.modal-box ul{padding-left:18px;margin:0 0 6px}
+.modal-box .step-num{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;background:var(--accent2);color:#fff;border-radius:50%;font-size:10px;font-weight:700;margin-right:6px;flex-shrink:0}
+.modal-box .step-row{display:flex;align-items:flex-start;margin-bottom:8px}
+.modal-box .step-text{font-size:12.5px;line-height:1.5;color:var(--text)}
+.modal-box .key{display:inline-block;padding:1px 6px;background:var(--surface2);border:1px solid var(--border);border-radius:3px;font-family:monospace;font-size:11px;color:var(--dim)}
+.modal-box .modal-cta{display:block;width:100%;margin-top:18px;padding:10px;background:var(--accent2);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.3px}
+.modal-box .modal-cta:hover{opacity:.9}
+.modal-box .modal-footer{margin-top:10px;font-size:10px;color:var(--dim);text-align:center}
+.help-btn{background:0;border:1px solid var(--border);color:var(--dim);width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:700;cursor:pointer;line-height:22px;text-align:center}
+.help-btn:hover{border-color:var(--accent2);color:var(--accent2)}
 </style>
 </head>
 <body>
+<div class="modal-overlay" id="welcome-modal">
+  <div class="modal-box">
+    <h2>Welcome to the T3010 Data Explorer</h2>
+    <div class="modal-sub">Explore financial data from ~83,000 Canadian registered charities (2024 CRA filings)</div>
+
+    <h3>Quick Start</h3>
+    <div class="step-row"><span class="step-num">1</span><span class="step-text"><strong>Choose what to see</strong> &mdash; Pick metrics from the left panel (revenue, assets, compensation, etc.). Click group headers to expand them.</span></div>
+    <div class="step-row"><span class="step-num">2</span><span class="step-text"><strong>Narrow your scope</strong> &mdash; Filter by province, charity type, or category. Add value filters (e.g. revenue &gt; $1M) with "+ Add Filter".</span></div>
+    <div class="step-row"><span class="step-num">3</span><span class="step-text"><strong>Run your query</strong> &mdash; Click <strong>Run Query</strong> or press <span class="key">Ctrl</span>+<span class="key">Enter</span>. Results appear on the right. Click column headers to sort.</span></div>
+
+    <h3>Two Modes</h3>
+    <ul>
+      <li><strong>Detail</strong> &mdash; Lists individual charities with the metrics you selected.</li>
+      <li><strong>Aggregate</strong> &mdash; Groups charities by designation, province, or category and shows totals/averages.</li>
+    </ul>
+
+    <h3>AI Assistant</h3>
+    <p>Click the <strong>AI</strong> tab on the left edge to open the chat assistant. Ask questions in plain English and it will build a query for you:</p>
+    <ul>
+      <li>&ldquo;Show the 20 largest charities by revenue&rdquo;</li>
+      <li>&ldquo;How many charities in Ontario have foreign operations?&rdquo;</li>
+      <li>&ldquo;Compare fundraising vs program spending by designation&rdquo;</li>
+    </ul>
+    <p>Click <strong>Review &amp; Run</strong> on the generated query to load it into the explorer.</p>
+
+    <h3>Export</h3>
+    <p>Click <strong>Export Excel</strong> to download your current query results as a spreadsheet.</p>
+
+    <button class="modal-cta" id="welcome-dismiss">Got it &mdash; Start Exploring</button>
+    <div class="modal-footer">Click the <strong>?</strong> button in the toolbar to see this again</div>
+  </div>
+</div>
+
 <button class="ai-toggle" id="ai-toggle">AI</button>
 <div class="app">
 <div class="ai-sidebar" id="ai-sidebar">
@@ -303,6 +355,7 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--accent2)}
     <button class="tbtn2" id="csql">Copy SQL</button>
     <button class="tbtn2" id="cprompt">Copy Prompt</button>
     <span class="server-hint" id="server-hint">Server not running. Start: python3 scripts/explorer_server.py</span>
+    <button class="help-btn" id="help-btn" title="How to use">?</button>
   </div>
   <div class="sql-panel" id="sql-panel">
     <div class="pre" id="pre"></div>
@@ -1230,6 +1283,23 @@ document.addEventListener('keydown', function(e){
     runQuery();
   }
 });
+
+// ─── Welcome modal ──────────────────────────────────────────────
+(function(){
+  var modal = document.getElementById('welcome-modal');
+  var dismiss = document.getElementById('welcome-dismiss');
+  var helpBtn = document.getElementById('help-btn');
+  var STORAGE_KEY = 't3010_welcome_seen';
+
+  function show(){ modal.classList.add('open'); }
+  function hide(){ modal.classList.remove('open'); localStorage.setItem(STORAGE_KEY,'1'); }
+
+  dismiss.onclick = hide;
+  modal.onclick = function(e){ if(e.target===modal) hide(); };
+  helpBtn.onclick = show;
+
+  if(!localStorage.getItem(STORAGE_KEY)) show();
+})();
 
 // ─── Init ────────────────────────────────────────────────────────
 update();
