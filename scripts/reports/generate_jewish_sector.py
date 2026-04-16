@@ -10,6 +10,7 @@ Usage:
     python3 scripts/reports/generate_jewish_sector.py
 """
 
+import argparse
 import os
 import sys
 import time
@@ -75,12 +76,14 @@ FINANCIAL_SELECT = f"""
 """
 
 FINANCIAL_JOINS = """
-    LEFT JOIN latest_filing lf ON lf.bn = cb.bn
+    LEFT JOIN latest_filing lf ON lf.bn = cb.bn AND lf.data_year = cb.data_year
     LEFT JOIN financial_d fd ON fd."BN/Registration Number" = cb.bn
-        AND fd."Fiscal period end" = lf.latest_fiscal_end
+        AND fd."Fiscal Period End" = lf.latest_fiscal_end AND fd.data_year = cb.data_year
     LEFT JOIN schedule_3_compensation s3 ON s3."BN/Registration number" = cb.bn
-        AND s3."Fiscal period end" = lf.latest_fiscal_end
+        AND s3."Fiscal period end" = lf.latest_fiscal_end AND s3.data_year = cb.data_year
 """
+
+YEAR_CLAUSE = "AND cb.data_year = (SELECT MAX(data_year) FROM charity_base)"
 
 # High-confidence: include any charity matching these in legal_name
 HIGH_CONFIDENCE_KEYWORDS = [
@@ -166,6 +169,7 @@ def build_sheet1_judaism_category(con):
         FROM charity_base cb
         {FINANCIAL_JOINS}
         WHERE cb.category_desc LIKE '%Judaism%'
+        {YEAR_CLAUSE}
         ORDER BY cb.province, cb.legal_name
     """
     rows = con.execute(sql).fetchall()
@@ -205,6 +209,7 @@ def build_sheet2_name_identified(con, exclude_bns):
                 AND ({beth_excl})
             )
         )
+        {YEAR_CLAUSE}
         ORDER BY cb.province, cb.legal_name
     """
     all_rows = con.execute(sql).fetchall()
@@ -285,6 +290,7 @@ def search_family_foundations(con, exclude_bns):
             FROM charity_base cb
             {FINANCIAL_JOINS}
             WHERE LOWER(cb.legal_name) LIKE '%{pattern}%'
+            {YEAR_CLAUSE}
             ORDER BY cb.legal_name
         """
         rows = con.execute(sql).fetchall()
@@ -323,6 +329,7 @@ def search_program_descriptions(con, exclude_bns):
         INNER JOIN programs p ON p."BN/Registration number" = cb.bn
         {FINANCIAL_JOINS}
         WHERE ({where})
+        {YEAR_CLAUSE}
         ORDER BY cb.legal_name
     """
     all_rows = con.execute(sql).fetchall()
@@ -381,6 +388,7 @@ def search_grant_flows(con, known_jewish_names, exclude_bns):
         FROM charity_base cb
         {FINANCIAL_JOINS}
         WHERE cb.bn IN ({placeholders})
+        {YEAR_CLAUSE}
         ORDER BY cb.legal_name
     """
     all_rows = con.execute(sql).fetchall()
@@ -418,6 +426,7 @@ def build_summary_sheet(wb, con, all_bns, sheet_counts):
             FROM financial_d fd
             INNER JOIN charity_base cb ON fd."BN/Registration Number" = cb.bn
             WHERE {where_bn}
+            {YEAR_CLAUSE}
         """).fetchone()[0]
         return result
 
@@ -428,6 +437,7 @@ def build_summary_sheet(wb, con, all_bns, sheet_counts):
             FROM schedule_3_compensation s3
             INNER JOIN charity_base cb ON s3."BN/Registration number" = cb.bn
             WHERE {where_bn}
+            {YEAR_CLAUSE}
         """).fetchone()[0]
         return result
 
@@ -438,6 +448,7 @@ def build_summary_sheet(wb, con, all_bns, sheet_counts):
             FROM schedule_3_compensation s3
             INNER JOIN charity_base cb ON s3."BN/Registration number" = cb.bn
             WHERE {where_bn}
+            {YEAR_CLAUSE}
         """).fetchone()[0]
         return result
 
@@ -446,6 +457,7 @@ def build_summary_sheet(wb, con, all_bns, sheet_counts):
         SELECT cb.designation_desc, COUNT(*)
         FROM charity_base cb
         WHERE {where_bn}
+        {YEAR_CLAUSE}
         GROUP BY cb.designation_desc
         ORDER BY cb.designation_desc
     """).fetchall()
@@ -526,6 +538,7 @@ def build_summary_sheet(wb, con, all_bns, sheet_counts):
         FROM financial_d fd
         INNER JOIN charity_base cb ON fd."BN/Registration Number" = cb.bn
         WHERE {where_bn}
+        {YEAR_CLAUSE}
     """).fetchone()[0]
     ws.append(["4570*", "Total government (computed)", govt_total])
     ws.cell(row=ws.max_row, column=3).number_format = currency_fmt
@@ -593,11 +606,28 @@ def build_summary_sheet(wb, con, all_bns, sheet_counts):
 
 
 def main():
+    global YEAR_CLAUSE
+
+    parser = argparse.ArgumentParser(description="Generate Jewish Charity Sector workbook")
+    parser.add_argument("--year", type=int, default=None,
+                        help="Data year (default: latest in database)")
+    args = parser.parse_args()
+
     start = time.time()
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    filepath = os.path.join(OUTPUT_DIR, "jewish_sector_2024.xlsx")
 
     con = connect()
+
+    # Resolve year
+    if args.year:
+        year = args.year
+        YEAR_CLAUSE = f"AND cb.data_year = {year}"
+    else:
+        year = con.execute("SELECT MAX(data_year) FROM charity_base").fetchone()[0]
+        YEAR_CLAUSE = f"AND cb.data_year = {year}"
+
+    filepath = os.path.join(OUTPUT_DIR, f"jewish_sector_{year}.xlsx")
+
     wb = Workbook()
 
     # Remove default sheet
@@ -609,7 +639,7 @@ def main():
     sheet3_headers = COLUMNS + ["Detection Method"] + FINANCIAL_COLUMNS
 
     # --- Sheet 1: Judaism Category ---
-    print("Building Sheet 1: Judaism Category...")
+    print(f"Building Sheet 1: Judaism Category (year {year})...")
     sheet1_rows, sheet1_bns = build_sheet1_judaism_category(con)
     ws1 = wb.create_sheet("Judaism Category")
     ws1.sheet_properties.tabColor = "4472C4"  # Blue
