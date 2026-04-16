@@ -19,11 +19,15 @@ from copy import copy
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, numbers, Alignment, PatternFill
 from openpyxl.utils import get_column_letter
+import argparse
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DB_PATH = os.path.join(PROJECT_ROOT, "data", "db", "cra_charities.duckdb")
-SNAPSHOT_PATH = os.path.join(PROJECT_ROOT, "data", "exports", "snapshots_2024", "snapshot_2024_canada.xlsx")
-OUTPUT_PATH = os.path.join(PROJECT_ROOT, "data", "exports", "snapshot_comparison_2023_vs_2024.xlsx")
+def snapshot_path(year):
+    return os.path.join(PROJECT_ROOT, "data", "exports", f"snapshots_{year}", f"snapshot_{year}_canada.xlsx")
+
+def output_path(current_year, prior_year):
+    return os.path.join(PROJECT_ROOT, "data", "exports", f"snapshot_comparison_{prior_year}_vs_{current_year}.xlsx")
 
 DATA_SHEET = "Canada 2024"  # name of the embedded source data sheet
 
@@ -598,7 +602,9 @@ def build_by_designation(wb):
                 SUM({money('4200')}) AS assets
             FROM financial_d t
             INNER JOIN charity_base cb ON t."BN/Registration Number" = cb.bn
+                AND t.data_year = cb.data_year
             WHERE cb.designation_code = '{code}'
+                AND cb.data_year = (SELECT MAX(data_year) FROM charity_base)
         """).fetchone()
         cnt, rev, exp, assets = row
         ws.append([label, cnt, rev, exp, assets])
@@ -691,15 +697,37 @@ def build_compensation(wb):
 
 
 def main():
-    if not os.path.exists(SNAPSHOT_PATH):
-        print(f"ERROR: Canada 2024 snapshot not found: {SNAPSHOT_PATH}")
-        print("Run: python3 scripts/reports/generate_snapshot.py")
+    parser = argparse.ArgumentParser(description="Generate Blumbergs Snapshot comparison workbook")
+    parser.add_argument("--year", type=int, default=None,
+                        help="Current year for comparison (default: latest in database)")
+    args = parser.parse_args()
+
+    con = duckdb.connect(DB_PATH, read_only=True)
+    if args.year:
+        current_year = args.year
+    else:
+        current_year = con.execute("SELECT MAX(data_year) FROM charity_base").fetchone()[0]
+    prior_year = current_year - 1
+    con.close()
+
+    sp = snapshot_path(current_year)
+    op = output_path(current_year, prior_year)
+
+    if not os.path.exists(sp):
+        print(f"ERROR: Canada {current_year} snapshot not found: {sp}")
+        print(f"Run: python3 scripts/reports/generate_snapshot.py --year {current_year}")
         sys.exit(1)
 
-    print("Generating comparison workbook...")
+    print(f"Generating comparison workbook ({prior_year} vs {current_year})...")
     wb = Workbook()
 
-    # 1. Copy the Canada 2024 Summary as a source data sheet
+    # 1. Copy the Canada snapshot Summary as a source data sheet
+    # Need to temporarily set module-level SNAPSHOT_PATH for copy_summary_sheet
+    global SNAPSHOT_PATH, OUTPUT_PATH, DATA_SHEET
+    SNAPSHOT_PATH = sp
+    OUTPUT_PATH = op
+    DATA_SHEET = f"Canada {current_year}"
+
     copy_summary_sheet(wb)
 
     # 2. Build comparison sheets
@@ -716,9 +744,9 @@ def main():
     # Ensure Comparison is the first (active) sheet
     wb.move_sheet("Comparison", offset=-len(wb.sheetnames) + 1)
 
-    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-    wb.save(OUTPUT_PATH)
-    print(f"\nSaved to: {OUTPUT_PATH}")
+    os.makedirs(os.path.dirname(op), exist_ok=True)
+    wb.save(op)
+    print(f"\nSaved to: {op}")
     print(f"Sheets: {wb.sheetnames}")
 
 
