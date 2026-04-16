@@ -272,25 +272,30 @@ def money(col):
 def scoped_from(table, where):
     """Return FROM+JOIN+WHERE clause scoped through charity_base."""
     bn = BN_COL[table]
-    return f"{table} t INNER JOIN charity_base cb ON t.{bn} = cb.bn WHERE {where}"
+    return f"{table} t INNER JOIN charity_base cb ON t.{bn} = cb.bn AND t.data_year = cb.data_year WHERE {where}"
 
 
-def get_scope_filter(scope_type, scope_value):
+def get_scope_filter(scope_type, scope_value, year=None):
     """Return (WHERE clause, full title, filename suffix, pdf suffix)."""
+    year_clause = (
+        f"cb.data_year = {year}" if year
+        else "cb.data_year = (SELECT MAX(data_year) FROM charity_base)"
+    )
+
     if scope_type == "all":
-        return "1=1", "Canadian Charity Sector", "canada", "canada"
+        return year_clause, "Canadian Charity Sector", "canada", "canada"
     elif scope_type == "province":
         if scope_value == "Atlantic":
             provinces = "','".join(ATLANTIC)
             return (
-                f"cb.province IN ('{provinces}')",
+                f"{year_clause} AND cb.province IN ('{provinces}')",
                 "Atlantic Provinces Charity Sector",
                 "atlantic",
                 "atlantic",
             )
         name = PROVINCE_NAMES.get(scope_value, scope_value)
         return (
-            f"cb.province = '{scope_value}'",
+            f"{year_clause} AND cb.province = '{scope_value}'",
             f"{name} Charity Sector",
             scope_value,
             scope_value,
@@ -298,7 +303,7 @@ def get_scope_filter(scope_type, scope_value):
     elif scope_type == "designation":
         desc = DESIGNATIONS[scope_value]
         return (
-            f"cb.designation_code = '{scope_value}'",
+            f"{year_clause} AND cb.designation_code = '{scope_value}'",
             f"{desc}s in the Canadian Charity Sector",
             f"designation_{scope_value}",
             f"designation_{scope_value}",
@@ -962,6 +967,8 @@ def main():
     parser.add_argument("--provincial", action="store_true", help="Generate all 9 provincial articles")
     parser.add_argument("--designation", type=str, help="Generate for one designation (A, B, or C)")
     parser.add_argument("--designations", action="store_true", help="Generate all 3 designation articles")
+    parser.add_argument("--year", type=int, default=None,
+                        help="Data year (default: latest in database)")
     args = parser.parse_args()
 
     if not os.path.exists(TEMPLATE_PATH):
@@ -973,9 +980,17 @@ def main():
 
     con = duckdb.connect(DB_PATH, read_only=True)
 
+    # Resolve year and update globals
+    global DATA_YEAR, PRIOR_YEAR
+    if args.year:
+        DATA_YEAR = args.year
+    else:
+        DATA_YEAR = con.execute("SELECT MAX(data_year) FROM charity_base").fetchone()[0]
+    PRIOR_YEAR = DATA_YEAR - 1
+
     # Always compute Canada-wide stats (needed for comparison columns)
-    print("Computing Canada-wide 2024 statistics...")
-    canada_where, _, _, _ = get_scope_filter("all", None)
+    print(f"Computing Canada-wide {DATA_YEAR} statistics...")
+    canada_where, _, _, _ = get_scope_filter("all", None, year=DATA_YEAR)
     canada_stats = query_stats(con, canada_where)
     print(f"  {fmt_count(canada_stats['charity_count'])} charities, "
           f"revenue {fmt_dollars_short(canada_stats['total_revenue'])}, "
@@ -1002,13 +1017,12 @@ def main():
     elif args.designation:
         scopes_to_generate.append(("designation", args.designation))
     else:
-        # Default: Canada only
         scopes_to_generate.append(("all", None))
 
-    print(f"\nGenerating {len(scopes_to_generate)} article(s)...\n")
+    print(f"\nGenerating {len(scopes_to_generate)} article(s) for year {DATA_YEAR}...\n")
 
     for scope_type, scope_value in scopes_to_generate:
-        _, title, _, _ = get_scope_filter(scope_type, scope_value)
+        _, title, _, _ = get_scope_filter(scope_type, scope_value, year=DATA_YEAR)
         print(f"  [{title}]")
         generate_article(scope_type, scope_value, con, canada_stats)
         print()
