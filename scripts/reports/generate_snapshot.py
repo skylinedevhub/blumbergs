@@ -24,7 +24,8 @@ from openpyxl.utils import get_column_letter
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DB_PATH = os.path.join(PROJECT_ROOT, "data", "db", "cra_charities.duckdb")
-OUTPUT_DIR = os.path.join(PROJECT_ROOT, "data", "exports", "snapshots_2024")
+def output_dir(year):
+    return os.path.join(PROJECT_ROOT, "data", "exports", f"snapshots_{year}")
 
 # BN column name varies by table
 BN_COL = {
@@ -73,27 +74,35 @@ def money(col):
     return f"TRY_CAST(REPLACE(REPLACE({col}, '$', ''), ',', '') AS DECIMAL)"
 
 
-def get_scope_filter(filter_type, filter_value):
-    """Return (WHERE clause for charity_base, description string, filename suffix)."""
+def get_scope_filter(filter_type, filter_value, year=None):
+    """Return (WHERE clause for charity_base, description string, filename suffix).
+
+    If year is provided, includes a data_year filter. If None, defaults to MAX(data_year).
+    """
+    year_clause = (
+        f"cb.data_year = {year}" if year
+        else "cb.data_year = (SELECT MAX(data_year) FROM charity_base)"
+    )
+
     if filter_type == "all":
-        return "1=1", "Canadian Charity Sector", "canada"
+        return year_clause, "Canadian Charity Sector", "canada"
     elif filter_type == "province":
         if filter_value == "Atlantic":
             provinces = "','".join(ATLANTIC)
             return (
-                f"cb.province IN ('{provinces}')",
+                f"{year_clause} AND cb.province IN ('{provinces}')",
                 "Atlantic Provinces Charity Sector",
                 "atlantic",
             )
         return (
-            f"cb.province = '{filter_value}'",
+            f"{year_clause} AND cb.province = '{filter_value}'",
             f"{filter_value} Charity Sector",
             filter_value,
         )
     elif filter_type == "designation":
         desc = DESIGNATIONS.get(filter_value, filter_value)
         return (
-            f"cb.designation_code = '{filter_value}'",
+            f"{year_clause} AND cb.designation_code = '{filter_value}'",
             f"{desc}s in the Canadian Charity Sector",
             f"designation_{filter_value}",
         )
@@ -103,12 +112,12 @@ def get_scope_filter(filter_type, filter_value):
 def scoped_table(table, where_clause):
     """Return a FROM+JOIN+WHERE clause that filters a table by scope.
 
-    Uses charity_base (cb) as the scope filter, joined on BN.
+    Uses charity_base (cb) as the scope filter, joined on BN and data_year.
     """
     bn = BN_COL[table]
     return f"""
         {table} t
-        INNER JOIN charity_base cb ON t.{bn} = cb.bn
+        INNER JOIN charity_base cb ON t.{bn} = cb.bn AND t.data_year = cb.data_year
         WHERE {where_clause}
     """
 
@@ -117,13 +126,19 @@ def connect():
     return duckdb.connect(DB_PATH, read_only=True)
 
 
-def generate_snapshot(filter_type, filter_value):
+def generate_snapshot(filter_type, filter_value, year=None):
     """Generate one snapshot workbook."""
-    where, description, suffix = get_scope_filter(filter_type, filter_value)
-    filename = f"snapshot_2024_{suffix}.xlsx"
-    filepath = os.path.join(OUTPUT_DIR, filename)
-
     con = connect()
+
+    # Resolve year
+    if year is None:
+        year = con.execute("SELECT MAX(data_year) FROM charity_base").fetchone()[0]
+
+    where, description, suffix = get_scope_filter(filter_type, filter_value, year)
+    out_dir = output_dir(year)
+    filename = f"snapshot_{year}_{suffix}.xlsx"
+    filepath = os.path.join(out_dir, filename)
+
     wb = Workbook()
 
     # Count charities in scope
@@ -139,7 +154,7 @@ def generate_snapshot(filter_type, filter_value):
     ws_summary.column_dimensions["E"].width = 20
 
     # Global header
-    ws_summary.append([f"Blumbergs Snapshot 2024 — {description}"])
+    ws_summary.append([f"Blumbergs Snapshot {year} — {description}"])
     ws_summary["A1"].font = Font(bold=True, size=14)
     ws_summary.append([f"Based on T3010 filings for {total:,} registered charities."])
 
@@ -162,7 +177,7 @@ def generate_snapshot(filter_type, filter_value):
     if "Sheet" in wb.sheetnames and len(wb.sheetnames) > 1:
         del wb["Sheet"]
 
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    os.makedirs(out_dir, exist_ok=True)
     wb.save(filepath)
     con.close()
     return filepath
@@ -246,7 +261,7 @@ def build_detail_sheet(wb, con, where, table, sheet_name):
     sql = f"""
         SELECT {', '.join(select_parts)}
         FROM {table} t
-        INNER JOIN charity_base cb ON t.{bn_col} = cb.bn
+        INNER JOIN charity_base cb ON t.{bn_col} = cb.bn AND t.data_year = cb.data_year
         WHERE {where}
         ORDER BY cb.bn
     """
@@ -956,6 +971,8 @@ def main():
     parser.add_argument("--designation", nargs="?", const="ALL", type=str,
                         help="Designation code (A/B/C) or omit for all three")
     parser.add_argument("--designations", action="store_true", help="All 3 designation workbooks")
+    parser.add_argument("--year", type=int, default=None,
+                        help="Data year (default: latest in database)")
     args = parser.parse_args()
 
     start = time.time()
@@ -985,7 +1002,7 @@ def main():
     print(f"Generating {len(jobs)} snapshot workbook(s)...")
     paths = []
     for ftype, fval in jobs:
-        path = generate_snapshot(ftype, fval)
+        path = generate_snapshot(ftype, fval, year=args.year)
         paths.append(path)
 
     elapsed = time.time() - start
