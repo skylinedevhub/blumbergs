@@ -397,7 +397,7 @@ def rebuild_derived_tables(con, data_year):
             CREATE TABLE latest_filing (
                 data_year INTEGER,
                 bn VARCHAR,
-                latest_fiscal_end VARCHAR
+                latest_fiscal_end TIMESTAMP
             )
         """)
     else:
@@ -424,7 +424,7 @@ def rebuild_derived_tables(con, data_year):
             CREATE TABLE charity_counts (
                 data_year INTEGER,
                 bn VARCHAR,
-                latest_fiscal_end VARCHAR,
+                latest_fiscal_end TIMESTAMP,
                 has_filing INTEGER,
                 num_programs BIGINT,
                 num_grants BIGINT,
@@ -496,6 +496,16 @@ def print_summary(con):
     print("\n" + "=" * 70)
     print("SUMMARY: All tables and views")
     print("=" * 70)
+
+    # Show loaded years
+    try:
+        years = [r[0] for r in con.execute(
+            "SELECT DISTINCT data_year FROM ident ORDER BY data_year"
+        ).fetchall()]
+        if years:
+            print(f"\nLoaded years: {', '.join(str(y) for y in years)}")
+    except Exception:
+        pass
 
     # Get all tables
     tables = con.execute(
