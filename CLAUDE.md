@@ -42,14 +42,22 @@ blumbergs/
 ## Common Commands
 
 ```bash
-# Rebuild database from CSVs (idempotent, ~20s)
+# Load default year (2024) into database (~20s, additive — preserves other years)
 python3 scripts/load_csv.py
 
-# Validate database after loading (35 integrity checks)
-python3 scripts/validate_db.py
-
-# Load a different year
+# Load additional years into the same database
+python3 scripts/load_csv.py data/raw/2023/
 python3 scripts/load_csv.py data/raw/2025/
+
+# Re-load a year (replaces only that year's data)
+python3 scripts/load_csv.py data/raw/2024/
+
+# Fresh rebuild (delete database first, then load default year)
+python3 scripts/load_csv.py --rebuild
+
+# Validate database after loading
+python3 scripts/validate_db.py              # all loaded years
+python3 scripts/validate_db.py --year 2024  # specific year only
 
 # Query the database
 python3 -c "
@@ -67,21 +75,25 @@ print(con.execute(open('scripts/queries/sector_snapshot.sql').read()).fetchdf().
 "
 
 # Generate snapshot Excel workbooks (requires database built first)
-python3 scripts/reports/generate_snapshot.py            # Canada-wide only
-python3 scripts/reports/generate_snapshot.py --all      # All 13 workbooks (Canada + 9 provincial + 3 designation)
+python3 scripts/reports/generate_snapshot.py            # Canada-wide only (latest year)
+python3 scripts/reports/generate_snapshot.py --all      # All 13 workbooks
+python3 scripts/reports/generate_snapshot.py --year 2023          # Specific year
 python3 scripts/reports/generate_snapshot.py --province ON
-python3 scripts/reports/generate_snapshot.py --provincial  # All 9 provincial workbooks
-python3 scripts/reports/generate_snapshot.py --designation A  # Public Foundations only
-python3 scripts/reports/generate_snapshot.py --designations   # All 3 designation workbooks
+python3 scripts/reports/generate_snapshot.py --provincial
+python3 scripts/reports/generate_snapshot.py --designation A
+python3 scripts/reports/generate_snapshot.py --designations
 
-# Generate comparison workbook (2023 vs 2024, requires Canada snapshot built first)
-python3 scripts/reports/generate_comparison.py
+# Generate comparison workbook (requires Canada snapshot built first)
+python3 scripts/reports/generate_comparison.py           # latest year vs prior
+python3 scripts/reports/generate_comparison.py --year 2024  # specific year vs prior
 
 # Generate snapshot article Word documents
 python3 scripts/reports/generate_snapshot_articles.py --all
+python3 scripts/reports/generate_snapshot_articles.py --year 2023 --all
 
-# Generate Jewish charity sector workbook (4 sheets: Summary + 3 identification tiers)
+# Generate Jewish charity sector workbook
 python3 scripts/reports/generate_jewish_sector.py
+python3 scripts/reports/generate_jewish_sector.py --year 2023
 
 # Charity lookup (replace BN)
 python3 -c "
@@ -99,15 +111,17 @@ con.close()
 
 DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=True` unless intentionally modifying. `openpyxl` is installed for Excel workbook generation. `pymupdf` (fitz) is available for PDF rendering/extraction. `python-docx` is available for Word document manipulation.
 
-**No test suite exists.** Validation is done via `scripts/validate_db.py` (35 integrity checks on the database).
+**No test suite exists.** Validation is done via `scripts/validate_db.py` (per-year integrity checks + cross-year consistency).
 
 ## Database Schema
 
 ### Core Tables
-- **ident** (83,275) — Master charity list. PK: `BN/Registration Number`
-- **charity_base** (83,275) — Cleaned ident joined with lookup descriptions (designation, category, subcategory, charity_type)
-- **latest_filing** (82,937) — Most recent fiscal period end per charity
-- **charity_counts** (83,275) — Aggregated counts (programs, grants, operating countries)
+All raw and derived tables have `data_year INTEGER` as their first column, identifying the CRA data release year. Row counts below are per-year.
+
+- **ident** (~83,275/yr) — Master charity list. PK: `(data_year, BN/Registration Number)`
+- **charity_base** (~83,275/yr) — Cleaned ident joined with lookup descriptions (designation, category, subcategory, charity_type)
+- **latest_filing** (~82,937/yr) — Most recent fiscal period end per charity within each year's data
+- **charity_counts** (~83,275/yr) — Aggregated counts (programs, grants, operating countries)
 
 ### Financial Tables
 - **financial_d** (83,093) — Balance sheet + income statement. Column names are T3010 line numbers (4100, 4200, 4700, 5000, etc.)
@@ -127,18 +141,20 @@ DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=
 - **programs** (94,973) — Program descriptions (1:many)
 - **grants** (14,101) — Grants to non-qualified donees (1:many)
 
-### Lookup Tables
+### Lookup Tables (shared across years, no `data_year`)
 - **lookup_category** (252), **lookup_country** (250), **lookup_designation** (3), **lookup_programs** (71), **lookup_province** (13), **lookup_form_versioning** (5), **lookup_us_state** (51)
 
-### Views (use these for friendlier column names)
-- **v_financial_d** — `bn`, `fiscal_period_end`, `total_revenue` (4700), `total_expenditures` (5100), `total_assets` (4200)
-- **v_financial_abc** — `bn`, `fiscal_period_end`, `is_subsidiary`, `parent_bn`, `parent_name`
-- **v_compensation** — `bn`, `fiscal_period_end`, `ft_employees`, `pt_employees`, `total_compensation`
-- **v_programs** — `bn`, `fiscal_period_end`, `program_type`, `description`
-- **v_grants** — `bn`, `fiscal_period_end`, `recipient_name`, `purpose`, `cash_amount`, `country`
-- **v_foreign_recipients** — `bn`, `fiscal_period_end`, `recipient_name`, `country_code`, `amount`
-- **v_operating_countries** — `bn`, `fiscal_period_end`, `country_code`
-- **v_subsidiaries** — `subsidiary_bn`, `subsidiary_name`, `parent_bn`, `parent_name`
+### Views (filter to latest year by default, expose `data_year`)
+Views filter to `MAX(data_year)` by default. For cross-year queries, use the raw tables directly with `WHERE data_year IN (...)`.
+
+- **v_financial_d** — `data_year`, `bn`, `fiscal_period_end`, `total_revenue` (4700), `total_expenditures` (5100), `total_assets` (4200)
+- **v_financial_abc** — `data_year`, `bn`, `fiscal_period_end`, `is_subsidiary`, `parent_bn`, `parent_name`
+- **v_compensation** — `data_year`, `bn`, `fiscal_period_end`, `ft_employees`, `pt_employees`, `total_compensation`
+- **v_programs** — `data_year`, `bn`, `fiscal_period_end`, `program_type`, `description`
+- **v_grants** — `data_year`, `bn`, `fiscal_period_end`, `recipient_name`, `purpose`, `cash_amount`, `country`
+- **v_foreign_recipients** — `data_year`, `bn`, `fiscal_period_end`, `recipient_name`, `country_code`, `amount`
+- **v_operating_countries** — `data_year`, `bn`, `fiscal_period_end`, `country_code`
+- **v_subsidiaries** — `data_year`, `subsidiary_bn`, `subsidiary_name`, `parent_bn`, `parent_name`
 
 ## Critical Data Quirks
 
@@ -154,6 +170,7 @@ DuckDB Python module is installed (`duckdb` 1.4.4). Always open with `read_only=
 6. **CSV encoding** — Files are ISO-8859/CP1252. The loader uses DuckDB encoding `CP1252` (NOT `IBM_1252` which is EBCDIC and mangles ASCII to fullwidth Unicode).
 7. **schedule_3_compensation mixed types** — Lines 300/370 are BIGINT (no currency formatting), but line 390 is VARCHAR (has `$` and `,`). Don't apply REPLACE() to BIGINT columns.
 8. **T3010 form version changes (V23→V24)**: Lines 4575, 4580, 4101, 4102 changed definition. V23 4575="Tax-receipted from outside Canada" → V24 4575="Non-tax-receipted revenue from outside Canada". V23 4580="Non-tax-receipted from outside Canada" → V24 4580="Interest/investment income". V23 4101/4102="Receivables breakdown" → V24 4101/4102="Cash vs short-term investments". Direct year-over-year comparisons on these lines are invalid.
+9. **Multi-year database** — All raw and derived tables have `data_year INTEGER` as their first column, identifying the CRA data release year (from directory name, e.g. `data/raw/2024/` → 2024). Views filter to `MAX(data_year)` by default. Query raw tables directly for cross-year comparisons. Lookup tables are shared across years (no `data_year` column). Loading a year replaces only that year's data; other years are preserved.
 
 ## T3010 Form Structure
 
@@ -204,11 +221,11 @@ Per the Blumbergs Snapshot methodology:
 `scripts/reports/generate_snapshot.py` produces 13 Excel workbooks (1 Canada-wide, 9 provincial, 3 by designation). Each workbook has 9 sheets mirroring T3010 sections (A, C, D, Schedules 1-3, 5-6, 8).
 
 Key patterns:
-- **Scope filtering**: `get_scope_filter()` returns a WHERE clause against `charity_base cb` — all queries INNER JOIN through `charity_base` to restrict scope
+- **Scope filtering**: `get_scope_filter(filter_type, filter_value, year=None)` returns a WHERE clause against `charity_base cb` with `data_year` filter — all queries INNER JOIN through `charity_base` to restrict scope
 - **Currency conversion**: `money(col)` helper wraps the `TRY_CAST(REPLACE(REPLACE(...)))` pattern
 - **BN column mapping**: `BN_COL` dict maps table names to their specific BN column name (capital vs lowercase N)
 - **Sheet builders**: Each `build_*()` function takes `(wb, con, where)` and appends a worksheet
-- Output goes to `data/exports/snapshots_2024/`
+- Output goes to `data/exports/snapshots_{year}/` (year-specific directory)
 
 ### Comparison Workbook (`scripts/reports/generate_comparison.py`)
 Produces `data/exports/snapshot_comparison_2023_vs_2024.xlsx` with 5 sheets: Comparison, Canada 2024, All Financial Lines, By Designation, Compensation. 2024 values are Excel formulas referencing the embedded "Canada 2024" Summary sheet for full traceability. 2023 values are hardcoded from published Blumbergs Snapshot PDFs (exact Sch6 values where available, rounded text highlights otherwise). Requires `snapshot_2024_canada.xlsx` to exist first.
@@ -238,7 +255,11 @@ All detail sheets include 14 financial columns (LEFT JOINed through `latest_fili
 
 1. Place CSVs in `data/raw/{year}/` with the same snake_case naming convention
 2. Move lookup tables to `data/raw/{year}/lookups/`
-3. Run `python3 scripts/load_csv.py data/raw/{year}/`
+3. Run `python3 scripts/load_csv.py data/raw/{year}/` — this adds the year to the existing database
+4. Run `python3 scripts/validate_db.py` to verify all years
+5. Generate reports: `python3 scripts/reports/generate_snapshot.py --year {year} --all`
+
+The first time after upgrading from the single-year database, use `--rebuild` to create the new schema.
 
 ## AI Context Documents
 
