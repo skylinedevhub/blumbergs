@@ -14,3 +14,6 @@ __pycache__/
 
 # Original CSV dump (archive, not tracked)
 CRA csvs/
+
+# Git worktrees
+.worktrees/
