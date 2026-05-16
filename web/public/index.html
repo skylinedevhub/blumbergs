@@ -6,6 +6,7 @@
 <title>T3010 Data Explorer &mdash; 2024 Filing Year</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<script type="module" src="/explorer.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -99,16 +100,26 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--blue);box-s
 
 /* Results table */
 .results{flex:1;overflow:auto;background:var(--surface)}
-.results table{width:100%;border-collapse:collapse;font-size:13px}
-.results th{position:sticky;top:0;background:var(--surface2);padding:8px 12px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--dim);border-bottom:2px solid var(--blue);cursor:pointer;white-space:nowrap;user-select:none;font-weight:700}
+.results table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.results th{position:sticky;top:0;z-index:2;background:var(--surface2);padding:8px 12px;text-align:left;font-size:10px;text-transform:none;letter-spacing:.2px;color:var(--blue-dark);border-bottom:2px solid var(--blue);cursor:pointer;white-space:nowrap;user-select:none;font-weight:700}
+.results th.num-head{text-align:right}
 .results th:hover{color:var(--blue)}
 .results th .sort-ind{font-size:8px;margin-left:4px;opacity:.3}
 .results th.sorted .sort-ind{opacity:1;color:var(--blue)}
+.results th .ln-tag{display:block;font-weight:500;font-size:9px;color:var(--dim);margin-top:2px;letter-spacing:.4px;text-transform:uppercase}
 .results td{padding:7px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
 .results tr:nth-child(even) td{background:var(--bg)}
 .results tr:hover td{background:rgba(0,85,138,.04)}
-.results td.num-cell{text-align:right;font-family:'SF Mono','Cascadia Code','Fira Code',Consolas,monospace;font-size:12px}
+.results td.num-cell{text-align:right;font-family:'SF Mono','Cascadia Code','Fira Code',Consolas,monospace;font-size:12px;font-variant-numeric:tabular-nums}
+.results td.cur-cell{text-align:right;font-family:'SF Mono','Cascadia Code','Fira Code',Consolas,monospace;font-size:12px;font-variant-numeric:tabular-nums;color:var(--text)}
+.results td.cur-cell .cur-sym{color:var(--dim);margin-right:1px}
+.results td.cur-cell.zero,.results td.num-cell.zero{color:var(--dim)}
+.results td.cur-cell.neg{color:var(--red)}
 .results td.str-cell{max-width:350px;overflow:hidden;text-overflow:ellipsis}
+.results.sticky-first th:first-child,.results.sticky-first td:first-child{position:sticky;left:0;background:var(--surface);z-index:1;box-shadow:1px 0 0 var(--border)}
+.results.sticky-first tr:nth-child(even) td:first-child{background:var(--bg)}
+.results.sticky-first th:first-child{background:var(--surface2);z-index:3}
+.results tfoot td{background:var(--surface2);font-weight:700;border-top:2px solid var(--blue);position:sticky;bottom:0}
 .placeholder{padding:50px;text-align:center;color:var(--dim);font-size:13px}
 .placeholder .hint{margin-top:10px;font-size:11px;color:#999}
 .error-msg{padding:16px;color:var(--red);font-size:12px;font-family:monospace;white-space:pre-wrap;word-break:break-all}
@@ -120,10 +131,73 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--blue);box-s
 .footer-brand{padding:12px 18px;border-top:1px solid var(--border);background:var(--surface);font-size:10px;color:var(--dim);text-align:center}
 .footer-brand a{color:var(--blue);text-decoration:none}
 .footer-brand a:hover{text-decoration:underline}
+
+/* ── AI chat sidebar ── */
+.ai-toggle{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:100;background:var(--accent2);color:#fff;border:none;border-radius:0 6px 6px 0;padding:10px 6px;cursor:pointer;font-size:12px;font-weight:700;writing-mode:vertical-rl;letter-spacing:1px;opacity:.85;transition:opacity .2s}
+.ai-toggle:hover{opacity:1}
+.ai-toggle.hidden{display:none}
+.ai-sidebar{width:0;min-width:0;overflow:hidden;transition:width .2s,min-width .2s;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column}
+.ai-sidebar.open{width:340px;min-width:340px}
+.ai-header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--surface2)}
+.ai-header h2{font-size:13px;color:var(--accent2);margin:0}
+.ai-close{background:0;border:0;font-size:16px;cursor:pointer;color:var(--dim);padding:0 4px}
+.ai-close:hover{color:var(--accent)}
+.ai-messages{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
+.ai-msg{max-width:95%;padding:8px 10px;border-radius:8px;font-size:12px;line-height:1.5;word-wrap:break-word}
+.ai-msg.user{align-self:flex-end;background:var(--accent2);color:#fff;border-bottom-right-radius:2px}
+.ai-msg.assistant{align-self:flex-start;background:var(--surface2);color:var(--text);border-bottom-left-radius:2px}
+.ai-msg.error{align-self:center;background:#fef2f2;color:var(--accent);border:1px solid #fecaca;font-size:11px;text-align:center}
+.ai-msg.error .retry-btn{display:inline-block;margin-top:6px;padding:4px 14px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer}
+.ai-msg.error .retry-btn:hover{opacity:.85}
+.ai-msg .sql-block{background:var(--bg);padding:6px 8px;border-radius:4px;font-family:'SF Mono','Cascadia Code',monospace;font-size:11px;margin-top:6px;white-space:pre-wrap;word-break:break-all;max-height:200px;overflow:auto}
+.ai-msg .review-btn{display:inline-block;margin-top:6px;padding:4px 12px;background:var(--accent2);color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer}
+.ai-msg .review-btn:hover{opacity:.85}
+.ai-typing{align-self:flex-start;padding:8px 10px;font-size:11px;color:var(--dim);font-style:italic}
+.ai-input-row{display:flex;gap:6px;padding:10px;border-top:1px solid var(--border);background:var(--surface)}
+.ai-input-row input{flex:1;padding:7px 10px;font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:inherit}
+.ai-input-row input:focus{outline:0;border-color:var(--accent2)}
+.ai-input-row button{padding:7px 14px;background:var(--accent2);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer}
+.ai-input-row button:hover{opacity:.85}
+.ai-input-row button:disabled{opacity:.4;cursor:not-allowed}
+.ai-settings{padding:8px 12px;border-bottom:1px solid var(--border);background:var(--bg);display:none}
+.ai-settings.open{display:block}
+.ai-settings-toggle{background:0;border:0;font-size:14px;cursor:pointer;color:var(--dim);padding:0 4px;line-height:1}
+.ai-settings-toggle:hover{color:var(--accent2)}
+.ai-settings label{display:block;font-size:10px;color:var(--dim);margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px}
+.ai-settings select,.ai-settings input[type=password]{width:100%;padding:4px 7px;font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:3px;color:var(--text);margin-bottom:6px}
+.ai-settings .provider-note{font-size:9px;color:var(--dim);line-height:1.3}
 </style>
 </head>
 <body>
+<button class="ai-toggle" id="ai-toggle">AI</button>
 <div class="app">
+<div class="ai-sidebar" id="ai-sidebar">
+  <div class="ai-header">
+    <h2>AI Query Assistant</h2>
+    <span style="display:flex;gap:4px;align-items:center">
+      <button class="ai-settings-toggle" id="ai-settings-toggle" title="Provider settings">&#9881;</button>
+      <button class="ai-close" id="ai-close">&times;</button>
+    </span>
+  </div>
+  <div class="ai-settings" id="ai-settings">
+    <label>Provider</label>
+    <select id="ai-provider">
+      <option value="gateway">Gemini 2.5 Pro (default)</option>
+      <option value="anthropic">Anthropic (own key)</option>
+      <option value="google">Google Gemini (own key)</option>
+    </select>
+    <div id="ai-key-row" style="display:none">
+      <label>API Key</label>
+      <input type="password" id="ai-api-key" placeholder="sk-... or AIza...">
+    </div>
+    <div class="provider-note">Keys are sent only to the server and never stored.</div>
+  </div>
+  <div class="ai-messages" id="ai-messages"></div>
+  <div class="ai-input-row">
+    <input type="text" id="ai-input" placeholder="Ask about charities data...">
+    <button id="ai-send">Send</button>
+  </div>
+</div>
 <div class="ctrl">
   <div class="header">
     <h1>T3010 Data Explorer</h1>
@@ -258,64 +332,15 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--blue);box-s
 </div>
 </div>
 
-<script>
-// ── Metric definitions ─────────────────────────────────────────
-var M = [
-  {id:'total_revenue',      l:'Total Revenue',       ln:'4700',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'tax_receipted',      l:'Tax-Receipted Gifts', ln:'4500',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'gifts_charities',    l:'Gifts from Charities',ln:'4510',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'govt_federal',       l:'Federal Govt',        ln:'4540',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'govt_provincial',    l:'Provincial Govt',     ln:'4550',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'govt_municipal',     l:'Municipal Govt',      ln:'4560',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'investment_income',  l:'Investment Income',   ln:'4580',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'fundraising_rev',    l:'Fundraising Revenue', ln:'4630',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'sale_goods',         l:'Sale of Goods/Svcs',  ln:'4640',t:'$',g:'Revenue',     tb:'fd'},
-  {id:'other_revenue',      l:'Other Revenue',       ln:'4650',t:'$',g:'Revenue',     tb:'fd'},
-
-  {id:'total_expenditures', l:'Total Expenditures',  ln:'5100',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'charitable_programs',l:'Charitable Programs',  ln:'5000',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'mgmt_admin',         l:'Mgmt & Admin',        ln:'5010',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'fundraising_exp',    l:'Fundraising',         ln:'5020',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'political',          l:'Political Activities', ln:'5040',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'gifts_to_qds',       l:'Gifts to Qual. Donees',ln:'5050',t:'$',g:'Expenditures',tb:'fd'},
-  {id:'grants_non_qds',     l:'Grants Non-Qual.',    ln:'5045',t:'$',g:'Expenditures',tb:'fd'},
-
-  {id:'total_assets',       l:'Total Assets',        ln:'4200',t:'$',g:'Balance Sheet',tb:'fd'},
-  {id:'total_liabilities',  l:'Total Liabilities',   ln:'4350',t:'$',g:'Balance Sheet',tb:'fd'},
-  {id:'cash_investments',   l:'Cash & Investments',  ln:'4100',t:'$',g:'Balance Sheet',tb:'fd'},
-  {id:'receivables',        l:'Receivables',         ln:'4110',t:'$',g:'Balance Sheet',tb:'fd'},
-  {id:'long_term_invest',   l:'Long-term Investments',ln:'4140',t:'$',g:'Balance Sheet',tb:'fd'},
-
-  {id:'ft_employees',       l:'FT Employees',        col:'"300"', t:'i',g:'Employment',tb:'sc'},
-  {id:'pt_employees',       l:'PT Employees',        col:'"370"', t:'i',g:'Employment',tb:'sc'},
-  {id:'total_compensation', l:'Total Compensation',  col:'"390"', t:'$',g:'Employment',tb:'sc'},
-  {id:'compensation_fd',    l:'Compensation (fin_d)', ln:'4880',  t:'$',g:'Employment',tb:'fd'},
-
-  {id:'num_programs',       l:'Programs',            col:'num_programs',           t:'i',g:'Activity',tb:'cc'},
-  {id:'num_grants',         l:'Grants',              col:'num_grants',             t:'i',g:'Activity',tb:'cc'},
-  {id:'num_countries',      l:'Operating Countries', col:'num_operating_countries',t:'i',g:'Activity',tb:'cc'},
-];
-
-var PRESETS = [
-  {n:'Sector Overview', s:{mode:'aggregate',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
-    metrics:['total_revenue','total_expenditures','total_assets','total_compensation'],
-    filters:[],sort:'total_revenue',dir:'DESC',lim:25,search:'',customWhere:''}},
-  {n:'By Province', s:{mode:'aggregate',prov:'',desig:'',cat:'',gb:'province',aggfn:'SUM',
-    metrics:['total_revenue','total_expenditures','ft_employees'],
-    filters:[],sort:'total_revenue',dir:'DESC',lim:25,search:'',customWhere:''}},
-  {n:'Top 25 Revenue', s:{mode:'detail',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
-    metrics:['total_revenue','total_expenditures','total_assets'],
-    filters:[],sort:'total_revenue',dir:'DESC',lim:25,search:'',customWhere:''}},
-  {n:'Top Employers', s:{mode:'detail',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
-    metrics:['ft_employees','pt_employees','total_compensation'],
-    filters:[],sort:'ft_employees',dir:'DESC',lim:25,search:'',customWhere:''}},
-  {n:'Foreign Activity', s:{mode:'detail',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
-    metrics:['total_revenue','num_countries','num_grants'],
-    filters:[{f:'num_countries',op:'>',v:'0'}],sort:'num_countries',dir:'DESC',lim:50,search:'',customWhere:''}},
-  {n:'Foundations Only', s:{mode:'detail',prov:'',desig:'A',cat:'',gb:'designation',aggfn:'SUM',
-    metrics:['total_revenue','total_assets','gifts_to_qds'],
-    filters:[],sort:'total_assets',dir:'DESC',lim:25,search:'',customWhere:''}},
-];
+<script type="module">
+// ── Metric definitions, presets, and SQL generation are in /explorer.js
+// (imported as ES module; the module also writes to globalThis.Explorer for
+// any future non-module code that might want it).
+import Explorer from '/explorer.js';
+var M = Explorer.M;
+var PRESETS = Explorer.PRESETS;
+var gm = Explorer.getMetric;
+var escSql = Explorer.escSql;
 
 // ── State ───────────────────────────────────────────────────────
 var S = {mode:'detail',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
@@ -325,88 +350,12 @@ var S = {mode:'detail',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
 var currentData = null;
 var tableSortCol = -1;
 var tableSortAsc = true;
+// When the AI generates a query, it stores the exact SQL here so runQuery()
+// uses it verbatim instead of re-deriving from S (which may not capture every
+// detail the AI used).
+var aiOverrideSql = null;
 
-// ── Helpers ─────────────────────────────────────────────────────
-var gm = function(id){return M.find(function(m){return m.id===id})};
-var needs = function(a){
-  return S.metrics.some(function(id){var m=gm(id);return m&&m.tb===a}) ||
-         S.filters.some(function(f){var m=gm(f.f);return m&&m.tb===a});
-};
-
-function cr(m){
-  if(m.ln) return 'fd."'+m.ln+'"';
-  return m.tb+'.'+m.col;
-}
-function money(m){
-  if(m.t==='i') return cr(m);
-  return 'money('+cr(m)+')';
-}
-function agg(m,fn){
-  if(fn==='MEDIAN'){
-    var expr = m.t==='i'?cr(m):'money('+cr(m)+')';
-    return 'PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY '+expr+')';
-  }
-  if(m.t==='i') return fn+'('+cr(m)+')';
-  return fn+'(money('+cr(m)+'))';
-}
-
-function escSql(s){return s.replace(/'/g,"''");}
-
-// ── SQL Generation ──────────────────────────────────────────────
-function genSQL(){
-  var sel = S.metrics.map(gm).filter(Boolean);
-  if(!sel.length) return '-- Select at least one metric';
-  var ufd=needs('fd'), usc=needs('sc'), ucc=needs('cc');
-  var q='';
-
-  if(S.mode==='detail'){
-    q+='SELECT\n  cb.bn,\n  cb.legal_name,\n  cb.designation_desc,\n  cb.province';
-    sel.forEach(function(m){ q+=',\n  '+money(m)+' AS '+m.id; });
-    q+='\n';
-  } else {
-    var gc = S.gb==='designation'?'cb.designation_desc':S.gb==='province'?'cb.province':'cb.category_desc';
-    q+='SELECT\n  '+gc+',\n  COUNT(*) AS charity_count';
-    sel.forEach(function(m){ q+=',\n  '+agg(m,S.aggfn)+' AS '+m.id; });
-    q+='\n';
-  }
-
-  q+='FROM charity_base cb\n';
-  if(ufd) q+='LEFT JOIN financial_d fd ON fd."BN/Registration Number" = cb.bn\n';
-  if(usc) q+='LEFT JOIN schedule_3_compensation sc ON sc."BN/Registration number" = cb.bn\n';
-  if(ucc) q+='LEFT JOIN charity_counts cc ON cc.bn = cb.bn\n';
-
-  var w=[];
-  if(S.prov) w.push("cb.province = '"+S.prov+"'");
-  if(S.desig) w.push("cb.designation_code = '"+S.desig+"'");
-  if(S.cat) w.push("cb.category_code = '"+escSql(S.cat)+"'");
-  if(S.search.trim()){
-    var term = escSql(S.search.trim());
-    w.push("(cb.legal_name ILIKE '%"+term+"%' OR cb.bn ILIKE '%"+term+"%')");
-  }
-  S.filters.forEach(function(f){
-    var m=gm(f.f);
-    if(!m||!f.v) return;
-    var e = m.t==='i'?cr(m):'money('+cr(m)+')';
-    w.push(e+' '+f.op+' '+f.v);
-  });
-  if(S.customWhere.trim()) w.push('('+S.customWhere.trim()+')');
-  if(w.length) q+='WHERE '+w.join('\n  AND ')+'\n';
-
-  if(S.mode==='aggregate'){
-    var gc2 = S.gb==='designation'?'cb.designation_desc':S.gb==='province'?'cb.province':'cb.category_desc';
-    q+='GROUP BY '+gc2+'\n';
-  }
-
-  var sm = gm(S.sort);
-  if(sm){
-    var se = S.mode==='aggregate'? S.sort : money(sm);
-    q+='ORDER BY '+se+' '+S.dir+' NULLS LAST\n';
-  } else if(S.sort==='charity_count' && S.mode==='aggregate'){
-    q+='ORDER BY charity_count '+S.dir+'\n';
-  }
-  q+='LIMIT '+S.lim+';';
-  return q;
-}
+function genSQL(){ return Explorer.genSQL(S); }
 
 // ── Syntax highlighting ─────────────────────────────────────────
 function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
@@ -417,12 +366,15 @@ function hl(s){
   s=s.replace(/'([^']*)'/g,"'<span class=\"str\">$1</span>'");
   var kws=['SELECT','FROM','LEFT JOIN','INNER JOIN','ON','WHERE','AND','OR','GROUP BY','ORDER BY',
    'LIMIT','AS','SUM','AVG','COUNT','MIN','MAX','PERCENTILE_CONT','WITHIN GROUP',
-   'NULLS LAST','DESC','ASC','ILIKE'];
+   'NULLS LAST','DESC','ASC','ILIKE','WITH','CASE','WHEN','THEN','ELSE','END','IN','FILTER'];
   kws.forEach(function(k){
     s=s.replace(new RegExp('\\b('+k.replace(/ /g,'\\s+')+'(?!\\w))','g'),'<span class="kw">$1</span>');
   });
   s=s.replace(/\b(money)\b/g,'<span class="fn">$1</span>');
-  var tbls=['charity_base','financial_d','schedule_3_compensation','charity_counts','cb','fd','sc','cc'];
+  var tbls=['charity_base','financial_d','schedule_3_compensation','charity_counts',
+            'schedule_5_noncash','gift','trustee','programs',
+            'gift_agg','trustee_agg','program_agg',
+            'cb','fd','sc','cc','s5','g','t','p','gagg','tagg','pagg'];
   tbls.forEach(function(t){
     s=s.replace(new RegExp('\\b('+t+')\\b','g'),'<span class="tbl">$1</span>');
   });
@@ -483,7 +435,11 @@ async function runQuery(){
   document.getElementById('status-text').textContent = 'Executing query...';
 
   try {
-    var resp = await apiPost('/api/query', {sql: genSQL()});
+    // The AI assistant can stash an exact SQL string in aiOverrideSql so we
+    // run its query verbatim. Always reset after a single run.
+    var sqlToRun = aiOverrideSql || genSQL();
+    aiOverrideSql = null;
+    var resp = await apiPost('/api/query', {sql: sqlToRun});
     var data = await resp.json();
     if(data.error){
       showError(data.error);
@@ -556,15 +512,18 @@ function populateCategories(cats){
 }
 
 // ── Table rendering ─────────────────────────────────────────────
-function fmtVal(val, colIdx){
-  if(val === null || val === undefined) return '\u2014';
-  if(typeof val === 'number'){
-    if(Math.abs(val) >= 1 || val === 0){
-      return val.toLocaleString('en-CA', {maximumFractionDigits:0});
-    }
-    return val.toLocaleString('en-CA', {maximumFractionDigits:2});
-  }
-  return String(val);
+// Friendlier column headers: pull the metric label out of explorer.js so the
+// header reads in CRA terminology, and split out the line tag into a smaller
+// secondary line below the main label.
+function colDisplay(colId){
+  var m = gm(colId);
+  if(!m) return {label: humanize(colId), tag: null};
+  var match = m.l.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
+  if(match) return {label: match[1], tag: match[2]};
+  return {label: m.l, tag: null};
+}
+function humanize(s){
+  return String(s).replace(/_/g,' ').replace(/\b\w/g, function(c){return c.toUpperCase();});
 }
 
 function isNumCol(data, colIdx){
@@ -575,6 +534,39 @@ function isNumCol(data, colIdx){
     }
   }
   return false;
+}
+
+function appendValueCell(tr, val, kind){
+  var td = document.createElement('td');
+  if(val === null || val === undefined || val === ''){
+    td.textContent = '\u2014';
+    td.className = (kind === '$' ? 'cur-cell ' : (kind === 's' ? 'str-cell ' : 'num-cell ')) + 'zero';
+    tr.appendChild(td);
+    return;
+  }
+  if(kind === 's' || typeof val !== 'number'){
+    td.textContent = String(val);
+    td.className = 'str-cell';
+    tr.appendChild(td);
+    return;
+  }
+  if(kind === '$'){
+    td.className = 'cur-cell';
+    if(val < 0) td.classList.add('neg');
+    if(val === 0) td.classList.add('zero');
+    var sym = document.createElement('span');
+    sym.className = 'cur-sym';
+    sym.textContent = val < 0 ? '-$' : '$';
+    td.appendChild(sym);
+    td.appendChild(document.createTextNode(
+      Math.abs(Math.round(val)).toLocaleString('en-CA')
+    ));
+  } else {
+    td.textContent = Explorer.formatValue(val, kind === 'i' ? 'i' : null);
+    td.className = 'num-cell';
+    if(val === 0) td.classList.add('zero');
+  }
+  tr.appendChild(td);
 }
 
 function renderTable(data){
@@ -589,10 +581,19 @@ function renderTable(data){
     return;
   }
 
-  var numCols = [];
+  // Per-column kind: '$' currency, 'i' integer, 'n' generic numeric, 's' string.
+  // Looked up from the metric catalog when the column name matches a metric id.
+  var colKinds = [];
   for(var ci=0; ci<data.columns.length; ci++){
-    numCols.push(isNumCol(data, ci));
+    var m = gm(data.columns[ci]);
+    if(m) colKinds.push(m.t === '$' ? '$' : 'i');
+    else if(isNumCol(data, ci)) colKinds.push('n');
+    else colKinds.push('s');
   }
+
+  // Sticky first column keeps the charity name visible while horizontally
+  // scrolling wide multi-metric tables.
+  container.classList.toggle('sticky-first', data.columns.length > 4);
 
   var table = document.createElement('table');
   var thead = document.createElement('thead');
@@ -600,11 +601,19 @@ function renderTable(data){
 
   data.columns.forEach(function(col, ci){
     var th = document.createElement('th');
-    th.textContent = col;
+    var disp = colDisplay(col);
+    th.appendChild(document.createTextNode(disp.label));
+    if(disp.tag){
+      var tag = document.createElement('span');
+      tag.className = 'ln-tag';
+      tag.textContent = disp.tag;
+      th.appendChild(tag);
+    }
     var ind = document.createElement('span');
     ind.className = 'sort-ind';
     ind.textContent = '\u25B2';
     th.appendChild(ind);
+    if(colKinds[ci] !== 's') th.classList.add('num-head');
     if(ci === tableSortCol){
       th.classList.add('sorted');
       ind.textContent = tableSortAsc ? '\u25B2' : '\u25BC';
@@ -630,14 +639,41 @@ function renderTable(data){
   data.rows.forEach(function(row){
     var tr = document.createElement('tr');
     row.forEach(function(val, ci){
-      var td = document.createElement('td');
-      td.textContent = fmtVal(val, ci);
-      td.className = numCols[ci] ? 'num-cell' : 'str-cell';
-      tr.appendChild(td);
+      appendValueCell(tr, val, colKinds[ci]);
     });
     tbody.appendChild(tr);
   });
   table.appendChild(tbody);
+
+  // Totals row helps users sanity-check aggregate sums across many groups.
+  if(S.mode === 'aggregate' && data.rows.length > 1){
+    var tfoot = document.createElement('tfoot');
+    var trf = document.createElement('tr');
+    data.columns.forEach(function(col, ci){
+      if(ci === 0){
+        var td = document.createElement('td');
+        td.textContent = 'Total (' + data.rows.length + ' groups)';
+        trf.appendChild(td);
+        return;
+      }
+      var k = colKinds[ci];
+      if(k === 's'){
+        var td2 = document.createElement('td');
+        td2.textContent = '';
+        trf.appendChild(td2);
+        return;
+      }
+      var sum = 0, any = false;
+      for(var ri=0; ri<data.rows.length; ri++){
+        var v = data.rows[ri][ci];
+        if(typeof v === 'number'){ sum += v; any = true; }
+      }
+      appendValueCell(trf, any ? sum : null, k);
+    });
+    tfoot.appendChild(trf);
+    table.appendChild(tfoot);
+  }
+
   container.appendChild(table);
 }
 
@@ -852,6 +888,301 @@ document.addEventListener('keydown', function(e){
 // ── Init ────────────────────────────────────────────────────────
 update();
 loadLookups();
+
+// ── AI Chat Sidebar ─────────────────────────────────────────────
+// Wires up the chat panel against /api/chat. The AI's generate_query tool
+// pushes structured `explorer_state` + final SQL into the explorer:
+//   - explorer_state syncs the left-rail controls so the user sees what's
+//     being run, and so they can tweak before re-running.
+//   - the exact SQL is stashed in aiOverrideSql; the next runQuery() uses it
+//     verbatim (avoids the explorer rebuilding the SQL from state and dropping
+//     any nuance only the AI captured).
+(function() {
+  var sidebar = document.getElementById('ai-sidebar');
+  var toggle = document.getElementById('ai-toggle');
+  var closeBtn = document.getElementById('ai-close');
+  var msgContainer = document.getElementById('ai-messages');
+  var input = document.getElementById('ai-input');
+  var sendBtn = document.getElementById('ai-send');
+  var providerSelect = document.getElementById('ai-provider');
+  var apiKeyInput = document.getElementById('ai-api-key');
+  var settingsPanel = document.getElementById('ai-settings');
+  var settingsToggle = document.getElementById('ai-settings-toggle');
+  var keyRow = document.getElementById('ai-key-row');
+  var chatMessages = []; // conversation history sent to /api/chat
+  var isStreaming = false;
+
+  settingsToggle.onclick = function() { settingsPanel.classList.toggle('open'); };
+  providerSelect.onchange = function() {
+    keyRow.style.display = providerSelect.value === 'gateway' ? 'none' : 'block';
+  };
+
+  toggle.onclick = function() {
+    sidebar.classList.add('open');
+    toggle.classList.add('hidden');
+    input.focus();
+  };
+  closeBtn.onclick = function() {
+    sidebar.classList.remove('open');
+    toggle.classList.remove('hidden');
+  };
+
+  function addTextBubble(role, text) {
+    var div = document.createElement('div');
+    div.className = 'ai-msg ' + role;
+    text = String(text || '');
+    if (role === 'user') {
+      div.textContent = text;
+    } else {
+      var lines = text.split('\n');
+      for (var i = 0; i < lines.length; i++) {
+        if (i > 0) div.appendChild(document.createElement('br'));
+        div.appendChild(document.createTextNode(lines[i]));
+      }
+    }
+    msgContainer.appendChild(div);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+    return div;
+  }
+
+  function addQueryBubble(queryData) {
+    var div = document.createElement('div');
+    div.className = 'ai-msg assistant';
+    var strong = document.createElement('strong');
+    strong.textContent = 'Generated Query';
+    div.appendChild(strong);
+    var pre = document.createElement('pre');
+    pre.className = 'sql-block';
+    pre.textContent = queryData.sql;
+    div.appendChild(pre);
+    var p = document.createElement('p');
+    p.textContent = queryData.explanation || '';
+    div.appendChild(p);
+    var btn = document.createElement('button');
+    btn.className = 'review-btn';
+    btn.textContent = 'Review & Run ▶';
+    btn._queryData = queryData;
+    btn.onclick = function() { applyQueryToExplorer(btn._queryData); };
+    div.appendChild(btn);
+    msgContainer.appendChild(div);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+    return div;
+  }
+
+  var typingEl = null;
+  function showTyping() {
+    if (typingEl) return;
+    typingEl = document.createElement('div');
+    typingEl.className = 'ai-typing';
+    typingEl.textContent = 'Thinking...';
+    msgContainer.appendChild(typingEl);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+  }
+  function hideTyping() {
+    if (typingEl) { typingEl.remove(); typingEl = null; }
+  }
+
+  function addErrorBubble(msg, retryable) {
+    var div = document.createElement('div');
+    div.className = 'ai-msg error';
+    div.appendChild(document.createTextNode(msg));
+    if (retryable) {
+      var btn = document.createElement('button');
+      btn.className = 'retry-btn';
+      btn.textContent = 'Retry';
+      btn.onclick = function() { div.remove(); doSend(); };
+      div.appendChild(document.createElement('br'));
+      div.appendChild(btn);
+    }
+    msgContainer.appendChild(div);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+  }
+
+  function friendlyError(raw) {
+    raw = String(raw || '');
+    if (/high demand|overloaded|rate.?limit|too many|429|529|503|capacity/i.test(raw)) {
+      return 'The AI model is busy right now. Please try again in a moment.';
+    }
+    if (/timeout|timed out|ETIMEDOUT/i.test(raw)) {
+      return 'The request timed out. Try a simpler question or try again.';
+    }
+    if (/network|fetch|connection|ECONNREFUSED/i.test(raw)) {
+      return 'Could not reach the server. Check your connection and try again.';
+    }
+    return raw;
+  }
+
+  var RETRY_MAX = 3;
+  var RETRY_DELAYS = [2000, 4000, 8000];
+
+  async function sendMessage() {
+    var text = input.value.trim();
+    if (!text || isStreaming) return;
+    input.value = '';
+    addTextBubble('user', text);
+    chatMessages.push({ role: 'user', content: text });
+    doSend();
+  }
+
+  async function doSend() {
+    isStreaming = true;
+    sendBtn.disabled = true;
+    showTyping();
+
+    var assistantText = '';
+    var currentBubble = null;
+    var lastGenerateArgs = null;
+    var success = false;
+
+    for (var attempt = 0; attempt <= RETRY_MAX; attempt++) {
+      if (attempt > 0) {
+        if (typingEl) typingEl.textContent = 'Busy — retrying (' + attempt + '/' + RETRY_MAX + ')...';
+        await new Promise(function(r) { setTimeout(r, RETRY_DELAYS[attempt - 1]); });
+      }
+
+      try {
+        var resp = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: chatMessages,
+            provider: providerSelect.value,
+            apiKey: apiKeyInput.value || undefined
+          })
+        });
+
+        if (!resp.ok) {
+          var errObj = {};
+          try { errObj = await resp.json(); } catch(e2) {}
+          if (errObj.retryable && attempt < RETRY_MAX) continue;
+          throw new Error(errObj.error || 'Request failed: ' + resp.status);
+        }
+
+        var reader = resp.body.getReader();
+        var decoder = new TextDecoder();
+        var buffer = '';
+
+        while (true) {
+          var chunk = await reader.read();
+          if (chunk.done) break;
+          buffer += decoder.decode(chunk.value, { stream: true });
+          var lines = buffer.split('\n');
+          buffer = lines.pop();
+
+          for (var i = 0; i < lines.length; i++) {
+            var line = lines[i].trim();
+            if (!line) continue;
+            var part;
+            try { part = JSON.parse(line); } catch(e) { continue; }
+
+            if (part.type === 'text-delta' && typeof part.textDelta === 'string') {
+              hideTyping();
+              assistantText += part.textDelta;
+              if (!currentBubble) currentBubble = addTextBubble('assistant', '');
+              currentBubble.textContent = '';
+              var textLines = assistantText.split('\n');
+              for (var j = 0; j < textLines.length; j++) {
+                if (j > 0) currentBubble.appendChild(document.createElement('br'));
+                currentBubble.appendChild(document.createTextNode(textLines[j]));
+              }
+              msgContainer.scrollTop = msgContainer.scrollHeight;
+            }
+
+            if (part.type === 'tool-call' && part.toolName === 'generate_query') {
+              lastGenerateArgs = part.args;
+            }
+
+            if (part.type === 'tool-result' && part.toolName === 'generate_query') {
+              if (lastGenerateArgs && part.result && part.result.valid) {
+                hideTyping();
+                addQueryBubble(lastGenerateArgs);
+              }
+              lastGenerateArgs = null;
+            }
+
+            if (part.type === 'error') {
+              hideTyping();
+              addErrorBubble(friendlyError(part.error), true);
+            }
+          }
+        }
+
+        if (assistantText) chatMessages.push({ role: 'assistant', content: assistantText });
+        success = true;
+        break;
+
+      } catch(e) {
+        var msg = e.message || 'Connection failed';
+        if (attempt < RETRY_MAX && /high demand|overloaded|rate.?limit|too many|429|529|503|busy|timeout|network|fetch/i.test(msg)) {
+          continue;
+        }
+        hideTyping();
+        addErrorBubble(friendlyError(msg), true);
+        break;
+      }
+    }
+
+    if (!success && typingEl) {
+      hideTyping();
+      addErrorBubble('The AI model is busy right now. Please try again in a moment.', true);
+    }
+
+    isStreaming = false;
+    sendBtn.disabled = false;
+    input.focus();
+  }
+
+  function applyQueryToExplorer(qd) {
+    var es = qd.explorer_state;
+    if (es) {
+      if (es.scope) {
+        if (es.scope.province !== undefined) S.prov = es.scope.province || '';
+        if (es.scope.designation !== undefined) S.desig = es.scope.designation || '';
+        if (es.scope.category !== undefined) S.cat = es.scope.category || '';
+      }
+      if (es.metrics && es.metrics.length) S.metrics = es.metrics;
+      if (es.filters) {
+        S.filters = es.filters.map(function(f) {
+          return { f: f.column, op: f.operator, v: f.value };
+        });
+      }
+      if (es.sort) { S.sort = es.sort.column; S.dir = es.sort.direction; }
+      if (es.limit) S.lim = es.limit;
+      sync();
+    }
+
+    aiOverrideSql = qd.sql;
+
+    // Render AI-provided SQL into the panel as plain text — no syntax
+    // highlighting (which requires HTML injection) because the SQL string
+    // came from the model and isn't trusted output. The user can still read,
+    // copy, and Run it.
+    var preEl = document.getElementById('pre');
+    preEl.textContent = qd.sql;
+
+    if (!sqlPanelOpen) document.getElementById('toggle-sql').click();
+
+    var runBtn = document.getElementById('run-btn');
+    runBtn.style.boxShadow = '0 0 0 3px rgba(0,85,138,0.4)';
+    setTimeout(function() { runBtn.style.boxShadow = ''; }, 3000);
+  }
+
+  addTextBubble('assistant',
+    'Ask me a question about Canadian charities data and I’ll build a query.\n\n' +
+    'Examples:\n' +
+    '• "Top 20 charities by total revenue in Ontario"\n' +
+    '• "Which foundations gave the most to qualified donees?"\n' +
+    '• "Charities with the most directors and trustees"\n' +
+    '• "Sum of non-cash gifts by province"');
+
+  sendBtn.onclick = sendMessage;
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+})();
 </script>
 </body>
 </html>

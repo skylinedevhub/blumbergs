@@ -1,0 +1,3416 @@
+{
+  "tables": {
+    "charity_base": {
+      "description": "Cleaned and enriched master list — ident joined with lookup descriptions (designation, category, subcategory, charity_type). Use this as the primary join hub. BN column is 'bn'.",
+      "bn_column": "bn",
+      "join_to_charity_base": "— this IS charity_base (the join hub)",
+      "columns": {
+        "bn": {
+          "type": "VARCHAR"
+        },
+        "legal_name": {
+          "type": "VARCHAR"
+        },
+        "account_name": {
+          "type": "VARCHAR"
+        },
+        "designation_code": {
+          "type": "VARCHAR"
+        },
+        "designation_desc": {
+          "type": "VARCHAR"
+        },
+        "category_code": {
+          "type": "VARCHAR"
+        },
+        "subcategory_code": {
+          "type": "VARCHAR"
+        },
+        "category_desc": {
+          "type": "VARCHAR"
+        },
+        "subcategory_desc": {
+          "type": "VARCHAR"
+        },
+        "charity_type": {
+          "type": "VARCHAR"
+        },
+        "registration_date": {
+          "type": "TIMESTAMP"
+        },
+        "address": {
+          "type": "VARCHAR"
+        },
+        "city": {
+          "type": "VARCHAR"
+        },
+        "province": {
+          "type": "VARCHAR"
+        },
+        "postal_code": {
+          "type": "VARCHAR"
+        },
+        "country": {
+          "type": "VARCHAR"
+        },
+        "phone": {
+          "type": "VARCHAR"
+        },
+        "email": {
+          "type": "VARCHAR"
+        },
+        "website": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 83275
+    },
+    "charity_counts": {
+      "description": "Aggregated counts per charity: num_programs, num_grants, num_operating_countries, has_filing.",
+      "bn_column": "bn",
+      "join_to_charity_base": "charity_base.bn = charity_counts.bn",
+      "columns": {
+        "bn": {
+          "type": "VARCHAR"
+        },
+        "latest_fiscal_end": {
+          "type": "TIMESTAMP"
+        },
+        "has_filing": {
+          "type": "INTEGER"
+        },
+        "num_programs": {
+          "type": "BIGINT"
+        },
+        "num_grants": {
+          "type": "BIGINT"
+        },
+        "num_operating_countries": {
+          "type": "BIGINT"
+        }
+      },
+      "rows": 83275
+    },
+    "financial_abc": {
+      "description": "Program area codes, Y/N questions (lines 1570–3900), DAF data (5800–5864), and subsidiary relationships (1510). VARCHAR columns except program percentages (BIGINT) and a few DAF count fields (BIGINT).",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = financial_abc.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "1200 Program Area Code": {
+          "type": "VARCHAR",
+          "description": "Primary program area code (see lookup_programs)"
+        },
+        "1200 Percent": {
+          "type": "BIGINT",
+          "description": "Percentage of activities in primary program area"
+        },
+        "1210 Program Area Code": {
+          "type": "VARCHAR",
+          "description": "Secondary program area code (see lookup_programs)"
+        },
+        "1210 Percent": {
+          "type": "BIGINT",
+          "description": "Percentage of activities in secondary program area"
+        },
+        "1220 Program Area Code": {
+          "type": "VARCHAR",
+          "description": "Tertiary program area code (see lookup_programs)"
+        },
+        "1220 Percent": {
+          "type": "BIGINT",
+          "description": "Percentage of activities in tertiary program area"
+        },
+        "1510 Subordinate position to a parent organization?": {
+          "type": "VARCHAR",
+          "description": "Is this charity a subordinate of a parent? (Y/N)"
+        },
+        "1510 Parent Business Number": {
+          "type": "VARCHAR",
+          "description": "Parent organization BN"
+        },
+        "1510 Parent Name": {
+          "type": "VARCHAR",
+          "description": "Parent organization legal name"
+        },
+        "1570": {
+          "type": "VARCHAR",
+          "description": "Operates outside Canada? (Y/N)",
+          "line": "1570"
+        },
+        "1600": {
+          "type": "VARCHAR",
+          "description": "Has directors/trustees at arm's length? (Y/N)",
+          "line": "1600"
+        },
+        "1800": {
+          "type": "VARCHAR",
+          "description": "Carries on any political activities? (Y/N)",
+          "line": "1800"
+        },
+        "2000": {
+          "type": "VARCHAR",
+          "description": "Received gifts from outside Canada? (Y/N)",
+          "line": "2000"
+        },
+        "2100": {
+          "type": "VARCHAR",
+          "description": "Made gifts to non-qualified donees? (Y/N)",
+          "line": "2100"
+        },
+        "2400": {
+          "type": "VARCHAR",
+          "description": "Has programs or activities that benefit non-Canadian citizens? (Y/N)",
+          "line": "2400"
+        },
+        "5030": {
+          "type": "VARCHAR",
+          "description": "Carries on political activities — Section C indicator (C or 6)",
+          "line": "5030"
+        },
+        "5031": {
+          "type": "VARCHAR",
+          "description": "Amount of political activities expenditures — policy dialogue",
+          "line": "5031",
+          "currency": true
+        },
+        "5032": {
+          "type": "VARCHAR",
+          "description": "Amount of political activities expenditures — other",
+          "line": "5032",
+          "currency": true
+        },
+        "2500": {
+          "type": "VARCHAR",
+          "description": "Accumulated property/funds over past 2 years in excess of charitable needs? (Y/N)",
+          "line": "2500"
+        },
+        "2510": {
+          "type": "VARCHAR",
+          "description": "Applied to CRA to reduce disbursement quota? (Y/N)",
+          "line": "2510"
+        },
+        "2530": {
+          "type": "VARCHAR",
+          "description": "Carries on an unrelated business? (Y/N)",
+          "line": "2530"
+        },
+        "2540": {
+          "type": "VARCHAR",
+          "description": "Incurred debt? (Y/N)",
+          "line": "2540"
+        },
+        "2550": {
+          "type": "VARCHAR",
+          "description": "Issued shares or granted interests? (Y/N)",
+          "line": "2550"
+        },
+        "2560": {
+          "type": "VARCHAR",
+          "description": "Made investments not in compliance with prudent investment provisions? (Y/N)",
+          "line": "2560"
+        },
+        "2570": {
+          "type": "VARCHAR",
+          "description": "Acquired non-qualifying securities? (Y/N)",
+          "line": "2570"
+        },
+        "2575": {
+          "type": "VARCHAR",
+          "description": "Holds any non-qualifying securities? (Y/N)",
+          "line": "2575"
+        },
+        "2580": {
+          "type": "VARCHAR",
+          "description": "Transferred property to another charity at less than fair market value? (Y/N)",
+          "line": "2580"
+        },
+        "2590": {
+          "type": "VARCHAR",
+          "description": "Received property that is subject to a direction to transfer? (Y/N)",
+          "line": "2590"
+        },
+        "2600": {
+          "type": "VARCHAR",
+          "description": "Used any of its income or property to unduly benefit any person? (Y/N)",
+          "line": "2600"
+        },
+        "2610": {
+          "type": "VARCHAR",
+          "description": "Entered into any transaction with a non-arm's-length person? (Y/N)",
+          "line": "2610"
+        },
+        "2620": {
+          "type": "VARCHAR",
+          "description": "Subject to any taxes or penalties under the Income Tax Act? (Y/N)",
+          "line": "2620"
+        },
+        "2630": {
+          "type": "VARCHAR",
+          "description": "Had any legal counsel, litigation, or claims filed? (Y/N)",
+          "line": "2630"
+        },
+        "2640": {
+          "type": "VARCHAR",
+          "description": "Changed its legal structure? (Y/N)",
+          "line": "2640"
+        },
+        "2650": {
+          "type": "VARCHAR",
+          "description": "Changed its by-laws or other governing documents? (Y/N)",
+          "line": "2650"
+        },
+        "2660": {
+          "type": "VARCHAR",
+          "description": "Changed its purposes? (Y/N)",
+          "line": "2660"
+        },
+        "2700": {
+          "type": "VARCHAR",
+          "description": "Is there a change of address or officer since last filing? (Y/N)",
+          "line": "2700"
+        },
+        "5450": {
+          "type": "VARCHAR",
+          "description": "Name of the fundraiser (if retained)",
+          "line": "5450",
+          "currency": true
+        },
+        "5460": {
+          "type": "VARCHAR",
+          "description": "Address/contact of the fundraiser",
+          "line": "5460",
+          "currency": true
+        },
+        "2730": {
+          "type": "VARCHAR",
+          "description": "Maintained any books or records outside Canada? (Y/N)",
+          "line": "2730"
+        },
+        "2740": {
+          "type": "VARCHAR",
+          "description": "Retained a fundraiser to solicit donations? (Y/N)",
+          "line": "2740"
+        },
+        "2750": {
+          "type": "VARCHAR",
+          "description": "Issued tax receipts for gifts of property? (Y/N)",
+          "line": "2750"
+        },
+        "2760": {
+          "type": "VARCHAR",
+          "description": "Issued tax receipts for donations received for advantage? (Y/N)",
+          "line": "2760"
+        },
+        "2770": {
+          "type": "VARCHAR",
+          "description": "Issued tax receipts that contain split-receipt amounts? (Y/N)",
+          "line": "2770"
+        },
+        "2780": {
+          "type": "VARCHAR",
+          "description": "Issued receipts for enduring property? (Y/N)",
+          "line": "2780"
+        },
+        "2790": {
+          "type": "VARCHAR",
+          "description": "Issued receipts for a gift of cultural property? (Y/N)",
+          "line": "2790"
+        },
+        "2800": {
+          "type": "VARCHAR",
+          "description": "Issued receipts for a gift of ecologically sensitive land? (Y/N)",
+          "line": "2800"
+        },
+        "3200": {
+          "type": "VARCHAR",
+          "description": "Filed a T3 trust return? (Y/N)",
+          "line": "3200"
+        },
+        "3400": {
+          "type": "VARCHAR",
+          "description": "Has the charity completed Schedule 8 — Disbursement Quota? (Y/N)",
+          "line": "3400"
+        },
+        "3900": {
+          "type": "VARCHAR",
+          "description": "Did the charity file a Section D financial return? (Y/N)",
+          "line": "3900"
+        },
+        "4000": {
+          "type": "VARCHAR",
+          "description": "Did the charity file a financial return with another government body? (Y/N)",
+          "line": "4000"
+        },
+        "5800": {
+          "type": "VARCHAR",
+          "description": "Is the charity a Donor Advised Fund (DAF) sponsoring organization? (Y/N)",
+          "line": "5800"
+        },
+        "5810": {
+          "type": "VARCHAR",
+          "description": "Does the charity hold any DAF accounts? (Y/N)",
+          "line": "5810"
+        },
+        "5820": {
+          "type": "VARCHAR",
+          "description": "Number of DAF accounts held",
+          "line": "5820"
+        },
+        "5830": {
+          "type": "VARCHAR",
+          "description": "Total value of DAF assets",
+          "line": "5830",
+          "currency": true
+        },
+        "5840": {
+          "type": "VARCHAR",
+          "description": "Total donations received into DAF accounts",
+          "line": "5840",
+          "currency": true
+        },
+        "5841": {
+          "type": "VARCHAR",
+          "description": "Total donations from DAF accounts to qualified donees",
+          "line": "5841",
+          "currency": true
+        },
+        "5842": {
+          "type": "BIGINT",
+          "description": "Number of DAF accounts that made distributions",
+          "line": "5842"
+        },
+        "5843": {
+          "type": "VARCHAR",
+          "description": "Total DAF distributions",
+          "line": "5843",
+          "currency": true
+        },
+        "5850": {
+          "type": "VARCHAR",
+          "description": "Does charity have a policy prohibiting advisor-directed accounts? (Y/N)",
+          "line": "5850"
+        },
+        "5860": {
+          "type": "VARCHAR",
+          "description": "Has DAF — primary field (Y/N)",
+          "line": "5860"
+        },
+        "5861": {
+          "type": "BIGINT",
+          "description": "Number of donor-advised fund accounts",
+          "line": "5861"
+        },
+        "5862": {
+          "type": "VARCHAR",
+          "description": "Total value of DAF fund (assets)",
+          "line": "5862",
+          "currency": true
+        },
+        "5863": {
+          "type": "VARCHAR",
+          "description": "Total donations received to DAF accounts in the year",
+          "line": "5863",
+          "currency": true
+        },
+        "5864": {
+          "type": "VARCHAR",
+          "description": "Total gifts from DAF accounts to qualified donees in the year",
+          "line": "5864",
+          "currency": true
+        }
+      },
+      "rows": 83433
+    },
+    "financial_d": {
+      "description": "Balance sheet and income statement (T3010 Section D). Column names are T3010 line numbers (e.g. '4700' = total revenue). All financial values are VARCHAR with '$' and ',' formatting. Convert with: TRY_CAST(REPLACE(REPLACE(col,'$',''),',','') AS DECIMAL).",
+      "bn_column": "\"BN/Registration Number\"",
+      "join_to_charity_base": "charity_base.bn = financial_d.\"BN/Registration Number\"",
+      "columns": {
+        "BN/Registration Number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal Period End": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "Financial Indicator (D or 6)": {
+          "type": "VARCHAR"
+        },
+        "5030 Indicator (C or 6)": {
+          "type": "VARCHAR",
+          "description": "Carries on political activities — Section C indicator (C or 6)",
+          "line": "5030"
+        },
+        "4020": {
+          "type": "VARCHAR",
+          "description": "Opening balance — net assets / fund balances",
+          "line": "4020",
+          "currency": true
+        },
+        "4050": {
+          "type": "VARCHAR",
+          "description": "Closing balance — net assets / fund balances",
+          "line": "4050",
+          "currency": true
+        },
+        "4100": {
+          "type": "VARCHAR",
+          "description": "Cash and short-term investments",
+          "line": "4100",
+          "currency": true
+        },
+        "4110": {
+          "type": "VARCHAR",
+          "description": "Accounts receivable",
+          "line": "4110",
+          "currency": true
+        },
+        "4120": {
+          "type": "VARCHAR",
+          "description": "Inventory",
+          "line": "4120",
+          "currency": true
+        },
+        "4130": {
+          "type": "VARCHAR",
+          "description": "Prepaid expenses",
+          "line": "4130",
+          "currency": true
+        },
+        "4140": {
+          "type": "VARCHAR",
+          "description": "Long-term investments",
+          "line": "4140",
+          "currency": true
+        },
+        "4150": {
+          "type": "VARCHAR",
+          "description": "Capital assets — cost",
+          "line": "4150",
+          "currency": true
+        },
+        "4155": {
+          "type": "VARCHAR",
+          "description": "Capital assets — accumulated amortization",
+          "line": "4155",
+          "currency": true
+        },
+        "4160": {
+          "type": "VARCHAR",
+          "description": "Land and buildings",
+          "line": "4160",
+          "currency": true
+        },
+        "4165": {
+          "type": "VARCHAR",
+          "description": "Leasehold improvements",
+          "line": "4165",
+          "currency": true
+        },
+        "4166": {
+          "type": "VARCHAR",
+          "description": "Equipment and furniture",
+          "line": "4166",
+          "currency": true
+        },
+        "4170": {
+          "type": "VARCHAR",
+          "description": "Other capital assets",
+          "line": "4170",
+          "currency": true
+        },
+        "4180": {
+          "type": "VARCHAR",
+          "description": "Other assets",
+          "line": "4180",
+          "currency": true
+        },
+        "4200": {
+          "type": "VARCHAR",
+          "description": "Total assets",
+          "line": "4200",
+          "currency": true
+        },
+        "4250": {
+          "type": "VARCHAR",
+          "description": "Assets not used for charitable activities",
+          "line": "4250",
+          "currency": true
+        },
+        "4300": {
+          "type": "VARCHAR",
+          "description": "Accounts payable and accrued liabilities",
+          "line": "4300",
+          "currency": true
+        },
+        "4310": {
+          "type": "VARCHAR",
+          "description": "Deferred revenue",
+          "line": "4310",
+          "currency": true
+        },
+        "4320": {
+          "type": "VARCHAR",
+          "description": "Long-term debt",
+          "line": "4320",
+          "currency": true
+        },
+        "4330": {
+          "type": "VARCHAR",
+          "description": "Other liabilities",
+          "line": "4330",
+          "currency": true
+        },
+        "4350": {
+          "type": "VARCHAR",
+          "description": "Total liabilities",
+          "line": "4350",
+          "currency": true
+        },
+        "4400": {
+          "type": "VARCHAR",
+          "description": "Net assets / fund balances",
+          "line": "4400",
+          "currency": true
+        },
+        "4490": {
+          "type": "VARCHAR",
+          "description": "Gross revenue before adjustments",
+          "line": "4490",
+          "currency": true
+        },
+        "4500": {
+          "type": "VARCHAR",
+          "description": "Tax-receipted gifts",
+          "line": "4500",
+          "currency": true
+        },
+        "5610": {
+          "type": "VARCHAR",
+          "description": "Line 5610 — supplementary (form version dependent)",
+          "line": "5610",
+          "currency": true
+        },
+        "4505": {
+          "type": "VARCHAR",
+          "description": "Non-tax-receipted gifts from individuals",
+          "line": "4505",
+          "currency": true
+        },
+        "4510": {
+          "type": "VARCHAR",
+          "description": "Gifts from other registered charities",
+          "line": "4510",
+          "currency": true
+        },
+        "4530": {
+          "type": "VARCHAR",
+          "description": "Gifts from non-registered charities",
+          "line": "4530",
+          "currency": true
+        },
+        "4540": {
+          "type": "VARCHAR",
+          "description": "Federal government funding",
+          "line": "4540",
+          "currency": true
+        },
+        "4550": {
+          "type": "VARCHAR",
+          "description": "Provincial/territorial government funding",
+          "line": "4550",
+          "currency": true
+        },
+        "4560": {
+          "type": "VARCHAR",
+          "description": "Municipal government funding",
+          "line": "4560",
+          "currency": true
+        },
+        "4565": {
+          "type": "VARCHAR",
+          "description": "Other Canadian government funding",
+          "line": "4565",
+          "currency": true
+        },
+        "4570": {
+          "type": "VARCHAR",
+          "description": "Total government funding (UNRELIABLE — compute as 4540+4550+4560)",
+          "line": "4570",
+          "currency": true
+        },
+        "4571": {
+          "type": "VARCHAR",
+          "description": "Foreign government funding",
+          "line": "4571",
+          "currency": true
+        },
+        "4575": {
+          "type": "VARCHAR",
+          "description": "V24: Non-tax-receipted revenue from outside Canada; V23: Tax-receipted from outside Canada",
+          "line": "4575",
+          "currency": true
+        },
+        "4580": {
+          "type": "VARCHAR",
+          "description": "V24: Interest and investment income; V23: Non-tax-receipted from outside Canada",
+          "line": "4580",
+          "currency": true
+        },
+        "4590": {
+          "type": "VARCHAR",
+          "description": "Rental income",
+          "line": "4590",
+          "currency": true
+        },
+        "4600": {
+          "type": "VARCHAR",
+          "description": "Revenue from sale of goods and services",
+          "line": "4600",
+          "currency": true
+        },
+        "4610": {
+          "type": "VARCHAR",
+          "description": "Membership fees",
+          "line": "4610",
+          "currency": true
+        },
+        "4620": {
+          "type": "VARCHAR",
+          "description": "Investment income",
+          "line": "4620",
+          "currency": true
+        },
+        "4630": {
+          "type": "VARCHAR",
+          "description": "Proceeds from disposition of assets",
+          "line": "4630",
+          "currency": true
+        },
+        "4640": {
+          "type": "VARCHAR",
+          "description": "Other revenue",
+          "line": "4640",
+          "currency": true
+        },
+        "4650": {
+          "type": "VARCHAR",
+          "description": "Gross proceeds — fundraising activities",
+          "line": "4650",
+          "currency": true
+        },
+        "4655": {
+          "type": "VARCHAR",
+          "description": "Direct costs — fundraising activities",
+          "line": "4655",
+          "currency": true
+        },
+        "4700": {
+          "type": "VARCHAR",
+          "description": "Total revenue",
+          "line": "4700",
+          "currency": true
+        },
+        "4800": {
+          "type": "VARCHAR",
+          "description": "Professional and consulting fees",
+          "line": "4800",
+          "currency": true
+        },
+        "4810": {
+          "type": "VARCHAR",
+          "description": "Salaries, wages, and benefits",
+          "line": "4810",
+          "currency": true
+        },
+        "4820": {
+          "type": "VARCHAR",
+          "description": "Occupancy costs",
+          "line": "4820",
+          "currency": true
+        },
+        "4830": {
+          "type": "VARCHAR",
+          "description": "Travel and vehicle costs",
+          "line": "4830",
+          "currency": true
+        },
+        "4840": {
+          "type": "VARCHAR",
+          "description": "Interest and bank charges",
+          "line": "4840",
+          "currency": true
+        },
+        "4850": {
+          "type": "VARCHAR",
+          "description": "Insurance",
+          "line": "4850",
+          "currency": true
+        },
+        "4860": {
+          "type": "VARCHAR",
+          "description": "Licences and permits",
+          "line": "4860",
+          "currency": true
+        },
+        "4870": {
+          "type": "VARCHAR",
+          "description": "Advertising and promotion",
+          "line": "4870",
+          "currency": true
+        },
+        "4880": {
+          "type": "VARCHAR",
+          "description": "Total compensation paid to employees",
+          "line": "4880",
+          "currency": true
+        },
+        "4890": {
+          "type": "VARCHAR",
+          "description": "Amortization of capital assets",
+          "line": "4890",
+          "currency": true
+        },
+        "4891": {
+          "type": "VARCHAR",
+          "description": "Amortization of right-of-use assets",
+          "line": "4891",
+          "currency": true
+        },
+        "4900": {
+          "type": "VARCHAR",
+          "description": "Purchases of supplies",
+          "line": "4900",
+          "currency": true
+        },
+        "4910": {
+          "type": "VARCHAR",
+          "description": "Costs of goods sold",
+          "line": "4910",
+          "currency": true
+        },
+        "4920": {
+          "type": "VARCHAR",
+          "description": "Research",
+          "line": "4920",
+          "currency": true
+        },
+        "4930": {
+          "type": "VARCHAR",
+          "description": "Other expenditures",
+          "line": "4930",
+          "currency": true
+        },
+        "4950": {
+          "type": "VARCHAR",
+          "description": "Capital asset acquisitions",
+          "line": "4950",
+          "currency": true
+        },
+        "5000": {
+          "type": "VARCHAR",
+          "description": "Charitable program expenditures",
+          "line": "5000",
+          "currency": true
+        },
+        "5010": {
+          "type": "VARCHAR",
+          "description": "Management and administration",
+          "line": "5010",
+          "currency": true
+        },
+        "5020": {
+          "type": "VARCHAR",
+          "description": "Fundraising",
+          "line": "5020",
+          "currency": true
+        },
+        "5030": {
+          "type": "VARCHAR",
+          "description": "Carries on political activities — Section C indicator (C or 6)",
+          "line": "5030"
+        },
+        "5040": {
+          "type": "VARCHAR",
+          "description": "Other expenditures",
+          "line": "5040",
+          "currency": true
+        },
+        "5050": {
+          "type": "VARCHAR",
+          "description": "Gifts to qualified donees",
+          "line": "5050",
+          "currency": true
+        },
+        "5100": {
+          "type": "VARCHAR",
+          "description": "Total expenditures",
+          "line": "5100",
+          "currency": true
+        },
+        "5500": {
+          "type": "VARCHAR",
+          "description": "Total receipted donations for tax purposes",
+          "line": "5500",
+          "currency": true
+        },
+        "5510": {
+          "type": "VARCHAR",
+          "description": "Donations eligible for 100% deduction",
+          "line": "5510",
+          "currency": true
+        },
+        "5750": {
+          "type": "VARCHAR",
+          "description": "Total qualifying disbursements",
+          "line": "5750",
+          "currency": true
+        },
+        "5900": {
+          "type": "VARCHAR",
+          "description": "Number of donors who received a tax receipt",
+          "line": "5900",
+          "currency": true
+        },
+        "5910": {
+          "type": "VARCHAR",
+          "description": "Tax-receipted amount — median donation",
+          "line": "5910",
+          "currency": true
+        },
+        "5045": {
+          "type": "VARCHAR",
+          "description": "Grants to non-qualified donees",
+          "line": "5045",
+          "currency": true
+        },
+        "4101": {
+          "type": "VARCHAR",
+          "description": "Cash (V24) / Accounts receivable — pledges (V23)",
+          "line": "4101",
+          "currency": true
+        },
+        "4102": {
+          "type": "VARCHAR",
+          "description": "Short-term investments (V24) / Accounts receivable — other (V23)",
+          "line": "4102",
+          "currency": true
+        },
+        "4157": {
+          "type": "VARCHAR",
+          "description": "Right-of-use assets",
+          "line": "4157",
+          "currency": true
+        },
+        "4158": {
+          "type": "VARCHAR",
+          "description": "Accumulated amortization — right-of-use assets",
+          "line": "4158",
+          "currency": true
+        },
+        "4190": {
+          "type": "VARCHAR",
+          "description": "Endowment fund assets",
+          "line": "4190",
+          "currency": true
+        },
+        "4576": {
+          "type": "VARCHAR",
+          "description": "Foreign grants received",
+          "line": "4576",
+          "currency": true
+        },
+        "4577": {
+          "type": "VARCHAR",
+          "description": "Other foreign revenue",
+          "line": "4577",
+          "currency": true
+        }
+      },
+      "rows": 83093
+    },
+    "gift": {
+      "description": "Gifts to qualified donees (1:many). Linked charity BN, donee name, city, province, total amount, and whether a political activities gift.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = gift.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "Sequence number": {
+          "type": "BIGINT"
+        },
+        "Associated charity (Y/N)": {
+          "type": "VARCHAR"
+        },
+        "Donee Business number": {
+          "type": "VARCHAR"
+        },
+        "Donee Name": {
+          "type": "VARCHAR"
+        },
+        "City": {
+          "type": "VARCHAR"
+        },
+        "Province": {
+          "type": "VARCHAR"
+        },
+        "Total amount gifts": {
+          "type": "VARCHAR",
+          "currency": true
+        },
+        "Amount of gifts in kind": {
+          "type": "VARCHAR",
+          "currency": true
+        },
+        "Number of donees": {
+          "type": "BIGINT"
+        },
+        "Gift for Political Activities?": {
+          "type": "VARCHAR"
+        },
+        "Political Activities Gift Amount": {
+          "type": "VARCHAR",
+          "currency": true
+        }
+      },
+      "rows": 344205
+    },
+    "grants": {
+      "description": "Grants to non-qualified donees (1:many). Recipient name, purpose, cash amount, country.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = grants.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "Sequence number": {
+          "type": "BIGINT"
+        },
+        "Grant Recipient Name": {
+          "type": "VARCHAR"
+        },
+        "Grant Purpose": {
+          "type": "VARCHAR"
+        },
+        "Amount of Cash Disbursed": {
+          "type": "VARCHAR"
+        },
+        "Amount of non-cash Disbursed": {
+          "type": "VARCHAR"
+        },
+        "Grant Country": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 14101
+    },
+    "ident": {
+      "description": "Master charity list from CRA (T3010 Section A). Primary key: BN/Registration Number. Contains legal name, designation, category, address, contact info for all ~83,275 charities.",
+      "bn_column": "\"BN/Registration Number\"",
+      "join_to_charity_base": "charity_base.bn = ident.\"BN/Registration Number\"",
+      "columns": {
+        "BN/Registration Number": {
+          "type": "VARCHAR"
+        },
+        "Designation code": {
+          "type": "VARCHAR"
+        },
+        "Category code": {
+          "type": "VARCHAR"
+        },
+        "Sub-category code": {
+          "type": "VARCHAR"
+        },
+        "Legal name": {
+          "type": "VARCHAR"
+        },
+        "Account name": {
+          "type": "VARCHAR"
+        },
+        "Registration date": {
+          "type": "TIMESTAMP"
+        },
+        "Language": {
+          "type": "VARCHAR"
+        },
+        "Mailing address": {
+          "type": "VARCHAR"
+        },
+        "City": {
+          "type": "VARCHAR"
+        },
+        "Province": {
+          "type": "VARCHAR"
+        },
+        "Postal code": {
+          "type": "VARCHAR"
+        },
+        "Country": {
+          "type": "VARCHAR"
+        },
+        "Contact Phone": {
+          "type": "VARCHAR"
+        },
+        "Contact Email": {
+          "type": "VARCHAR"
+        },
+        "Contact URL": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 83275
+    },
+    "latest_filing": {
+      "description": "Most recent fiscal period end per charity. One row per BN. Use to restrict queries to the latest filing year.",
+      "bn_column": "bn",
+      "join_to_charity_base": "charity_base.bn = latest_filing.bn",
+      "columns": {
+        "bn": {
+          "type": "VARCHAR"
+        },
+        "latest_fiscal_end": {
+          "type": "TIMESTAMP"
+        }
+      },
+      "rows": 82937
+    },
+    "lookup_category": {
+      "description": "Category and sub-category code lookup with charity type descriptions (252 rows).",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = lookup_category.\"BN/Registration number\"",
+      "columns": {
+        "Category Code": {
+          "type": "VARCHAR"
+        },
+        "Category English Desc": {
+          "type": "VARCHAR"
+        },
+        "Category French Desc": {
+          "type": "VARCHAR"
+        },
+        "Sub-Category Code": {
+          "type": "VARCHAR"
+        },
+        "Sub-Category English Desc": {
+          "type": "VARCHAR"
+        },
+        "Sub-Category French Desc": {
+          "type": "VARCHAR"
+        },
+        "Charity Type English Desc": {
+          "type": "VARCHAR"
+        },
+        "Charity Type French Desc": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 252
+    },
+    "lookup_country": {
+      "description": "Country code lookup (ISO 2-letter codes) to English/French country names (250 rows).",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = lookup_country.\"BN/Registration number\"",
+      "columns": {
+        "Country Code": {
+          "type": "VARCHAR"
+        },
+        "English Name": {
+          "type": "VARCHAR"
+        },
+        "French Name": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 250
+    },
+    "lookup_designation": {
+      "description": "Designation code lookup: A=Public Foundation, B=Private Foundation, C=Charitable Organization.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = lookup_designation.\"BN/Registration number\"",
+      "columns": {
+        "Designation Code": {
+          "type": "VARCHAR"
+        },
+        "Description_E": {
+          "type": "VARCHAR"
+        },
+        "Description_F": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 3
+    },
+    "lookup_form_versioning": {
+      "description": "Maps form version IDs to fiscal year ranges — used to detect V23 vs V24 field changes.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = lookup_form_versioning.\"BN/Registration number\"",
+      "columns": {
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "Form Revision Number": {
+          "type": "VARCHAR"
+        },
+        "English Description": {
+          "type": "VARCHAR"
+        },
+        "French Description": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 5
+    },
+    "lookup_programs": {
+      "description": "Program area code lookup for lines 1200/1210/1220 (71 codes, e.g. A1=Housing for seniors).",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = lookup_programs.\"BN/Registration number\"",
+      "columns": {
+        "Line 1200, 1210, 1220": {
+          "type": "VARCHAR"
+        },
+        "English Description": {
+          "type": "VARCHAR"
+        },
+        "French Description": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 71
+    },
+    "lookup_province": {
+      "description": "Province/territory code lookup: two-letter codes (ON, QC, BC, AB, etc.) to full English/French names.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = lookup_province.\"BN/Registration number\"",
+      "columns": {
+        "Province Code": {
+          "type": "VARCHAR"
+        },
+        "English Name": {
+          "type": "VARCHAR"
+        },
+        "French Name": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 13
+    },
+    "lookup_us_state": {
+      "description": "US state code lookup (51 rows).",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = lookup_us_state.\"BN/Registration number\"",
+      "columns": {
+        "State Code": {
+          "type": "VARCHAR"
+        },
+        "English Name": {
+          "type": "VARCHAR"
+        },
+        "French Name": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 51
+    },
+    "programs": {
+      "description": "Program descriptions submitted by charities (1:many, up to ~5 programs per filing). Includes program type (OP=ongoing, NP=new, NA=not active) and free-text description.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = programs.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "Program type OP=ongoing program, NP=new program, NA=not active": {
+          "type": "VARCHAR"
+        },
+        "Program Description": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 94973
+    },
+    "schedule_1_foundations": {
+      "description": "Foundation-specific audit and gift disclosure fields (Schedule 1). Applies to Public Foundations (A) and Private Foundations (B) only.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_1_foundations.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "100": {
+          "type": "VARCHAR",
+          "description": "Date last audited financial statements were prepared",
+          "line": "100",
+          "currency": true
+        },
+        "110": {
+          "type": "VARCHAR",
+          "description": "Did the foundation receive an unqualified audit opinion? (Y/N)",
+          "line": "110",
+          "currency": true
+        },
+        "111": {
+          "type": "VARCHAR",
+          "description": "Did the foundation receive a qualified opinion? (Y/N)",
+          "line": "111",
+          "currency": true
+        },
+        "112": {
+          "type": "VARCHAR",
+          "description": "Notes explaining qualified opinion",
+          "line": "112",
+          "currency": true
+        },
+        "120": {
+          "type": "VARCHAR",
+          "description": "Total gifts received from a specified non-arm's-length person",
+          "line": "120",
+          "currency": true
+        },
+        "130": {
+          "type": "VARCHAR",
+          "description": "Total gifts received from a non-arm's-length corporation",
+          "line": "130",
+          "currency": true
+        }
+      },
+      "rows": 83433
+    },
+    "schedule_2_countries": {
+      "description": "Countries where charity operates (Schedule 2, 1:many). One row per country per filing.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_2_countries.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "Sequence number": {
+          "type": "BIGINT"
+        },
+        "Charity's Program Country Code": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 9332
+    },
+    "schedule_2_destinations": {
+      "description": "Export destinations for goods sent outside Canada (Schedule 2, 1:many).",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_2_destinations.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "Sequence number": {
+          "type": "BIGINT"
+        },
+        "Item exported": {
+          "type": "VARCHAR"
+        },
+        "Value (CAN)": {
+          "type": "VARCHAR",
+          "currency": true
+        },
+        "Destination (city/region)": {
+          "type": "VARCHAR"
+        },
+        "Country code": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 699
+    },
+    "schedule_2_recipients": {
+      "description": "Foreign aid recipients (Schedule 2, 1:many). Name, country, and amount for each recipient.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_2_recipients.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "Sequence number": {
+          "type": "BIGINT"
+        },
+        "Name of individual/organization": {
+          "type": "VARCHAR"
+        },
+        "Country": {
+          "type": "VARCHAR"
+        },
+        "Amount": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 13953
+    },
+    "schedule_2_summary": {
+      "description": "Summary of foreign activities (Schedule 2). Totals for expenditures, gifts, and recipients outside Canada.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_2_summary.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "200": {
+          "type": "VARCHAR",
+          "description": "Total expenditures — charitable activities outside Canada",
+          "line": "200",
+          "currency": true
+        },
+        "210": {
+          "type": "VARCHAR",
+          "description": "Total expenditures — gifts to non-qualified donees outside Canada",
+          "line": "210",
+          "currency": true
+        },
+        "220": {
+          "type": "VARCHAR",
+          "description": "Total expenditures — gifts to qualified donees outside Canada",
+          "line": "220",
+          "currency": true
+        },
+        "230": {
+          "type": "VARCHAR",
+          "description": "Total foreign expenditures",
+          "line": "230",
+          "currency": true
+        },
+        "240": {
+          "type": "VARCHAR",
+          "description": "Number of countries where activities carried on",
+          "line": "240",
+          "currency": true
+        },
+        "250": {
+          "type": "VARCHAR",
+          "description": "Number of foreign recipients",
+          "line": "250",
+          "currency": true
+        },
+        "260": {
+          "type": "VARCHAR",
+          "description": "Total value of goods exported",
+          "line": "260",
+          "currency": true
+        }
+      },
+      "rows": 5001
+    },
+    "schedule_3_compensation": {
+      "description": "Employee compensation by salary band (Schedule 3). Lines 300/370 are BIGINT (employee counts). Line 390 is VARCHAR (total compensation, has '$' formatting). Lines 305–345 are BIGINT salary-band counts.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_3_compensation.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "300": {
+          "type": "BIGINT",
+          "description": "Number of full-time employees (FT positions)",
+          "line": "300"
+        },
+        "305": {
+          "type": "BIGINT",
+          "description": "FT employees earning less than $40,000",
+          "line": "305"
+        },
+        "310": {
+          "type": "BIGINT",
+          "description": "FT employees earning $40,000–$79,999",
+          "line": "310"
+        },
+        "315": {
+          "type": "BIGINT",
+          "description": "FT employees earning $80,000–$119,999",
+          "line": "315"
+        },
+        "320": {
+          "type": "BIGINT",
+          "description": "FT employees earning $120,000–$159,999",
+          "line": "320"
+        },
+        "325": {
+          "type": "BIGINT",
+          "description": "FT employees earning $160,000–$199,999",
+          "line": "325"
+        },
+        "330": {
+          "type": "BIGINT",
+          "description": "FT employees earning $200,000–$249,999",
+          "line": "330"
+        },
+        "335": {
+          "type": "BIGINT",
+          "description": "FT employees earning $250,000–$299,999",
+          "line": "335"
+        },
+        "340": {
+          "type": "BIGINT",
+          "description": "FT employees earning $300,000–$349,999",
+          "line": "340"
+        },
+        "345": {
+          "type": "BIGINT",
+          "description": "FT employees earning $350,000 or more",
+          "line": "345"
+        },
+        "370": {
+          "type": "BIGINT",
+          "description": "Number of part-time/casual employees (PT positions)",
+          "line": "370"
+        },
+        "380": {
+          "type": "VARCHAR",
+          "description": "Compensation paid to top 10 employees — total hours",
+          "line": "380",
+          "currency": true
+        },
+        "390": {
+          "type": "VARCHAR",
+          "description": "Total compensation paid to all employees (VARCHAR — has $ formatting)",
+          "line": "390",
+          "currency": true
+        }
+      },
+      "rows": 42878
+    },
+    "schedule_5_noncash": {
+      "description": "Non-cash gift details (Schedule 5). Up to 7 non-cash gifts per filing with description and fair market value.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_5_noncash.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "500": {
+          "type": "VARCHAR",
+          "description": "Description of non-cash gift #1",
+          "line": "500",
+          "currency": true
+        },
+        "505": {
+          "type": "VARCHAR",
+          "description": "Fair market value of non-cash gift #1",
+          "line": "505",
+          "currency": true
+        },
+        "510": {
+          "type": "VARCHAR",
+          "description": "Description of non-cash gift #2",
+          "line": "510",
+          "currency": true
+        },
+        "515": {
+          "type": "VARCHAR",
+          "description": "Fair market value of non-cash gift #2",
+          "line": "515",
+          "currency": true
+        },
+        "520": {
+          "type": "VARCHAR",
+          "description": "Description of non-cash gift #3",
+          "line": "520",
+          "currency": true
+        },
+        "525": {
+          "type": "VARCHAR",
+          "description": "Fair market value of non-cash gift #3",
+          "line": "525",
+          "currency": true
+        },
+        "530": {
+          "type": "VARCHAR",
+          "description": "Description of non-cash gift #4",
+          "line": "530",
+          "currency": true
+        },
+        "535": {
+          "type": "VARCHAR",
+          "description": "Fair market value of non-cash gift #4",
+          "line": "535",
+          "currency": true
+        },
+        "540": {
+          "type": "VARCHAR",
+          "description": "Description of non-cash gift #5",
+          "line": "540",
+          "currency": true
+        },
+        "545": {
+          "type": "VARCHAR",
+          "description": "Fair market value of non-cash gift #5",
+          "line": "545",
+          "currency": true
+        },
+        "550": {
+          "type": "VARCHAR",
+          "description": "Description of non-cash gift #6",
+          "line": "550",
+          "currency": true
+        },
+        "555": {
+          "type": "VARCHAR",
+          "description": "Fair market value of non-cash gift #6",
+          "line": "555",
+          "currency": true
+        },
+        "560": {
+          "type": "VARCHAR",
+          "description": "Description of non-cash gift #7",
+          "line": "560",
+          "currency": true
+        },
+        "565": {
+          "type": "VARCHAR",
+          "description": "Fair market value of non-cash gift #7",
+          "line": "565",
+          "currency": true
+        },
+        "580": {
+          "type": "VARCHAR",
+          "description": "Total fair market value of all non-cash gifts",
+          "line": "580",
+          "currency": true
+        }
+      },
+      "rows": 11151
+    },
+    "schedule_7_description": {
+      "description": "Political activities descriptions (Schedule 7 — typically empty in CRA open dataset).",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_7_description.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "VARCHAR"
+        },
+        "Form ID": {
+          "type": "VARCHAR"
+        },
+        "Political Activities Description": {
+          "type": "VARCHAR"
+        },
+        "Public Policy Description": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 0
+    },
+    "schedule_7_political_outside": {
+      "description": "Political activities funded outside Canada (Schedule 7 — typically empty in CRA open dataset).",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_7_political_outside.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "VARCHAR"
+        },
+        "Form ID": {
+          "type": "VARCHAR"
+        },
+        "Sequence Number": {
+          "type": "VARCHAR"
+        },
+        "Political Activity Description": {
+          "type": "VARCHAR"
+        },
+        "Funding Amount": {
+          "type": "VARCHAR"
+        },
+        "Country Code": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 0
+    },
+    "schedule_7_political_resources": {
+      "description": "Political activities resource usage (Schedule 7 — typically empty in CRA open dataset).",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_7_political_resources.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "VARCHAR"
+        },
+        "Form ID": {
+          "type": "VARCHAR"
+        },
+        "Line Number (700 to 708)": {
+          "type": "VARCHAR"
+        },
+        "Staff Used?": {
+          "type": "VARCHAR"
+        },
+        "Volunteers Used?": {
+          "type": "VARCHAR"
+        },
+        "Financial Resource Used?": {
+          "type": "VARCHAR"
+        },
+        "Property Resource Used?": {
+          "type": "VARCHAR"
+        },
+        "Other Descriptions": {
+          "type": "VARCHAR"
+        }
+      },
+      "rows": 0
+    },
+    "schedule_8_disbursement": {
+      "description": "Disbursement quota (DQ) calculations (Schedule 8). Applies to foundations and charities subject to the 3.5% DQ rule.",
+      "bn_column": "\"BN/Registration Number\"",
+      "join_to_charity_base": "charity_base.bn = schedule_8_disbursement.\"BN/Registration Number\"",
+      "columns": {
+        "BN/Registration Number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal Period End": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "805": {
+          "type": "VARCHAR",
+          "description": "Charitable activities using own staff and volunteers",
+          "line": "805",
+          "currency": true
+        },
+        "810": {
+          "type": "VARCHAR",
+          "description": "Gifts to qualified donees",
+          "line": "810",
+          "currency": true
+        },
+        "815": {
+          "type": "VARCHAR",
+          "description": "Administrative expenditures attributable to charitable activities",
+          "line": "815",
+          "currency": true
+        },
+        "820": {
+          "type": "VARCHAR",
+          "description": "Total qualifying disbursements (=805+810+815)",
+          "line": "820",
+          "currency": true
+        },
+        "825": {
+          "type": "VARCHAR",
+          "description": "Prior year excess disbursements applied",
+          "line": "825",
+          "currency": true
+        },
+        "830": {
+          "type": "VARCHAR",
+          "description": "Net qualifying disbursements",
+          "line": "830",
+          "currency": true
+        },
+        "835": {
+          "type": "VARCHAR",
+          "description": "Value of charitable gifts — 3.5% base",
+          "line": "835",
+          "currency": true
+        },
+        "840": {
+          "type": "VARCHAR",
+          "description": "Value of other property — 3.5% base",
+          "line": "840",
+          "currency": true
+        },
+        "845": {
+          "type": "VARCHAR",
+          "description": "Total disbursement quota base",
+          "line": "845",
+          "currency": true
+        },
+        "850": {
+          "type": "VARCHAR",
+          "description": "Disbursement quota (3.5% of 845)",
+          "line": "850",
+          "currency": true
+        },
+        "855": {
+          "type": "VARCHAR",
+          "description": "Shortfall (850 minus 830)",
+          "line": "855",
+          "currency": true
+        },
+        "860": {
+          "type": "VARCHAR",
+          "description": "Accumulated disbursement shortfall",
+          "line": "860",
+          "currency": true
+        },
+        "865": {
+          "type": "VARCHAR",
+          "description": "Reduction approved by Minister",
+          "line": "865",
+          "currency": true
+        },
+        "870": {
+          "type": "VARCHAR",
+          "description": "Excess disbursements carried forward",
+          "line": "870",
+          "currency": true
+        },
+        "875": {
+          "type": "VARCHAR",
+          "description": "10-year gifts received",
+          "line": "875",
+          "currency": true
+        },
+        "880": {
+          "type": "VARCHAR",
+          "description": "10-year gifts disbursed",
+          "line": "880",
+          "currency": true
+        },
+        "885": {
+          "type": "VARCHAR",
+          "description": "Enduring property held",
+          "line": "885",
+          "currency": true
+        },
+        "890": {
+          "type": "VARCHAR",
+          "description": "Net enduring property",
+          "line": "890",
+          "currency": true
+        }
+      },
+      "rows": 14574
+    },
+    "trustee": {
+      "description": "Directors and trustees (T1235 worksheet, 1:many). Last name, first name, position, arm's-length status, appointed/ceased dates.",
+      "bn_column": "\"BN/Registration number\"",
+      "join_to_charity_base": "charity_base.bn = trustee.\"BN/Registration number\"",
+      "columns": {
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "Officer Number": {
+          "type": "BIGINT"
+        },
+        "Last Name": {
+          "type": "VARCHAR"
+        },
+        "First Name": {
+          "type": "VARCHAR"
+        },
+        "Initial": {
+          "type": "VARCHAR"
+        },
+        "Position": {
+          "type": "VARCHAR"
+        },
+        "At arm's length": {
+          "type": "VARCHAR"
+        },
+        "Appointed Date": {
+          "type": "TIMESTAMP"
+        },
+        "Ceased Date": {
+          "type": "TIMESTAMP"
+        }
+      },
+      "rows": 566767
+    }
+  },
+  "views": {
+    "v_compensation": {
+      "description": "Friendly aliases for schedule_3_compensation: adds bn, fiscal_period_end, ft_employees (=300), pt_employees (=370), total_compensation (=390).",
+      "bn_column": "bn",
+      "join_to_charity_base": "charity_base.bn = v_compensation.bn",
+      "columns": {
+        "bn": {
+          "type": "VARCHAR"
+        },
+        "fiscal_period_end": {
+          "type": "TIMESTAMP"
+        },
+        "ft_employees": {
+          "type": "BIGINT"
+        },
+        "pt_employees": {
+          "type": "BIGINT"
+        },
+        "total_compensation": {
+          "type": "VARCHAR",
+          "currency": true
+        },
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "300": {
+          "type": "BIGINT",
+          "description": "Number of full-time employees (FT positions)",
+          "line": "300"
+        },
+        "305": {
+          "type": "BIGINT",
+          "description": "FT employees earning less than $40,000",
+          "line": "305"
+        },
+        "310": {
+          "type": "BIGINT",
+          "description": "FT employees earning $40,000–$79,999",
+          "line": "310"
+        },
+        "315": {
+          "type": "BIGINT",
+          "description": "FT employees earning $80,000–$119,999",
+          "line": "315"
+        },
+        "320": {
+          "type": "BIGINT",
+          "description": "FT employees earning $120,000–$159,999",
+          "line": "320"
+        },
+        "325": {
+          "type": "BIGINT",
+          "description": "FT employees earning $160,000–$199,999",
+          "line": "325"
+        },
+        "330": {
+          "type": "BIGINT",
+          "description": "FT employees earning $200,000–$249,999",
+          "line": "330"
+        },
+        "335": {
+          "type": "BIGINT",
+          "description": "FT employees earning $250,000–$299,999",
+          "line": "335"
+        },
+        "340": {
+          "type": "BIGINT",
+          "description": "FT employees earning $300,000–$349,999",
+          "line": "340"
+        },
+        "345": {
+          "type": "BIGINT",
+          "description": "FT employees earning $350,000 or more",
+          "line": "345"
+        },
+        "370": {
+          "type": "BIGINT",
+          "description": "Number of part-time/casual employees (PT positions)",
+          "line": "370"
+        },
+        "380": {
+          "type": "VARCHAR",
+          "description": "Compensation paid to top 10 employees — total hours",
+          "line": "380",
+          "currency": true
+        },
+        "390": {
+          "type": "VARCHAR",
+          "description": "Total compensation paid to all employees (VARCHAR — has $ formatting)",
+          "line": "390",
+          "currency": true
+        }
+      }
+    },
+    "v_financial_abc": {
+      "description": "Friendly aliases for financial_abc: adds bn, fiscal_period_end, is_subsidiary, parent_bn, parent_name alongside all raw columns.",
+      "bn_column": "bn",
+      "join_to_charity_base": "charity_base.bn = v_financial_abc.bn",
+      "columns": {
+        "bn": {
+          "type": "VARCHAR"
+        },
+        "fiscal_period_end": {
+          "type": "TIMESTAMP"
+        },
+        "form_id": {
+          "type": "BIGINT"
+        },
+        "is_subsidiary": {
+          "type": "VARCHAR"
+        },
+        "parent_bn": {
+          "type": "VARCHAR"
+        },
+        "parent_name": {
+          "type": "VARCHAR"
+        },
+        "BN/Registration number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal period end": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "1200 Program Area Code": {
+          "type": "VARCHAR",
+          "description": "Primary program area code (see lookup_programs)"
+        },
+        "1200 Percent": {
+          "type": "BIGINT",
+          "description": "Percentage of activities in primary program area"
+        },
+        "1210 Program Area Code": {
+          "type": "VARCHAR",
+          "description": "Secondary program area code (see lookup_programs)"
+        },
+        "1210 Percent": {
+          "type": "BIGINT",
+          "description": "Percentage of activities in secondary program area"
+        },
+        "1220 Program Area Code": {
+          "type": "VARCHAR",
+          "description": "Tertiary program area code (see lookup_programs)"
+        },
+        "1220 Percent": {
+          "type": "BIGINT",
+          "description": "Percentage of activities in tertiary program area"
+        },
+        "1510 Subordinate position to a parent organization?": {
+          "type": "VARCHAR",
+          "description": "Is this charity a subordinate of a parent? (Y/N)"
+        },
+        "1510 Parent Business Number": {
+          "type": "VARCHAR",
+          "description": "Parent organization BN"
+        },
+        "1510 Parent Name": {
+          "type": "VARCHAR",
+          "description": "Parent organization legal name"
+        },
+        "1570": {
+          "type": "VARCHAR",
+          "description": "Operates outside Canada? (Y/N)",
+          "line": "1570"
+        },
+        "1600": {
+          "type": "VARCHAR",
+          "description": "Has directors/trustees at arm's length? (Y/N)",
+          "line": "1600"
+        },
+        "1800": {
+          "type": "VARCHAR",
+          "description": "Carries on any political activities? (Y/N)",
+          "line": "1800"
+        },
+        "2000": {
+          "type": "VARCHAR",
+          "description": "Received gifts from outside Canada? (Y/N)",
+          "line": "2000"
+        },
+        "2100": {
+          "type": "VARCHAR",
+          "description": "Made gifts to non-qualified donees? (Y/N)",
+          "line": "2100"
+        },
+        "2400": {
+          "type": "VARCHAR",
+          "description": "Has programs or activities that benefit non-Canadian citizens? (Y/N)",
+          "line": "2400"
+        },
+        "5030": {
+          "type": "VARCHAR",
+          "description": "Carries on political activities — Section C indicator (C or 6)",
+          "line": "5030"
+        },
+        "5031": {
+          "type": "VARCHAR",
+          "description": "Amount of political activities expenditures — policy dialogue",
+          "line": "5031"
+        },
+        "5032": {
+          "type": "VARCHAR",
+          "description": "Amount of political activities expenditures — other",
+          "line": "5032"
+        },
+        "2500": {
+          "type": "VARCHAR",
+          "description": "Accumulated property/funds over past 2 years in excess of charitable needs? (Y/N)",
+          "line": "2500"
+        },
+        "2510": {
+          "type": "VARCHAR",
+          "description": "Applied to CRA to reduce disbursement quota? (Y/N)",
+          "line": "2510"
+        },
+        "2530": {
+          "type": "VARCHAR",
+          "description": "Carries on an unrelated business? (Y/N)",
+          "line": "2530"
+        },
+        "2540": {
+          "type": "VARCHAR",
+          "description": "Incurred debt? (Y/N)",
+          "line": "2540"
+        },
+        "2550": {
+          "type": "VARCHAR",
+          "description": "Issued shares or granted interests? (Y/N)",
+          "line": "2550"
+        },
+        "2560": {
+          "type": "VARCHAR",
+          "description": "Made investments not in compliance with prudent investment provisions? (Y/N)",
+          "line": "2560"
+        },
+        "2570": {
+          "type": "VARCHAR",
+          "description": "Acquired non-qualifying securities? (Y/N)",
+          "line": "2570"
+        },
+        "2575": {
+          "type": "VARCHAR",
+          "description": "Holds any non-qualifying securities? (Y/N)",
+          "line": "2575"
+        },
+        "2580": {
+          "type": "VARCHAR",
+          "description": "Transferred property to another charity at less than fair market value? (Y/N)",
+          "line": "2580"
+        },
+        "2590": {
+          "type": "VARCHAR",
+          "description": "Received property that is subject to a direction to transfer? (Y/N)",
+          "line": "2590"
+        },
+        "2600": {
+          "type": "VARCHAR",
+          "description": "Used any of its income or property to unduly benefit any person? (Y/N)",
+          "line": "2600"
+        },
+        "2610": {
+          "type": "VARCHAR",
+          "description": "Entered into any transaction with a non-arm's-length person? (Y/N)",
+          "line": "2610"
+        },
+        "2620": {
+          "type": "VARCHAR",
+          "description": "Subject to any taxes or penalties under the Income Tax Act? (Y/N)",
+          "line": "2620"
+        },
+        "2630": {
+          "type": "VARCHAR",
+          "description": "Had any legal counsel, litigation, or claims filed? (Y/N)",
+          "line": "2630"
+        },
+        "2640": {
+          "type": "VARCHAR",
+          "description": "Changed its legal structure? (Y/N)",
+          "line": "2640"
+        },
+        "2650": {
+          "type": "VARCHAR",
+          "description": "Changed its by-laws or other governing documents? (Y/N)",
+          "line": "2650"
+        },
+        "2660": {
+          "type": "VARCHAR",
+          "description": "Changed its purposes? (Y/N)",
+          "line": "2660"
+        },
+        "2700": {
+          "type": "VARCHAR",
+          "description": "Is there a change of address or officer since last filing? (Y/N)",
+          "line": "2700"
+        },
+        "5450": {
+          "type": "VARCHAR",
+          "description": "Name of the fundraiser (if retained)",
+          "line": "5450"
+        },
+        "5460": {
+          "type": "VARCHAR",
+          "description": "Address/contact of the fundraiser",
+          "line": "5460"
+        },
+        "2730": {
+          "type": "VARCHAR",
+          "description": "Maintained any books or records outside Canada? (Y/N)",
+          "line": "2730"
+        },
+        "2740": {
+          "type": "VARCHAR",
+          "description": "Retained a fundraiser to solicit donations? (Y/N)",
+          "line": "2740"
+        },
+        "2750": {
+          "type": "VARCHAR",
+          "description": "Issued tax receipts for gifts of property? (Y/N)",
+          "line": "2750"
+        },
+        "2760": {
+          "type": "VARCHAR",
+          "description": "Issued tax receipts for donations received for advantage? (Y/N)",
+          "line": "2760"
+        },
+        "2770": {
+          "type": "VARCHAR",
+          "description": "Issued tax receipts that contain split-receipt amounts? (Y/N)",
+          "line": "2770"
+        },
+        "2780": {
+          "type": "VARCHAR",
+          "description": "Issued receipts for enduring property? (Y/N)",
+          "line": "2780"
+        },
+        "2790": {
+          "type": "VARCHAR",
+          "description": "Issued receipts for a gift of cultural property? (Y/N)",
+          "line": "2790"
+        },
+        "2800": {
+          "type": "VARCHAR",
+          "description": "Issued receipts for a gift of ecologically sensitive land? (Y/N)",
+          "line": "2800"
+        },
+        "3200": {
+          "type": "VARCHAR",
+          "description": "Filed a T3 trust return? (Y/N)",
+          "line": "3200"
+        },
+        "3400": {
+          "type": "VARCHAR",
+          "description": "Has the charity completed Schedule 8 — Disbursement Quota? (Y/N)",
+          "line": "3400"
+        },
+        "3900": {
+          "type": "VARCHAR",
+          "description": "Did the charity file a Section D financial return? (Y/N)",
+          "line": "3900"
+        },
+        "4000": {
+          "type": "VARCHAR",
+          "description": "Did the charity file a financial return with another government body? (Y/N)",
+          "line": "4000"
+        },
+        "5800": {
+          "type": "VARCHAR",
+          "description": "Is the charity a Donor Advised Fund (DAF) sponsoring organization? (Y/N)",
+          "line": "5800"
+        },
+        "5810": {
+          "type": "VARCHAR",
+          "description": "Does the charity hold any DAF accounts? (Y/N)",
+          "line": "5810"
+        },
+        "5820": {
+          "type": "VARCHAR",
+          "description": "Number of DAF accounts held",
+          "line": "5820"
+        },
+        "5830": {
+          "type": "VARCHAR",
+          "description": "Total value of DAF assets",
+          "line": "5830"
+        },
+        "5840": {
+          "type": "VARCHAR",
+          "description": "Total donations received into DAF accounts",
+          "line": "5840"
+        },
+        "5841": {
+          "type": "VARCHAR",
+          "description": "Total donations from DAF accounts to qualified donees",
+          "line": "5841"
+        },
+        "5842": {
+          "type": "BIGINT",
+          "description": "Number of DAF accounts that made distributions",
+          "line": "5842"
+        },
+        "5843": {
+          "type": "VARCHAR",
+          "description": "Total DAF distributions",
+          "line": "5843"
+        },
+        "5850": {
+          "type": "VARCHAR",
+          "description": "Does charity have a policy prohibiting advisor-directed accounts? (Y/N)",
+          "line": "5850"
+        },
+        "5860": {
+          "type": "VARCHAR",
+          "description": "Has DAF — primary field (Y/N)",
+          "line": "5860"
+        },
+        "5861": {
+          "type": "BIGINT",
+          "description": "Number of donor-advised fund accounts",
+          "line": "5861"
+        },
+        "5862": {
+          "type": "VARCHAR",
+          "description": "Total value of DAF fund (assets)",
+          "line": "5862"
+        },
+        "5863": {
+          "type": "VARCHAR",
+          "description": "Total donations received to DAF accounts in the year",
+          "line": "5863"
+        },
+        "5864": {
+          "type": "VARCHAR",
+          "description": "Total gifts from DAF accounts to qualified donees in the year",
+          "line": "5864"
+        }
+      }
+    },
+    "v_financial_d": {
+      "description": "Friendly aliases for financial_d: adds bn, fiscal_period_end, total_revenue (4700), total_expenditures (5100), total_assets (4200) as named columns alongside all raw line columns.",
+      "bn_column": "bn",
+      "join_to_charity_base": "charity_base.bn = v_financial_d.bn",
+      "columns": {
+        "bn": {
+          "type": "VARCHAR"
+        },
+        "fiscal_period_end": {
+          "type": "TIMESTAMP"
+        },
+        "form_id": {
+          "type": "BIGINT"
+        },
+        "total_revenue": {
+          "type": "VARCHAR",
+          "currency": true
+        },
+        "total_expenditures": {
+          "type": "VARCHAR",
+          "currency": true
+        },
+        "total_assets": {
+          "type": "VARCHAR",
+          "currency": true
+        },
+        "BN/Registration Number": {
+          "type": "VARCHAR"
+        },
+        "Fiscal Period End": {
+          "type": "TIMESTAMP"
+        },
+        "Form ID": {
+          "type": "BIGINT"
+        },
+        "Financial Indicator (D or 6)": {
+          "type": "VARCHAR"
+        },
+        "5030 Indicator (C or 6)": {
+          "type": "VARCHAR",
+          "description": "Carries on political activities — Section C indicator (C or 6)",
+          "line": "5030"
+        },
+        "4020": {
+          "type": "VARCHAR",
+          "description": "Opening balance — net assets / fund balances",
+          "line": "4020",
+          "currency": true
+        },
+        "4050": {
+          "type": "VARCHAR",
+          "description": "Closing balance — net assets / fund balances",
+          "line": "4050",
+          "currency": true
+        },
+        "4100": {
+          "type": "VARCHAR",
+          "description": "Cash and short-term investments",
+          "line": "4100",
+          "currency": true
+        },
+        "4110": {
+          "type": "VARCHAR",
+          "description": "Accounts receivable",
+          "line": "4110",
+          "currency": true
+        },
+        "4120": {
+          "type": "VARCHAR",
+          "description": "Inventory",
+          "line": "4120",
+          "currency": true
+        },
+        "4130": {
+          "type": "VARCHAR",
+          "description": "Prepaid expenses",
+          "line": "4130",
+          "currency": true
+        },
+        "4140": {
+          "type": "VARCHAR",
+          "description": "Long-term investments",
+          "line": "4140",
+          "currency": true
+        },
+        "4150": {
+          "type": "VARCHAR",
+          "description": "Capital assets — cost",
+          "line": "4150",
+          "currency": true
+        },
+        "4155": {
+          "type": "VARCHAR",
+          "description": "Capital assets — accumulated amortization",
+          "line": "4155",
+          "currency": true
+        },
+        "4160": {
+          "type": "VARCHAR",
+          "description": "Land and buildings",
+          "line": "4160",
+          "currency": true
+        },
+        "4165": {
+          "type": "VARCHAR",
+          "description": "Leasehold improvements",
+          "line": "4165",
+          "currency": true
+        },
+        "4166": {
+          "type": "VARCHAR",
+          "description": "Equipment and furniture",
+          "line": "4166",
+          "currency": true
+        },
+        "4170": {
+          "type": "VARCHAR",
+          "description": "Other capital assets",
+          "line": "4170",
+          "currency": true
+        },
+        "4180": {
+          "type": "VARCHAR",
+          "description": "Other assets",
+          "line": "4180",
+          "currency": true
+        },
+        "4200": {
+          "type": "VARCHAR",
+          "description": "Total assets",
+          "line": "4200",
+          "currency": true
+        },
+        "4250": {
+          "type": "VARCHAR",
+          "description": "Assets not used for charitable activities",
+          "line": "4250",
+          "currency": true
+        },
+        "4300": {
+          "type": "VARCHAR",
+          "description": "Accounts payable and accrued liabilities",
+          "line": "4300",
+          "currency": true
+        },
+        "4310": {
+          "type": "VARCHAR",
+          "description": "Deferred revenue",
+          "line": "4310",
+          "currency": true
+        },
+        "4320": {
+          "type": "VARCHAR",
+          "description": "Long-term debt",
+          "line": "4320",
+          "currency": true
+        },
+        "4330": {
+          "type": "VARCHAR",
+          "description": "Other liabilities",
+          "line": "4330",
+          "currency": true
+        },
+        "4350": {
+          "type": "VARCHAR",
+          "description": "Total liabilities",
+          "line": "4350",
+          "currency": true
+        },
+        "4400": {
+          "type": "VARCHAR",
+          "description": "Net assets / fund balances",
+          "line": "4400",
+          "currency": true
+        },
+        "4490": {
+          "type": "VARCHAR",
+          "description": "Gross revenue before adjustments",
+          "line": "4490",
+          "currency": true
+        },
+        "4500": {
+          "type": "VARCHAR",
+          "description": "Tax-receipted gifts",
+          "line": "4500",
+          "currency": true
+        },
+        "5610": {
+          "type": "VARCHAR",
+          "description": "Line 5610 — supplementary (form version dependent)",
+          "line": "5610",
+          "currency": true
+        },
+        "4505": {
+          "type": "VARCHAR",
+          "description": "Non-tax-receipted gifts from individuals",
+          "line": "4505",
+          "currency": true
+        },
+        "4510": {
+          "type": "VARCHAR",
+          "description": "Gifts from other registered charities",
+          "line": "4510",
+          "currency": true
+        },
+        "4530": {
+          "type": "VARCHAR",
+          "description": "Gifts from non-registered charities",
+          "line": "4530",
+          "currency": true
+        },
+        "4540": {
+          "type": "VARCHAR",
+          "description": "Federal government funding",
+          "line": "4540",
+          "currency": true
+        },
+        "4550": {
+          "type": "VARCHAR",
+          "description": "Provincial/territorial government funding",
+          "line": "4550",
+          "currency": true
+        },
+        "4560": {
+          "type": "VARCHAR",
+          "description": "Municipal government funding",
+          "line": "4560",
+          "currency": true
+        },
+        "4565": {
+          "type": "VARCHAR",
+          "description": "Other Canadian government funding",
+          "line": "4565",
+          "currency": true
+        },
+        "4570": {
+          "type": "VARCHAR",
+          "description": "Total government funding (UNRELIABLE — compute as 4540+4550+4560)",
+          "line": "4570",
+          "currency": true
+        },
+        "4571": {
+          "type": "VARCHAR",
+          "description": "Foreign government funding",
+          "line": "4571",
+          "currency": true
+        },
+        "4575": {
+          "type": "VARCHAR",
+          "description": "V24: Non-tax-receipted revenue from outside Canada; V23: Tax-receipted from outside Canada",
+          "line": "4575",
+          "currency": true
+        },
+        "4580": {
+          "type": "VARCHAR",
+          "description": "V24: Interest and investment income; V23: Non-tax-receipted from outside Canada",
+          "line": "4580",
+          "currency": true
+        },
+        "4590": {
+          "type": "VARCHAR",
+          "description": "Rental income",
+          "line": "4590",
+          "currency": true
+        },
+        "4600": {
+          "type": "VARCHAR",
+          "description": "Revenue from sale of goods and services",
+          "line": "4600",
+          "currency": true
+        },
+        "4610": {
+          "type": "VARCHAR",
+          "description": "Membership fees",
+          "line": "4610",
+          "currency": true
+        },
+        "4620": {
+          "type": "VARCHAR",
+          "description": "Investment income",
+          "line": "4620",
+          "currency": true
+        },
+        "4630": {
+          "type": "VARCHAR",
+          "description": "Proceeds from disposition of assets",
+          "line": "4630",
+          "currency": true
+        },
+        "4640": {
+          "type": "VARCHAR",
+          "description": "Other revenue",
+          "line": "4640",
+          "currency": true
+        },
+        "4650": {
+          "type": "VARCHAR",
+          "description": "Gross proceeds — fundraising activities",
+          "line": "4650",
+          "currency": true
+        },
+        "4655": {
+          "type": "VARCHAR",
+          "description": "Direct costs — fundraising activities",
+          "line": "4655",
+          "currency": true
+        },
+        "4700": {
+          "type": "VARCHAR",
+          "description": "Total revenue",
+          "line": "4700",
+          "currency": true
+        },
+        "4800": {
+          "type": "VARCHAR",
+          "description": "Professional and consulting fees",
+          "line": "4800",
+          "currency": true
+        },
+        "4810": {
+          "type": "VARCHAR",
+          "description": "Salaries, wages, and benefits",
+          "line": "4810",
+          "currency": true
+        },
+        "4820": {
+          "type": "VARCHAR",
+          "description": "Occupancy costs",
+          "line": "4820",
+          "currency": true
+        },
+        "4830": {
+          "type": "VARCHAR",
+          "description": "Travel and vehicle costs",
+          "line": "4830",
+          "currency": true
+        },
+        "4840": {
+          "type": "VARCHAR",
+          "description": "Interest and bank charges",
+          "line": "4840",
+          "currency": true
+        },
+        "4850": {
+          "type": "VARCHAR",
+          "description": "Insurance",
+          "line": "4850",
+          "currency": true
+        },
+        "4860": {
+          "type": "VARCHAR",
+          "description": "Licences and permits",
+          "line": "4860",
+          "currency": true
+        },
+        "4870": {
+          "type": "VARCHAR",
+          "description": "Advertising and promotion",
+          "line": "4870",
+          "currency": true
+        },
+        "4880": {
+          "type": "VARCHAR",
+          "description": "Total compensation paid to employees",
+          "line": "4880",
+          "currency": true
+        },
+        "4890": {
+          "type": "VARCHAR",
+          "description": "Amortization of capital assets",
+          "line": "4890",
+          "currency": true
+        },
+        "4891": {
+          "type": "VARCHAR",
+          "description": "Amortization of right-of-use assets",
+          "line": "4891",
+          "currency": true
+        },
+        "4900": {
+          "type": "VARCHAR",
+          "description": "Purchases of supplies",
+          "line": "4900",
+          "currency": true
+        },
+        "4910": {
+          "type": "VARCHAR",
+          "description": "Costs of goods sold",
+          "line": "4910",
+          "currency": true
+        },
+        "4920": {
+          "type": "VARCHAR",
+          "description": "Research",
+          "line": "4920",
+          "currency": true
+        },
+        "4930": {
+          "type": "VARCHAR",
+          "description": "Other expenditures",
+          "line": "4930",
+          "currency": true
+        },
+        "4950": {
+          "type": "VARCHAR",
+          "description": "Capital asset acquisitions",
+          "line": "4950",
+          "currency": true
+        },
+        "5000": {
+          "type": "VARCHAR",
+          "description": "Charitable program expenditures",
+          "line": "5000",
+          "currency": true
+        },
+        "5010": {
+          "type": "VARCHAR",
+          "description": "Management and administration",
+          "line": "5010",
+          "currency": true
+        },
+        "5020": {
+          "type": "VARCHAR",
+          "description": "Fundraising",
+          "line": "5020",
+          "currency": true
+        },
+        "5030": {
+          "type": "VARCHAR",
+          "description": "Carries on political activities — Section C indicator (C or 6)",
+          "line": "5030"
+        },
+        "5040": {
+          "type": "VARCHAR",
+          "description": "Other expenditures",
+          "line": "5040",
+          "currency": true
+        },
+        "5050": {
+          "type": "VARCHAR",
+          "description": "Gifts to qualified donees",
+          "line": "5050",
+          "currency": true
+        },
+        "5100": {
+          "type": "VARCHAR",
+          "description": "Total expenditures",
+          "line": "5100",
+          "currency": true
+        },
+        "5500": {
+          "type": "VARCHAR",
+          "description": "Total receipted donations for tax purposes",
+          "line": "5500",
+          "currency": true
+        },
+        "5510": {
+          "type": "VARCHAR",
+          "description": "Donations eligible for 100% deduction",
+          "line": "5510",
+          "currency": true
+        },
+        "5750": {
+          "type": "VARCHAR",
+          "description": "Total qualifying disbursements",
+          "line": "5750",
+          "currency": true
+        },
+        "5900": {
+          "type": "VARCHAR",
+          "description": "Number of donors who received a tax receipt",
+          "line": "5900",
+          "currency": true
+        },
+        "5910": {
+          "type": "VARCHAR",
+          "description": "Tax-receipted amount — median donation",
+          "line": "5910",
+          "currency": true
+        },
+        "5045": {
+          "type": "VARCHAR",
+          "description": "Grants to non-qualified donees",
+          "line": "5045",
+          "currency": true
+        },
+        "4101": {
+          "type": "VARCHAR",
+          "description": "Cash (V24) / Accounts receivable — pledges (V23)",
+          "line": "4101",
+          "currency": true
+        },
+        "4102": {
+          "type": "VARCHAR",
+          "description": "Short-term investments (V24) / Accounts receivable — other (V23)",
+          "line": "4102",
+          "currency": true
+        },
+        "4157": {
+          "type": "VARCHAR",
+          "description": "Right-of-use assets",
+          "line": "4157",
+          "currency": true
+        },
+        "4158": {
+          "type": "VARCHAR",
+          "description": "Accumulated amortization — right-of-use assets",
+          "line": "4158",
+          "currency": true
+        },
+        "4190": {
+          "type": "VARCHAR",
+          "description": "Endowment fund assets",
+          "line": "4190",
+          "currency": true
+        },
+        "4576": {
+          "type": "VARCHAR",
+          "description": "Foreign grants received",
+          "line": "4576",
+          "currency": true
+        },
+        "4577": {
+          "type": "VARCHAR",
+          "description": "Other foreign revenue",
+          "line": "4577",
+          "currency": true
+        }
+      }
+    },
+    "v_foreign_recipients": {
+      "description": "Simplified view of schedule_2_recipients: bn, fiscal_period_end, seq, recipient_name, country_code, amount.",
+      "bn_column": "bn",
+      "join_to_charity_base": "charity_base.bn = v_foreign_recipients.bn",
+      "columns": {
+        "bn": {
+          "type": "VARCHAR"
+        },
+        "fiscal_period_end": {
+          "type": "TIMESTAMP"
+        },
+        "seq": {
+          "type": "BIGINT"
+        },
+        "recipient_name": {
+          "type": "VARCHAR"
+        },
+        "country_code": {
+          "type": "VARCHAR"
+        },
+        "amount": {
+          "type": "VARCHAR",
+          "currency": true
+        }
+      }
+    },
+    "v_grants": {
+      "description": "Simplified view of grants table: bn, fiscal_period_end, seq, recipient_name, purpose, cash_amount, country.",
+      "bn_column": "bn",
+      "join_to_charity_base": "charity_base.bn = v_grants.bn",
+      "columns": {
+        "bn": {
+          "type": "VARCHAR"
+        },
+        "fiscal_period_end": {
+          "type": "TIMESTAMP"
+        },
+        "seq": {
+          "type": "BIGINT"
+        },
+        "recipient_name": {
+          "type": "VARCHAR"
+        },
+        "purpose": {
+          "type": "VARCHAR"
+        },
+        "cash_amount": {
+          "type": "VARCHAR",
+          "currency": true
+        },
+        "country": {
+          "type": "VARCHAR"
+        }
+      }
+    },
+    "v_operating_countries": {
+      "description": "Simplified view of schedule_2_countries: bn, fiscal_period_end, country_code.",
+      "bn_column": "bn",
+      "join_to_charity_base": "charity_base.bn = v_operating_countries.bn",
+      "columns": {
+        "bn": {
+          "type": "VARCHAR"
+        },
+        "fiscal_period_end": {
+          "type": "TIMESTAMP"
+        },
+        "country_code": {
+          "type": "VARCHAR"
+        }
+      }
+    },
+    "v_programs": {
+      "description": "Simplified view of programs table: bn, fiscal_period_end, program_type (OP/NP/NA), description.",
+      "bn_column": "bn",
+      "join_to_charity_base": "charity_base.bn = v_programs.bn",
+      "columns": {
+        "bn": {
+          "type": "VARCHAR"
+        },
+        "fiscal_period_end": {
+          "type": "TIMESTAMP"
+        },
+        "program_type": {
+          "type": "VARCHAR"
+        },
+        "description": {
+          "type": "VARCHAR"
+        }
+      }
+    },
+    "v_subsidiaries": {
+      "description": "Flattened subsidiary relationships: subsidiary_bn, subsidiary_name, parent_bn, parent_name. No BN column named 'bn' — use subsidiary_bn.",
+      "bn_column": "subsidiary_bn",
+      "join_to_charity_base": "charity_base.bn = v_subsidiaries.subsidiary_bn  (or parent_bn)",
+      "columns": {
+        "subsidiary_bn": {
+          "type": "VARCHAR"
+        },
+        "subsidiary_name": {
+          "type": "VARCHAR"
+        },
+        "parent_bn": {
+          "type": "VARCHAR"
+        },
+        "parent_name": {
+          "type": "VARCHAR"
+        }
+      }
+    }
+  },
+  "joins": {
+    "charity_base": "— this IS charity_base (the join hub)",
+    "charity_counts": "charity_base.bn = charity_counts.bn",
+    "financial_abc": "charity_base.bn = financial_abc.\"BN/Registration number\"",
+    "financial_d": "charity_base.bn = financial_d.\"BN/Registration Number\"",
+    "gift": "charity_base.bn = gift.\"BN/Registration number\"",
+    "grants": "charity_base.bn = grants.\"BN/Registration number\"",
+    "ident": "charity_base.bn = ident.\"BN/Registration Number\"",
+    "latest_filing": "charity_base.bn = latest_filing.bn",
+    "lookup_category": "charity_base.bn = lookup_category.\"BN/Registration number\"",
+    "lookup_country": "charity_base.bn = lookup_country.\"BN/Registration number\"",
+    "lookup_designation": "charity_base.bn = lookup_designation.\"BN/Registration number\"",
+    "lookup_form_versioning": "charity_base.bn = lookup_form_versioning.\"BN/Registration number\"",
+    "lookup_programs": "charity_base.bn = lookup_programs.\"BN/Registration number\"",
+    "lookup_province": "charity_base.bn = lookup_province.\"BN/Registration number\"",
+    "lookup_us_state": "charity_base.bn = lookup_us_state.\"BN/Registration number\"",
+    "programs": "charity_base.bn = programs.\"BN/Registration number\"",
+    "schedule_1_foundations": "charity_base.bn = schedule_1_foundations.\"BN/Registration number\"",
+    "schedule_2_countries": "charity_base.bn = schedule_2_countries.\"BN/Registration number\"",
+    "schedule_2_destinations": "charity_base.bn = schedule_2_destinations.\"BN/Registration number\"",
+    "schedule_2_recipients": "charity_base.bn = schedule_2_recipients.\"BN/Registration number\"",
+    "schedule_2_summary": "charity_base.bn = schedule_2_summary.\"BN/Registration number\"",
+    "schedule_3_compensation": "charity_base.bn = schedule_3_compensation.\"BN/Registration number\"",
+    "schedule_5_noncash": "charity_base.bn = schedule_5_noncash.\"BN/Registration number\"",
+    "schedule_7_description": "charity_base.bn = schedule_7_description.\"BN/Registration number\"",
+    "schedule_7_political_outside": "charity_base.bn = schedule_7_political_outside.\"BN/Registration number\"",
+    "schedule_7_political_resources": "charity_base.bn = schedule_7_political_resources.\"BN/Registration number\"",
+    "schedule_8_disbursement": "charity_base.bn = schedule_8_disbursement.\"BN/Registration Number\"",
+    "trustee": "charity_base.bn = trustee.\"BN/Registration number\"",
+    "v_compensation": "charity_base.bn = v_compensation.bn",
+    "v_financial_abc": "charity_base.bn = v_financial_abc.bn",
+    "v_financial_d": "charity_base.bn = v_financial_d.bn",
+    "v_foreign_recipients": "charity_base.bn = v_foreign_recipients.bn",
+    "v_grants": "charity_base.bn = v_grants.bn",
+    "v_operating_countries": "charity_base.bn = v_operating_countries.bn",
+    "v_programs": "charity_base.bn = v_programs.bn",
+    "v_subsidiaries": "charity_base.bn = v_subsidiaries.subsidiary_bn  (or parent_bn)"
+  },
+  "domain_values": {
+    "lookup_designation": {
+      "A": "Public Foundation",
+      "B": "Private Foundation",
+      "C": "Charitable Organization"
+    },
+    "lookup_province": {
+      "AB": "ALBERTA",
+      "BC": "BRITISH COLUMBIA",
+      "MB": "MANITOBA",
+      "NB": "NEW BRUNSWICK",
+      "NL": "NEWFOUNDLAND AND LABRADOR",
+      "NS": "NOVA SCOTIA",
+      "NT": "NORTHWEST TERRITORIES",
+      "NU": "NUNAVUT",
+      "ON": "ONTARIO",
+      "PE": "PEI",
+      "QC": "QUEBEC",
+      "SK": "SASKATCHEWAN",
+      "YT": "YUKON"
+    },
+    "lookup_country": {
+      "AD": "ANDORRA",
+      "AE": "UNITED ARAB EMIRATES",
+      "AF": "AFGHANISTAN",
+      "AG": "ANTIGUA AND BARBUDA",
+      "AI": "ANGUILLA",
+      "AL": "ALBANIA",
+      "AM": "ARMENIA",
+      "AO": "ANGOLA",
+      "AQ": "ANTARCTICA",
+      "AR": "ARGENTINA",
+      "AS": "AMERICAN SAMOA",
+      "AT": "AUSTRIA",
+      "AU": "AUSTRALIA",
+      "AW": "ARUBA",
+      "AX": "ALAND ISLANDS",
+      "AZ": "AZERBAIJAN",
+      "BA": "BOSNIA AND HERZEGOVINA",
+      "BB": "BARBADOS",
+      "BD": "BANGLADESH",
+      "BE": "BELGIUM",
+      "BF": "BURKINA FASO",
+      "BG": "BULGARIA",
+      "BH": "BAHRAIN",
+      "BI": "BURUNDI",
+      "BJ": "BENIN",
+      "BL": "SAINT BARTHELEMY",
+      "BM": "BERMUDA",
+      "BN": "BRUNEI DARUSSALAM",
+      "BO": "BOLIVIA",
+      "BQ": "BONAIRE",
+      "BR": "BRAZIL",
+      "BS": "BAHAMAS",
+      "BT": "BHUTAN",
+      "BV": "BOUVET ISLAND",
+      "BW": "BOTSWANA",
+      "BY": "BELARUS",
+      "BZ": "BELIZE",
+      "CA": "CANADA",
+      "CC": "COCOS (KEELING) ISLANDS",
+      "CD": "CONGO",
+      "CF": "CENTRAL AFRICAN REPUBLIC",
+      "CG": "CONGO",
+      "CH": "SWITZERLAND",
+      "CI": "COTE D'IVOIRE",
+      "CK": "COOK ISLANDS",
+      "CL": "CHILE",
+      "CM": "CAMEROON",
+      "CN": "CHINA",
+      "CO": "COLOMBIA",
+      "CR": "COSTA RICA",
+      "CU": "CUBA",
+      "CV": "CABO VERDE",
+      "CW": "CURACAO",
+      "CX": "CHRISTMAS ISLAND",
+      "CY": "CYPRUS",
+      "CZ": "CZECH REPUBLIC",
+      "DE": "GERMANY",
+      "DJ": "DJIBOUTI",
+      "DK": "DENMARK",
+      "DM": "DOMINICA",
+      "DO": "DOMINICAN REPUBLIC",
+      "DZ": "ALGERIA",
+      "EC": "ECUADOR",
+      "EE": "ESTONIA",
+      "EG": "EGYPT",
+      "EH": "WESTERN SAHARA",
+      "ER": "ERITREA",
+      "ES": "SPAIN",
+      "ET": "ETHIOPIA",
+      "FI": "FINLAND",
+      "FJ": "FIJI",
+      "FK": "FALKLAND ISLANDS (MALVINAS)",
+      "FM": "MICRONESIA",
+      "FO": "FAROE ISLANDS",
+      "FR": "FRANCE",
+      "GA": "GABON",
+      "GB": "UNITED KINGDOM",
+      "GD": "GRENADA",
+      "GE": "GEORGIA",
+      "GF": "FRENCH GUIANA",
+      "GG": "GUERNSEY",
+      "GH": "GHANA",
+      "GI": "GIBRALTAR",
+      "GL": "GREENLAND",
+      "GM": "GAMBIA",
+      "GN": "GUINEA",
+      "GP": "GUADELOUPE",
+      "GQ": "EQUATORIAL GUINEA",
+      "GR": "GREECE",
+      "GS": "SOUTH GEORGIA/STH SANDWICH ISL",
+      "GT": "GUATEMALA",
+      "GU": "GUAM",
+      "GW": "GUINEA-BISSAU",
+      "GY": "GUYANA",
+      "HK": "HONG KONG",
+      "HM": "HEARD ISL AND MCDONALD ISLANDS",
+      "HN": "HONDURAS",
+      "HR": "CROATIA",
+      "HT": "HAITI",
+      "HU": "HUNGARY",
+      "ID": "INDONESIA",
+      "IE": "IRELAND",
+      "IL": "ISRAEL",
+      "IM": "ISLE OF MAN",
+      "IN": "INDIA",
+      "IO": "BRITISH INDIAN OCEAN TERRITORY",
+      "IQ": "IRAQ",
+      "IR": "IRAN (ISLAMIC REPUBLIC OF)",
+      "IS": "ICELAND",
+      "IT": "ITALY",
+      "JE": "JERSEY",
+      "JM": "JAMAICA",
+      "JO": "JORDAN",
+      "JP": "JAPAN",
+      "KE": "KENYA",
+      "KG": "KYRGYZSTAN",
+      "KH": "CAMBODIA",
+      "KI": "KIRIBATI",
+      "KM": "COMOROS",
+      "KN": "SAINT KITTS AND NEVIS",
+      "KP": "KOREA",
+      "KR": "KOREA",
+      "KW": "KUWAIT",
+      "KY": "CAYMAN ISLANDS",
+      "KZ": "KAZAKHSTAN",
+      "LA": "LAO PEOPLE'S DEMOCRATIC REPUBL",
+      "LB": "LEBANON",
+      "LC": "SAINT LUCIA",
+      "LI": "LIECHTENSTEIN",
+      "LK": "SRI LANKA",
+      "LR": "LIBERIA",
+      "LS": "LESOTHO",
+      "LT": "LITHUANIA",
+      "LU": "LUXEMBOURG",
+      "LV": "LATVIA",
+      "LY": "LIBYA",
+      "MA": "MOROCCO",
+      "MC": "MONACO",
+      "MD": "MOLDOVA",
+      "ME": "MONTENEGRO",
+      "MF": "SAINT MARTIN (FRENCH PART)",
+      "MG": "MADAGASCAR",
+      "MH": "MARSHALL ISLANDS",
+      "MK": "MACEDONIA",
+      "ML": "MALI",
+      "MM": "MYANMAR",
+      "MN": "MONGOLIA",
+      "MO": "MACAO",
+      "MP": "NORTHERN MARIANA ISLANDS",
+      "MQ": "MARTINIQUE",
+      "MR": "MAURITANIA",
+      "MS": "MONTSERRAT",
+      "MT": "MALTA",
+      "MU": "MAURITIUS",
+      "MV": "MALDIVES",
+      "MW": "MALAWI",
+      "MX": "MEXICO",
+      "MY": "MALAYSIA",
+      "MZ": "MOZAMBIQUE",
+      "NA": "NAMIBIA",
+      "NC": "NEW CALEDONIA",
+      "NE": "NIGER",
+      "NF": "NORFOLK ISLAND",
+      "NG": "NIGERIA",
+      "NI": "NICARAGUA",
+      "NL": "NETHERLANDS",
+      "NO": "NORWAY",
+      "NP": "NEPAL",
+      "NR": "NAURU",
+      "NU": "NIUE",
+      "NZ": "NEW ZEALAND",
+      "OM": "OMAN",
+      "PA": "PANAMA",
+      "PE": "PERU",
+      "PF": "FRENCH POLYNESIA",
+      "PG": "PAPUA NEW GUINEA",
+      "PH": "PHILIPPINES",
+      "PK": "PAKISTAN",
+      "PL": "POLAND",
+      "PM": "SAINT PIERRE AND MIQUELON",
+      "PN": "PITCAIRN",
+      "PR": "PUERTO RICO",
+      "PS": "WEST BANK AND GAZA STRIP",
+      "PT": "PORTUGAL",
+      "PW": "PALAU",
+      "PY": "PARAGUAY",
+      "QA": "QATAR",
+      "RE": "REUNION",
+      "RO": "ROMANIA",
+      "RS": "SERBIA",
+      "RU": "RUSSIAN FEDERATION",
+      "RW": "RWANDA",
+      "SA": "SAUDI ARABIA",
+      "SB": "SOLOMON ISLANDS",
+      "SC": "SEYCHELLES",
+      "SD": "SUDAN",
+      "SE": "SWEDEN",
+      "SG": "SINGAPORE",
+      "SH": "ST HELENA",
+      "SI": "SLOVENIA",
+      "SJ": "SVALBARD AND JAN MAYEN",
+      "SK": "SLOVAKIA",
+      "SL": "SIERRA LEONE",
+      "SM": "SAN MARINO",
+      "SN": "SENEGAL",
+      "SO": "SOMALIA",
+      "SR": "SURINAME",
+      "SS": "SOUTH SUDAN",
+      "ST": "SAO TOME AND PRINCIPE",
+      "SV": "EL SALVADOR",
+      "SX": "SINT MAARTEN (DUTCH PART)",
+      "SY": "SYRIAN ARAB REPUBLIC",
+      "SZ": "SWAZILAND",
+      "TC": "TURKS AND CAICOS ISLANDS",
+      "TD": "CHAD",
+      "TF": "FRENCH SOUTHERN TERRITORIES",
+      "TG": "TOGO",
+      "TH": "THAILAND",
+      "TJ": "TAJIKISTAN",
+      "TK": "TOKELAU",
+      "TL": "TIMOR-LESTE",
+      "TM": "TURKMENISTAN",
+      "TN": "TUNISIA",
+      "TO": "TONGA",
+      "TR": "TURKEY",
+      "TT": "TRINIDAD AND TOBAGO",
+      "TV": "TUVALU",
+      "TW": "TAIWAN",
+      "TZ": "TANZANIA",
+      "UA": "UKRAINE",
+      "UG": "UGANDA",
+      "UM": "UNITED STATES MINOR ISLANDS",
+      "US": "UNITED STATES",
+      "UY": "URUGUAY",
+      "UZ": "UZBEKISTAN",
+      "VA": "HOLY SEE (VATICAN CITY STATE)",
+      "VC": "ST VINCENT AND THE GRENADINES",
+      "VE": "VENEZUELA",
+      "VG": "VIRGIN ISLANDS (BRITISH)",
+      "VI": "VIRGIN ISLANDS (U.S.)",
+      "VN": "VIET NAM",
+      "VU": "VANUATU",
+      "WF": "WALLIS AND FUTUNA",
+      "WS": "SAMOA",
+      "XZ": "KOSOVO",
+      "YE": "YEMEN",
+      "YT": "MAYOTTE",
+      "ZA": "SOUTH AFRICA",
+      "ZM": "ZAMBIA",
+      "ZW": "ZIMBABWE"
+    },
+    "lookup_programs": {
+      "A1": "Housing for seniors, low-income, & those with disabilities",
+      "A10": "Emergency shelter",
+      "A11": "Family and crisis counselling, financial counselling",
+      "A12": "Immigrant aid",
+      "A13": "Rehabilitation of offenders",
+      "A14": "Disaster relief",
+      "A2": "Food or clothing banks, soup kitchens, hostels",
+      "A3": "Employment preparation and training",
+      "A4": "Legal assistance and services",
+      "A5": "Other services for low-income people",
+      "A6": "Seniors' services",
+      "A7": "Services for the physically or mentally challenged",
+      "A8": "Children and youth services/housing",
+      "A9": "Services for aboriginal people",
+      "B1": "Social services",
+      "B2": "Infrastructure development",
+      "B3": "Agricultural programs",
+      "B4": "Medical services",
+      "B5": "Literacy/education/training programs",
+      "B6": "Disaster/war relief",
+      "C1": "Scholarships, bursaries, awards",
+      "C10": "Public education, other study programs",
+      "C11": "Research (scientific, medical, environmental, etc)",
+      "C12": "Learned societies (e.g., Royal Astronomical Society)",
+      "C13": "Youth groups (Girl Guides, cadets, 4-H clubs, etc.)",
+      "C2": "Support of schools and education (parent-teacher groups)",
+      "C3": "Universities and colleges",
+      "C4": "Public schools and boards",
+      "C5": "Independent schools and boards",
+      "C6": "Nursery programs/schools (excluding daycare)",
+      "C7": "Vocational and technical training (see guide)",
+      "C8": "Literacy programs",
+      "C9": "Cultural programs, including heritage languages",
+      "D1": "Museums, galleries, concert halls, etc.",
+      "D2": "Festivals, performing groups, musical ensembles",
+      "D3": "Arts schools, grants and awards for artists",
+      "D4": "Cultural centres and associations",
+      "D5": "Historical sites, heritage societies",
+      "E1": "Places of worship, congregations, parishes, dioceses, etc.",
+      "E2": "Missionary organizations, evangelism",
+      "E3": "Religious publishing and broadcasting",
+      "E4": "Seminaries and other religious colleges",
+      "E5": "Social outreach, religious fellowship, & auxiliary orgs.",
+      "F1": "Hospitals",
+      "F2": "Nursing homes, hospices",
+      "F3": "Clinics",
+      "F4": "Services for the sick",
+      "F5": "Mental-health services and support groups",
+      "F6": "Addiction services and support groups",
+      "F7": "Other mutual-support groups (e.g., cancer patients)",
+      "F8": "Promotion and protection of health (see guide)",
+      "F9": "Specialized health organizations (see guide)",
+      "G1": "Nature, habitat-conservation groups",
+      "G2": "Preservation of species, wildlife protection",
+      "G3": "General environmental protection, recycling services",
+      "H1": "Agricultural and horticultural societies",
+      "H10": "Crime prevention, public safety, preservation of law & order",
+      "H11": "Ambulance, fire, rescue, and other emergency services",
+      "H12": "Human rights",
+      "H13": "Mediation services",
+      "H14": "Consumer protection",
+      "H15": "Support and services for charitable sector",
+      "H2": "Welfare of domestic animals",
+      "H3": "Parks, botanical gardens, zoos, aquariums, etc.",
+      "H4": "Community recreation facilities, trails, etc.",
+      "H5": "Community halls",
+      "H6": "Libraries",
+      "H7": "Cemeteries",
+      "H8": "Summer camps",
+      "H9": "Day care/after-school care",
+      "I1": "(Free-form text)"
+    },
+    "lookup_category": {
+      "0001": "Organizations Relieving Poverty",
+      "0002": "Foundations Relieving Poverty",
+      "0010": "Teaching Institutions",
+      "0011": "Support of schools and education",
+      "0012": "Education in the arts",
+      "0013": "Educational organizations not elsewhere categorized",
+      "0014": "Research",
+      "0015": "Foundations Advancing Education",
+      "0030": "Christianity",
+      "0040": "Islam",
+      "0050": "Judaism",
+      "0060": "Other Religions",
+      "0070": "Support of Religion",
+      "0080": "Ecumenical and Inter-faith Organizations",
+      "0090": "Foundations Advancing Religions",
+      "0100": "Core Health Care",
+      "0110": "Supportive Health Care",
+      "0120": "Protective Health Care",
+      "0130": "Health Care Products",
+      "0140": "Complementary or Alternative Health Care",
+      "0150": "Relief of the Aged",
+      "0155": "Upholding Human Rights",
+      "0160": "Community Resource",
+      "0170": "Environment",
+      "0175": "Agriculture",
+      "0180": "Animal Welfare",
+      "0190": "Arts",
+      "0200": "Public Amenities",
+      "0210": "Foundations",
+      "0214": "CAAA",
+      "0215": "NASO"
+    }
+  },
+  "quirks": [
+    "Currency fields are VARCHAR with '$' and ',' formatting. In PostgreSQL convert with: CAST(REPLACE(REPLACE(col, '$', ''), ',', '') AS NUMERIC). Use TRY_CAST (DuckDB) or NULLIF pattern (PostgreSQL) to handle blank/non-numeric values gracefully.",
+    "BN column name varies by table: 'BN/Registration Number' (capital N) in ident, financial_d, schedule_8_disbursement; 'BN/Registration number' (lowercase n) in most other raw tables; 'bn' in charity_base and all views. Always quote column names in SQL (double-quotes for PostgreSQL/DuckDB).",
+    "Always LEFT JOIN from charity_base (or ident) as the primary table. Not every charity appears in every schedule table. JOIN charity_base ON charity_base.bn = other_table.\"BN/Registration number\".",
+    "Designation codes: A = Public Foundation, B = Private Foundation, C = Charitable Organization (~85% of charities). Filter with: WHERE cb.designation_code = 'A'.",
+    "schedule_3_compensation has mixed types: lines 300–345 and 370 are BIGINT (employee count integers, no $ sign). Line 390 (total compensation) is VARCHAR with $ formatting. Do NOT apply REPLACE() to BIGINT columns.",
+    "Line 4570 (total government funding) is UNRELIABLE — charities often leave it blank or duplicate other lines. Compute government funding as: 4540 (federal) + 4550 (provincial) + 4560 (municipal) instead.",
+    "T3010 form version V23→V24 breaking changes (affects year-over-year comparisons): Line 4575: V23='Tax-receipted from outside Canada', V24='Non-tax-receipted revenue from outside Canada'. Line 4580: V23='Non-tax-receipted from outside Canada', V24='Interest/investment income'. Lines 4101/4102: V23='Receivables breakdown', V24='Cash vs short-term investments'. Do NOT compare these lines directly across filing years spanning the V23/V24 boundary.",
+    "SQL dialect: The production database is PostgreSQL (Neon serverless). Use standard PostgreSQL syntax. DuckDB syntax is similar but may differ on: string functions, date handling, and CAST semantics. Avoid DuckDB-specific functions like TRY_CAST in final queries."
+  ]
+}
