@@ -268,12 +268,16 @@ Read these before any analysis task — they encode 14 years of Blumbergs domain
 - `docs/context/sector-trends.md` — Historical baselines 2010-2023 (revenue, govt funding, compensation, foreign activities by year)
 - `docs/context/methodology-notes.md` — Snapshot methodology, all data quality caveats, known unreliable fields
 - `docs/context/regulatory-context.md` — DQ rules, DAF regulation, political activities history, CRA oversight, transparency advocacy
+- `docs/context/cra-forms-reference.md` — Per-form summary (T3010, T4033, T1235, T1236, T1441, T2081); V23→V24 line redefinitions
+- `docs/context/t3010-field-dictionary.md` — Synthesized authoritative line-by-line dictionary (162 indexed lines + every column across 18 tables, with CRA-defined descriptions)
 
 ## Reference Documentation
 
 - `CRA_T3010_Reference.md` — Field mappings and relationship diagrams
 - `docs/reference/t3010-24e.pdf` — Official T3010 form (2024 version)
 - `docs/reference/t3010-lp-24e.pdf` — T3010 large print version (detailed field descriptions)
+- `docs/reference/cra-forms/` — CRA forms received from Mark Blumberg 2026-05-18: T3010-24e, T4033-24e (completion guide), T1235-20e (trustees), T1236-19e (qualified donees), T1441 (grants to non-qualified donees), T2081-10e (excess corporate holdings)
+- `docs/reference/cra-internal/` — **Confidential** CRA partner materials (gitignored). T3010 Public Data Dictionary 2023 + 2024, Line Number and Contents Index 2024. Content has been paraphrased into `docs/context/t3010-field-dictionary.md`; the source files do not ship in the public repo.
 - `docs/reference/blumbergs/` — 51+ Blumbergs PDFs (snapshots, provincial, designation, DAF, pre-budget) + extracted text in `extracted/`
 - `docs/reference/blumbergs/provincial/` — Provincial 2023 snapshot PDFs (ON, QC, BC, AB, Atlantic)
 - `docs/reference/blumbergs/other/` — Designation 2023 snapshot PDFs (Public/Private Foundations, Charitable Orgs)

@@ -17,6 +17,15 @@ Turn natural-language questions into SQL via the generate_query tool. Always pop
 7. **Province codes**: ON QC BC AB MB SK NS NB NL PE NT NU YT.
 8. **Line 4570** (total govt funding) is unreliable — compute as money("4540")+money("4550")+money("4560").
 9. **schedule_3_compensation lines 300–370 are BIGINT** — do NOT use money() on them. Lines 380, 390 ARE currency VARCHAR.
+10. **Form version pitfalls** — These T3010 lines changed definition between V23 and V24. Direct year-over-year comparison on these lines is INVALID; treat them as separate series:
+    - 4101/4102: V23 = receivables breakdown → V24 = cash / short-term investments (subsets of 4100)
+    - 4575: V23 = tax-receipted from outside Canada → V24 = non-tax-receipted from outside Canada
+    - 4580: V23 = non-tax-receipted from outside Canada → V24 = interest and investment income
+    - 4576/4577: new in V24 — foreign business / related business subsets of 4580
+    - 4157/4158: new in V24 — Canadian land/buildings used for charitable activity
+    - 4190: new in V24 — total value of impact investments
+    - Schedule 7 (political activities) was removed entirely in V24; treat V23 lines 2400, 5030-5032 as legacy.
+    When a user asks about year-over-year trends, ALWAYS filter on Form ID where these lines are involved, or note the version change.
 
 ## Tables & Joins
 
@@ -130,14 +139,25 @@ fabc_1200_code → fabc."1200 Program Area Code" (s) | fabc_1200_pct → fabc."1
 
 ### financial_abc — numbered columns (fabc) — standard pattern fabc_{line} → fabc."{line}"
 
-**Program & Org (s):** fabc_1570 Directors/trustees? | fabc_1600 Unpaid directors? | fabc_1800 Arms-length transaction? | fabc_2000 Compensation over threshold? | fabc_2100 Non-arm's length transactions?
+Labels below are CRA-authoritative (T3010 Public Data Dictionary 2024 + Line Index 2024). For full per-field descriptions and V23/V24 form-version notes, call lookup_schema or see docs/context/t3010-field-dictionary.md.
 
-**Activities & Questions (all s, Y/N values):**
-fabc_2400 Fundraising activities? | fabc_2500 Activities outside Canada? | fabc_2510 Transferred to qual. donees? | fabc_2530 Compensation outside Canada? | fabc_2540 Property outside Canada? | fabc_2550 Staff outside Canada? | fabc_2560 Contractor outside Canada? | fabc_2570 Volunteer outside Canada? | fabc_2575 Intermediary outside Canada? | fabc_2580 Agent outside Canada? | fabc_2590 Transfer of funds outside? | fabc_2600 Recipient in country? | fabc_2610 Purpose of activity? | fabc_2620 Ongoing monitoring? | fabc_2630 Periodic transfers? | fabc_2640 Books & records? | fabc_2650 Verified expenditures? | fabc_2660 Training & accountability? | fabc_2700 Received gifts over $10K? | fabc_2730 Conducted political activities? | fabc_2740 Political expenditures? | fabc_2750 Research & education? | fabc_2760 Representations to govt? | fabc_2770 Conferences/meetings? | fabc_2780 Media campaigns? | fabc_2790 Demonstrations/rallies? | fabc_2800 Other political? | fabc_3200 Permission to publish? | fabc_3400 Third-party revenue? | fabc_3900 Owns 2%+ of corporation? | fabc_4000 Received foreign funds?
+**Program & Org (Y/N):** fabc_1570 Wound-up/dissolved? | fabc_1600 Foundation designation? | fabc_1800 Active during fiscal period? | fabc_2000 Made gifts/transfers to qualified donees? | fabc_2100 Conducted activities outside Canada?
 
-**Gifts:** fabc_5030 Gifts to qual. donees? (s) | fabc_5031 Gifts to foreign donees? (s) | fabc_5032 Political gifts? (s) | fabc_5450 Total gifts to qual. donees ($) | fabc_5460 Total gifts to other charities ($)
+**Fundraising methods (Y/N checkboxes — "Y" = method was used):**
+fabc_2500 Advertisements/print/radio/TV | fabc_2510 Auctions | fabc_2530 Collection plates/boxes | fabc_2540 Door-to-door | fabc_2550 Draws/lotteries | fabc_2560 Dinners/galas/concerts | fabc_2570 Sales | fabc_2575 Internet | fabc_2580 Mail campaigns | fabc_2590 Planned giving | fabc_2600 Corporate sponsorships | fabc_2610 Targeted contacts | fabc_2620 Phone/TV solicitations | fabc_2630 Tournaments/sporting events | fabc_2640 Cause marketing | fabc_2650 Other | fabc_2660 Specify (text)
 
-**DAF:** fabc_5800 Has DAF program? (s) | fabc_5810 Had DAF accounts? (s) | fabc_5820 Any DAF value? (s) | fabc_5830 Received DAF donations? (s) | fabc_5840 Made DAF grants? (s) | fabc_5841 DAF investment income? (s) | fabc_5842 Number of DAF accounts (i) | fabc_5843 Other DAF income ($) | fabc_5850 Total DAF expenditures? (s) | fabc_5860 Has DAF? (s) | fabc_5861 Number of DAF accounts (i) | fabc_5862 Total value of DAFs ($) | fabc_5863 Total donations to DAFs ($) | fabc_5864 Total grants from DAFs ($)
+**Fundraiser engagement:** fabc_2700 Used external fundraisers? (s) | fabc_2730 Payment: commissions (s) | fabc_2740 Payment: bonuses (s) | fabc_2750 Payment: commissions (s) | fabc_2760 Payment: set service fee (s) | fabc_2770 Payment: honoraria (s) | fabc_5450 Gross revenue collected by fundraisers ($) | fabc_5460 Amounts paid/retained by fundraisers ($)
+
+**Public policy / political activities (V23; mostly removed in V24):**
+fabc_2400 Carried out political activities? (V23, retitled "public policy dialogue" in V24) | fabc_5030 Total political-activity expenditures (V23, removed V24) ($) | fabc_5031 Gifts to qualified donees for political activity (V23) ($) | fabc_5032 Funds from outside Canada for political activity (V23) ($)
+
+**Foreign funding / over-threshold gifts:** fabc_3900 Received foreign donations ≥$10K? (s) | fabc_4000 Received non-cash gifts requiring receipts? (s)
+
+**Donor-Advised Funds (DAFs) — NOTE: 5800-5843 are NOT DAFs — those are non-qualifying securities, qualifying-disbursement grants, etc. The actual DAF block starts at 5860 (V27):**
+fabc_5860 Held any DAFs? (s) | fabc_5861 Number of DAF accounts (i) | fabc_5862 Total value of DAFs ($) | fabc_5863 Total donations to DAFs ($) | fabc_5864 Total grants from DAFs ($)
+
+**Qualifying disbursements / non-qualified donee grants (V26+):**
+fabc_5840 Made grants to non-qualified donees ≥$5K? (s) | fabc_5841 Sum of grants >$5K to any one grantee? (s) | fabc_5842 Number of grantees receiving ≤$5K total (i) | fabc_5843 Total of grants to grantees ≤$5K ($)
 
 ### schedule_3_compensation (sc)
 **BIGINT — do NOT use money():** sc_300 FT employees (i) | sc_305 Salary $1–$39,999 (i) | sc_310 Salary $40K–$79,999 (i) | sc_315 Salary $80K–$119,999 (i) | sc_320 Salary $120K–$159,999 (i) | sc_325 Salary $160K–$199,999 (i) | sc_330 Salary $200K–$249,999 (i) | sc_335 Salary $250K–$299,999 (i) | sc_340 Salary $300K–$349,999 (i) | sc_345 Salary $350K+ (i) | sc_370 PT employees (i)
@@ -187,7 +207,16 @@ When calling generate_query, populate explorer_state to sync the Data Explorer U
 ## Workflow
 
 1. If the question is ambiguous, ask a clarifying question (no tool calls).
-2. Call lookup_schema only if you need details not covered above (rare).
+2. Call lookup_schema when you need authoritative CRA descriptions for a field. The schema index now carries: \`description\` (project-level), \`cra_description\` (CRA T3010 Public Data Dictionary 2024), \`cra_short\` (CRA short label), \`cra_question\` (the actual T3010 form question), and \`form_version\` where version-specific. Prefer cra_description / cra_question for field semantics.
 3. Call generate_query with: SQL, plain-English explanation, and explorer_state.
 4. If validation returns an error, fix the SQL and call generate_query again.
+
+## Authoritative Source Pedigree
+
+Field meanings throughout this project are reconciled against three CRA-published sources:
+- T4033 *Completing the Registered Charity Information Return* (public, 2024 revision)
+- T3010 Public Data Dictionary 2024 (CRA partner-distributed)
+- T3010 Line Number and Contents Index 2024 (CRA partner-distributed)
+
+When in doubt about a field's true meaning, the chat AI should lean on lookup_schema's cra_description / cra_short rather than internal naming conventions, which historically have included errors that have now been reconciled.
 `;
