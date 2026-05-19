@@ -75,6 +75,179 @@ const M = [
   {id:'num_countries',      l:'Number of countries of operation',             col:'num_operating_countries',t:'i',g:'Foreign Activity',tb:'cc'},
 ];
 
+
+// ── Filter-only catalog (auto-generated from web/lib/schema-index.json) ──
+// Every T3010 line not already in M, so the Filter dropdown can target ANY field.
+// These are NOT shown as metric chips — only selectable in the Filter dropdown.
+// Same shape as M entries: {id, l, ln|col, t, g, tb}.
+const FILTER_EXTRAS = [
+  {id:'fd_4020', l:'Accounting Basis (line 4020)', ln:'4020', t:'s', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4050', l:'Land/Buildings Owned (line 4050)', ln:'4050', t:'s', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4101', l:'Cash (line 4101)', ln:'4101', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4102', l:'Short-Term Investments (line 4102)', ln:'4102', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4110', l:'Non-Arm\'s Receivables (line 4110)', ln:'4110', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4120', l:'Other Receivables (line 4120)', ln:'4120', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4130', l:'Non-Arm\'s Investments (line 4130)', ln:'4130', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4150', l:'Inventory (line 4150)', ln:'4150', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4155', l:'Land/Buildings CA (line 4155)', ln:'4155', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4157', l:'Program Use Assets (line 4157)', ln:'4157', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4158', l:'Non-Program Assets (line 4158)', ln:'4158', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4160', l:'Other CA Assets (line 4160)', ln:'4160', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4165', l:'Foreign Assets (line 4165)', ln:'4165', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4166', l:'Amortization (line 4166)', ln:'4166', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4170', l:'Other Assets (line 4170)', ln:'4170', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4180', l:'10 year gifts (line 4180)', ln:'4180', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4190', l:'Impact Investments (line 4190)', ln:'4190', t:'$', g:'Balance Sheet — Assets', tb:'fd'},
+  {id:'fd_4300', l:'Accounts payable and accrued liabilities (line 4300)', ln:'4300', t:'$', g:'Balance Sheet — Liabilities & Equity', tb:'fd'},
+  {id:'fd_4310', l:'Deferred revenue (line 4310)', ln:'4310', t:'$', g:'Balance Sheet — Liabilities & Equity', tb:'fd'},
+  {id:'fd_4320', l:'Amounts owing to non-arm\'s length parties (line 4320)', ln:'4320', t:'$', g:'Balance Sheet — Liabilities & Equity', tb:'fd'},
+  {id:'fd_4330', l:'Other liabilities (line 4330)', ln:'4330', t:'$', g:'Balance Sheet — Liabilities & Equity', tb:'fd'},
+  {id:'fd_4400', l:'Non-Arm\'s Length (line 4400)', ln:'4400', t:'s', g:'Balance Sheet — Liabilities & Equity', tb:'fd'},
+  {id:'fd_4490', l:'Tax Receipts Issued (line 4490)', ln:'4490', t:'s', g:'Balance Sheet — Liabilities & Equity', tb:'fd'},
+  {id:'fd_4565', l:'Government Funding (line 4565)', ln:'4565', t:'s', g:'Revenue — Detail', tb:'fd'},
+  {id:'fd_4570', l:'Gov Funding Total (line 4570)', ln:'4570', t:'$', g:'Revenue — Detail', tb:'fd'},
+  {id:'fd_4571', l:'Foreign Tax Revenue (line 4571)', ln:'4571', t:'$', g:'Revenue — Detail', tb:'fd'},
+  {id:'fd_4576', l:'Impact Income (line 4576)', ln:'4576', t:'$', g:'Revenue — Detail', tb:'fd'},
+  {id:'fd_4577', l:'Non-Arm\'s Income (line 4577)', ln:'4577', t:'$', g:'Revenue — Detail', tb:'fd'},
+  {id:'fd_4590', l:'Gross Asset Sales (line 4590)', ln:'4590', t:'$', g:'Revenue — Detail', tb:'fd'},
+  {id:'fd_4600', l:'Net Asset Sales (line 4600)', ln:'4600', t:'$', g:'Revenue — Detail', tb:'fd'},
+  {id:'fd_4610', l:'Rental Income (line 4610)', ln:'4610', t:'$', g:'Revenue — Detail', tb:'fd'},
+  {id:'fd_4620', l:'Membership Revenue (line 4620)', ln:'4620', t:'$', g:'Revenue — Detail', tb:'fd'},
+  {id:'fd_4655', l:'Other Revenue Type (line 4655)', ln:'4655', t:'$', g:'Revenue — Detail', tb:'fd'},
+  {id:'fd_4800', l:'Advertising Costs (line 4800)', ln:'4800', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4810', l:'Travel Costs (line 4810)', ln:'4810', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4820', l:'Interest Expenses (line 4820)', ln:'4820', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4830', l:'License Fees (line 4830)', ln:'4830', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4840', l:'Office Costs (line 4840)', ln:'4840', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4850', l:'Occupancy Costs (line 4850)', ln:'4850', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4860', l:'Consulting Fees (line 4860)', ln:'4860', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4870', l:'Training Costs (line 4870)', ln:'4870', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4890', l:'Donated Goods (line 4890)', ln:'4890', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4891', l:'Supplies/Assets (line 4891)', ln:'4891', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4900', l:'Amortization Exp (line 4900)', ln:'4900', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4910', l:'Research Grants (line 4910)', ln:'4910', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4920', l:'Other Expenditures (line 4920)', ln:'4920', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4930', l:'Other Expenditure Types (line 4930)', ln:'4930', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_4950', l:'Total Expenditures (line 4950)', ln:'4950', t:'$', g:'Expenditures — Detail', tb:'fd'},
+  {id:'fd_5040', l:'Other Expenses (line 5040)', ln:'5040', t:'$', g:'Expenditures — Totals', tb:'fd'},
+  {id:'fd_5500', l:'Accumulated Funds (line 5500)', ln:'5500', t:'$', g:'Other (Sch 6 / Compensation Mirror)', tb:'fd'},
+  {id:'fd_5510', l:'Disbursed Accumulated (line 5510)', ln:'5510', t:'$', g:'Other (Sch 6 / Compensation Mirror)', tb:'fd'},
+  {id:'fd_5610', l:'Tuition Revenue (line 5610)', ln:'5610', t:'$', g:'Other (Sch 6 / Compensation Mirror)', tb:'fd'},
+  {id:'fd_5750', l:'Quota Reduction (line 5750)', ln:'5750', t:'$', g:'Other (Sch 6 / Compensation Mirror)', tb:'fd'},
+  {id:'fd_5900', l:'Prior Property Avg (line 5900)', ln:'5900', t:'$', g:'Other (Sch 6 / Compensation Mirror)', tb:'fd'},
+  {id:'fd_5910', l:'Post Property Avg (line 5910)', ln:'5910', t:'$', g:'Other (Sch 6 / Compensation Mirror)', tb:'fd'},
+  {id:'sc_305', l:'$1-39,999 (of the 10 highest compensated) (line 305)', ln:'305', t:'i', g:'Compensation — Employee Counts', tb:'sc'},
+  {id:'sc_310', l:'$40,000-$79,999 (of the 10 highest compensated) (line 310)', ln:'310', t:'i', g:'Compensation — Employee Counts', tb:'sc'},
+  {id:'sc_315', l:'$80,000-119,999 (of the 10 highest compensated) (line 315)', ln:'315', t:'i', g:'Compensation — Employee Counts', tb:'sc'},
+  {id:'sc_320', l:'$120,000-159,999 (of the 10 highest compensated) (line 320)', ln:'320', t:'i', g:'Compensation — Employee Counts', tb:'sc'},
+  {id:'sc_325', l:'$160,000-199,999 (of the 10 highest compensated) (line 325)', ln:'325', t:'i', g:'Compensation — Employee Counts', tb:'sc'},
+  {id:'sc_330', l:'$200,000-249,999 (of the 10 highest compensated) (line 330)', ln:'330', t:'i', g:'Compensation — Employee Counts', tb:'sc'},
+  {id:'sc_335', l:'$250,000-299,999 (of the 10 highest compensated) (line 335)', ln:'335', t:'i', g:'Compensation — Employee Counts', tb:'sc'},
+  {id:'sc_340', l:'$300,000-349,999 (of the 10 highest compensated) (line 340)', ln:'340', t:'i', g:'Compensation — Employee Counts', tb:'sc'},
+  {id:'sc_345', l:'$350,000-over (of the 10 highest compensated) (line 345)', ln:'345', t:'i', g:'Compensation — Employee Counts', tb:'sc'},
+  {id:'sc_380', l:'Part-Time Costs (line 380)', ln:'380', t:'$', g:'Compensation — Totals', tb:'sc'},
+  {id:'s5_505', l:'Charity issued receipts for building materials (line 505)', ln:'505', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_510', l:'Charity issued receipts for clothing/furniture/food (line 510)', ln:'510', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_515', l:'Charity issued receipts for vehicles (line 515)', ln:'515', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_520', l:'Charity issued receipts for cultural properties (line 520)', ln:'520', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_525', l:'Charity issued receipts for ecological properties (line 525)', ln:'525', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_530', l:'Charity issued receipts for life insurance policies (line 530)', ln:'530', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_535', l:'Charity issued receipts for medical equipment/supplies (line 535)', ln:'535', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_545', l:'Charity issued receipts for machinery/equipment/computers… (li…', ln:'545', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_550', l:'Charity issued receipts for publicly traded securities/co… (li…', ln:'550', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_555', l:'Charity issued receipts for books (line 555)', ln:'555', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_560', l:'Other (line 560)', ln:'560', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s5_565', l:'Specify for others (line 565)', ln:'565', t:'$', g:'Non-Cash Gifts (Sch 5)', tb:'s5'},
+  {id:'s8_805', l:'Charitable activities using own staff and volunteers (line 805)', ln:'805', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_810', l:'Gifts to qualified donees (line 810)', ln:'810', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_815', l:'Administrative expenditures attributable to charitable ac… (li…', ln:'815', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_820', l:'Total qualifying disbursements (=805+810+815) (line 820)', ln:'820', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_825', l:'Prior year excess disbursements applied (line 825)', ln:'825', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_830', l:'Net qualifying disbursements (line 830)', ln:'830', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_835', l:'Value of charitable gifts — 3.5% base (line 835)', ln:'835', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_840', l:'Value of other property — 3.5% base (line 840)', ln:'840', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_845', l:'Total disbursement quota base (line 845)', ln:'845', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_850', l:'Disbursement quota (3.5% of 845) (line 850)', ln:'850', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_855', l:'Shortfall (850 minus 830) (line 855)', ln:'855', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_860', l:'Accumulated disbursement shortfall (line 860)', ln:'860', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_865', l:'Reduction approved by Minister (line 865)', ln:'865', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_870', l:'Excess disbursements carried forward (line 870)', ln:'870', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_875', l:'10-year gifts received (line 875)', ln:'875', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_880', l:'10-year gifts disbursed (line 880)', ln:'880', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_885', l:'Enduring property held (line 885)', ln:'885', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s8_890', l:'Net enduring property (line 890)', ln:'890', t:'$', g:'Disbursement Quota (Sch 8)', tb:'s8'},
+  {id:'s1_100', l:'Corporate Control (line 100)', ln:'100', t:'s', g:'Foundations (Sch 1)', tb:'s1'},
+  {id:'s1_110', l:'Non-Operating Debt (line 110)', ln:'110', t:'s', g:'Foundations (Sch 1)', tb:'s1'},
+  {id:'s1_111', l:'Restricted Funds (line 111)', ln:'111', t:'$', g:'Foundations (Sch 1)', tb:'s1'},
+  {id:'s1_112', l:'Unspendable Funds (line 112)', ln:'112', t:'$', g:'Foundations (Sch 1)', tb:'s1'},
+  {id:'s1_120', l:'Non-Qualified Investments (line 120)', ln:'120', t:'s', g:'Foundations (Sch 1)', tb:'s1'},
+  {id:'s1_130', l:'Excess Shareholding (line 130)', ln:'130', t:'s', g:'Foundations (Sch 1)', tb:'s1'},
+  {id:'fabc_1570', l:'Wound-Up/Dissolved (line 1570)', ln:'1570', t:'s', g:'Identification (fabc 1500s)', tb:'fabc'},
+  {id:'fabc_1600', l:'Foundation Designation (line 1600)', ln:'1600', t:'s', g:'Status & Activity Flags', tb:'fabc'},
+  {id:'fabc_1800', l:'Active (line 1800)', ln:'1800', t:'s', g:'Status & Activity Flags', tb:'fabc'},
+  {id:'fabc_2000', l:'Gifts to Qualified Donees (line 2000)', ln:'2000', t:'s', g:'Gifts & Foreign Activity Flags', tb:'fabc'},
+  {id:'fabc_2100', l:'Foreign Activities (line 2100)', ln:'2100', t:'s', g:'Section C — Other', tb:'fabc'},
+  {id:'fabc_2400', l:'Did charity carry out any political activities during the… (li…', ln:'2400', t:'s', g:'Public Policy / Political (V23)', tb:'fabc'},
+  {id:'fabc_2500', l:'Advertising (line 2500)', ln:'2500', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2510', l:'Auctions (line 2510)', ln:'2510', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2530', l:'Collection Boxes (line 2530)', ln:'2530', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2540', l:'Door-to-Door (line 2540)', ln:'2540', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2550', l:'Lotteries (line 2550)', ln:'2550', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2560', l:'Fundraising Events (line 2560)', ln:'2560', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2570', l:'Sales (line 2570)', ln:'2570', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2575', l:'Internet (line 2575)', ln:'2575', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2580', l:'Mail Campaigns (line 2580)', ln:'2580', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2590', l:'Planned Giving (line 2590)', ln:'2590', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2600', l:'Corporate Sponsorships (line 2600)', ln:'2600', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2610', l:'Targeted Contacts (line 2610)', ln:'2610', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2620', l:'Phone/TV Solicitations (line 2620)', ln:'2620', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2630', l:'Sporting Events (line 2630)', ln:'2630', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2640', l:'Cause Marketing (line 2640)', ln:'2640', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2650', l:'Other Fundraising (line 2650)', ln:'2650', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2660', l:'Specify Fundraising (line 2660)', ln:'2660', t:'$', g:'Fundraising Methods', tb:'fabc'},
+  {id:'fabc_2700', l:'External Fundraisers (line 2700)', ln:'2700', t:'s', g:'Fundraiser Engagement', tb:'fabc'},
+  {id:'fabc_2730', l:'Method of payment to fundraisers: Commissions (line 2730)', ln:'2730', t:'$', g:'Fundraiser Engagement', tb:'fabc'},
+  {id:'fabc_2740', l:'Bonuses (line 2740)', ln:'2740', t:'$', g:'Fundraiser Engagement', tb:'fabc'},
+  {id:'fabc_2750', l:'Commissions (line 2750)', ln:'2750', t:'$', g:'Fundraiser Engagement', tb:'fabc'},
+  {id:'fabc_2760', l:'Service Fee (line 2760)', ln:'2760', t:'$', g:'Fundraiser Engagement', tb:'fabc'},
+  {id:'fabc_2770', l:'Honoraria (line 2770)', ln:'2770', t:'$', g:'Fundraiser Engagement', tb:'fabc'},
+  {id:'fabc_2780', l:'Other Payment (line 2780)', ln:'2780', t:'$', g:'Fundraiser Engagement', tb:'fabc'},
+  {id:'fabc_2790', l:'Specify Payment (line 2790)', ln:'2790', t:'$', g:'Fundraiser Engagement', tb:'fabc'},
+  {id:'fabc_2800', l:'Fundraiser Tax Receipts (line 2800)', ln:'2800', t:'s', g:'Fundraiser Engagement', tb:'fabc'},
+  {id:'fabc_3200', l:'Director Compensation (line 3200)', ln:'3200', t:'s', g:'Other Section C Flags', tb:'fabc'},
+  {id:'fabc_3400', l:'Employee Compensation (line 3400)', ln:'3400', t:'s', g:'Other Section C Flags', tb:'fabc'},
+  {id:'fabc_3900', l:'Foreign Donations ≥$10k (line 3900)', ln:'3900', t:'s', g:'Other Section C Flags', tb:'fabc'},
+  {id:'fabc_4000', l:'Non-Cash Gifts (line 4000)', ln:'4000', t:'s', g:'Foreign Funding', tb:'fabc'},
+  {id:'fabc_5030', l:'Total expenditures on political activities spent by the c… (li…', ln:'5030', t:'$', g:'Political Activity Gifts (V23)', tb:'fabc'},
+  {id:'fabc_5031', l:'Total amount of 5030 gifts made for qualified donees (line 5031)', ln:'5031', t:'$', g:'Political Activity Gifts (V23)', tb:'fabc'},
+  {id:'fabc_5032', l:'Total amount received from outside Canada that was direct… (li…', ln:'5032', t:'$', g:'Political Activity Gifts (V23)', tb:'fabc'},
+  {id:'fabc_5450', l:'Fundraiser Gross Revenue (line 5450)', ln:'5450', t:'$', g:'Fundraiser Amounts', tb:'fabc'},
+  {id:'fabc_5460', l:'Fundraiser Payments (line 5460)', ln:'5460', t:'$', g:'Fundraiser Amounts', tb:'fabc'},
+  {id:'fabc_5800', l:'Non-Qualifying Security (line 5800)', ln:'5800', t:'s', g:'Non-Qualifying Securities / Grants V26', tb:'fabc'},
+  {id:'fabc_5810', l:'Donor Property Use (line 5810)', ln:'5810', t:'s', g:'Non-Qualifying Securities / Grants V26', tb:'fabc'},
+  {id:'fabc_5820', l:'Third-Party Receipts (line 5820)', ln:'5820', t:'s', g:'Non-Qualifying Securities / Grants V26', tb:'fabc'},
+  {id:'fabc_5830', l:'Partnership Holdings (line 5830)', ln:'5830', t:'s', g:'Non-Qualifying Securities / Grants V26', tb:'fabc'},
+  {id:'fabc_5840', l:'Grants to Grantees (line 5840)', ln:'5840', t:'s', g:'Non-Qualifying Securities / Grants V26', tb:'fabc'},
+  {id:'fabc_5841', l:'Large Grants (>$5k) (line 5841)', ln:'5841', t:'s', g:'Non-Qualifying Securities / Grants V26', tb:'fabc'},
+  {id:'fabc_5842', l:'Small Grantee Count (line 5842)', ln:'5842', t:'i', g:'Non-Qualifying Securities / Grants V26', tb:'fabc'},
+  {id:'fabc_5843', l:'Small Grant Total (line 5843)', ln:'5843', t:'$', g:'Non-Qualifying Securities / Grants V26', tb:'fabc'},
+  {id:'fabc_5850', l:'DAF Held (line 5850)', ln:'5850', t:'s', g:'Donor-Advised Funds (V27)', tb:'fabc'},
+  {id:'fabc_5860', l:'Did the charity hold any donor advised funds (DAF) during… (li…', ln:'5860', t:'s', g:'Donor-Advised Funds (V27)', tb:'fabc'},
+  {id:'fabc_5861', l:'DAF Accounts (line 5861)', ln:'5861', t:'i', g:'Donor-Advised Funds (V27)', tb:'fabc'},
+  {id:'fabc_5862', l:'DAF Value (line 5862)', ln:'5862', t:'$', g:'Donor-Advised Funds (V27)', tb:'fabc'},
+  {id:'fabc_5863', l:'DAF Donations (line 5863)', ln:'5863', t:'$', g:'Donor-Advised Funds (V27)', tb:'fabc'},
+  {id:'fabc_5864', l:'DAF Disbursements (line 5864)', ln:'5864', t:'$', g:'Donor-Advised Funds (V27)', tb:'fabc'},
+  {id:'fabc_1200_percent', l:'Most important field of operations percentage - program a…', col:'"1200 Percent"', t:'i', g:'Section A/B/C Questions', tb:'fabc'},
+  {id:'fabc_1210_percent', l:'Second most important field of operations percentage - pr…', col:'"1210 Percent"', t:'i', g:'Section A/B/C Questions', tb:'fabc'},
+  {id:'fabc_1220_percent', l:'Third most important field of operations percentage - pro…', col:'"1220 Percent"', t:'i', g:'Section A/B/C Questions', tb:'fabc'},
+  {id:'fabc_1510_subordinate_position_to_a', l:'Is the charity subordinate to a parent organization?', col:'"1510 Subordinate position to a parent organization?"', t:'s', g:'Section A/B/C Questions', tb:'fabc'},
+];
+
+// Combined catalog used by SQL generation and filter lookup.
+// Metric chips still iterate M only; filters iterate ALL_METRICS.
+const ALL_METRICS = M.concat(FILTER_EXTRAS);
+const getFilterMetric = function(id){ return ALL_METRICS.find(function(m){return m.id===id}); };
+
 const PRESETS = [
   {n:'Sector Overview', s:{mode:'aggregate',prov:'',desig:'',cat:'',gb:'designation',aggfn:'SUM',
     metrics:['total_revenue','total_expenditures','total_assets','total_compensation'],
@@ -107,13 +280,17 @@ const getMetric = function(id, catalog){ catalog = catalog || M; return catalog.
 
 const needsTable = function(state, alias, catalog){
   catalog = catalog || M;
+  // Metrics are always picked from M (or the test-supplied catalog).
+  // Filters can reference FILTER_EXTRAS too, so fall back to getFilterMetric for unknown IDs.
   return state.metrics.some(function(id){var m=getMetric(id,catalog);return m&&m.tb===alias;}) ||
-         state.filters.some(function(f){var m=getMetric(f.f,catalog);return m&&m.tb===alias;});
+         state.filters.some(function(f){var m=getMetric(f.f,catalog) || getFilterMetric(f.f);return m&&m.tb===alias;});
 };
 
 function colRef(m){
-  if(m.ln && m.tb==='fd') return 'fd."'+m.ln+'"';
-  if(m.ln && m.tb==='s5') return 's5."'+m.ln+'"';
+  // Numeric T3010 line columns are quoted by line number in any table:
+  //   fd."4700", s5."580", s8."805", s1."111", fabc."1570", sc."300"
+  if(m.ln) return m.tb+'."'+m.ln+'"';
+  // Named columns (the metric provides 'col' already pre-quoted if needed):
   return m.tb+'.'+m.col;
 }
 
@@ -192,6 +369,9 @@ function genSQL(state, catalog){
     sc:   needsTable(state,'sc',catalog),
     cc:   needsTable(state,'cc',catalog),
     s5:   needsTable(state,'s5',catalog),
+    s8:   needsTable(state,'s8',catalog),
+    s1:   needsTable(state,'s1',catalog),
+    fabc: needsTable(state,'fabc',catalog),
     gagg: needsTable(state,'gagg',catalog),
     tagg: needsTable(state,'tagg',catalog),
     pagg: needsTable(state,'pagg',catalog),
@@ -223,6 +403,9 @@ function genSQL(state, catalog){
   if(uses.sc)   q += 'LEFT JOIN schedule_3_compensation sc ON sc."BN/Registration number" = cb.bn\n';
   if(uses.cc)   q += 'LEFT JOIN charity_counts cc ON cc.bn = cb.bn\n';
   if(uses.s5)   q += 'LEFT JOIN schedule_5_noncash s5 ON s5."BN/Registration number" = cb.bn\n';
+  if(uses.s8)   q += 'LEFT JOIN schedule_8_disbursement s8 ON s8."BN/Registration Number" = cb.bn\n';
+  if(uses.s1)   q += 'LEFT JOIN schedule_1_foundations s1 ON s1."BN/Registration number" = cb.bn\n';
+  if(uses.fabc) q += 'LEFT JOIN financial_abc fabc ON fabc."BN/Registration number" = cb.bn\n';
   if(uses.gagg) q += 'LEFT JOIN gift_agg gagg ON gagg.bn = cb.bn\n';
   if(uses.tagg) q += 'LEFT JOIN trustee_agg tagg ON tagg.bn = cb.bn\n';
   if(uses.pagg) q += 'LEFT JOIN program_agg pagg ON pagg.bn = cb.bn\n';
@@ -236,10 +419,24 @@ function genSQL(state, catalog){
     w.push("(cb.legal_name ILIKE '%"+term+"%' OR cb.bn ILIKE '%"+term+"%')");
   }
   state.filters.forEach(function(f){
-    const m = getMetric(f.f, catalog);
+    // Filters can target M or FILTER_EXTRAS — fall back to the combined catalog.
+    const m = getMetric(f.f, catalog) || getFilterMetric(f.f);
     if(!m || !f.v) return;
-    const e = isAlreadyNumeric(m) ? colRef(m) : 'money('+colRef(m)+')';
-    w.push(e+' '+f.op+' '+f.v);
+    let val = String(f.v).trim();
+    let lhs;
+    if(m.t === 's'){
+      // String/Y-N column — compare raw text. Wrap unquoted single-token values in quotes.
+      lhs = colRef(m);
+      if(!/^'.*'$/.test(val) && !/^-?\d+(\.\d+)?$/.test(val)){
+        val = "'" + escSql(val) + "'";
+      }
+    } else if(isAlreadyNumeric(m)){
+      lhs = colRef(m);
+    } else {
+      // Currency VARCHAR — convert with money().
+      lhs = 'money('+colRef(m)+')';
+    }
+    w.push(lhs+' '+f.op+' '+val);
   });
   if(state.customWhere && state.customWhere.trim()) w.push('('+state.customWhere.trim()+')');
   if(w.length) q += 'WHERE ' + w.join('\n  AND ') + '\n';
@@ -296,8 +493,11 @@ function columnTypeMap(metrics, catalog){
 
 const Explorer = {
   M: M,
+  FILTER_EXTRAS: FILTER_EXTRAS,
+  ALL_METRICS: ALL_METRICS,
   PRESETS: PRESETS,
   getMetric: getMetric,
+  getFilterMetric: getFilterMetric,
   needsTable: needsTable,
   genSQL: genSQL,
   formatValue: formatValue,
@@ -311,5 +511,5 @@ if (typeof globalThis !== 'undefined') {
   globalThis.Explorer = Explorer;
 }
 
-export { M, PRESETS, getMetric, needsTable, genSQL, formatValue, columnTypeMap, escSql };
+export { M, FILTER_EXTRAS, ALL_METRICS, PRESETS, getMetric, getFilterMetric, needsTable, genSQL, formatValue, columnTypeMap, escSql };
 export default Explorer;

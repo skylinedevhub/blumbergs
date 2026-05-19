@@ -339,7 +339,12 @@ select:focus,input:focus,textarea:focus{outline:0;border-color:var(--blue);box-s
 import Explorer from '/explorer.js';
 var M = Explorer.M;
 var PRESETS = Explorer.PRESETS;
-var gm = Explorer.getMetric;
+// gm() is used widely (prompt builder, sort label, column-type lookup).
+// It needs to find filter-extras too, so search the combined catalog when
+// the metric isn't in M.
+var gm = function(id){
+  return Explorer.getMetric(id) || (Explorer.getFilterMetric && Explorer.getFilterMetric(id));
+};
 var escSql = Explorer.escSql;
 
 // ── State ───────────────────────────────────────────────────────
@@ -813,14 +818,36 @@ grps.forEach(function(g){
   mcon.appendChild(d);
 });
 
-// Filters
+// Filters \u2014 pull options from the FULL catalog (M + FILTER_EXTRAS) so every
+// T3010 line is filterable. Group by metric.g via <optgroup> so the ~200-entry
+// list is navigable; browsers also support typeahead on <select>.
+var ALL_FILTER_METRICS = (Explorer.ALL_METRICS) || M;
+function appendFilterOptions(sel){
+  // Group by `g` preserving first-seen order
+  var groups = [];
+  var byGroup = {};
+  ALL_FILTER_METRICS.forEach(function(m){
+    if(!byGroup[m.g]){ byGroup[m.g] = []; groups.push(m.g); }
+    byGroup[m.g].push(m);
+  });
+  groups.forEach(function(g){
+    var og = document.createElement('optgroup');
+    og.label = g;
+    byGroup[g].forEach(function(m){
+      var o = document.createElement('option');
+      o.value = m.id; o.textContent = m.l;
+      og.appendChild(o);
+    });
+    sel.appendChild(og);
+  });
+}
 var fcon=document.getElementById('filters');
 function renderFilters(){
   fcon.textContent='';
   S.filters.forEach(function(f,i){
     var r=document.createElement('div');r.className='frow';
     var fs=document.createElement('select');
-    M.forEach(function(m){var o=document.createElement('option');o.value=m.id;o.textContent=m.l;fs.appendChild(o);});
+    appendFilterOptions(fs);
     fs.value=f.f;fs.onchange=function(e){S.filters[i].f=e.target.value;update();};
     var os=document.createElement('select');os.style.width='55px';os.style.minWidth='55px';
     ['>','>=','<','<=','=','!='].forEach(function(op){var o=document.createElement('option');o.value=op;o.textContent=op;os.appendChild(o);});
