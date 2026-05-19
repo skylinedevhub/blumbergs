@@ -84,4 +84,16 @@ ident (master)
    CAST(REPLACE(REPLACE(column, '$', ''), ',', '') AS DECIMAL)
    ```
 4. **Encoding** - Some CSVs are UTF-8, others Windows-1252 (cp1252)
-5. **Designation codes** - A=Charitable Org, B=Public Foundation, C=Private Foundation
+5. **Designation codes** (authoritative — from CRA `# Designation` lookup):
+   - `A` = Public Foundation
+   - `B` = Private Foundation
+   - `C` = Charitable Organization (~85% of all registered charities)
+
+## Authoritative Field Reference
+
+For the full line-by-line dictionary (162 indexed lines × 18 tables, with CRA-defined descriptions from the 2024 Public Data Dictionary and Line Index), see:
+
+- `docs/context/t3010-field-dictionary.md` — Every column, every table, with CRA's authoritative description text
+- `docs/context/cra-forms-reference.md` — Per-form purpose (T3010, T4033, T1235, T1236, T1441, T2081) and V23→V24 line-redefinition pitfalls
+- `docs/reference/cra-forms/` — Source PDFs of the public CRA forms
+- `docs/reference/cra-internal/` — Source XLSX dictionaries (confidential, gitignored)

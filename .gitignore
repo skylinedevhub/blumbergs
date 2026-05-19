@@ -17,3 +17,7 @@ CRA csvs/
 
 # Git worktrees
 .worktrees/
+
+# Confidential CRA partner-distribution materials (data dictionaries, line index)
+# Source files stay private; their content is paraphrased in docs/context/.
+docs/reference/cra-internal/
